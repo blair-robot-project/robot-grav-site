@@ -1,0 +1,13 @@
+email: frcteam449@gmail.com
+fullname: 'Blair Robot'
+title: Admin
+state: enabled
+access:
+  admin:
+    login: true
+    super: true
+  site:
+    login: true
+hashed_password: $2y$10$D0b0l3ArSr36OjCONa4SVu.Ih5HiFxKX8Ouip.A46FO8UlmeX2Ycq
+authorized: true
+twofa_secret: J7FTJDKGFEE7VUH6ZW6U337IRZXRJLBR
