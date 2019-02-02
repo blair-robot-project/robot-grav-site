@@ -1,18 +1,13 @@
 ---
-title: 'Homepage Hero'
+title: 'Home'
 menu: Top
 hero_classes: parallax text-light
 hero_image: header.jpg
 ---
 
 # The Blair Robot Project
-## We've been to worlds more times than seniors have months left of school
+## Building robots since 1999
 
-The Blair Robot Project, FRC Team 449, is a robotics team based in Silver Spring, Maryland.
+Welcome to our website! We are FRC Team 449: The Blair Robot Project.
 
-[Read the documentation](https://learn.getgrav.org?classes=btn,btn-primary,btn-lg&target=_blank)
-
-
-
-
-
+Donate to us through [Paypal](https://www.paypal.com/donate/?token=pj89ch21V1xpAn9YeXDmdpe4gV6skuYywM7VoQnk3Iw5ChkUzLbOAb-8bPWYO9JYg0ZQRW&country.x=US&locale.x=US=btn,btn-primary,btn-lg&target=_blank)
