@@ -1,7 +1,7 @@
 
 ---
 title: Homepage Text Callout
-menu: Easy Content
+menu: About
 image_align: right
 ---
 
