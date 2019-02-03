@@ -1,6 +1,6 @@
 ---
-title: Homepage Features
-menu: Features
+title: Homepage Community
+menu: Community
 class: small
 features:
     - header: Markdown Syntax
@@ -37,5 +37,6 @@ features:
       icon: fa fa-heart-o
 ---
 
-# Stuffed Full of Features
-## **Check out small smattering...**
+## **Community Involvement**
+
+(Outreach stuff goes here)
