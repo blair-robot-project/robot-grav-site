@@ -1,7 +1,14 @@
 ---
 title: Homepage Sponsors
 menu: Sponsors
-classs: small
+class: offset-box
+features:
+    - header: Sponsor 1
+      text: "wow so cool"
+      icon: fa fa-handshake-o
+    - header: Sponsor 2
+      text: "idk how to set the logos"
+      icon: fa fa-money
 ---
 
 ## **Our Sponsors**

@@ -19,8 +19,8 @@ features:
       text: "Learn more about our offseason competition."
       icon: fa fa-microchip
     - header: Contact Us
-      text: "Questions? Comments? Send us an email at blairrobot@gmail.com, or click here for other contact information."
+      text: "Questions? Comments? Send us an email at blair.robot@gmail.com, or click here for other contact information."
       icon: fa fa-address-book
 ---
 
-###Find out more about our team by clicking on the links below!
+###Find out more about our team below!
