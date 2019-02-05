@@ -62,9 +62,9 @@ class User extends Data
         $files = $account_dir ? array_diff(scandir($account_dir), ['.', '..']) : [];
 
         // Try with username first, you never know!
-        if (in_array('username', $fields)) {
+        if (in_array('username', $fields, true)) {
             $user = User::load($query);
-            unset($fields[array_search('username', $fields)]);
+            unset($fields[array_search('username', $fields, true)]);
         } else {
             $user = User::load('');
         }
@@ -95,11 +95,41 @@ class User extends Data
     public static function remove($username)
     {
         $file_path = Grav::instance()['locator']->findResource('account://' . $username . YAML_EXT);
-        if ($file_path && unlink($file_path)) {
-            return true;
+
+        return $file_path && unlink($file_path);
+    }
+
+    /**
+     * @param string $offset
+     * @return bool
+     */
+    public function offsetExists($offset)
+    {
+        $value = parent::offsetExists($offset);
+
+        // Handle special case where user was logged in before 'authorized' was added to the user object.
+        if (false === $value && $offset === 'authorized') {
+            $value = $this->offsetExists('authenticated');
         }
 
-        return false;
+        return $value;
+    }
+
+    /**
+     * @param string $offset
+     * @return mixed
+     */
+    public function offsetGet($offset)
+    {
+        $value = parent::offsetGet($offset);
+
+        // Handle special case where user was logged in before 'authorized' was added to the user object.
+        if (null === $value && $offset === 'authorized') {
+            $value = $this->offsetGet('authenticated');
+            $this->offsetSet($offset, $value);
+        }
+
+        return $value;
     }
 
     /**
@@ -236,6 +266,8 @@ class User extends Data
      */
     public function authorise($action)
     {
+        user_error(__CLASS__ . '::' . __FUNCTION__ . '() is deprecated since Grav 1.5, use authorize() method instead', E_USER_DEPRECATED);
+
         return $this->authorize($action);
     }
 
@@ -253,5 +285,30 @@ class User extends Data
         }
 
         return 'https://www.gravatar.com/avatar/' . md5($this->email);
+    }
+
+    /**
+     * Serialize user.
+     */
+    public function __sleep()
+    {
+        return [
+            'items',
+            'storage'
+        ];
+    }
+
+    /**
+     * Unserialize user.
+     */
+    public function __wakeup()
+    {
+        $this->gettersVariable = 'items';
+        $this->nestedSeparator = '.';
+
+        if (null === $this->blueprints) {
+            $blueprints = new Blueprints;
+            $this->blueprints = $blueprints->get('user/account');
+        }
     }
 }

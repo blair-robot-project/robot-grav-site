@@ -1,0 +1,24 @@
+enabled: true
+production-mode: true
+grid-size: grid-lg
+header-fixed: true
+header-animated: true
+header-dark: false
+header-transparent: false
+sticky-footer: true
+blog-page: /blog
+spectre:
+  exp: false
+  icons: false
+custom_logo:
+  'user/themes/quark/images/logo/kerned robologo red background.png':
+    name: 'kerned robologo red background.png'
+    type: image/png
+    size: 306689
+    path: 'user/themes/quark/images/logo/kerned robologo red background.png'
+custom_logo_mobile:
+  'user/themes/quark/images/logo/kerned robologo red background.png':
+    name: 'kerned robologo red background.png'
+    type: image/png
+    size: 306689
+    path: 'user/themes/quark/images/logo/kerned robologo red background.png'

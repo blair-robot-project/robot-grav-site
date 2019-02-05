@@ -1,3 +1,182 @@
+# v1.5.7
+## 01/25/2018
+
+1. [](#new)
+    * Support for AWS Cloudfront forwarded scheme header [#2297](https://github.com/getgrav/grav/pull/2297)
+1. [](#improved)
+    * Set homepage with `https://` protocol [#2299](https://github.com/getgrav/grav/pull/2299)
+    * Preserve accents in fields containing Twig expr. using unicode [#2279](https://github.com/getgrav/grav/pull/2279)
+    * Updated vendor libraries
+1. [](#bugfix)
+    * Support spaces with filenames in responsive images [#2300](https://github.com/getgrav/grav/pull/2300)
+    
+# v1.5.6
+## 12/14/2018
+
+1. [](#improved)
+    * Updated InitializeProcessor.php to use lang-safe redirect [#2268](https://github.com/getgrav/grav/pull/2268)
+    * Improved user serialization to use less memory in the session
+
+# v1.5.5
+## 11/12/2018
+
+1. [](#new)
+    * Register theme prefixes as namespaces in Twig [#2210](https://github.com/getgrav/grav/pull/2210)
+1. [](#improved)
+    * Propogate error code between 400 and 600 for production sites [#2181](https://github.com/getgrav/grav/pull/2181)
+1. [](#bugfix)
+    * Remove hardcoded `302` when redirecting trailing slash [#2155](https://github.com/getgrav/grav/pull/2155)
+
+# v1.5.4
+## 11/05/2018
+
+1. [](#improved)
+    * Updated default page `index.md` with some consistency fixes [#2245](https://github.com/getgrav/grav/pull/2245)
+1. [](#bugfix)
+    * Fixed fatal error if calling `$session->invalidate()` when there's no active session
+    * Fixed typo in media.yaml for `webm` extension [#2220](https://github.com/getgrav/grav/pull/2220)
+    * Fixed markdown processing for telephone links [#2235](https://github.com/getgrav/grav/pull/2235)
+
+# v1.5.3
+## 10/08/2018
+
+1. [](#new)
+    * Added `Utils::getMimeByFilename()`, `Utils::getMimeByLocalFile()` and `Utils::checkFilename()` methods
+    * Added configurable dangerous upload extensions in `security.yaml`
+1. [](#improved)
+    * Updated vendor libraries to latest
+
+# v1.5.2
+## 10/01/2018
+
+1. [](#new)
+    * Added new `Security` class for Grav security functionality including XSS checks
+    * Added new `bin/grav security` command to scan for security issues
+    * Added new `xss()` Twig function to allow for XSS checks on strings and arrays
+    * Added `onHttpPostFilter` event to allow plugins to globally clean up XSS in the forms and tasks
+    * Added `Deprecated` tab to DebugBar to catch future incompatibilities with later Grav versions
+    * Added deprecation notices for features which will be removed in Grav 2.0
+1. [](#improved)
+    * Updated vendor libraries to latest
+1. [](#bugfix)
+    * Allow `$page->slug()` to be called before `$page->init()` without breaking the page
+    * Fix for `Page::translatedLanguages()` to use routes always [#2163](https://github.com/getgrav/grav/issues/2163)
+    * Fixed `nicetime()` twig function
+    * Allow twig tags `{% script %}`, `{% style %}` and `{% switch %}` to be placed outside of blocks
+    * Session expires in 30 mins independent from config settings [login#178](https://github.com/getgrav/grav-plugin-login/issues/178)
+
+# v1.5.1
+## 08/23/2018
+
+1. [](#new)
+    * Added static `Grav\Common\Yaml` class which should be used instead of `Symfony\Component\Yaml\Yaml`
+1. [](#improved)
+    * Updated deprecated Twig code so it works in both in Twig 1.34+ and Twig 2.4+
+    * Switched to new Grav Yaml class to support Native + Fallback YAML libraries
+1. [](#bugfix)
+    * Broken handling of user folder in Grav URI object [#2151](https://github.com/getgrav/grav/issues/2151)
+
+# v1.5.0
+## 08/17/2018
+
+1. [](#new)
+    * Set minimum requirements to [PHP 5.6.4](https://getgrav.org/blog/raising-php-requirements-2018)
+    * Updated Doctrine Collections to 1.4
+    * Updated Symfony Components to 3.4 (with compatibility mode to fall back to Symfony YAML 2.8)
+    * Added `Uri::method()` to get current HTTP method (GET/POST etc)
+    * `FormatterInterface`: Added `getSupportedFileExtensions()` and `getDefaultFileExtension()` methods
+    * Added option to disable `SimpleCache` key validation
+    * Added support for multiple repo locations for `bin/grav install` command
+    * Added twig filters for casting values: `|string`, `|int`, `|bool`, `|float`, `|array`
+    * Made `ObjectCollection::matching()` criteria expressions to behave more like in Twig
+    * Criteria: Added support for `LENGTH()`, `LOWER()`, `UPPER()`, `LTRIM()`, `RTRIM()` and `TRIM()`
+    * Added `Grav\Framework\File\Formatter` classes for encoding/decoding YAML, Markdown, JSON, INI and PHP serialized strings
+    * Added `Grav\Framework\Session` class to replace `RocketTheme\Toolbox\Session\Session`
+    * Added `Grav\Common\Media` interfaces and trait; use those in `Page` and `Media` classes
+    * Added `Grav\Common\Page` interface to allow custom page types in the future
+    * Added setting to disable sessions from the site [#2013](https://github.com/getgrav/grav/issues/2013)
+    * Added new `strict_mode` settings in `system.yaml` for compatibility
+1. [](#improved)
+    * Improved `Utils::url()` to support query strings
+    * Display better exception message if Grav fails to initialize
+    * Added `muted` and `playsinline` support to videos [#2124](https://github.com/getgrav/grav/pull/2124)
+    * Added `MediaTrait::clearMediaCache()` to allow cache to be cleared
+    * Added `MediaTrait::getMediaCache()` to allow custom caching
+    * Improved session handling, allow all session configuration options in `system.session.options`
+1. [](#bugfix)
+    * Fix broken form nonce logic [#2121](https://github.com/getgrav/grav/pull/2121)
+    * Fixed issue with uppercase extensions and fallback media URLs [#2133](https://github.com/getgrav/grav/issues/2133)
+    * Fixed theme inheritance issue with `camel-case` that includes numbers [#2134](https://github.com/getgrav/grav/issues/2134)
+    * Typo in demo typography page [#2136](https://github.com/getgrav/grav/pull/2136)
+    * Fix for incorrect plugin order in debugger panel
+    * Made `|markdown` filter HTML safe
+    * Fixed bug in `ContentBlock` serialization
+    * Fixed `Route::withQueryParam()` to accept array values
+    * Fixed typo in truncate function [#1943](https://github.com/getgrav/grav/issues/1943)
+    * Fixed blueprint field validation: Allow numeric inputs in text fields
+
+# v1.4.8
+## 07/31/2018
+
+1. [](#improved)
+    * Add Grav version to debug bar messages tab [#2106](https://github.com/getgrav/grav/pull/2106)
+    * Add Nginx config for ddev project to `webserver-configs` [#2117](https://github.com/getgrav/grav/pull/2117)
+    * Vendor library updates
+1. [](#bugfix)
+    * Don't allow `null` to be set as Page content
+
+# v1.4.7
+## 07/13/2018
+
+1. [](#improved)
+    * Use `getFilename` instead of `getBasename` [#2087](https://github.com/getgrav/grav/issues/2087)
+1. [](#bugfix)
+    * Fix for modular page preview [#2066](https://github.com/getgrav/grav/issues/2066)
+    * `Page::routeCanonical()` should be string not array [#2069](https://github.com/getgrav/grav/issues/2069)
+
+# v1.4.6
+## 06/20/2018
+
+1. [](#improved)
+    * Manually re-added the improved SSL off-loading that was lost with Grav v1.4.0 merge [#1888](https://github.com/getgrav/grav/pull/1888)
+    * Handle multibyte strings in `truncateLetters()` [#2007](https://github.com/getgrav/grav/pull/2007)
+    * Updated robots.txt to include `/user/images/` folder [#2043](https://github.com/getgrav/grav/pull/2043)
+    * Add getter methods for original and action to the Page object [#2005](https://github.com/getgrav/grav/pull/2005)
+    * Modular template extension follows the master page extension [#2044](https://github.com/getgrav/grav/pull/2044)
+    * Vendor library updates
+1. [](#bugfix)
+    * Handle `errors.display` system property better in admin plugin [admin#1452](https://github.com/getgrav/grav-plugin-admin/issues/1452)
+    * Fix classes on non-http based protocol links [#2034](https://github.com/getgrav/grav/issues/2034)
+    * Fixed crash on IIS (Windows) with open_basedir in effect [#2053](https://github.com/getgrav/grav/issues/2053)
+    * Fixed incorrect routing with setup.php based base [#1892](https://github.com/getgrav/grav/issues/1892)
+    * Fixed image resource memory deallocation [#2045](https://github.com/getgrav/grav/pull/2045)
+    * Fixed issue with Errors `display:` option not handling integers properly [admin#1452](https://github.com/getgrav/grav-plugin-admin/issues/1452)
+
+# v1.4.5
+## 05/15/2018
+
+1. [](#bugfix)
+    * Fixed an issue with some users getting **2FA** prompt after upgrade [admin#1442](https://github.com/getgrav/grav-plugin-admin/issues/1442)
+    * Do not crash when generating URLs with arrays as parameters [#2018](https://github.com/getgrav/grav/pull/2018)
+    * Utils::truncateHTML removes whitespace when generating summaries [#2004](https://github.com/getgrav/grav/pull/2004)
+
+# v1.4.4
+## 05/11/2018
+
+1. [](#new)
+    * Added support for `Uri::post()` and `Uri::getConentType()`
+    * Added a new `Medium:thumbnailExists()` function [#1966](https://github.com/getgrav/grav/issues/1966)
+    * Added `authorized` support for 2FA
+1. [](#improved)
+    * Added default configuration for images [#1979](https://github.com/getgrav/grav/pull/1979)
+    * Added dedicated PHPUnit assertions [#1990](https://github.com/getgrav/grav/pull/1990)
+1. [](#bugfix)
+    * Use `array_key_exists` instead of `in_array + array_keys` [#1991](https://github.com/getgrav/grav/pull/1991)
+    * Fixed an issue with `custom_base_url` always causing 404 errors
+    * Improve support for regex redirects with query and params [#1983](https://github.com/getgrav/grav/issues/1983)
+    * Changed collection-based date sorting to `SORT_REGULAR` for better server compatibility [#1910](https://github.com/getgrav/grav/issues/1910)
+    * Fix hardcoded string in modular blueprint [#1933](https://github.com/getgrav/grav/pull/1993)
+
 # v1.4.3
 ## 04/12/2018
 
@@ -16,13 +195,13 @@
     * Added new `|nicefilesize` Twig filter for pretty file (auto converts to bytes, kB, MB, GB, etc)
     * Added new `regex_filter()` Twig function to values in arrays
 1. [](#improved)
-    * Added bosnian to lang codes [#1917](﻿https://github.com/getgrav/grav/issues/1917) 
-    * Improved Zip extraction error codes [#1922](﻿https://github.com/getgrav/grav/issues/1922)  
+    * Added bosnian to lang codes [#1917](﻿https://github.com/getgrav/grav/issues/1917)
+    * Improved Zip extraction error codes [#1922](﻿https://github.com/getgrav/grav/issues/1922)
 1. [](#bugfix)
     * Fixed an issue with Markdown Video and Audio that broke after Parsedown 1.7.0 Security updates [#1924](﻿https://github.com/getgrav/grav/issues/1924)
     * Fix for case-sensitive page metadata [admin#1370](https://github.com/getgrav/grav-plugin-admin/issues/1370)
     * Fixed missing composer requirements for the new `Grav\Framework\Uri` classes
-    * Added missing PSR-7 vendor library required for URI additions in Grav 1.4.0 
+    * Added missing PSR-7 vendor library required for URI additions in Grav 1.4.0
 
 # v1.4.1
 ## 03/11/2018

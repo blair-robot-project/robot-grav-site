@@ -8,34 +8,20 @@
 
 namespace Grav\Common;
 
-use RocketTheme\Toolbox\Session\Session as BaseSession;
-
-class Session extends BaseSession
+class Session extends \Grav\Framework\Session\Session
 {
     /** @var bool */
     protected $autoStart = false;
 
-    protected $lifetime;
-    protected $path;
-    protected $domain;
-    protected $secure;
-    protected $httpOnly;
-
     /**
-     * @param int    $lifetime Defaults to 1800 seconds.
-     * @param string $path     Cookie path.
-     * @param string $domain   Optional, domain for the session
-     * @throws \RuntimeException
+     * @return \Grav\Framework\Session\Session
+     * @deprecated 1.5 Use getInstance() method instead
      */
-    public function __construct($lifetime, $path, $domain = null)
+    public static function instance()
     {
-        $this->lifetime = $lifetime;
-        $this->path = $path;
-        $this->domain = $domain;
+        user_error(__CLASS__ . '::' . __FUNCTION__ . '() is deprecated since Grav 1.5, use getInstance() method instead', E_USER_DEPRECATED);
 
-        if (php_sapi_name() !== 'cli') {
-            parent::__construct($lifetime, $path, $domain);
-        }
+        return static::getInstance();
     }
 
     /**
@@ -47,9 +33,6 @@ class Session extends BaseSession
     {
         if ($this->autoStart) {
             $this->start();
-
-            // TODO: This setcookie shouldn't be here, session should by itself be able to update its cookie.
-            setcookie(session_name(), session_id(), $this->lifetime ? time() + $this->lifetime : 0, $this->path, $this->domain, $this->secure, $this->httpOnly);
 
             $this->autoStart = false;
         }
@@ -67,27 +50,29 @@ class Session extends BaseSession
     }
 
     /**
-     * @param bool $secure
-     * @return $this
+     * Returns attributes.
+     *
+     * @return array Attributes
+     * @deprecated 1.5 Use getAll() method instead
      */
-    public function setSecure($secure)
+    public function all()
     {
-        $this->secure = $secure;
-        ini_set('session.cookie_secure', (bool)$secure);
+        user_error(__CLASS__ . '::' . __FUNCTION__ . '() is deprecated since Grav 1.5, use getAll() method instead', E_USER_DEPRECATED);
 
-        return $this;
+        return $this->getAll();
     }
 
     /**
-     * @param bool $httpOnly
-     * @return $this
+     * Checks if the session was started.
+     *
+     * @return Boolean
+     * @deprecated 1.5 Use isStarted() method instead
      */
-    public function setHttpOnly($httpOnly)
+    public function started()
     {
-        $this->httpOnly = $httpOnly;
-        ini_set('session.cookie_httponly', (bool)$httpOnly);
+        user_error(__CLASS__ . '::' . __FUNCTION__ . '() is deprecated since Grav 1.5, use isStarted() method instead', E_USER_DEPRECATED);
 
-        return $this;
+        return $this->isStarted();
     }
 
     /**

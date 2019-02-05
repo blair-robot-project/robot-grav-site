@@ -1,5 +1,6 @@
 ---
 title: About
+image_align: left
 menu: About
 ---
 

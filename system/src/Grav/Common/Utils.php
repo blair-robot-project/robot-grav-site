@@ -45,8 +45,20 @@ abstract class Utils
             /** @var UniformResourceLocator $locator */
             $locator = Grav::instance()['locator'];
 
-            // Get relative path to the resource (or false if not found).
-            $resource = $locator->findResource($input, false);
+            $parts = Uri::parseUrl($input);
+
+            if ($parts) {
+                $resource = $locator->findResource("{$parts['scheme']}://{$parts['host']}{$parts['path']}", false);
+
+                if (isset($parts['query'])) {
+                    $resource = $resource . '?' . $parts['query'];
+                }
+            } else {
+                // Not a valid URL (can still be a stream).
+                $resource = $locator->findResource($input, false);
+            }
+
+
         } else {
             $resource = $input;
         }
@@ -262,7 +274,7 @@ abstract class Utils
         // is $break present between $limit and the end of the string?
         if ($up_to_break && false !== ($breakpoint = mb_strpos($string, $break, $limit))) {
             if ($breakpoint < mb_strlen($string) - 1) {
-                $string = mb_substr($string, 0, $breakpoint) . $break;
+                $string = mb_substr($string, 0, $breakpoint) . $pad;
             }
         } else {
             $string = mb_substr($string, 0, $limit) . $pad;
@@ -296,10 +308,6 @@ abstract class Utils
      */
     public static function truncateHtml($text, $length = 100, $ellipsis = '...')
     {
-        if (mb_strlen($text) <= $length) {
-            return $text;
-        }
-
         return Truncator::truncateLetters($text, $length, $ellipsis);
     }
 
@@ -471,6 +479,51 @@ abstract class Utils
     }
 
     /**
+     * Return the mimetype based on filename
+     *
+     * @param string $filename Filename or path to file
+     * @param string $default default value
+     *
+     * @return string
+     */
+    public static function getMimeByFilename($filename, $default = 'application/octet-stream')
+    {
+        return static::getMimeByExtension(pathinfo($filename, PATHINFO_EXTENSION), $default);
+    }
+
+    /**
+     * Return the mimetype based on existing local file
+     *
+     * @param string $filename Path to the file
+     *
+     * @return string|bool
+     */
+    public static function getMimeByLocalFile($filename, $default = 'application/octet-stream')
+    {
+        $type = false;
+
+        // For local files we can detect type by the file content.
+        if (!stream_is_local($filename) || !file_exists($filename)) {
+            return false;
+        }
+
+        // Prefer using finfo if it exists.
+        if (\extension_loaded('fileinfo')) {
+            $finfo = finfo_open(FILEINFO_SYMLINK | FILEINFO_MIME_TYPE);
+            $type = finfo_file($finfo, $filename);
+            finfo_close($finfo);
+        } else {
+            // Fall back to use getimagesize() if it is available (not recommended, but better than nothing)
+            $info = @getimagesize($filename);
+            if ($info) {
+                $type = $info['mime'];
+            }
+        }
+
+        return $type ?: static::getMimeByFilename($filename, $default);
+    }
+
+    /**
      * Return the mimetype based on filename extension
      *
      * @param string $mime mime type (eg "text/html")
@@ -510,6 +563,33 @@ abstract class Utils
         }
 
         return $default;
+    }
+
+    /**
+     * Returns true if filename is considered safe.
+     *
+     * @param string $filename
+     * @return bool
+     */
+    public static function checkFilename($filename)
+    {
+        $dangerous_extensions = Grav::instance()['config']->get('security.uploads_dangerous_extensions', []);
+        array_walk($dangerous_extensions, function(&$val) {
+            $val = '.' . $val;
+        });
+
+        $extension = '.' . pathinfo($filename, PATHINFO_EXTENSION);
+
+        return !(
+            // Empty filenames are not allowed.
+            !$filename
+            // Filename should not contain horizontal/vertical tabs, newlines, nils or back/forward slashes.
+            || strtr($filename, "\t\v\n\r\0\\/", '_______') !== $filename
+            // Filename should not start or end with dot or space.
+            || trim($filename, '. ') !== $filename
+            // Filename should not contain .php in it.
+            || static::contains($extension, $dangerous_extensions)
+        );
     }
 
     /**
@@ -688,6 +768,8 @@ abstract class Utils
      */
     public static function resolve(array $array, $path, $default = null)
     {
+        user_error(__CLASS__ . '::' . __FUNCTION__ . '() is deprecated since Grav 1.5, use getDotNotation() method instead', E_USER_DEPRECATED);
+
         return static::getDotNotation($array, $path, $default);
     }
 
@@ -709,11 +791,11 @@ abstract class Utils
      * with reverse proxy setups.
      *
      * @param string $action
-     * @param bool   $plusOneTick if true, generates the token for the next tick (the next 12 hours)
+     * @param bool   $previousTick if true, generates the token for the previous tick (the previous 12 hours)
      *
      * @return string the nonce string
      */
-    private static function generateNonceString($action, $plusOneTick = false)
+    private static function generateNonceString($action, $previousTick = false)
     {
         $username = '';
         if (isset(Grav::instance()['user'])) {
@@ -724,29 +806,8 @@ abstract class Utils
         $token = session_id();
         $i = self::nonceTick();
 
-        if ($plusOneTick) {
-            $i++;
-        }
-
-        return ($i . '|' . $action . '|' . $username . '|' . $token . '|' . Grav::instance()['config']->get('security.salt'));
-    }
-
-    //Added in version 1.0.8 to ensure that existing nonces are not broken.
-    private static function generateNonceStringOldStyle($action, $plusOneTick = false)
-    {
-        if (isset(Grav::instance()['user'])) {
-            $user = Grav::instance()['user'];
-            $username = $user->username;
-            if (isset($_SERVER['REMOTE_ADDR'])) {
-                $username .= $_SERVER['REMOTE_ADDR'];
-            }
-        } else {
-            $username = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
-        }
-        $token = session_id();
-        $i = self::nonceTick();
-        if ($plusOneTick) {
-            $i++;
+        if ($previousTick) {
+            $i--;
         }
 
         return ($i . '|' . $action . '|' . $username . '|' . $token . '|' . Grav::instance()['config']->get('security.salt'));
@@ -772,33 +833,20 @@ abstract class Utils
      * action is the same for 12 hours.
      *
      * @param string $action      the action the nonce is tied to (e.g. save-user-admin or move-page-homepage)
-     * @param bool   $plusOneTick if true, generates the token for the next tick (the next 12 hours)
+     * @param bool   $previousTick if true, generates the token for the previous tick (the previous 12 hours)
      *
      * @return string the nonce
      */
-    public static function getNonce($action, $plusOneTick = false)
+    public static function getNonce($action, $previousTick = false)
     {
         // Don't regenerate this again if not needed
-        if (isset(static::$nonces[$action])) {
-            return static::$nonces[$action];
+        if (isset(static::$nonces[$action][$previousTick])) {
+            return static::$nonces[$action][$previousTick];
         }
-        $nonce = md5(self::generateNonceString($action, $plusOneTick));
-        static::$nonces[$action] = $nonce;
+        $nonce = md5(self::generateNonceString($action, $previousTick));
+        static::$nonces[$action][$previousTick] = $nonce;
 
-        return static::$nonces[$action];
-    }
-
-    //Added in version 1.0.8 to ensure that existing nonces are not broken.
-    public static function getNonceOldStyle($action, $plusOneTick = false)
-    {
-        // Don't regenerate this again if not needed
-        if (isset(static::$nonces[$action])) {
-            return static::$nonces[$action];
-        }
-        $nonce = md5(self::generateNonceStringOldStyle($action, $plusOneTick));
-        static::$nonces[$action] = $nonce;
-
-        return static::$nonces[$action];
+        return static::$nonces[$action][$previousTick];
     }
 
     /**
@@ -822,20 +870,8 @@ abstract class Utils
         }
 
         //Nonce generated 12-24 hours ago
-        $plusOneTick = true;
-        if ($nonce === self::getNonce($action, $plusOneTick)) {
-            return true;
-        }
-
-        //Added in version 1.0.8 to ensure that existing nonces are not broken.
-        //Nonce generated 0-12 hours ago
-        if ($nonce === self::getNonceOldStyle($action)) {
-            return true;
-        }
-
-        //Nonce generated 12-24 hours ago
-        $plusOneTick = true;
-        if ($nonce === self::getNonceOldStyle($action, $plusOneTick)) {
+        $previousTick = true;
+        if ($nonce === self::getNonce($action, $previousTick)) {
             return true;
         }
 

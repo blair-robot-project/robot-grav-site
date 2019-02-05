@@ -1,6 +1,6 @@
 ---
 title: Home
-menu: Top
+menu: Home
 hero_classes: 'parallax text-light'
 hero_image: header.jpg
 ---
