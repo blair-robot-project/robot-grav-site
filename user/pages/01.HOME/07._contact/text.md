@@ -1,13 +1,14 @@
 ---
 title: Contact
-image_align: left
+image_align: right
 menu: 'Contact Us'
 ---
 
 ## **Contact Us**
 
-Email: blair.robot@gmail.com  
+Email: blairrobot@gmail.com  
 Twitter: [@FRCTeam449](https://twitter.com/FRCTeam449)  
 Facebook: [@FRCTeam449](https://www.facebook.com/FRCTeam449)  
 Instagram: [@frcteam449](https://www.instagram.com/frcteam449)  
-Youtube: [blairrobot](https://www.youtube.com/user/blairrobot)
+Youtube: [blairrobot](https://www.youtube.com/user/blairrobot)  
+Github: [The Blair Robot Project](https://github.com/blair-robot-project)

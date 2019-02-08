@@ -1,11 +1,12 @@
 ---
-title: Home
+title: _home
 menu: Home
+arrow: 'noarrow'
 hero_classes: 'parallax text-light'
 hero_image: header.jpg
 ---
 
-# The Blair Robot Project
+#**The Blair Robot Project**
 ## Building robots since 1999
 
 Welcome to our website! We are FRC Team 449: The Blair Robot Project.

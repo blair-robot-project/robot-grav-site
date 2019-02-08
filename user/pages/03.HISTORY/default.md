@@ -1,5 +1,0 @@
----
-title: Team History
----
-
-AHHH
