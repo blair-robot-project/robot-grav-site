@@ -26,7 +26,7 @@ features:
         text: '2016'
         url: 'history#2016'
     -
-        image: flag-picture-01.jpg
+        image: totedile.jpg
         header: Totedile
         text: '2015'
         url: 'history#2015'
@@ -57,7 +57,7 @@ features:
         url: 'history#2010'
     -
         image: flag-picture-01.jpg
-        header: '???'
+        header: 'Archie'
         text: '2009'
         url: 'history#2009'
     -

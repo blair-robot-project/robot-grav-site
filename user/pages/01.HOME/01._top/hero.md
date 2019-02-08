@@ -1,7 +1,7 @@
 ---
 title: _home
 menu: Home
-arrow: 'noarrow'
+arrow: noarrow
 hero_classes: 'parallax text-light'
 hero_image: header.jpg
 ---
