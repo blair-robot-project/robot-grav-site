@@ -1,6 +1,6 @@
 ---
 title: About
-media_order: 'jeep.jpg, tableau.JPG'
+media_order: 'rousFun.jpg, tableau.JPG'
 image_align: left
 menu: About
 ---
@@ -8,12 +8,12 @@ menu: About
 ## **About Our Team**
 
 ##### Mission
-Our mission is to expose students to complex problems in a collaborative environment in order to promote personal and intellectual growth while building and competing annually with a well-designed and fabricated robot. Through our activities, we encourage youth to pursue degrees and careers in STEM.
+> Our mission is to expose students to complex problems in a collaborative environment in order to promote personal and intellectual growth while building and competing annually with a well-designed and fabricated robot. Through our activities, we encourage youth to pursue degrees and careers in STEM.
 
-##### History
+[//]: # (##### About Us)
 Composed of students and alumni from Montgomery Blair High School and the surrounding area, our team 
-has been continuously expanding and attracting new members since its establishment in 1999. 
-[Click here](../../04.HISTORY) for a full history of our team.
+has been continually expanding, innovating, and attracting new members since its establishment in 1999. 
+[Click here](../../04.ABOUT_US) to find out more about our team.
 
 ##### What is FIRST?
 > The mission of FIRST® is to inspire young people to be science and technology 

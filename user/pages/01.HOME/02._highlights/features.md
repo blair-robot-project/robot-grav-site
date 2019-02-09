@@ -26,12 +26,12 @@ features:
     -
         icon: 'fa fa-microchip'
         header: 'Chesapeake Bunnybots'
-        text: 'Learn more about our offseason competition.'
+        text: 'Learn about our unique offseason competition.'
         url: /community/bunnybots
     -
         icon: 'fa fa-address-book'
         header: 'Contact Us'
-        text: 'Questions? Comments? Send us an email at blairrobot@gmail.com, or click here for other contact information.'
+        text: 'Questions? Comments? Click here for more information.'
         url: '/#contact_us'
 image_align: left
 ---
