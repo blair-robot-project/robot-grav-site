@@ -5,7 +5,7 @@ menu: Competitions
 arrow: noarrow
 hero_inline: true
 hero_classes: 'parallax text-light overlay-dark-gradient'
-hero_image: worldsFlags2017smaller.jpg
+hero_image: worldsFlagsSquare2017.jpg
 ---
 
 ## 2019 Competition Season	
