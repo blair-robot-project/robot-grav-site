@@ -13,7 +13,7 @@ menu: About
 [//]: # (##### About Us)
 Composed of students and alumni from Montgomery Blair High School and the surrounding area, our team 
 has been continually expanding, innovating, and attracting new members since its establishment in 1999. 
-[Click here](../../04.ABOUT_US) to find out more about our team.
+[Click here](../../about-us) to find out more about our team.
 
 ##### What is FIRST?
 > The mission of FIRST® is to inspire young people to be science and technology 

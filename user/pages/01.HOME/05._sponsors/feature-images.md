@@ -1,17 +1,17 @@
 ---
 title: Sponsors
-media_order: 'basecamp-logo.png,flag-picture-01.jpg,coca-cola logo.png,magfoundlogo.jpg,privatinlogo.png,iailogo.png,basecamplogo.png'
+media_order: 'basecamp-logo.png,flag-picture-01.jpg,magfoundlogo.jpg,privatinlogo.png,iailogo.png,basecamplogo.png,privatinlogo-original.png,coca-cola-logo.png,coca-cola-logo-original.png,basecamplogo-original.png,emergent-biosolutions-logo.png,msbr-logo.jpg,convene-logo.png'
 menu: Sponsors
 imglocation: /user/pages/01.HOME/05._sponsors/
 class: small
 features:
     -
-        image: flag-picture-01.jpg
+        image: convene-logo.png
         header: 'Azeus Convene'
         text: 'Corporate Sponsor'
         url: 'https://www.azeusconvene.com/us'
     -
-        image: flag-picture-01.jpg
+        image: emergent-biosolutions-logo.png
         header: 'Emergent Biosolutions'
         text: 'Corporate Sponsor'
         url: 'https://www.emergentbiosolutions.com/'
@@ -21,7 +21,7 @@ features:
         text: 'Corporate sponsor'
         url: 'http://www.i-a-i.com'
     -
-        image: flag-picture-01.jpg
+        image: msbr-logo.jpg
         header: 'The Maryland Space Business Roundtable'
         text: 'Corporate Sponsor'
         url: 'http://www.mdspace.org/'
