@@ -5,8 +5,7 @@ image_align: right
 
 ##Community Events
 
-We make regular appearances at the following events:
-
+We make regular appearances at the following events:  
 * Takoma Park Middle School STEAM Night
 * Robert Frost Middle School STEM Night
 * USA Science & Engineering Festival
@@ -18,8 +17,8 @@ We make regular appearances at the following events:
 * Maryland Robotics Alliance Education Day
 * Every Girl Can STEAM Conference
 * Savvy STEM Girl Mini Camp
+* Females in Science and Technology Conference  
 
-We advocate for robotics legislature and STEM education as part of:
-
+We advocate for robotics legislature and STEM education with:  
 * MoCoFIRST 
 * National Advocacy Conference

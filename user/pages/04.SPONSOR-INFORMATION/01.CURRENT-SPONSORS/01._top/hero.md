@@ -1,6 +1,6 @@
 ---
 title: _top
-menu: GBT
+menu: Sponsors
 arrow: noarrow
 hero_classes: 'parallax text-light overlay-dark'
 ---

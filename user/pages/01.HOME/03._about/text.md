@@ -7,7 +7,7 @@ menu: About
 
 ## **About Our Team**
 
-##### Mission
+#### Mission
 > Our mission is to expose students to complex problems in a collaborative environment in order to promote personal and intellectual growth while building and competing annually with a well-designed and fabricated robot. Through our activities, we encourage youth to pursue degrees and careers in STEM.
 
 [//]: # (##### About Us)
@@ -15,7 +15,7 @@ Composed of students and alumni from Montgomery Blair High School and the surrou
 has been continually expanding, innovating, and attracting new members since its establishment in 1999. 
 [Click here](../../about-us) to find out more about our team.
 
-##### What is FIRST?
+#### What is FIRST?
 > The mission of FIRST® is to inspire young people to be science and technology 
 > leaders and innovators, by engaging them in exciting mentor-based programs that build 
 > science, engineering, and technology skills, that inspire innovation, and that foster 

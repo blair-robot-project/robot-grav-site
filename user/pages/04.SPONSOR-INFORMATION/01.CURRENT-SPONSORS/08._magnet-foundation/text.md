@@ -4,4 +4,4 @@ media_order: magfoundlogo-alpha.png
 image_align: right
 ---
 
-###Magnet Foundation
+### Montgomery Blair High School Magnet Foundation
