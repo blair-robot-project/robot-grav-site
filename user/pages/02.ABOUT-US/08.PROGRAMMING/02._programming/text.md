@@ -1,6 +1,7 @@
 ---
 title: Programming
 image_align: right
+text_align: justify
 ---
 
 Team 449 is a leader in FRC programming, winning the Innovation in Controls award for the past two years. Our greatest strength is our software design: we use [Jackson](https://github.com/FasterXML/jackson) and a codebase designed around dependency injection to configure our robot code from a YAML file, giving us an easy, modular way to adjust our robot on the fly.   
