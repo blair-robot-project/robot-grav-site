@@ -1,11 +1,10 @@
-
 ---
 title: Competitions
 image_align: right
 menu: Competitions
 arrow: noarrow
 hero_inline: true
-hero_classes: 'text-light overlay-dark-gradient'
+hero_classes: 'text-light overlay-dark'
 hero_image: worldsFlags2017-compressed.jpg
 ---
 

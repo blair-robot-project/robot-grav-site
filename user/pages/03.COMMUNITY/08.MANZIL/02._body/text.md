@@ -1,5 +1,4 @@
 ---
-title: idk
+title: main
 ---
 
-Information about The Manzil Project

@@ -30,9 +30,9 @@ features:
         url: /community/bunnybots
     -
         icon: 'fa fa-address-book'
-        header: 'Contact Us'
-        text: 'Questions? Comments? Click here for more information.'
-        url: '/#contact_us'
+        header: 'More Info'
+        text: 'Click here for contact information and team resources.'
+        url: '/#info'
 image_align: left
 ---
 

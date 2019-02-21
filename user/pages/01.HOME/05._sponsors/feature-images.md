@@ -48,4 +48,4 @@ features:
 ---
 
 ## **Our Sponsors**
-##### We love our sponsors, and we appreciate their support!
+We love our sponsors, and we appreciate their support!
