@@ -1,6 +1,7 @@
 ---
 title: 'Bunnybots Intro'
 image_align: left
+text_align: justify
 ---
 
 ## What is Bunnybots?

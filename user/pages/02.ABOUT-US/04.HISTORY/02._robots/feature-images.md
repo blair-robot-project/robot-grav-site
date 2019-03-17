@@ -2,7 +2,7 @@
 title: _robots
 media_order: 'flag-picture-01.jpg,ROUS.jpg,calcifer.jpg,navi.jpg'
 menu: Robots
-imglocation: /user/pages/02.ABOUT-US/03.HISTORY/02._robots/
+imglocation: /user/pages/02.ABOUT-US/04.HISTORY/02._robots/
 class: small
 features:
     -

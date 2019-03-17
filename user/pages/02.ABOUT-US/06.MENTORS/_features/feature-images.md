@@ -2,7 +2,7 @@
 title: Mentors
 media_order: 'mentor_davis.jpg,mentor_bertaut.jpg,mentor_kedei.jpg,mentor_mcglade.jpg,mentor_gordon.jpg,mentor_rabinovich.jpg,mentor_eli.JPG,mentor_temkin.jpg,mentor_van_albert.jpg,mentor_ehrenstein.jpg,mentor_caitlin.jpg,mentor_pedersen.jpg,mentor_reinhart.jpg,mentor_koslow.jpg,mentor_szabo.jpg,mentor_yoni.jpg,mentor_sam.jpg'
 menu: Mentors
-imglocation: /user/pages/02.ABOUT-US/05.MENTORS/_features/
+imglocation: /user/pages/02.ABOUT-US/06.MENTORS/_features/
 class: small
 features:
     -
@@ -12,11 +12,11 @@ features:
     -
         image: mentor_bertaut.jpg
         header: 'Edgard Bertaut'
-        text: 'Joined 20??'
+        text: 'Head Technical Mentor, Joined 20??'
     -
         image: mentor_kedei.jpg
         header: 'Noemi Kedei'
-        text: 'Joined 20??'
+        text: 'Head Non-Technical Mentor, Joined 20??'
     -
         image: mentor_van_albert.jpg
         header: 'Steve Van Albert'
@@ -44,11 +44,7 @@ features:
     -
         image: mentor_caitlin.jpg
         header: 'Caitlin King'
-        text: 'Joined 20??'
-    -
-        image: mentor_reinhart.jpg
-        header: 'Geri Reinhart'
-        text: 'Joined 20??'
+        text: 'Joined 2017'
     -
         image: mentor_pedersen.jpg
         header: 'Daniel Pedersen'
@@ -68,14 +64,14 @@ features:
     -
         image: mentor_szabo.jpg
         header: 'Aaron Szabo'
-        text: 'Joined 20??'
+        text: 'Joined 2016'
     -
         image: mentor_yoni.jpg
         header: 'Yoni Pedersen'
-        text: 'Joined 20??'
+        text: 'Joined 2016'
     -
         image: mentor_sam.jpg
         header: 'Sam Ehrenstein'
-        text: 'Joined 20??'
+        text: 'Joined 2017'
 ---
 

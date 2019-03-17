@@ -1,5 +1,6 @@
 ---
 title: UL
+image_align: left
 class: small
 ---
 
@@ -10,12 +11,12 @@ Noah joined the team in fall 2016, his sophomore year. He was on programming for
 
 ## Shwetha Kunnam
 #### Vice President of Communications
-Shwetha joined the team in 2015 as a freshman. She worked on the Business team and was promoted to subteam leader for the 2017-2018 season, and was elected Vice President of Communications for the 2018-2019 season.
+Shwetha joined the team in 2015 as a freshman. She was promoted to Business subteam leader for the 2017-2018 season, and was elected Vice President of Communications for the 2018-2019 season.
 <br><br><br>
 
 ## Jenny Mei
 #### Vice President of Finances
-Jenny joined electronics her freshman year, 2015. She became electronics subteam leader in 2017-2018 and was elected as Vice President of Finances for the 2018-2019 season.
+Jenny joined electronics her freshman year, 2015. She was the electronics subteam leader from 2016-2018 and was elected as Vice President of Finances for the 2018-2019 season.
 <br><br><br>
 
 ## Wensen Liu
