@@ -8,7 +8,7 @@ show_breadcrumbs: true
 content:
     items:
         - '@self.children'
-    limit: 16
+    limit: 64
     order:
         by: date
         dir: desc

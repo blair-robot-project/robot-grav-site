@@ -8,15 +8,15 @@ hero_classes: 'text-light overlay-dark'
 hero_image: worldsFlags2017-compressed.jpg
 ---
 
-## **2019 Competition Season**	
+## **2019 Competition Season Recap**	
 <!--
-**[Week 2 District Event - Bethesda, MD](https://www.thebluealliance.com/event/2019mdbet)**  
-**[Week 5 District Event - Blacksburg, VA](https://www.thebluealliance.com/event/2019vabla)**  
-**[District Championships - Fairfax, VA](https://www.thebluealliance.com/event/2019chcmp)**  
-**[World Championships - Detroit, MI](https://www.thebluealliance.com/event/2019cmpmi)**  
+**[Winners at BET District Event](https://www.thebluealliance.com/event/2019mdbet)**  
+**[Alliance Captains at BLA District Event](https://www.thebluealliance.com/event/2019vabla)**  
+**[Alliance Captains and Finalists at District Championships](https://www.thebluealliance.com/event/2019chcmp)**  
+**[Quarterfinalists at World Championships](https://www.thebluealliance.com/event/2019cmpmi)**  
 -->
-Week 2 District Event - Bethesda, MD  
-Week 5 District Event - Blacksburg, VA  
-District Championships - Fairfax, VA  
-World Championships - Detroit, MI  
+Winners at BET District Event <br>
+Alliance Captains at BLA District Event <br>
+Alliance Captains and Finalists at District Championships <br>
+Quarterfinalists at World Championships <br>
 The Blair Robot Project competes in the FIRST Chesapeake District <br>**[Click here](../../about-us/history/)** for our team's full competition history

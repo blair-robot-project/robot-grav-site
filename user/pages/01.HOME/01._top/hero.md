@@ -10,4 +10,4 @@ hero_image: header.jpg
 ## FRC Team 449
 
 We are a student-led, mentor-guided _FIRST_ Robotics Competition team based in Silver Spring, Maryland.  
-Donate to us through **[Paypal](http://www.mbhsmagnet.org/robotics)**!
+Donate to us through **[Paypal](https://tinyurl.com/blairrobotics)**!

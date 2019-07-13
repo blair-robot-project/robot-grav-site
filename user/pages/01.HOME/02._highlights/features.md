@@ -11,12 +11,12 @@ features:
     -
         icon: 'fa fa-handshake-o'
         header: Community
-        text: 'Learn about our outreach activities and community impact.'
-        url: '/#community'
+        text: 'Learn more about our outreach and community involvement.'
+        url: /community
     -
         icon: 'fa fa-money'
         header: Sponsors
-        text: 'Learn how you can help the team and view our current sponsors.'
+        text: 'Prospective sponsors, click here to learn more about how you can help the team. Thank you to our current sponsors, who are all featured here!'
         url: '/#sponsors'
     -
         icon: 'fa fa-trophy'
@@ -34,6 +34,7 @@ features:
         text: 'Click here for contact information and team resources.'
         url: '/#info'
 image_align: left
+text_align: center
 ---
 
 ###Find out more about our team below!

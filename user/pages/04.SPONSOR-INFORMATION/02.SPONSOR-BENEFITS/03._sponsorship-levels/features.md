@@ -1,128 +1,48 @@
 ---
-title: 'Sponsorship levels'
+title: 'Sponsor Benefits'
 class: small
 text_align: left
 ---
 
-## Sponsorship Levels
-[//]: # (make platinum platinum colored, left align)
-## Platinum 
-#### $5000+ or $4000+ and a mentor
-* Logo featured on:
-  - Robots
-  - Banners
-  - T-shirts
-  - Website
-  - Brochures
-* Name of sponsor listed on: 
-  - Team’s FIRST website 
-  - FIRST official brochures
-  - announced at competitions in the order of the donated amount
-* Team updates:
-  - At the start of every fiscal quarter
-  - At the start and end of build season (first Saturday of January)
-  - At the end of competition season
-  - About notable competitions
-* Invitations to:
-  - Bunnybots, our annual preseason event
-  - Kickoff, the first day of build season
-  - Competitions
-  - Visit us during build season
-  - Visit our pits during competitions
-* Optional Team 449 visit with our robot to your workplace
-* Optional presentation
+# ** Sponsor Benefits**
 
-## Gold
-#### $2500+ or $1500+ and a mentor
-* Logo featured on:
-  - Robots
-  - Banners
-  - T-shirts
-  - Website
-  - Brochures
-* Name of sponsor listed on:
-  - Team’s FIRST website
-  - FIRST official brochures
-  - Announced at competitions in the order of the donated amount
-* Team updates:
-  - At the start of every fiscal quarter
-  - At the start of build season (first Saturday of January)
-  - At the end of competition season
-  - About notable competitions
-* Invitations to:
-  - Bunnybots, our annual preseason event
-  - Kickoff, the first day of build season
-  - Competitions
-  - Visit us during build season
-  - Visit our pits during competitions
-* Optional presentation
+### Platinum - $5000+ OR $4000+ and mentorship
+- Large logo:
+ - Robot
+ - Banner
+ - T-shirt
+ - Website
+ - Brochure
+- Name of sponsor listed on the Team’s FIRST website and FIRST official brochures, and announced at competitions in the order of the donated amount
+- Optional Team 449 visit with our robot to your place of work
+- Optional presentation
 
-## Silver 
-#### $1000+ 
-* Logo featured on:
-  - Robots
-  - Banners
-  - T-shirts
-  - Website
-  - Brochures
-* Name of sponsor listed on:
-  - The Team’s FIRST website
-  - FIRST official brochures 
-  - Announced at competitions in the order of the donated amount
-* Team updates:
-  - At the start of the fiscal year
-  - At the start of build season (first Saturday of January)
-  - At the end of competition season
-  - About notable competitions
-* Invitations to:
-  - Bunnybots, our annual preseason event
-  - Kickoff, the first day of build season
-  - Competitions
-  - Visit us during build season
-  - Visit our pits during competitions
-* Optional presentation
+### Gold - $2500+ OR $1500+ and mentorship
+- Medium logo:
+ - Robot
+ - Banner
+ - T-shirt
+ - Brochure
+- Large logo on website
+- Name of sponsor listed on the Team’s FIRST website and FIRST official brochures, and announced at competitions in the order of the donated amount
+- Optional presentation
 
-## Bronze 
-#### $500
-* Logo featured on:
-  - Robots
-  - Banners
-  - T-shirts
-  - Website
-  - Brochures
-* Name of sponsor listed on:
-  - Team’s FIRST website
-  - FIRST official brochures
-  - Announced at competitions in the order of the donated amount
-* Team updates:
-  - At the start of the fiscal year
-  - At the start of build season (first Saturday of January)
-  - At the end of competition season
-  - About notable competitions
-* Invitations to:
-  - Bunnybots, our annual preseason event
-  - Kickoff, the first day of build season
-  - Competitions
-* Optional presentation
+### Silver - $1000+
+- Medium logo:
+ - Website
+ - Brochure
+- Small logo or name of business on T-shirt, robot, and banner
+- Name of sponsor listed on the Team’s FIRST website and FIRST official brochures, and announced at competitions in the order of the donated amount
+- Optional presentation
 
-## Steel 
-#### Services, Tools, or Software
-* Logo featured on:
-  - Robots
-  - Banners
-  - T-shirts
-  - Website
-  - Brochures
-* Name of sponsor listed on:
-  - Team’s FIRST website
-  - FIRST official brochures
-  - Announced at competitions in the order of the donated amount
-* Team updates:
-  - At the start of the fiscal year
-  - At the start of build season (first Saturday of January)
-  - At the end of competition season
-  - About notable competitions
-* Invitations to:
-  - Bunnybots, our annual preseason event
-  - Kickoff, the first day of build season
-  - Competitions
+### Bronze - $500
+- Small logo:
+ - Website
+- Name of business on t-shirt, robot, banner, brochure
+- Name of sponsor listed on the Team’s FIRST website and FIRST official brochures, and announced at competitions in the order of the donated amount
+- Optional presentation
+
+### Steel - service, tool, or software
+- Benefits varied based upon donation:
+ - Name of business on the T-shirt, robot, banner, brochure proportional to the provided service
+- Name of sponsor listed on the Team’s FIRST website and FIRST official brochures, and announced at competitions in the order of the donated amount

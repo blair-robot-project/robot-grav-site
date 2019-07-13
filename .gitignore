@@ -27,6 +27,7 @@ user/themes/*
 !user/themes/.*
 user/localhost/config/security.yaml
 user/config/security.yaml
+user.bak/*
 
 # OS Generated
 .DS_Store*

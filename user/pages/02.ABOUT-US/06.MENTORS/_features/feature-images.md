@@ -1,6 +1,6 @@
 ---
 title: Mentors
-media_order: 'mentor_davis.jpg,mentor_bertaut.jpg,mentor_kedei.jpg,mentor_mcglade.jpg,mentor_gordon.jpg,mentor_rabinovich.jpg,mentor_eli.JPG,mentor_temkin.jpg,mentor_van_albert.jpg,mentor_ehrenstein.jpg,mentor_caitlin.jpg,mentor_pedersen.jpg,mentor_reinhart.jpg,mentor_koslow.jpg,mentor_szabo.jpg,mentor_yoni.jpg,mentor_sam.jpg'
+media_order: 'mentor_davis.jpg,mentor_bertaut.jpg,mentor_kedei.jpg,mentor_mcglade.jpg,mentor_gordon.jpg,mentor_rabinovich.jpg,mentor_eli.JPG,mentor_temkin.jpg,mentor_van_albert.jpg,mentor_ehrenstein.jpg,mentor_caitlin.jpg,mentor_pedersen.jpg,mentor_koslow.jpg,mentor_szabo.jpg,mentor_yoni.jpg,mentor_sam.jpg,mentor_tim.jpg'
 menu: Mentors
 imglocation: /user/pages/02.ABOUT-US/06.MENTORS/_features/
 class: small
@@ -23,7 +23,7 @@ features:
         text: 'Joined 20??'
     -
         image: mentor_mcglade.jpg
-        header: 'Steve McGlade'
+        header: 'Patrick McGlade'
         text: 'Joined 20??'
     -
         image: mentor_gordon.jpg

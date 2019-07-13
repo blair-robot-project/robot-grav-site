@@ -1,6 +1,6 @@
 ---
 title: Top
-media_order: 'flag banner.jpg'
+media_order: header.jpeg
 arrow: noarrow
 hero_classes: 'parallax text-light overlay-dark-gradient'
 Menu: Mentors

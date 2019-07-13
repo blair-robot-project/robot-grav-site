@@ -4,7 +4,7 @@ content:
     items: '@self.modular'
 body_classes: 'modular title-h1h2 header-dark header-transparent'
 menu: 'Java Programming Class'
-underconstruction: true
+underconstruction: false
 onpage_menu: false
 ---
 

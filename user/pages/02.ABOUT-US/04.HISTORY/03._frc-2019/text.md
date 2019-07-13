@@ -24,7 +24,15 @@ TBD
       </tr>
      <tr>
         <td> CHS - Blacksburg VA</td>
-        <td> TBD <br/><br/></td>
+        <td> Rank 2 <br/> Quarterfinalist <br/> Entrepreneurship Award </td>
+      </tr>
+      <tr>
+        <td> CHS - District Championships </td>
+        <td> Rank 8 <br/> Finalist Alliance Captain <br/></td>
+      </tr>
+      <tr>
+          <td> Worlds - Darwin Division</td>
+          <td> Rank 66 <br/> Quarterfinalist </td>
       </tr>
     <tr>
   </tbody>
