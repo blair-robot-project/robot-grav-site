@@ -7,7 +7,7 @@ image_align: left
 Our robot for the 2017 FIRST Robotics Competition, FIRST Steamworks. Calcifer was specialized for delivering gears to the airships and had a quick climb for the endgame. [Click here](https://www.youtube.com/watch?v=gGMw-ombv_E) to view this robot's reveal video.
 #### Performance
 * 27-34-4 (W-L-T) in official play.
-* Ranked 17 in Chesapeake District
+* Rank 17 in Chesapeake District
 
 <html>
 <table class="table table-striped table-hover">

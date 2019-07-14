@@ -14,7 +14,7 @@ features:
         header: 'Edgard Bertaut'
         text: 'Head Technical Mentor, Joined 20??'
     -
-        image: mentor_kedei.jpg
+        image: kedei.jpg
         header: 'Noemi Kedei'
         text: 'Head Non-Technical Mentor, Joined 20??'
     -

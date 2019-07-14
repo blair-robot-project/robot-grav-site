@@ -1,10 +1,12 @@
 ---
-title: 'About Us'
+title: Sponsorships
 content:
     items: '@self.modular'
 body_classes: 'title-h1h2 header-dark header-transparent'
-menu: 'About Us'
+menu: Sponsorships
+redirect: 'https://robot.mbhs.edu/'
+visible: true
 onpage_menu: false
-underconstruction: true
+notclickable: true
 ---
 

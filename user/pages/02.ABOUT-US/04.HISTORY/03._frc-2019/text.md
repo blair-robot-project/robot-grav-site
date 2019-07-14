@@ -4,10 +4,11 @@ image_align: right
 ---
 
 ##Legasus
-Our robot for the 2019 FIRST Robotics Competition, Destination: Deep Space. Legasus is capable of placing cargo and hatches on the first level on both the cargo bay and rockets, as well as climbing to all three levels of the HAB.
+Our robot for the 2019 FIRST Robotics Competition, Destination: Deep Space. Legasus is capable of placing cargo and hatches on the first level on both the cargo bay and rockets, as well as climbing to all three levels of the HAB. [Click here](https://www.youtube.com/watch?v=lRLYltb_lEI) to watch this robot's reveal video
 
-####Performance
-TBD
+#### Performance
+* 38-25-2 (W-L-T) in official play
+* Rank 4 in Chesapeake District
 
 <html>
 <table class="table table-striped table-hover">
