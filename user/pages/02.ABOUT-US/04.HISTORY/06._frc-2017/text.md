@@ -1,6 +1,8 @@
 ---
 title: frc-2017
 image_align: left
+hero_classes: ''
+hero_image: ''
 ---
 
 ## Calcifer
@@ -34,10 +36,6 @@ Our robot for the 2017 FIRST Robotics Competition, FIRST Steamworks. Calcifer wa
         <td> Worlds - Curie Division </td>
         <td> Rank 32 <br/> Quarterfinalist </td>
       </tr>
-    <tr>
-        <td> IROC </td>
-        <td> Rank 14 <br/> Quarterfinalist </td>
-      </tr> 
   </tbody>
 </table>
 </html>

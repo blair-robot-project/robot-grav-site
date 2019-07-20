@@ -2,8 +2,8 @@
 title: 'Build Blog'
 published: true
 body_classes: 'title-h1h2 header-dark header-transparent'
-hero_classes: 'parallax text-light overlay-dark hero-tiny'
-hero_image: flag-picture-01.jpg
+hero_classes: 'parallax text-light overlay-dark hero-medium'
+hero_image: IMG_2704.JPG
 show_breadcrumbs: true
 content:
     items:
@@ -18,3 +18,4 @@ access:
     admin.login: true
 ---
 
+# **Build Blog**

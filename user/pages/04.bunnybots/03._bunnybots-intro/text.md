@@ -1,7 +1,8 @@
 ---
 title: 'Bunnybots Intro'
-image_align: left
 text_align: justify
+image_align: right
+media_order: 'BunJump.jpg, 5587.jpg'
 ---
 
 ## What is Bunnybots?

@@ -1,6 +1,10 @@
 ---
 title: 'Day 35 Meeting Report'
 date: '08-02-2019 00:00'
+taxonomy:
+    tag:
+        - FRC
+        - '2019'
 ---
 
 * Made new wooden side plates for the hatch mechanism.

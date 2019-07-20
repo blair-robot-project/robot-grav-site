@@ -6,6 +6,7 @@ author:
 taxonomies:
   - category
   - tag
+  - authors
 metadata:
   description: 'FRC Team 449 is a FIRST robotics team from Montgomery Blair High School.'
 summary:

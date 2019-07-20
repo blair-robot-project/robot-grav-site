@@ -1,9 +1,13 @@
 ---
-title: '(Slowly) Moving Along'
+title: '(Slowly) Moving Along (01/08/2019)'
 media_order: 'Flower.png,IMG_0044.jpg,SUCC Cad.png'
 published: true
 date: '08-01-2019 00:00'
 body_classes: 'title-h1h2 header-dark'
+taxonomy:
+    tag:
+        - FRC
+        - '2019'
 ---
 
 On Tuesday, we continued to prototype, but ran into a very similar problem with stab hatch as we did with grab hatch: lack of materials. However, the project lead didn't give up, and instead pursued other designs, including what he decided to nickname "flower." The mechanism was designed to go into the hole of the hatch and open inside, securing the hatch, and then being delivering on to the cargo ship or rocket with the same mechanism. This design was based on Robot in 3 Days team Ri3D 1.0's hatch mechanism.

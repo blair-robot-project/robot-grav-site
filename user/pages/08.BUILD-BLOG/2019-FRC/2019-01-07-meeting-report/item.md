@@ -1,9 +1,13 @@
 ---
-title: 'Just Beginning'
+title: 'Just Beginning (01/07/2019)'
 media_order: 'First CAD.png,IMG_1989.JPG,IMG_1988.JPG'
 published: true
 date: '07-01-2019 00:00'
 body_classes: 'title-h1h2 header-dark'
+taxonomy:
+    tag:
+        - FRC
+        - '2019'
 ---
 
 During our first official meeting of the building season... we didn't fully build anything. 

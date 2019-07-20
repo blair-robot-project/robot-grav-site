@@ -1,6 +1,9 @@
 ---
 title: 'Detroit World Championships - Darwin Division'
 published: false
+taxonomy:
+    tag:
+        - competition
 routable: true
 visible: true
 content:

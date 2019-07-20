@@ -1,10 +1,10 @@
 ---
 title: frc-2016
+media_order: '20161022-_CP_9332-X2.jpg,20161022-_CP_9295-X2.jpg'
 image_align: right
 ---
 
 ## ROUS (Robot of Unusual Size)
-
 
 #### Performance
 * 19-18-1 (W-L-T) in official play.
