@@ -5,7 +5,7 @@ text_align: center
 ---
 
 # Bunnybots Registration
-### Registration for Bunnybots 2019 is [now open](https://forms.gle/dSWwUY1UCAP6ymSW8)! 
+### Registration for Bunnybots 2021 is [now open](https://forms.gle/dSWwUY1UCAP6ymSW8)! 
 #### Sign up is open until October 1<sup>st</sup>
 
 # Volunteer Registration
