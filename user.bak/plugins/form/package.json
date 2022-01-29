@@ -23,13 +23,12 @@
     "eslint": "^3.4.0",
     "eslint-loader": "^1.5.0",
     "exports-loader": "^0.6.3",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-util": "^3.0.7",
-    "gulp-webpack": "^1.5.0",
     "immutable": "^3.8.1",
     "imports-loader": "^0.6.5",
     "json-loader": "^0.5.4",
-    "webpack": "^1.13.2"
+    "webpack": "^5.67.0",
+    "webpack-stream": "^7.0.0"
   }
 }

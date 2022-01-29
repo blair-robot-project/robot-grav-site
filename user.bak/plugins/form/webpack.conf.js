@@ -1,7 +1,7 @@
-var webpack = require('webpack'),
-    path    = require('path'),
-    exec    = require('child_process').execSync,
-    pwd     = exec('pwd').toString();
+var webpack = require('webpack');
+var path    = require('path');
+var exec    = require('child_process').execSync;
+// var pwd     = exec('pwd').toString();
 
 module.exports = {
   entry: {
@@ -12,12 +12,10 @@ module.exports = {
     'grav-form': 'GravForm'
   },
   module: {
-    preLoaders: [
+    rules: [
       { test: /\.json$/, loader: 'json' },
-      { test: /\.js$/, loader: 'eslint', exclude: /node_modules/ }
-    ],
-    loaders: [
-      { test: /\.js$/,  loader: 'babel', exclude: /node_modules/, query: { presets: ['es2015'] } }
+      { test: /\.js$/, loader: 'eslint', exclude: /node_modules/ },
+      { test: /\.js$/,  loader: 'babel', exclude: /node_modules/, options: { presets: ['es2015'] } }
     ]
   }
 };
