@@ -1,9 +1,11 @@
-var webpack = require('webpack');
-var path    = require('path');
-var exec    = require('child_process').execSync;
-// var pwd     = exec('pwd').toString();
+const webpack = require('webpack');
+const path = require('path');
+const ESLintPlugin = require('eslint-webpack-plugin');
+const exec = require('child_process').execSync;
+// const pwd = exec('pwd').toString();
 
 module.exports = {
+  mode: "production",
   entry: {
     app: './app/main.js'
   },
@@ -14,8 +16,8 @@ module.exports = {
   module: {
     rules: [
       { test: /\.json$/, loader: 'json' },
-      { test: /\.js$/, loader: 'eslint', exclude: /node_modules/ },
-      { test: /\.js$/,  loader: 'babel', exclude: /node_modules/, options: { presets: ['es2015'] } }
+      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/, options: { presets: ['@babel/preset-env'] } }
     ]
-  }
+  },
+  plugins: [new ESLintPlugin({})]
 };

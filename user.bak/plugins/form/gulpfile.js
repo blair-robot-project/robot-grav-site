@@ -42,11 +42,11 @@ var compileJS = function (watch) {
 };
 
 gulp.task('js', function () {
-    compileJS(false);
+    return compileJS(false);
 });
 
 gulp.task('watch', function () {
-    compileJS(true);
+    return compileJS(true);
 });
 
 gulp.task('all', gulp.series('js'));
