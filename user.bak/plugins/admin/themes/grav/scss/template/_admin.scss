@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 $topbar-height: 4.2rem;
 $update-height: 3rem;
 $sidebar-width-large: 240px;
@@ -548,7 +550,7 @@ body.sidebar-quickopen #admin-main {
 
     .lines-button {
         display: none;
-        margin-left: $padding-default / 4;
+        margin-left: math.div($padding-default, 4);
         &:focus {
             outline:none;
         }
@@ -573,7 +575,7 @@ body.sidebar-quickopen #admin-main {
         box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.1);
 
         @include breakpoint(mobile-only) {
-            padding: 0 ($padding-default / 4) 0 ($padding-default + 2.5);
+            padding: 0 math.div($padding-default, 4) 0 ($padding-default + 2.5);
         }
 
         h1 {
@@ -799,12 +801,12 @@ body.sidebar-quickopen #admin-main {
         .dashboard-item-flex {
             &:nth-of-type(2n) .dashboard-item {
                 margin-right: 0;
-                margin-left: $content-padding / 2;
+                margin-left: math.div($content-padding, 2);
             }
 
             &:nth-of-type(2n+1) .dashboard-item {
                 margin-left: 0;
-                margin-right: $content-padding / 2;
+                margin-right: math.div($content-padding, 2);
             }
         }
 

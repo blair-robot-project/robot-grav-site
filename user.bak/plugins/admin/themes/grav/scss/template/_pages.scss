@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .pages-list {
     list-style: none;
     margin: 0;
@@ -205,7 +207,7 @@
 
     .selectize-control.multi .selectize-input {
 
-        padding: ($leading-margin / 4) ($leading-margin / 4);
+        padding: (math.div($leading-margin, 4)) (math.div($leading-margin, 4));
 
         &.has-items {
             padding-top: 6px;

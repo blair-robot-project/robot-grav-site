@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 fieldset {
 	border: 0;
 	padding: $content-padding;
@@ -11,7 +13,7 @@ select {
 }
 
 label {
-	margin-bottom: $leading-margin / 4;
+	margin-bottom: math.div($leading-margin, 4);
 
 	&.required:after {
 		content: "*";
@@ -25,7 +27,7 @@ label {
 textarea, #{$all-text-inputs}, select[multiple=multiple] {
 	@include transition(border-color);
 	border-radius: $core-border-radius;
-	padding: ($leading-margin / 4) ($leading-margin / 4);
+	padding: math.div($leading-margin, 4) math.div($leading-margin, 4);
 	width: 100%;
 
 	&:focus {
@@ -39,7 +41,7 @@ textarea {
 
 input[type="checkbox"], input[type="radio"] {
 	display: inline;
-	margin-right: $leading-margin / 4;
+	margin-right: math.div($leading-margin, 4);
 }
 
 input[type="file"] {

@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // Body Base
 body {
 	font-size: $core-font-size;
@@ -6,7 +8,7 @@ body {
 
 // Headings
 h1, h2, h3, h4, h5, h6 {
-	margin: $leading-margin 0 $leading-margin / 2 0;
+	margin: $leading-margin 0 math.div($leading-margin, 2) 0;
 	text-rendering: optimizeLegibility;
 }
 
@@ -36,7 +38,7 @@ h6 {
 
 // Paragraph
 p {
-	margin: $leading-margin / 2 0 $leading-margin ;
+	margin: math.div($leading-margin, 2) 0 $leading-margin ;
 }
 
 // Lists
@@ -52,7 +54,7 @@ ul, ol {
 // Blockquote
 blockquote {
 	margin: $leading-margin 0;
-	padding-left: $leading-margin / 2;
+	padding-left: math.div($leading-margin, 2);
 }
 
 cite {

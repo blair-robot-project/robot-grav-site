@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // Page Container
 .container {
 	width: $large-desktop-container;
@@ -50,92 +52,92 @@ body [class*="size-"] {
 
 // Custom Size Modifiers
 .size-1-2 {
-	@include flex(0 percentage(1/2));
+	@include flex(0 percentage(math.div(1, 2)));
 }
 
 .size-1-3 {
-	@include flex(0 percentage(1/3));
+	@include flex(0 percentage(math.div(1, 3)));
 }
 
 .size-1-4 {
-	@include flex(0 percentage(1/4));
+	@include flex(0 percentage(math.div(1, 4)));
 }
 
 .size-1-5 {
-	@include flex(0 percentage(1/5));
+	@include flex(0 percentage(math.div(1, 5)));
 }
 
 .size-1-6 {
-	@include flex(0 percentage(1/6));
+	@include flex(0 percentage(math.div(1, 6)));
 }
 
 .size-1-7 {
-	@include flex(0 percentage(1/7));
+	@include flex(0 percentage(math.div(1, 7)));
 }
 
 .size-1-8 {
-	@include flex(0 percentage(1/8));
+	@include flex(0 percentage(math.div(1, 8)));
 }
 
 .size-1-9 {
-	@include flex(0 percentage(1/9));
+	@include flex(0 percentage(math.div(1, 9)));
 }
 
 .size-1-10 {
-	@include flex(0 percentage(1/10));
+	@include flex(0 percentage(math.div(1, 10)));
 }
 
 .size-1-11 {
-	@include flex(0 percentage(1/11));
+	@include flex(0 percentage(math.div(1, 11)));
 }
 
 .size-1-12 {
-	@include flex(0 percentage(1/12));
+	@include flex(0 percentage(math.div(1, 12)));
 }
 
 @include breakpoint(tablet-range) {
 	.size-tablet-1-2 {
-		@include flex(0 percentage(1/2));
+		@include flex(0 percentage(math.div(1, 2)));
 	}
 
 	.size-tablet-1-3 {
-		@include flex(0 percentage(1/3));
+		@include flex(0 percentage(math.div(1, 3)));
 	}
 
 	.size-tablet-1-4 {
-		@include flex(0 percentage(1/4));
+		@include flex(0 percentage(math.div(1, 4)));
 	}
 
 	.size-tablet-1-5 {
-		@include flex(0 percentage(1/5));
+		@include flex(0 percentage(math.div(1, 5)));
 	}
 
 	.size-tablet-1-6 {
-		@include flex(0 percentage(1/6));
+		@include flex(0 percentage(math.div(1, 6)));
 	}
 
 	.size-tablet-1-7 {
-		@include flex(0 percentage(1/7));
+		@include flex(0 percentage(math.div(1, 7)));
 	}
 
 	.size-tablet-1-8 {
-		@include flex(0 percentage(1/8));
+		@include flex(0 percentage(math.div(1, 8)));
 	}
 
 	.size-tablet-1-9 {
-		@include flex(0 percentage(1/9));
+		@include flex(0 percentage(math.div(1, 9)));
 	}
 
 	.size-tablet-1-10 {
-		@include flex(0 percentage(1/10));
+		@include flex(0 percentage(math.div(1, 10)));
 	}
 
 	.size-tablet-1-11 {
-		@include flex(0 percentage(1/11));
+		@include flex(0 percentage(math.div(1, 11)));
 	}
 
 	.size-tablet-1-12 {
-		@include flex(0 percentage(1/12));
+		@include flex(0 percentage(math.div(1, 12)));
 	}
 }
 

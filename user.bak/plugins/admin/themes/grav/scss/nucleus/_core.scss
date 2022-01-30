@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 *, *::before, *::after {
 	@include box-sizing(border-box);
 }
@@ -209,7 +211,7 @@ tr, td, th {
 }
 
 th, td {
-	padding: ($leading-margin / 4) 0;
+	padding: math.div($leading-margin, 4) 0;
 }
 
 th {
