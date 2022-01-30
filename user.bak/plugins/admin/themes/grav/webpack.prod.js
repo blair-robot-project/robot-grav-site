@@ -16,6 +16,37 @@ module.exports = merge(common, {
         // new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.min.js", Infinity)
     ],
     output: {
-        filename: "admin[chunkhash].min.js"
+        filename: "[name].min.js"
+    },
+    optimization: {
+        runtimeChunk: 'single',
+        splitChunks: {
+            chunks: 'async',
+            minSize: 20000,
+            minRemainingSize: 0,
+            minChunks: Infinity,
+            maxAsyncRequests: 30,
+            maxInitialRequests: 30,
+            enforceSizeThreshold: 50000,
+            cacheGroups: {
+                vendor: {
+                    chunks: 'initial',
+                    test: /[\\/]node_modules[\\/]/,
+                    reuseExistingChunk: true,
+                    name: "vendor",
+                },
+                defaultVendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    priority: -10,
+                    reuseExistingChunk: true,
+                    name: "vendor",
+                },
+                default: {
+                    minChunks: Infinity,
+                    priority: -20,
+                    reuseExistingChunk: true,
+                }
+            }
+        }
     }
 });

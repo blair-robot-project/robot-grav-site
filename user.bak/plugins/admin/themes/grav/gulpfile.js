@@ -14,7 +14,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const devOptions = require("./webpack.dev.js");
 const prodOptions = require("./webpack.prod.js");
 
-var compileJS = function (watch) {
+const compileJS = (watch) => () => {
     // var devOpts = devOptions.set('watch', watch);
     prodOptions.watch = watch;
 
@@ -30,9 +30,9 @@ var compileJS = function (watch) {
     return prod;
 };
 
-var compileCSS = function (event) {
+function compileCSS(event) {
     return gulp.src('./scss/**/*.scss')
-        .on('end', function () {
+        .on('end', () => {
             // console.log(util.inspect(event));
             if (event && event.path) {
                 log(colors.green('√'), 'Saved change for "' + event.path.replace(__dirname, '') + '"');
@@ -45,18 +45,16 @@ var compileCSS = function (event) {
         .pipe(gulp.dest('./css-compiled'));
 };
 
-gulp.task('js', () => compileJS(false));
+gulp.task('js', compileJS(false));
 
 gulp.task('css', compileCSS);
 
 gulp.task('watch', gulp.series(
-    () => compileJS(true),
+    compileJS(true),
     () => gulp.watch('./scss/**/*.scss', compileCSS)
 ));
 
-gulp.task('watch-js', function () {
-    return compileJS(true);
-});
+gulp.task('watch-js', compileJS(true));
 
 gulp.task('watch-css', gulp.series(
     compileCSS,

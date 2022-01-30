@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { config } from 'grav-config';
-import 'eonasdan-bootstrap-datetimepicker';
+import '@eonasdan/tempus-dominus';
 
 export default class DateTimeField {
 

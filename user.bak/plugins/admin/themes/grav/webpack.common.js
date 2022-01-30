@@ -37,6 +37,7 @@ module.exports = {
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/, options: { presets: ['@babel/preset-env'] } }
         ]
     },
+    resolve: { fallback: { "buffer": require.resolve("buffer/") } },
     optimization: {
         splitChunks: {
             cacheGroups: {
