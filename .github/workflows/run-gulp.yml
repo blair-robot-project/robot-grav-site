@@ -33,6 +33,6 @@ jobs:
         gulp
     - name: Build user.bak/plugins/admin/themes/grav
       run: |
-        cd ../admin/themes/grav
+        cd user.bak/plugins/admin/themes/grav
         yarn install
         gulp
