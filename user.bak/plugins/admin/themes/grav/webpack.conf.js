@@ -1,7 +1,9 @@
-var path    = require('path'),
-    webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
+    devtool: 'source-map',
     entry: {
         app: './app/main.js',
         vendor: [
@@ -29,13 +31,20 @@ module.exports = {
         'grav-config': 'GravAdmin'
     },
     module: {
-        preLoaders: [
+        rules: [
             { test: /\.json$/, loader: 'json' },
-            { test: /\.js$/, loader: 'eslint', exclude: /node_modules/ }
-        ],
-        loaders: [
-            { test: /\.css$/, loader: "style-loader!css-loader" },
-            { test: /\.js$/,  loader: 'babel', exclude: /node_modules/, query: { presets: ['es2015', 'stage-3'] } }
+            { test: /\.css$/, use: ["style-loader", "css-loader"] },
+            { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/, options: { presets: ['@babel/preset-env', 'stage-3'] } }
         ]
-    }
+    },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                defaultVendors: {
+                    filename: 'vendor.js',
+                }
+            }
+        },
+    },
+    plugins: [new ESLintPlugin({})]
 };

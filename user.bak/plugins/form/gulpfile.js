@@ -8,7 +8,7 @@ var webpackStream = require('webpack-stream');
 var webpack = require('webpack');
 var sourcemaps = require('gulp-sourcemaps');
 var exec = require('child_process').execSync;
-// var pwd         = exec('pwd').toString();
+var pwd         = exec('pwd').toString();
 
 var plugins = {},
     base = immutable.fromJS(require('./webpack.conf.js')),

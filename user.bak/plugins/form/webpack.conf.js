@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const exec = require('child_process').execSync;
-// const pwd = exec('pwd').toString();
+const pwd = exec('pwd').toString();
 
 module.exports = {
   mode: "production",
