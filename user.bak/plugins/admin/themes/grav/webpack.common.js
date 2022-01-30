@@ -16,7 +16,7 @@ module.exports = {
             'bootstrap',
             'sortablejs',
             'dropzone',
-            'eonasdan-bootstrap-datetimepicker',
+            // 'eonasdan-bootstrap-datetimepicker',
             'watchjs',
             'js-yaml',
             'speakingurl'
@@ -34,7 +34,7 @@ module.exports = {
         rules: [
             { test: /\.json$/, loader: 'json' },
             { test: /\.css$/, use: ["style-loader", "css-loader"] },
-            { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/, options: { presets: ['@babel/preset-env', 'stage-3'] } }
+            { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/, options: { presets: ['@babel/preset-env'] } }
         ]
     },
     optimization: {
