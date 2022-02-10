@@ -3,19 +3,33 @@
 /**
  * @package    Grav\Framework\Form
  *
- * @copyright  Copyright (C) 2015 - 2019 Trilby Media, LLC. All rights reserved.
+ * @copyright  Copyright (c) 2015 - 2022 Trilby Media, LLC. All rights reserved.
  * @license    MIT License; see LICENSE file for details.
  */
 
 namespace Grav\Framework\Form;
 
+use Exception;
 use Grav\Common\Filesystem\Folder;
+use Grav\Common\Grav;
+use Grav\Common\User\Interfaces\UserInterface;
 use Grav\Common\Utils;
+use Grav\Framework\Form\Interfaces\FormFlashInterface;
 use Psr\Http\Message\UploadedFileInterface;
 use RocketTheme\Toolbox\File\YamlFile;
+use RocketTheme\Toolbox\ResourceLocator\UniformResourceLocator;
+use RuntimeException;
+use function func_get_args;
+use function is_array;
 
-class FormFlash implements \JsonSerializable
+/**
+ * Class FormFlash
+ * @package Grav\Framework\Form
+ */
+class FormFlash implements FormFlashInterface
 {
+    /** @var bool */
+    protected $exists;
     /** @var string */
     protected $sessionId;
     /** @var string */
@@ -24,9 +38,13 @@ class FormFlash implements \JsonSerializable
     protected $formName;
     /** @var string */
     protected $url;
-    /** @var array */
+    /** @var array|null */
     protected $user;
-    /** @var array */
+    /** @var int */
+    protected $createdTimestamp;
+    /** @var int */
+    protected $updatedTimestamp;
+    /** @var array|null */
     protected $data;
     /** @var array */
     protected $files;
@@ -34,97 +52,125 @@ class FormFlash implements \JsonSerializable
     protected $uploadedFiles;
     /** @var string[] */
     protected $uploadObjects;
-    /** @var bool */
-    protected $exists;
+    /** @var string */
+    protected $folder;
 
     /**
-     * @param string $sessionId
-     * @return string
+     * @inheritDoc
      */
-    public static function getSessionTmpDir(string $sessionId): string
+    public function __construct($config)
     {
-        return "tmp://forms/{$sessionId}";
+        // Backwards compatibility with Grav 1.6 plugins.
+        if (!is_array($config)) {
+            user_error(__CLASS__ . '::' . __FUNCTION__ . '($sessionId, $uniqueId, $formName) is deprecated since Grav 1.6.11, use $config parameter instead', E_USER_DEPRECATED);
+
+            $args = func_get_args();
+            $config = [
+                'session_id' => $args[0],
+                'unique_id' => $args[1] ?? null,
+                'form_name' => $args[2] ?? null,
+            ];
+            $config = array_filter($config, static function ($val) {
+                return $val !== null;
+            });
+        }
+
+        $this->sessionId = $config['session_id'] ?? 'no-session';
+        $this->uniqueId = $config['unique_id'] ?? '';
+
+        $folder = $config['folder'] ?? ($this->sessionId ? 'tmp://forms/' . $this->sessionId : '');
+
+        /** @var UniformResourceLocator $locator */
+        $locator = Grav::instance()['locator'];
+
+        $this->folder = $folder && $locator->isStream($folder) ? $locator->findResource($folder, true, true) : $folder;
+
+        $this->init($this->loadStoredForm(), $config);
     }
 
     /**
-     * FormFlashObject constructor.
-     * @param string $sessionId
-     * @param string $uniqueId
-     * @param string|null $formName
+     * @param array|null $data
+     * @param array $config
      */
-    public function __construct(string $sessionId, string $uniqueId, string $formName = null)
+    protected function init(?array $data, array $config): void
     {
-        $this->sessionId = $sessionId;
-        $this->uniqueId = $uniqueId;
-
-        $file = $this->getTmpIndex();
-        $this->exists = $file->exists();
-
-        if ($this->exists) {
-            try {
-                $data = (array)$file->content();
-            } catch (\Exception $e) {
-                $data = [];
-            }
-            $this->formName = null !== $formName ? $content['form'] ?? '' : '';
+        if (null === $data) {
+            $this->exists = false;
+            $this->formName = $config['form_name'] ?? '';
+            $this->url = '';
+            $this->createdTimestamp = $this->updatedTimestamp = time();
+            $this->files = [];
+        } else {
+            $this->exists = true;
+            $this->formName = $data['form'] ?? $config['form_name'] ?? '';
             $this->url = $data['url'] ?? '';
             $this->user = $data['user'] ?? null;
+            $this->updatedTimestamp = $data['timestamps']['updated'] ?? time();
+            $this->createdTimestamp = $data['timestamps']['created'] ?? $this->updatedTimestamp;
             $this->data = $data['data'] ?? null;
             $this->files = $data['files'] ?? [];
-        } else {
-            $this->formName = $formName;
-            $this->url = '';
-            $this->files = [];
         }
     }
 
     /**
+     * Load raw flex flash data from the filesystem.
+     *
+     * @return array|null
+     */
+    protected function loadStoredForm(): ?array
+    {
+        $file = $this->getTmpIndex();
+        $exists = $file && $file->exists();
+
+        $data = null;
+        if ($exists) {
+            try {
+                $data = (array)$file->content();
+            } catch (Exception $e) {
+            }
+        }
+
+        return $data;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getSessionId(): string
+    {
+        return $this->sessionId;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getUniqueId(): string
+    {
+        return $this->uniqueId;
+    }
+
+    /**
      * @return string
+     * @deprecated 1.6.11 Use '->getUniqueId()' method instead.
+     */
+    public function getUniqieId(): string
+    {
+        user_error(__CLASS__ . '::' . __FUNCTION__ . '() is deprecated since Grav 1.6.11, use ->getUniqueId() method instead', E_USER_DEPRECATED);
+
+        return $this->getUniqueId();
+    }
+
+    /**
+     * @inheritDoc
      */
     public function getFormName(): string
     {
         return $this->formName;
     }
 
-    /**
-     * @return string
-     */
-    public function getUniqieId(): string
-    {
-        return $this->uniqueId;
-    }
 
     /**
-     * @return bool
-     */
-    public function exists(): bool
-    {
-        return $this->exists;
-    }
-
-    /**
-     * @return $this
-     */
-    public function save(): self
-    {
-        $file = $this->getTmpIndex();
-        $file->save($this->jsonSerialize());
-        $this->exists = true;
-
-        return $this;
-    }
-
-    public function delete(): self
-    {
-        $this->removeTmpDir();
-        $this->files = [];
-        $this->exists = false;
-
-        return $this;
-    }
-
-    /**
-     * @return string
+     * @inheritDoc
      */
     public function getUrl(): string
     {
@@ -132,18 +178,7 @@ class FormFlash implements \JsonSerializable
     }
 
     /**
-     * @param string $url
-     * @return $this
-     */
-    public function setUrl(string $url): self
-    {
-        $this->url = $url;
-
-        return $this;
-    }
-
-    /**
-     * @return string
+     * @inheritDoc
      */
     public function getUsername(): string
     {
@@ -151,7 +186,7 @@ class FormFlash implements \JsonSerializable
     }
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getUserEmail(): string
     {
@@ -159,40 +194,86 @@ class FormFlash implements \JsonSerializable
     }
 
     /**
-     * @param string|null $username
-     * @return $this
+     * @inheritDoc
      */
-    public function setUserName(string $username = null): self
+    public function getCreatedTimestamp(): int
     {
-        $this->user['username'] = $username;
-
-        return $this;
+        return $this->createdTimestamp;
     }
 
     /**
-     * @param string|null $email
-     * @return $this
+     * @inheritDoc
      */
-    public function setUserEmail(string $email = null): self
+    public function getUpdatedTimestamp(): int
     {
-        $this->user['email'] = $email;
-
-        return $this;
+        return $this->updatedTimestamp;
     }
 
+
+    /**
+     * @inheritDoc
+     */
     public function getData(): ?array
     {
         return $this->data;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function setData(?array $data): void
     {
         $this->data = $data;
     }
 
     /**
-     * @param string $field
-     * @return array
+     * @inheritDoc
+     */
+    public function exists(): bool
+    {
+        return $this->exists;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function save(bool $force = false)
+    {
+        if (!($this->folder && $this->uniqueId)) {
+            return $this;
+        }
+
+        if ($force || $this->data || $this->files) {
+            // Only save if there is data or files to be saved.
+            $file = $this->getTmpIndex();
+            if ($file) {
+                $file->save($this->jsonSerialize());
+                $this->exists = true;
+            }
+        } elseif ($this->exists) {
+            // Delete empty form flash if it exists (it carries no information).
+            return $this->delete();
+        }
+
+        return $this;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function delete()
+    {
+        if ($this->folder && $this->uniqueId) {
+            $this->removeTmpDir();
+            $this->files = [];
+            $this->exists = false;
+        }
+
+        return $this;
+    }
+
+    /**
+     * @inheritDoc
      */
     public function getFilesByField(string $field): array
     {
@@ -208,8 +289,7 @@ class FormFlash implements \JsonSerializable
     }
 
     /**
-     * @param bool $includeOriginal
-     * @return array
+     * @inheritDoc
      */
     public function getFilesByFields($includeOriginal = false): array
     {
@@ -225,18 +305,16 @@ class FormFlash implements \JsonSerializable
     }
 
     /**
-     * Add uploaded file to the form flash.
-     *
-     * @param UploadedFileInterface $upload
-     * @param string|null $field
-     * @param array|null $crop
-     * @return string Return name of the file
+     * @inheritDoc
      */
     public function addUploadedFile(UploadedFileInterface $upload, string $field = null, array $crop = null): string
     {
         $tmp_dir = $this->getTmpDir();
         $tmp_name = Utils::generateRandomString(12);
         $name = $upload->getClientFilename();
+        if (!$name) {
+            throw new RuntimeException('Uploaded file has no filename');
+        }
 
         // Prepare upload data for later save
         $data = [
@@ -254,24 +332,18 @@ class FormFlash implements \JsonSerializable
         return $name;
     }
 
-
     /**
-     * Add existing file to the form flash.
-     *
-     * @param string $filename
-     * @param string $field
-     * @param array $crop
-     * @return bool
+     * @inheritDoc
      */
     public function addFile(string $filename, string $field, array $crop = null): bool
     {
         if (!file_exists($filename)) {
-            throw new \RuntimeException("File not found: {$filename}");
+            throw new RuntimeException("File not found: {$filename}");
         }
 
         // Prepare upload data for later save
         $data = [
-            'name' => basename($filename),
+            'name' => Utils::basename($filename),
             'type' => Utils::getMimeByLocalFile($filename),
             'size' => filesize($filename),
         ];
@@ -282,11 +354,7 @@ class FormFlash implements \JsonSerializable
     }
 
     /**
-     * Remove any file from form flash.
-     *
-     * @param string $name
-     * @param string $field
-     * @return bool
+     * @inheritDoc
      */
     public function removeFile(string $name, string $field = null): bool
     {
@@ -318,7 +386,7 @@ class FormFlash implements \JsonSerializable
     }
 
     /**
-     * Clear form flash from all uploaded files.
+     * @inheritDoc
      */
     public function clearFiles()
     {
@@ -332,7 +400,7 @@ class FormFlash implements \JsonSerializable
     }
 
     /**
-     * @return array
+     * @inheritDoc
      */
     public function jsonSerialize(): array
     {
@@ -341,9 +409,64 @@ class FormFlash implements \JsonSerializable
             'unique_id' => $this->uniqueId,
             'url' => $this->url,
             'user' => $this->user,
+            'timestamps' => [
+                'created' => $this->createdTimestamp,
+                'updated' => time(),
+            ],
             'data' => $this->data,
             'files' => $this->files
         ];
+    }
+
+    /**
+     * @param string $url
+     * @return $this
+     */
+    public function setUrl(string $url): self
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * @param UserInterface|null $user
+     * @return $this
+     */
+    public function setUser(UserInterface $user = null)
+    {
+        if ($user && $user->username) {
+            $this->user = [
+                'username' => $user->username,
+                'email' => $user->email ?? ''
+            ];
+        } else {
+            $this->user = null;
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param string|null $username
+     * @return $this
+     */
+    public function setUserName(string $username = null): self
+    {
+        $this->user['username'] = $username;
+
+        return $this;
+    }
+
+    /**
+     * @param string|null $email
+     * @return $this
+     */
+    public function setUserEmail(string $email = null): self
+    {
+        $this->user['email'] = $email;
+
+        return $this;
     }
 
     /**
@@ -351,16 +474,18 @@ class FormFlash implements \JsonSerializable
      */
     public function getTmpDir(): string
     {
-        return static::getSessionTmpDir($this->sessionId) . '/' . $this->uniqueId;
+        return $this->folder && $this->uniqueId ? "{$this->folder}/{$this->uniqueId}" : '';
     }
 
     /**
-     * @return YamlFile
+     * @return ?YamlFile
      */
-    protected function getTmpIndex(): YamlFile
+    protected function getTmpIndex(): ?YamlFile
     {
+        $tmpDir = $this->getTmpDir();
+
         // Do not use CompiledYamlFile as the file can change multiple times per second.
-        return YamlFile::instance($this->getTmpDir() . '/index.yaml');
+        return $tmpDir ? YamlFile::instance($tmpDir . '/index.yaml') : null;
     }
 
     /**
@@ -368,28 +493,43 @@ class FormFlash implements \JsonSerializable
      */
     protected function removeTmpFile(string $name): void
     {
-        $filename = $this->getTmpDir() . '/' . $name;
-        if ($name && is_file($filename)) {
+        $tmpDir = $this->getTmpDir();
+        $filename =  $tmpDir ? $tmpDir . '/' . $name : '';
+        if ($name && $filename && is_file($filename)) {
             unlink($filename);
         }
     }
 
+    /**
+     * @return void
+     */
     protected function removeTmpDir(): void
     {
+        // Make sure that index file cache gets always cleared.
+        $file = $this->getTmpIndex();
+        if ($file) {
+            $file->free();
+        }
+
         $tmpDir = $this->getTmpDir();
-        if (file_exists($tmpDir)) {
+        if ($tmpDir && file_exists($tmpDir)) {
             Folder::delete($tmpDir);
         }
     }
 
     /**
-     * @param string $field
+     * @param string|null $field
      * @param string $name
      * @param array $data
      * @param array|null $crop
+     * @return void
      */
     protected function addFileInternal(?string $field, string $name, array $data, array $crop = null): void
     {
+        if (!($this->folder && $this->uniqueId)) {
+            throw new RuntimeException('Cannot upload files: form flash folder not defined');
+        }
+
         $field = $field ?: 'undefined';
         if (!isset($this->files[$field])) {
             $this->files[$field] = [];

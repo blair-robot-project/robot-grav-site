@@ -27,6 +27,9 @@ RewriteEngine On
 # If you experience problems on your site block out the operations listed below
 # This attempts to block the most common type of exploit `attempts` to Grav
 #
+# Block out any script trying to use twig tags in URL.
+RewriteCond %{REQUEST_URI} ({{|}}|{%|%}) [OR]
+RewriteCond %{QUERY_STRING} ({{|}}|{%25|%25}) [OR]
 # Block out any script trying to base64_encode data within the URL.
 RewriteCond %{QUERY_STRING} base64_encode[^(]*\([^)]*\) [OR]
 # Block out any script that includes a <script> tag in URL.
@@ -56,9 +59,9 @@ RewriteRule .* index.php [L]
 # Block all direct access for these folders
 RewriteRule ^(\.git|cache|bin|logs|backup|webserver-configs|tests)/(.*) error [F]
 # Block access to specific file types for these system folders
-RewriteRule ^(system|vendor)/(.*)\.(txt|xml|md|html|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ error [F]
+RewriteRule ^(system|vendor)/(.*)\.(txt|xml|md|html|json|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ error [F]
 # Block access to specific file types for these user folders
-RewriteRule ^(user)/(.*)\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ error [F]
+RewriteRule ^(user)/(.*)\.(txt|md|json|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ error [F]
 # Block all direct access to .md files:
 RewriteRule \.md$ error [F]
 # Block all direct access to files and folders beginning with a dot
