@@ -1,7 +1,19 @@
 title: Grav
+default_lang: en
 author:
-  name: Joe Bloggs
-  email: 'joe@example.com'
+  name: 'Joe Bloggs'
+  email: blair.robot@gmail.com
+taxonomies:
+  - category
+  - tag
 metadata:
-    description: 'Grav is an easy to use, yet powerful, open source flat-file CMS'
-
+  description: 'The Blair Robot Project | FRC Team 449'
+summary:
+  enabled: true
+  format: short
+  size: 300
+  delimiter: '==='
+redirects: null
+routes: null
+blog:
+  route: /blog
