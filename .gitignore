@@ -17,6 +17,7 @@ logs/*
 !logs/.*
 images/*
 !images/.*
+tmp/*
 user/accounts/*
 !user/accounts/.*
 user/data/*
