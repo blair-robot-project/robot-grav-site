@@ -1,0 +1,41 @@
+title: Features
+'@extends': default
+
+form:
+  fields:
+    tabs:
+      fields:
+        features:
+          type: tab
+          title: Features
+          fields:
+            header.imglocation:
+              type: text
+              label: Image-Location
+            header.class:
+              type: select
+              label: Layout
+              default: small
+              size: medium
+              options:
+                small: Small   = 4 / 3 / 2 columns
+                standard: Standard  = 3 / 2 / 1 columns
+
+            header.features:
+              name: features
+              type: list
+              label: Features
+
+              fields:
+                .image:
+                  type: text
+                  label: Image
+                .header:
+                  type: text
+                  label: Header
+                .text:
+                  type: text
+                  label: Text
+                .url:
+                  type: text
+                  label: Link
