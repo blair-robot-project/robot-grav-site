@@ -6,3 +6,21 @@
 #header a {
   color: #f0f0f0;
 }
+
+.header-dark #header:not(.scrolled) { background: #222; color: #fff; }
+
+.header-dark #header:not(.scrolled) a { color: rgba(240, 240, 240, 1) !important; }
+
+.header-dark #header:not(.scrolled) a.active { color: #fff !important; }
+
+.header-dark #header:not(.scrolled) .dropmenu ul ul a { color: #f0f0f0 !important; }
+
+.header-dark #header:not(.scrolled) .logo svg path { fill: #fff; }
+
+.header-dark.header-transparent #header:not(.scrolled) { background: rgba(0, 0, 0, 0.05); }
+
+.header-transparent #header:not(.scrolled) { background: rgba(255, 255, 255, 0.05); }
+
+.dropmenu ul ul { background: #161314e6; box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); }
+
+.dropmenu ul li a.active,.dropmenu ul li a:focus,.dropmenu ul li a:hover{color:#fff!important}
