@@ -1,0 +1,29 @@
+{% set grid_size = theme_var('grid-size') %}
+{% set image = page.media.images|first %}
+
+<section class="section modular-text {{ page.header.class}} bg-gray">
+    <section class="container {{ grid_size }}" style="text-align: {{ page.header.text_align|default('left') }}">
+        <div class="columns {{ page.header.image_align|default('align-right') }}">
+            {% if image %}
+            {% if page.header.image_align == 'left' %}
+            <div class="column col-6 col-md-12" style="padding-left: 40px">
+            {% else %}
+            <div class="column col-6 col-md-12" style="padding-left: 10px">
+            {% endif %}
+                {{ content|raw }}
+            </div>
+            <div class="column col-6 col-md-12">
+                {% if image %}
+                    {% for image in page.media.images %}
+                        {{ image.html }}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            {% else %}
+            <div class="column col-12">
+                {{ content|raw }}
+            </div>
+            {% endif %}
+        </div>
+    </section>
+</section>
