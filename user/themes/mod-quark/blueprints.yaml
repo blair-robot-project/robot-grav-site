@@ -1,0 +1,18 @@
+name: Mod Quark
+slug: mod-quark
+type: theme
+version: 0.1.0
+description: Modified Quark
+icon: rebel
+author:
+  name: Blair Robot Project
+  email: blair.robot@gmail.com
+homepage: https://github.com/blair-robot-project/grav-theme-mod-quark
+demo: http://demo.yoursite.com
+keywords: grav, theme, etc
+bugs: https://github.com/blair-robot-project/grav-theme-mod-quark/issues
+readme: https://github.com/blair-robot-project/grav-theme-mod-quark/blob/develop/README.md
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.6.0' }

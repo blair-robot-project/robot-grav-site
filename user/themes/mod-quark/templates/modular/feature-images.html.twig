@@ -1,0 +1,26 @@
+{% set grid_size = theme_var('grid-size') %}
+{% set columns = page.header.class == 'small' ? 'col-3 col-md-4 col-sm-6' : 'col-4 col-md-6 col-sm-12'  %}
+<section class="section modular-features {{ page.header.class}}">
+        <section class="container {{ grid_size }}">
+            <div class="frame-box">
+
+                {{ content|raw }}
+
+                <div class="columns" style="margin-top: 30px">
+                {% for feature in page.header.features %}
+                   <div class="column {{ columns }}">
+                      {% if feature.url %}<a href="{{feature.url}}">{% endif %}
+                         <img src="{{header.imglocation}}{{feature.image}}">
+                         {% if feature.header %}
+                            <h5 style="margin-top: 10px">{{ feature.header }}</h5>
+                         {% endif %}
+                         {% if feature.text %}
+                            <i style = "font-size:14px; color:rgb(160,160,160)"> {{ feature.text}} </i>
+                         {% endif %}
+                      {% if feature.url %}</a>{% endif %}                      
+                   </div>
+                {% endfor %}
+                </div>
+            </div>
+        </section>
+</section>
