@@ -6,6 +6,11 @@ imglocation: /user/pages/02.ABOUT-US/04.HISTORY/02._robots/
 class: small
 features:
     -
+        image: flag-picture-01.jpg
+        header: Atlas
+        text: 'FRC 2020'
+        url: 'history#frc-2020'
+    -
         image: legasus.jpg
         header: Legasus
         text: 'FRC 2019'
