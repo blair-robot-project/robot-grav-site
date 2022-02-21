@@ -1,6 +1,6 @@
 ---
 title: _top
-arrow: noarrow
+arrow: arrow
 hero_classes: 'overlay-dark-gradient text-light hero-fullscreen'
 hero_image: manzilDiscussion.JPG
 ---

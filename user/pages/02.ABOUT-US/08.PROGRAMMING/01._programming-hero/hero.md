@@ -1,7 +1,7 @@
 ---
 title: Programming-hero
 media_order: intellij-screenshot.png
-arrow: noarrow
+arrow: arrow
 hero_classes: text-light
 ---
 

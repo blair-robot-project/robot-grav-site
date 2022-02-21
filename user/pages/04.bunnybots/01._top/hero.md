@@ -3,7 +3,7 @@ title: _top
 menu: Top
 hero_classes: 'parallax text-light overlay-dark hero-fullscreen'
 hero_image: header.JPG
-arrow: noarrow
+arrow: arrow
 ---
 
 # **Bunnybots**
