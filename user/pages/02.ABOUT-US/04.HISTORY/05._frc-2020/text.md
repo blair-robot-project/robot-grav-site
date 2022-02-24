@@ -1,10 +1,11 @@
 ---
 title: frc-2020
 image_align: right
+published: false
 ---
 
-##Legasus
-Our robot for the 2019 FIRST Robotics Competition, Destination: Deep Space. Legasus is capable of placing cargo and hatches on the first level on both the cargo bay and rockets, as well as climbing to all three levels of the HAB. [Click here](https://www.youtube.com/watch?v=lRLYltb_lEI) to watch this robot's reveal video
+##Atlas
+Our robot for the 2020 FIRST Robotics Competition, Destination: Deep Space...
 
 #### Performance
 * 38-25-2 (W-L-T) in official play
