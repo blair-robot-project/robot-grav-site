@@ -2,6 +2,7 @@
 title: register
 class: small
 text_align: center
+published: false
 ---
 
 # Bunnybots Registration

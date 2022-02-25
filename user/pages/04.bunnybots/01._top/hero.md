@@ -8,4 +8,4 @@ arrow: arrow
 
 # **Bunnybots**
 
-### 2019 Bunnybots will be held on December 14<sup>th</sup> from 9:30 a.m. to 7:00 p.m. at Montgomery Blair High School
+### Hosted at Montgomery Blair High School, December 18th, 2021
