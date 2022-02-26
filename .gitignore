@@ -48,3 +48,5 @@ tests/error.log
 backup.sh
 gitbackup.log
 !user/themes/mod-quark
+fixperms
+compress_images.sh
