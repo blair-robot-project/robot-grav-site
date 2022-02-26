@@ -26,7 +26,6 @@ user/plugins/*
 !user/plugins/.*
 user/themes/*
 !user/themes/.*
-!user/themes/mod-quark
 user/localhost/config/security.yaml
 user/config/security.yaml
 user.bak/*
@@ -48,3 +47,4 @@ tests/error.log
 
 backup.sh
 gitbackup.log
+!user/themes/mod-quark
