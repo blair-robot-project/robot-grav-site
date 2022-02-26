@@ -4,6 +4,7 @@ media_order: Kelkay.jpg
 image_align: left
 content:
     items: '@self.modular'
+published: true
 ---
 
 ## Natnael Kelkay
