@@ -7,6 +7,16 @@ class: small
 features:
     -
         image: flag-picture-01.jpg
+        header: Hyacinth
+        text: 'FRC 2022'
+        url: 'history#frc-2022'
+    -
+        image: flag-picture-01.jpg
+        header: Pebbles
+        text: 'Bunnybots 2021'
+        url: 'history#bb-2021'
+    -
+        image: flag-picture-01.jpg
         header: Atlas
         text: 'FRC 2020'
         url: 'history#frc-2020'
