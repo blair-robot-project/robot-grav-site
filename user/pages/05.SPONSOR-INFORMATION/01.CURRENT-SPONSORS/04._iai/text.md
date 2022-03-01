@@ -1,6 +1,6 @@
 ---
 title: _iai
-media_order: iailogo-alpha.png
+media_order: logo-iai-original.png
 image_align: right
 ---
 

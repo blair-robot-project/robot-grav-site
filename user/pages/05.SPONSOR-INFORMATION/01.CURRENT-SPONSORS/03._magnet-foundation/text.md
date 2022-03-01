@@ -1,6 +1,6 @@
 ---
 title: _magnet-foundation
-media_order: magfoundlogo-alpha.png
+media_order: logo-magnetFoundation-original.png
 image_align: right
 ---
 

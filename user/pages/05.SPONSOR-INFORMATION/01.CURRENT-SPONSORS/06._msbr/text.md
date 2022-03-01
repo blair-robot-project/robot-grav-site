@@ -1,6 +1,6 @@
 ---
 title: _msbr
-media_order: msbr-logo-alpha.png
+media_order: logo-msbr.png
 image_align: right
 ---
 
