@@ -1,6 +1,6 @@
 ---
 title: _takoma-park-folk-festival
-media_order: logo-takomaParkFolkFestival-original.png
+media_order: logo-takomaParkFolkFestival.png
 image_align: right
 ---
 
