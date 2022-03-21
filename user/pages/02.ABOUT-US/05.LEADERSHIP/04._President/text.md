@@ -12,6 +12,7 @@ content:
     url_taxonomy_filters: '1'
 hero_classes: ''
 hero_image: ''
+published: false
 ---
 
 ## Nathaniel Klein

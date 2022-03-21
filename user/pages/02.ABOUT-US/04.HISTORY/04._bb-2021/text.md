@@ -21,8 +21,7 @@ Our robot for our 2021 Bunnybots.
     </thead>
   <tbody>
      <tr>
-        <td> UPDATE</td>
-        <td> Rank 13 <br/> Event Winner <br/> Entrepreneurship Award</td>
+        <td> Rank 9 <br/> </td>
       </tr>
   </tbody>
 </table>

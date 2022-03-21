@@ -1,6 +1,6 @@
 ---
 title: About
-media_order: 'Flagwave.jpg, IMG_8924.JPG, aboutus.jpg'
+media_order: 'Flagwave.jpg,IMG_8924.JPG,aboutus.jpg'
 image_align: left
 text_align: justify
 menu: About
