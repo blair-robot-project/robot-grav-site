@@ -1,6 +1,6 @@
 ---
 title: Sponsors
-media_order: 'logo-basecamp.png,porch-logo-standard.png,logo-cocacola.png,logo-convene.png,logo-emergentbiosolutions.png,logo-giant.png,logo-iai.png,logo-magnetFoundation.jpeg,logo-msbr.jpg,logo-privatin.png,logo-takomaParkFolkFestival.png,logo-lassiter.png,logo-hughes.png,logo-constellation.png,coca-cola-logo.png,emergent-biosolutions-logo.png,flag-picture-01.jpg,msbr-logo.jpg,basecamplogo.png,tpms folk festival.png,convene-logo.png,logo-hughes-original.png,basecamplogo-original.png,convene-logo-original.png,logo-cocacola-original.png,logo-emergentbiosolutions-original.png,privatinlogo.png,logo-constellation-original.png,iailogo.png,coca-cola-logo-original.png,logo-convene-original.png,logo-iai-original.png,emergent-biosolutions-logo-original.png,logo-takomaParkFolkFestival-original.png,logo-privatin-original.png,flag-picture-01-original.jpg,logo-lassiter-original.png,logo-msbr-original.jpg,logo-basecamp-original.png,porch-logo-standard-original.png,iailogo-original.png,msbr-logo-original.jpg,logo-giant-original.png,privatinlogo-original.png,BlueHalo Logo Updated.png'
+media_order: 'logo-basecamp.png,porch-logo-standard.png,logo-cocacola.png,logo-convene.png,logo-emergentbiosolutions.png,logo-giant.png,logo-iai.png,logo-magnetFoundation.jpeg,logo-msbr.jpg,logo-privatin.png,logo-takomaParkFolkFestival.png,logo-lassiter.png,logo-hughes.png,logo-constellation.png,coca-cola-logo.png,emergent-biosolutions-logo.png,flag-picture-01.jpg,msbr-logo.jpg,basecamplogo.png,tpms folk festival.png,convene-logo.png,logo-hughes-original.png,basecamplogo-original.png,convene-logo-original.png,logo-cocacola-original.png,logo-emergentbiosolutions-original.png,privatinlogo.png,logo-constellation-original.png,iailogo.png,coca-cola-logo-original.png,logo-convene-original.png,logo-iai-original.png,emergent-biosolutions-logo-original.png,logo-takomaParkFolkFestival-original.png,logo-privatin-original.png,flag-picture-01-original.jpg,logo-lassiter-original.png,logo-msbr-original.jpg,logo-basecamp-original.png,porch-logo-standard-original.png,iailogo-original.png,msbr-logo-original.jpg,logo-giant-original.png,privatinlogo-original.png,BlueHalo Logo Updated.png,Porch Updated.png'
 menu: Sponsors
 imglocation: /user/pages/01.HOME/05._sponsors/
 class: small
@@ -71,7 +71,7 @@ features:
         text: 'Team communication platform'
         url: 'https://basecamp.com'
     -
-        image: porch-logo-standard.png
+        image: 'Porch Updated.png'
         header: Porch
         text: 'In Kind Sponsor'
         url: porch.com
