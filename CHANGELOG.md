@@ -1,3 +1,63 @@
+# v1.7.36
+## 09/08/2022
+
+1. [](#new)
+    * Added `authorize-*@:` support for Flex blueprints, e.g. `authorize-disabled@: not delete` disables the field if user does not have access to delete object
+    * Added support for `flex-ignore@` to hide all the nested fields in the blueprint
+1. [](#bugfix)
+    * Fixed loggin with a capitalised email address when using old users [getgrav/grav-plugin-login#229](https://github.com/getgrav/grav-plugin-login/issues/229)
+
+# v1.7.35
+## 08/04/2022
+
+1. [](#new)
+   * Added support for `multipart/form-data` content type in PUT and PATCH requests
+   * Added support for object relationships
+   * Added variables `$environment` (string), `$request` (PSR-7 ServerRequestInterface|null) and `$uri` (PSR-7 Uri|null) to be used in `setup.php`
+1. [](#improved)
+   * Minor vendor updates
+
+# v1.7.34
+## 06/14/2022
+
+1. [](#new)
+    * Added back Yiddish to Language Codes [#3336](https://github.com/getgrav/grav/pull/3336)
+    * Ignore upcoming `media.json` file in media
+1. [](#bugfix)
+    * Regression: Fixed saving page with a new language causing cache corruption [getgrav/grav-plugin-admin#2282](https://github.com/getgrav/grav-plugin-admin/issues/2282)
+    * Fixed a potential fatal error when using watermark in images
+    * Fixed `bin/grav install` command with arbitrary destination folder name
+    * Fixed Twig `|filter()` allowing code execution
+    * Fixed login and user search by email not being case-insensitive when using Flex Users
+
+# v1.7.33
+## 04/25/2022
+
+1. [](#improved)
+    * When saving yaml and markdown, create also a cached version of the file and recompile it in opcache
+2. [](#bugfix)
+    * Fixed missing changes in **yaml** & **markdown** files if saved multiple times during the same second because of a caching issue
+    * Fixed XSS check not detecting onX events without quotes
+    * Fixed default collection ordering in pages admin
+
+# v1.7.32
+## 03/28/2022
+
+1. [](#new)
+    * Added `|replace_last(search, replace)` filter
+    * Added `parseurl` Twig function to expose PHP's `parse_url` function
+2. [](#improved)
+    * Added multi-language support for page routes in `Utils::url()`
+    * Set default maximum length for text fields
+      - `password`: 256
+      - `email`: 320
+      - `text`, `url`, `hidden`, `commalist`: 2048
+      - `text` (multiline), `textarea`: 65536
+3. [](#bugfix)
+   * Fixed issue with `system.cache.gzip: true` resulted in "Fetch Failed" for PHP 8.0.17 and PHP 8.1.4 [PHP issue #8218](https://github.com/php/php-src/issues/8218)
+   * Fix for multi-lang issues with Security Report
+   * Fixed page search not working with selected language [#3316](https://github.com/getgrav/grav/issues/3316)
+
 # v1.7.31
 ## 03/14/2022
 

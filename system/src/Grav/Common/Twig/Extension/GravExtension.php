@@ -9,6 +9,7 @@
 
 namespace Grav\Common\Twig\Extension;
 
+use CallbackFilterIterator;
 use Cron\CronExpression;
 use Grav\Common\Config\Config;
 use Grav\Common\Data\Data;
@@ -41,6 +42,7 @@ use JsonSerializable;
 use RocketTheme\Toolbox\ResourceLocator\UniformResourceLocator;
 use Traversable;
 use Twig\Environment;
+use Twig\Error\RuntimeError;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
 use Twig\Loader\FilesystemLoader;
@@ -145,6 +147,7 @@ class GravExtension extends AbstractExtension implements GlobalsInterface
             new TwigFilter('yaml_encode', [$this, 'yamlEncodeFilter']),
             new TwigFilter('yaml_decode', [$this, 'yamlDecodeFilter']),
             new TwigFilter('nicecron', [$this, 'niceCronFilter']),
+            new TwigFilter('replace_last', [$this, 'replaceLastFilter']),
 
             // Translations
             new TwigFilter('t', [$this, 'translate'], ['needs_environment' => true]),
@@ -166,6 +169,9 @@ class GravExtension extends AbstractExtension implements GlobalsInterface
             // PHP methods
             new TwigFilter('count', 'count'),
             new TwigFilter('array_diff', 'array_diff'),
+
+            // Security fix
+            new TwigFilter('filter', [$this, 'filterFilter'], ['needs_environment' => true]),
         ];
     }
 
@@ -194,6 +200,7 @@ class GravExtension extends AbstractExtension implements GlobalsInterface
             new TwigFunction('gist', [$this, 'gistFunc']),
             new TwigFunction('nonce_field', [$this, 'nonceFieldFunc']),
             new TwigFunction('pathinfo', 'pathinfo'),
+            new TwigFunction('parseurl', 'parse_url'),
             new TwigFunction('random_string', [$this, 'randomStringFunc']),
             new TwigFunction('repeat', [$this, 'repeatFunc']),
             new TwigFunction('regex_replace', [$this, 'regexReplace']),
@@ -545,6 +552,21 @@ class GravExtension extends AbstractExtension implements GlobalsInterface
     {
         $cron = new Cron($at);
         return $cron->getText('en');
+    }
+
+    /**
+     * @param string|mixed $str
+     * @param string $search
+     * @param string $replace
+     * @return string|mixed
+     */
+    public function replaceLastFilter($str, $search, $replace)
+    {
+        if (is_string($str) && ($pos = mb_strrpos($str, $search)) !== false) {
+            $str = mb_substr($str, 0, $pos) . $replace . mb_substr($str, $pos + mb_strlen($search));
+        }
+
+        return $str;
     }
 
     /**
@@ -1658,5 +1680,21 @@ class GravExtension extends AbstractExtension implements GlobalsInterface
             case 'string':
                 return is_string($var);
         }
+    }
+
+    /**
+     * @param Environment $env
+     * @param array $array
+     * @param callable|string $arrow
+     * @return array|CallbackFilterIterator
+     * @throws RuntimeError
+     */
+    function filterFilter(Environment $env, $array, $arrow)
+    {
+        if (is_string($arrow) && Utils::isDangerousFunction($arrow)) {
+            throw new RuntimeError('Twig |filter("' . $arrow . '") is not allowed.');
+        }
+
+        return twig_array_filter($env, $array, $arrow);
     }
 }

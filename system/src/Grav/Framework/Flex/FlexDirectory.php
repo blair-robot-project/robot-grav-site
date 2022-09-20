@@ -171,6 +171,44 @@ class FlexDirectory implements FlexDirectoryInterface
     }
 
     /**
+     * @param string|string[]|null $properties
+     * @return array
+     */
+    public function getSearchProperties($properties = null): array
+    {
+        if (null !== $properties) {
+            return (array)$properties;
+        }
+
+        $properties = $this->getConfig('data.search.fields');
+        if (!$properties) {
+            $fields = $this->getConfig('admin.views.list.fields') ?? $this->getConfig('admin.list.fields', []);
+            foreach ($fields as $property => $value) {
+                if (!empty($value['link'])) {
+                    $properties[] = $property;
+                }
+            }
+        }
+
+        return $properties;
+    }
+
+    /**
+     * @param array|null $options
+     * @return array
+     */
+    public function getSearchOptions(array $options = null): array
+    {
+        if (empty($options['merge'])) {
+            return $options ?? (array)$this->getConfig('data.search.options');
+        }
+
+        unset($options['merge']);
+
+        return $options + (array)$this->getConfig('data.search.options');
+    }
+
+    /**
      * @param string|null $name
      * @param array $options
      * @return FlexFormInterface
@@ -750,6 +788,7 @@ class FlexDirectory implements FlexDirectoryInterface
     public function reloadIndex(): void
     {
         $this->getCache('index')->clear();
+        $this->getIndex()::loadEntriesFromStorage($this->getStorage());
 
         $this->indexes = [];
         $this->objects = [];
@@ -796,6 +835,9 @@ class FlexDirectory implements FlexDirectoryInterface
             });
             $blueprint->addDynamicHandler('flex', function (array &$field, $property, array &$call) {
                 $this->dynamicFlexField($field, $property, $call);
+            });
+            $blueprint->addDynamicHandler('authorize', function (array &$field, $property, array &$call) {
+                $this->dynamicAuthorizeField($field, $property, $call);
             });
 
             if ($context) {
@@ -878,6 +920,40 @@ class FlexDirectory implements FlexDirectoryInterface
             if (is_array($value) && isset($field[$property]) && is_array($field[$property])) {
                 $value = $this->mergeArrays($field[$property], $value);
             }
+            $value = $not ? !$value : $value;
+
+            if ($property === 'ignore' && $value) {
+                Blueprint::addPropertyRecursive($field, 'validate', ['ignore' => true]);
+            } else {
+                $field[$property] = $value;
+            }
+        }
+    }
+
+    /**
+     * @param array $field
+     * @param string $property
+     * @param array $call
+     * @return void
+     */
+    protected function dynamicAuthorizeField(array &$field, $property, array $call): void
+    {
+        $params = (array)$call['params'];
+        $object = $call['object'] ?? null;
+        $permission = array_shift($params);
+        $not = false;
+        if (str_starts_with($permission, '!')) {
+            $permission = substr($permission, 1);
+            $not = true;
+        } elseif (str_starts_with($permission, 'not ')) {
+            $permission = substr($permission, 4);
+            $not = true;
+        }
+        $permission = trim($permission);
+
+        if ($object) {
+            $value = $object->isAuthorized($permission) ?? false;
+
             $field[$property] = $not ? !$value : $value;
         }
     }
