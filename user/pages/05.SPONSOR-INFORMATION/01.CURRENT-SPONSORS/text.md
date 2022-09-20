@@ -5,5 +5,5 @@ published: false
 media_order: logo-emergentbiosolutions.png
 ---
 
-###Emergent BioSolutions
+### Emergent BioSolutions
 Gold Sponsor
