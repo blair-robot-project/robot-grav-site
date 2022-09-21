@@ -1,11 +1,10 @@
 ---
-title: Leadership
-media_order: UL-backs.jpg
-menu: Leadership
+title: leadershiphero
+body_classes: modular
 arrow: arrow
+media_order: ULbacksandakiva.jpg
 hero_classes: 'text-light hero-fullscreen overlay-dark'
-hero_image: UL-backs.jpg
-published: true
+hero_image: ULbacksandakiva.jpg
 ---
 
-# **Leadership**
+#**Leadership**

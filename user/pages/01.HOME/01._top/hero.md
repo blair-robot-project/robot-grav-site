@@ -3,7 +3,7 @@ title: _home
 menu: Home
 arrow: noarrow
 hero_classes: 'parallax text-light overlay-dark-gradient'
-hero_image: header.jpg
+hero_image: banner.png
 ---
 
 #**The Blair Robot Project**
