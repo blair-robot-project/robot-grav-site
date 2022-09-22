@@ -1,12 +1,12 @@
-
 ---
 title: About
 image_align: left
 text_align: justify
 menu: About
+media_order: 'Team picture 1.jpg,_MG_0216_Original.jpg'
 ---
 
-## **About** Our Team
+## About Our Team
 
 Our mission is to expose our members to complex problems in order to promote
 personal and intellectual growth by building a well-designed robot.

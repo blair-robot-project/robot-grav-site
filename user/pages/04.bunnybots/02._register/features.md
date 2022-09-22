@@ -2,13 +2,16 @@
 title: register
 class: small
 text_align: center
-published: false
+published: true
 ---
 
 # Bunnybots Registration
-### Registration for Bunnybots 2021 is [now open](https://forms.gle/dSWwUY1UCAP6ymSW8)! 
-#### Sign up is open until October 1<sup>st</sup>
+### Registration for Bunnybots 2022 is [now open](https://tinyurl.com/bunnybots2022)! 
+#### Sign up is open until November 6<sup>th</sup>
 
 # Volunteer Registration
-### Volunteer Registration for Bunnybots 2019 is [now open](https://forms.gle/Dddj3nSnkkdG1kKE8)!
-#### Sign up is open until November 1<sup>st</sup>
+### Volunteer Registration for Bunnybots 2022 is [now open](https://tinyurl.com/bunnybotsvolunteer22)!
+#### Sign up is open until November 6<sup>th</sup>
+
+# Game Manual
+### Game manual is [now up](https://tinyurl.com/bunnybots2022gamemanual)!
