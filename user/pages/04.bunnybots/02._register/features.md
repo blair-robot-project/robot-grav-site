@@ -15,3 +15,5 @@ published: true
 
 # Game Manual
 ### Game manual is [now up](https://tinyurl.com/bunnybots2022gamemanual)!
+
+## [Bunnybots 2022 Schedule](https://docs.google.com/document/d/1YI8nCFlCuEckbXpCSj9KAw5BrsaV9gXBQuZjZMO26PM/edit?usp=sharing)
