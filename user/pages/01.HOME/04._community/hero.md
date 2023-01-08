@@ -3,8 +3,9 @@ title: Community
 menu: Community
 arrow: noarrow
 hero_classes: 'parallax text-light overlay-dark-gradient'
-hero_image: bunnybotsWidePose2018.jpg
 hero_inline: 'true'
+hero_image: 'Bunnybot participants.png'
+media_order: 'Bunnybot participants.png'
 ---
 
 ## **Community**
