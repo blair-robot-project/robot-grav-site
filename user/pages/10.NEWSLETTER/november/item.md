@@ -1,3 +1,4 @@
+---
 title: 'November Newsletter!'
 published: true
 taxonomy:

@@ -1,3 +1,4 @@
+---
 title: 'December Newsletter!'
 published: true
 taxonomy:
@@ -17,7 +18,7 @@ content:
 
 Hi everyone!
 
-We hope you enjoy reading our December newsletter:(December Newsletter)[https://tinyurl.com/449decembernewsletter]! 
+We hope you enjoy reading our December newsletter: [December Newsletter](https://tinyurl.com/449decembernewsletter)! 
 
 Please let us know what you think. 
 

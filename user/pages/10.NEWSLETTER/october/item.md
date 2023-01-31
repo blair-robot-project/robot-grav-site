@@ -21,6 +21,6 @@ Hello everyone!
 
 Welcome to FRC Team 449's October (and first!) edition of our monthly newsletter! Through our newsletters, we hope to update our alumni, 449 parents, mentors, team members, and interested community members on our projects.
 
-We hope you enjoy reading: [https://tinyurl.com/449octobernewsletter](https://tinyurl.com/449octobernewsletter)!
+We hope you enjoy reading: [October Newsletter](https://tinyurl.com/449octobernewsletter)!
 
 Please let us know what you think!
