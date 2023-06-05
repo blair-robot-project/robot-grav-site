@@ -3,7 +3,8 @@ title: 'Past Presidents'
 body_classes: modular
 class: small
 arrow: noarrow
-image_align: left
+image_align: right
+media_order: '_MG_7947 (2).jpg,_MG_0606 (2).jpg'
 ---
 
 ## Past Presidents
