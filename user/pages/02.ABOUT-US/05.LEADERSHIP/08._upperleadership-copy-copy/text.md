@@ -4,10 +4,14 @@ body_classes: modular
 class: small
 arrow: noarrow
 image_align: right
-media_order: '_MG_7947 (2).jpg,_MG_0606 (2).jpg'
+media_order: 'Team picture 2022.jpg,_MG_7947 (2).jpg'
 ---
 
 ## Past Presidents
+* **2012-2013** Sagarika Das
+* **2013-2014** Alex Epstein
+* **2014-2015** Harrison Zheng
+* **2015-2016** Karina Chang 
 * **2016-2017** Urjita Das
 * **2017-2018** Laura Espinoza
 * **2018-2019** Rye Gleason
