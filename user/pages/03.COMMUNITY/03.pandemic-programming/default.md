@@ -13,6 +13,7 @@ content:
 ---
 
 ![Screen%20Shot%202022-05-21%20at%203.27.41%20PM](Screen%20Shot%202022-05-21%20at%203.27.41%20PM.png "Screen%20Shot%202022-05-21%20at%203.27.41%20PM")
+
 ## FRC Team 449, The Blair Robot Project, presents to you PANDEMIC PROGRAMMING!
 
 **What is Pandemic Programming? Who are the organizers?**
@@ -36,19 +37,19 @@ What prior knowledge should I have to take these classes?
 The grade levels indicated are recommendations. If you want to discuss what is best for you/your child, send us an email at blair.robot@gmail.com.
 
 Important Dates:
-* Opening Ceremony: July 8th from 6 PM to 7 PM
-* First Day of Classes: July 9th and July 10th (based on if you have class on Saturdays or Sundays)
-* Last Day of Classes: September 10th and 11th (based on if you have class on Saturdays or Sundays)
-* Closing Ceremony (demonstration of final projects): September 11th 6 PM to 7 PM
+* Opening Ceremony: July 7th from 6 PM to 7 PM
+* First Day of Classes: July 8th and July 9th (based on if you have class on Saturdays or Sundays)
+* Last Day of Classes: September 9th and 10th (based on if you have class on Saturdays or Sundays)
+* Closing Ceremony (demonstration of final projects): September 10th 6:30 PM to 7:30 PM
 
 Class Timings:
-* Scratch - SUNDAYS 1:00 to 2:00
-* Python - SATURDAYS 3:30 to 5:00
-* Java - SATURDAYS 1:00 to 2:30
+* Scratch - SATURDAYS 5:00 to 6:00 PM
+* Python - SUNDAYS 5:00 to 6:30 PM
+* Java - SATURDAYS 3:00 to 4:30 PM
 
 Are classes FREE?
 Our classes are absolutely FREE!! We just ask for your full commitment to our program; this includes, but is not limited to, consistent attendance (with a 24 hour notice before a predicted absence), completion of coursework, communication if additional support is needed.
 All softwares included in classes are free of cost as well.
 
-Registration Link: [https://tinyurl.com/PANDEMICPROGRAMMING22](https://tinyurl.com/PANDEMICPROGRAMMING22)
+Registration Link: [https://tinyurl.com/PANDEMICPROGRAMMING23](https://tinyurl.com/PANDEMICPROGRAMMING23)
 
