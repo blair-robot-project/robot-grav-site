@@ -1,5 +1,7 @@
 ---
 title: 'FLL Team: The Blair LEGO Project'
+media_order: 64F957F2-65EA-4B9C-B35A-6A4840B4A736.jpg
+published: false
 ---
 
 ## <center>The Blair LEGO Project </center>

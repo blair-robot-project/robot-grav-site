@@ -1,6 +1,7 @@
 ---
 title: 'Community Events'
 image_align: right
+media_order: 'makerFaire.png,mkpcSciExpo2018-original.jpg'
 ---
 
 ##Community Events

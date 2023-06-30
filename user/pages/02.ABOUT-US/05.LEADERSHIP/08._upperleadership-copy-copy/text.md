@@ -7,7 +7,8 @@ image_align: right
 media_order: 'Team picture 2022.jpg,_MG_7947 (2).jpg'
 ---
 
-## Past Presidents
+# **Past Presidents**
+##
 * **2007-2008** Katherine Bertaut
 * **2008-2009** Ben Shaya
 * **2009-2010** Ben Shaya
