@@ -3,7 +3,7 @@ title: President
 media_order: Sean.jpeg
 image_align: left
 size: small
-published: true
+published: false
 ---
 
 ## Sean Li

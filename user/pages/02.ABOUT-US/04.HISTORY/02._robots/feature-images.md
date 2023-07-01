@@ -1,22 +1,37 @@
 ---
 title: _robots
-media_order: 'flag-picture-01.jpg,ROUS.jpg,calcifer.jpg,navi.jpg,totedile.jpg,2004.jpg,2002.jpg,2003.png,2007.png,scissorhands.jpg,archie.jpg,2001.jpg,caspian.jpg,Aguhn.jpg,bowser.jpg,panda.jpg,ballbasaur.jpg,labo.jpg,legasus.jpg'
+media_order: 'flag-picture-01.jpg,ROUS.jpg,calcifer.jpg,navi.jpg,totedile.jpg,2004.jpg,2002.jpg,2003.png,2007.png,scissorhands.jpg,archie.jpg,2001.jpg,caspian.jpg,Aguhn.jpg,bowser.jpg,panda.jpg,ballbasaur.jpg,labo.jpg,legasus.jpg,scissorhands-original.jpg,download (1).png,2004-original.jpg,totedile-original.jpg,legasus-original.jpg,_MG_7593 (3).JPG,navi-original.jpg,bowser-original.jpg,ballbasaur-original.jpg,panda-original.jpg,Aguhn-original.jpg,2002-original.jpg,flag-picture-01-original.jpg,archie-original.jpg,caspian-original.jpg,2001-original.jpg,labo-original.jpg,calcifer-original.jpg,ROUS-original.jpg,hyacinth (1).jpg,pebbles (1).jpg,atlas.jpg,2020 bunnybot.jpg,cinnabun.jpg,voyager.jpg'
 menu: Robots
 imglocation: /user/pages/02.ABOUT-US/04.HISTORY/02._robots/
 class: small
 features:
     -
-        image: flag-picture-01.jpg
+        image: voyager.jpg
+        header: Voyager
+        text: 'FRC 2023'
+        url: null
+    -
+        image: cinnabun.jpg
+        header: Cinnabun
+        text: 'Bunnybots 2022'
+        url: null
+    -
+        image: 'hyacinth (1).jpg'
         header: Hyacinth
         text: 'FRC 2022'
         url: 'history#frc-2022'
     -
-        image: flag-picture-01.jpg
+        image: 'pebbles (1).jpg'
         header: Pebbles
         text: 'Bunnybots 2021'
         url: 'history#bb-2021'
     -
-        image: flag-picture-01.jpg
+        image: '2020 bunnybot.jpg'
+        header: '?'
+        text: 'Bunnybots 2020'
+        url: null
+    -
+        image: atlas.jpg
         header: Atlas
         text: 'FRC 2020'
         url: 'history#frc-2020'

@@ -3,7 +3,7 @@ title: VPComms
 media_order: 423E2449-EA93-4BC9-A2AE-46E4DF977799.jpg
 image_align: right
 size: small
-published: true
+published: false
 ---
 
 ## Shivani Nanda

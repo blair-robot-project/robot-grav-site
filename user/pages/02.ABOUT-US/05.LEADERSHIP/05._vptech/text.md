@@ -4,7 +4,7 @@ media_order: Elizabeth.jpeg
 image_align: left
 content:
     items: '@self.modular'
-published: true
+published: false
 ---
 
 ## Elizabeth Chu
