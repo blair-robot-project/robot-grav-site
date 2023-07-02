@@ -135,6 +135,7 @@ features:
         header: '2000'
         text: 'FRC 2000'
         url: 'history#frc-2000'
+published: false
 ---
 
 ## Our Robots

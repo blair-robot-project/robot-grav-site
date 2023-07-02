@@ -1,30 +1,31 @@
 ---
 title: 'Upper Leadership'
-menu: Mentors
-imglocation: /user/pages/02.ABOUT-US/06.MENTORS/02._features/
+menu: 'Upper Leadership'
+imglocation: /user/pages/02.ABOUT-US/05.LEADERSHIP/07._features-copy/
 class: small
 features:
     -
-        image: null
+        image: PXL_20230422_224724049.PORTRAIT.jpg
         header: 'Akiva Rosenzweig'
         text: 'President </br> Joined 2020'
         url: null
     -
-        image: null
+        image: nathan.jpg
         header: 'Nathan Gehl'
         text: 'Vice President of Communications </br> Joined 2020'
         url: null
     -
-        image: null
+        image: blank.jpg
         header: 'Reed Swearingen'
         text: 'Vice President of Technology </br> Joined 2021'
         url: null
     -
-        image: null
+        image: blank.jpg
         header: 'Matthew Nam'
         text: 'Vice President of Finance </br> Joined 2021'
         url: null
 published: true
+media_order: 'PXL_20230422_224724049.PORTRAIT.jpg,blank.jpg,nathan.jpg'
 ---
 
 ## Upper Leadership

@@ -1,8 +1,8 @@
 ---
 title: _home
 menu: Home
-arrow: noarrow
-hero_classes: 'parallax text-light overlay-dark-gradient'
+arrow: arrow
+hero_classes: 'parallax text-light overlay-dark-gradient hero-fullscreen'
 hero_image: banner.png
 ---
 

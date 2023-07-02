@@ -5,6 +5,7 @@ class: small
 arrow: noarrow
 image_align: right
 media_order: 'Team picture 2022.jpg,_MG_7947 (2).jpg'
+published: false
 ---
 
 # **Past Presidents**

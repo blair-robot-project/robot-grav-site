@@ -1,7 +1,7 @@
 ---
 title: frc-2022
 image_align: right
-published: true
+published: false
 ---
 
 ##Hyacinth

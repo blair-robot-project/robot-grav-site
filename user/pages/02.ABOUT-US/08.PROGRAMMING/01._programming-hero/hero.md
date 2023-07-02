@@ -1,8 +1,8 @@
 ---
 title: Programming-hero
 media_order: intellij-screenshot.png
-arrow: arrow
-hero_classes: text-light
+arrow: noarrow
+hero_classes: 'overlay-dark-gradient text-light hero-large parallax'
 ---
 
 # **Programming**
