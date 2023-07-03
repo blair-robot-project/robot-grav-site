@@ -1,6 +1,6 @@
 ---
 title: Mentors
-media_order: 'Davis.jpg,mentor_bertaut.jpg,mentor_mcglade.jpg,mentor_gordon.jpg,mentor_rabinovich.jpg,mentor_eli.JPG,mentor_temkin.jpg,mentor_van_albert.jpg,mentor_ehrenstein.jpg,mentor_caitlin.jpg,mentor_pedersen.jpg,mentor_koslow.jpg,mentor_sam.jpg,mentor_tim.jpg,kedei-new.jpg,szabo.jpg,Chang.png,Yoni.jpeg,Yonaba.jpg,HJiang.jpg,blank.jpg'
+media_order: 'Davis.jpg,mentor_bertaut.jpg,mentor_mcglade.jpg,mentor_gordon.jpg,mentor_rabinovich.jpg,mentor_eli.JPG,mentor_temkin.jpg,mentor_van_albert.jpg,mentor_ehrenstein.jpg,mentor_caitlin.jpg,mentor_pedersen.jpg,mentor_koslow.jpg,mentor_sam.jpg,mentor_tim.jpg,kedei-new.jpg,szabo.jpg,Chang.png,Yoni.jpeg,Yonaba.jpg,HJiang.jpg,blank.jpg,james.jpg,rafi.jpg,tina.jpg,mark.jpg,mark2.png'
 menu: Mentors
 imglocation: /user/pages/02.ABOUT-US/06.MENTORS/02._features/
 class: small
@@ -96,7 +96,7 @@ features:
         text: 'Alum & Technical Mentor </br> Joined 2016'
         url: null
     -
-        image: blank.jpg
+        image: rafi.jpg
         header: 'Rafi Pedersen'
         text: 'Alum & Technical Mentor </br> Joined 20??'
         url: null
@@ -106,19 +106,19 @@ features:
         text: 'Alum & Technical Mentor </br> Joined 2017'
         url: null
     -
-        image: blank.jpg
+        image: james.jpg
+        header: 'James Pham'
+        text: 'Alum & Technical Mentor </br> Joined 20??'
+        url: null
+    -
+        image: mark2.png
         header: 'Mark Miranda'
         text: 'Technical Mentor </br> Joined 20??'
         url: null
     -
-        image: blank.jpg
+        image: tina.jpg
         header: 'Tina Miranda'
         text: 'Technical Mentor </br> Joined 20??'
-        url: null
-    -
-        image: blank.jpg
-        header: 'James Pham'
-        text: 'Alum & Technical Mentor </br> Joined 20??'
         url: null
 ---
 
