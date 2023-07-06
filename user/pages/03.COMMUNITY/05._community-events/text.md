@@ -21,5 +21,5 @@ We make regular appearances at the following events:
 * Females in Science and Technology Conference  
 
 We advocate for robotics legislature and STEM education with:  
-* MoCoFIRST 
+* MocoRobo
 * National Advocacy Conference

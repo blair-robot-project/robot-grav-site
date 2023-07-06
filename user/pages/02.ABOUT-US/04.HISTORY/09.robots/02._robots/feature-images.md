@@ -31,15 +31,15 @@ features:
         text: 'Bunnybots 2021'
         url: 'history#bb-2021'
     -
-        image: '2020 bunnybot.jpg'
-        header: '?'
-        text: 'Bunnybots 2020'
-        url: null
-    -
         image: atlas.jpg
         header: Atlas
         text: 'FRC 2020'
         url: 'history#frc-2020'
+    -
+        image: '2020 bunnybot.jpg'
+        header: Claude
+        text: 'Bunnybots 2019'
+        url: null
     -
         image: legasus.jpg
         header: Legasus
