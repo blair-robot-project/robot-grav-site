@@ -9,4 +9,4 @@ media_order: _MG_7505.jpg
 
 # **Bunnybots**
 
-### Hosted at Montgomery Blair High School, December 10th, 2022
+### Hosted at Montgomery Blair High School, December 16th, 2023
