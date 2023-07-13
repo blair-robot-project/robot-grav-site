@@ -7,6 +7,6 @@ arrow: arrow
 media_order: _MG_7505.jpg
 ---
 
-# **Bunnybots**
+# **Blair Bunnybots**
 
 ### Hosted at Montgomery Blair High School, December 16th, 2023

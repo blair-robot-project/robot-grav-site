@@ -63,11 +63,16 @@ features:
     -
         image: blank.jpg
         header: 'Sagarika Das'
-        text: 2011-2013
+        text: 2012-2013
         url: null
     -
         image: blank.jpg
-        header: '?'
+        header: 'Eric Huang'
+        text: 2011-2012
+        url: null
+    -
+        image: blank.jpg
+        header: 'Aaron Tucker'
         text: 2010-2011
         url: null
     -
