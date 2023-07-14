@@ -37,7 +37,6 @@ What prior knowledge should I have to take these classes?
 The grade levels indicated are recommendations. If you want to discuss what is best for you/your child, send us an email at blair.robot@gmail.com.
 
 Important Dates:
-* Opening Ceremony: July 14th from 6 PM to 7 PM
 * First Day of Classes: July 15th and July 16th (based on if you have class on Saturdays or Sundays)
 * Last Day of Classes: September 16th and 17th (based on if you have class on Saturdays or Sundays)
 * Closing Ceremony (demonstration of final projects): September 17th 6:30 PM to 7:30 PM
