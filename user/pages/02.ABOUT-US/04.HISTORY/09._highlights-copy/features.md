@@ -15,9 +15,9 @@ features:
         url: /about-us/history/notable-449-members
     -
         icon: 'fa fa-pencil-square-o'
-        header: 'T-Shirts (Coming Soon!)'
+        header: 'T-Shirt Designs'
         text: 'See our student-created t-shirt art from every year.'
-        url: null
+        url: /about-us/history/t-shirt-designs
 image_align: left
 text_align: center
 published: true
