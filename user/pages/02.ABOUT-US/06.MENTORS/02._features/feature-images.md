@@ -120,5 +120,10 @@ features:
         header: 'Tina Miranda'
         text: 'Technical Mentor </br> Joined 20??'
         url: null
+    -
+        image: blank.png
+        header: null
+        text: null
+        url: null
 ---
 
