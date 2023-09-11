@@ -15,7 +15,7 @@ image_align: left
 #### Sign up is open until November 4<sup>th</sup>
 
 # **Game Manual**
-### Game manual is <u>coming September 11</u>!
+### Game manual is [out](https://docs.google.com/document/d/1OtVUJ3cwBjjSRfQvrFDM4mu5tYW5kNEiKQE-vzLtY2A/edit?usp=sharing)!
 
 ## [Bunnybots 2023 Schedule](https://docs.google.com/document/d/1axW6Y_WmsrgSJ8pNxNLGLyLCSw-21vPZmiJ03NX5nUY/edit?usp=sharing)
 # 
