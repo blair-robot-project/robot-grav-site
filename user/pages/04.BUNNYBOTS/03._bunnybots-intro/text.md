@@ -5,7 +5,7 @@ image_align: right
 media_order: 'preparing for a match.jpeg,_MG_7353.jpeg'
 ---
 
-## What is Bunnybots?
+## What is Blair Bunnybots?
 
 Modeled after FRC Team 1540's popular event, Bunnybots consists of a three-and-a-half month long "build season" in the fall. Bunnybots is an excellent opportunity for new team members to gain the skills needed to build an FRC-style robot. During the competition, they get the chance to show off their work and have some fun with an event designed just for them. 
 
