@@ -20,9 +20,10 @@ image_align: left
 ## [Blair Bunnybots 2023 Schedule](https://docs.google.com/document/d/1axW6Y_WmsrgSJ8pNxNLGLyLCSw-21vPZmiJ03NX5nUY/edit?usp=sharing)
 # 
 ---
-## **2023 Participating Teams** <br> (12/16 robot slots filled!)
+## **2023 Participating Teams** <br> (13/16 robot slots filled!)
 FRC 9072 - TigerBots - 1 Robot <br>
 FRC 8592 - Newton<sup>2</sup> - 1 Robot <br>
+FRC 8197 - Air Tigers - 1 Robot <br>
 FRC 6882 - Fahrenheit Robotics - 1 Robot <br>
 FRC 5841 - Patriots - 1 Robot <br>
 FRC 5587 - Titan Robotics - 1 Robot <br>
