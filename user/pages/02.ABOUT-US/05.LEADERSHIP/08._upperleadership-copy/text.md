@@ -6,7 +6,7 @@ image_align: left
 published: true
 ---
 
-## <center> Subteam Leadership </center>
+## <center> Lower Leadership </center>
 
 ##### These 8 leaders of our team represent our 4 subteams: Business, Programming, Electronics, and Mechanics.
 * Business: Aryan Agarwal and Daniel Li

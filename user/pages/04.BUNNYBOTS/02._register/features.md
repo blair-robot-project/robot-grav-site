@@ -7,12 +7,11 @@ image_align: left
 ---
 
 # **Blair Bunnybots Registration**
-### Registration for Blair Bunnybots 2023 is [open](https://forms.gle/P6CBCiAryC2MGoY89)! 
+### Registration for Blair Bunnybots 2023 is closed.
 #### Registration is open until November 4<sup>th</sup> for $250 a robot </br> Early registration is open until September 1<sup>st</sup> for $225 a robot
 
 # **Volunteer Registration**
 ### Volunteer Registration for Blair Bunnybots 2023 is [open](https://forms.gle/R48FA1F24YnmYgHE6)!
-#### Sign up is open until November 4<sup>th</sup>
 
 # **Game Manual**
 ### Game manual is [out](https://docs.google.com/document/d/1OtVUJ3cwBjjSRfQvrFDM4mu5tYW5kNEiKQE-vzLtY2A/edit?usp=sharing)!
@@ -20,7 +19,7 @@ image_align: left
 ## [Blair Bunnybots 2023 Schedule](https://docs.google.com/document/d/1axW6Y_WmsrgSJ8pNxNLGLyLCSw-21vPZmiJ03NX5nUY/edit?usp=sharing)
 # 
 ---
-## **2023 Participating Teams** <br> (14/16 robot slots filled!)
+## **2023 Participating Teams** <br> 
 FRC 9072 - TigerBots - 1 Robot <br>
 FRC 8592 - Newton<sup>2</sup> - 1 Robot <br>
 FRC 8197 - Air Tigers - 1 Robot <br>
