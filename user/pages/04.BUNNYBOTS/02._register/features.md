@@ -16,7 +16,8 @@ image_align: left
 # **Game Manual**
 ### Game manual is [out](https://docs.google.com/document/d/1OtVUJ3cwBjjSRfQvrFDM4mu5tYW5kNEiKQE-vzLtY2A/edit?usp=sharing)!
 
-## [Blair Bunnybots 2023 Schedule](https://docs.google.com/document/d/1axW6Y_WmsrgSJ8pNxNLGLyLCSw-21vPZmiJ03NX5nUY/edit?usp=sharing)
+## [Blair Bunnybots 2023 Schedule](https://docs.google.com/document/d/1axW6Y_WmsrgSJ8pNxNLGLyLCSw-21vPZmiJ03NX5nUY/edit?usp=sharing) </br> [Blair Bunnybots Navigation Guide 2023](https://docs.google.com/document/d/1A1sW-ku0OS3QPzZ2FyajMLzmF1sdo3C0SFL48GhGnrM/edit?usp=sharing)
+
 # 
 ---
 ## **2023 Participating Teams** <br> 
