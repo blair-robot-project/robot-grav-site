@@ -25,7 +25,7 @@ features:
         text: 'Vice President of Finance </br> Joined 2021'
         url: null
 published: true
-media_order: 'PXL_20230422_224724049.PORTRAIT.jpg,blank.jpg,nathan.jpg,matthew.jpg,reed2.png'
+media_order: 'PXL_20230422_224724049.PORTRAIT.jpg,blank.jpg,nathan.jpg,matthew.jpg,reed2.png,2024 team photo (7).png'
 ---
 
 ## Upper Leadership

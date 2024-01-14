@@ -11,7 +11,7 @@ image_align: left
 #### Registration is open until November 4<sup>th</sup> for $250 a robot </br> Early registration is open until September 1<sup>st</sup> for $225 a robot
 
 # **Volunteer Registration**
-### Volunteer Registration for Blair Bunnybots 2023 is [open](https://forms.gle/R48FA1F24YnmYgHE6)!
+### Volunteer Registration for Blair Bunnybots 2023 is closed.
 
 # **Game Manual**
 ### Game manual is [out](https://docs.google.com/document/d/1OtVUJ3cwBjjSRfQvrFDM4mu5tYW5kNEiKQE-vzLtY2A/edit?usp=sharing)!

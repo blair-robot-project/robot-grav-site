@@ -3,7 +3,7 @@ title: About
 image_align: left
 text_align: justify
 menu: About
-media_order: '_MG_7922 (2).JPG,_MG_0216_Original.jpg'
+media_order: '2024 team photo (2).png,_MG_0216_Original.jpg'
 ---
 
 ## About Our Team

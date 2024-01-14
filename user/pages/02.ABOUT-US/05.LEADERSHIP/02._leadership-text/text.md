@@ -1,6 +1,6 @@
 ---
 title: Leadership-text
-media_order: IMG_4378.JPG
+media_order: '2024 team photo (6).png'
 image_align: right
 ---
 
