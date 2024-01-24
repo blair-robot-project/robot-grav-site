@@ -9,4 +9,4 @@ hero_image: IMG_6908.jpg
 published: true
 ---
 
-# **Notable 449 Members**
+# **449 Members of Note**
