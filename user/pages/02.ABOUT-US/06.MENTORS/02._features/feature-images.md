@@ -8,7 +8,7 @@ features:
     -
         image: Davis.jpg
         header: 'John Davis'
-        text: 'Teacher Sponsor </br> Joined 20??'
+        text: 'Teacher Sponsor </br> Joined 2014'
         url: null
     -
         image: mentor_bertaut.jpg
@@ -18,7 +18,7 @@ features:
     -
         image: kedei-new.jpg
         header: 'Noemi Kedei'
-        text: 'Head Non-Technical Mentor </br> Joined 20??'
+        text: 'Head Non-Technical Mentor </br> Joined 2011'
         url: null
     -
         image: mentor_van_albert.jpg
@@ -28,7 +28,7 @@ features:
     -
         image: mentor_mcglade.jpg
         header: 'Patrick McGlade'
-        text: 'Technical Mentor </br> Joined 20??'
+        text: 'Technical Mentor </br> Joined 2013'
         url: null
     -
         image: mentor_gordon.jpg
@@ -43,7 +43,7 @@ features:
     -
         image: mentor_rabinovich.jpg
         header: 'Will Rabinovich'
-        text: 'Technical Mentor </br> Joined 20??'
+        text: 'Technical Mentor </br> Joined 2013'
         url: null
     -
         image: mentor_eli.JPG
@@ -73,7 +73,7 @@ features:
     -
         image: mentor_temkin.jpg
         header: 'Phil Temkin'
-        text: 'Technical Mentor </br> Joined 20??'
+        text: 'Technical Mentor </br> Joined 2008'
         url: null
     -
         image: Chang.png
