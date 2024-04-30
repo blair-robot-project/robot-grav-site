@@ -3,7 +3,7 @@
 /**
  * @package    Grav\Common
  *
- * @copyright  Copyright (c) 2015 - 2022 Trilby Media, LLC. All rights reserved.
+ * @copyright  Copyright (c) 2015 - 2024 Trilby Media, LLC. All rights reserved.
  * @license    MIT License; see LICENSE file for details.
  */
 
@@ -268,7 +268,13 @@ class Assets extends PropertyObject
         }
 
         // Add timestamp
-        $options['timestamp'] = $this->timestamp;
+        $timestamp_override = $options['timestamp'] ?? true;
+
+        if (filter_var($timestamp_override, FILTER_VALIDATE_BOOLEAN)) {
+            $options['timestamp'] = $this->timestamp;
+        } else {
+            $options['timestamp'] = null;
+        }
 
         // Set order
         $group = $options['group'] ?? 'head';
@@ -392,6 +398,9 @@ class Assets extends PropertyObject
 
             if ($key === 'position' && $value === 'pipeline') {
                 $type = $asset->getType();
+                if ($type === 'jsmodule') {
+                    $type = 'js_module';
+                }
 
                 if ($asset->getRemote() && $this->{strtolower($type) . '_pipeline_include_externals'} === false && $asset['position'] === 'pipeline') {
                     if ($this->{strtolower($type) . '_pipeline_before_excludes'}) {

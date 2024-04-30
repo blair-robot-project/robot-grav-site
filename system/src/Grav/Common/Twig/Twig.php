@@ -3,7 +3,7 @@
 /**
  * @package    Grav\Common\Twig
  *
- * @copyright  Copyright (c) 2015 - 2022 Trilby Media, LLC. All rights reserved.
+ * @copyright  Copyright (c) 2015 - 2024 Trilby Media, LLC. All rights reserved.
  * @license    MIT License; see LICENSE file for details.
  */
 
@@ -16,6 +16,7 @@ use Grav\Common\Language\Language;
 use Grav\Common\Language\LanguageCodes;
 use Grav\Common\Page\Interfaces\PageInterface;
 use Grav\Common\Page\Pages;
+use Grav\Common\Security;
 use Grav\Common\Twig\Exception\TwigException;
 use Grav\Common\Twig\Extension\FilesystemExtension;
 use Grav\Common\Twig\Extension\GravExtension;
@@ -56,6 +57,15 @@ class Twig
     public $twig_paths;
     /** @var string */
     public $template;
+
+    /** @var array */
+    public $plugins_hooked_nav = [];
+    /** @var array */
+    public $plugins_quick_tray = [];
+    /** @var array */
+    public $plugins_hooked_dashboard_widgets_top = [];
+    /** @var array */
+    public $plugins_hooked_dashboard_widgets_main = [];
 
     /** @var Grav */
     protected $grav;
@@ -310,6 +320,7 @@ class Twig
     public function processPage(PageInterface $item, $content = null)
     {
         $content = $content ?? $item->content();
+        $content = Security::cleanDangerousTwig($content);
 
         // override the twig header vars for local resolution
         $this->grav->fireEvent('onTwigPageVariables', new Event(['page' => $item]));
@@ -383,6 +394,8 @@ class Twig
         $this->grav->fireEvent('onTwigStringVariables');
         $vars += $this->twig_vars;
 
+        $string = Security::cleanDangerousTwig($string);
+
         $name = '@Var:' . $string;
         $this->setTemplate($name, $string);
 
@@ -409,7 +422,7 @@ class Twig
         try {
             $grav = $this->grav;
 
-            // set the page now its been processed
+            // set the page now it's been processed
             $grav->fireEvent('onTwigSiteVariables');
 
             /** @var Pages $pages */
@@ -418,13 +431,15 @@ class Twig
             /** @var PageInterface $page */
             $page = $grav['page'];
 
+            $content = Security::cleanDangerousTwig($page->content());
+
             $twig_vars = $this->twig_vars;
             $twig_vars['theme'] = $grav['config']->get('theme');
             $twig_vars['pages'] = $pages->root();
             $twig_vars['page'] = $page;
             $twig_vars['header'] = $page->header();
             $twig_vars['media'] = $page->media();
-            $twig_vars['content'] = $page->content();
+            $twig_vars['content'] = $content;
 
             // determine if params are set, if so disable twig cache
             $params = $grav['uri']->params(null, true);
@@ -493,13 +508,19 @@ class Twig
     /**
      * Simple helper method to get the twig template if it has already been set, else return
      * the one being passed in
+     * NOTE: Modular pages that are injected should not use this pre-set template as it's usually set at the page level
      *
      * @param  string $template the template name
      * @return string           the template name
      */
-    public function template($template)
+    public function template(string $template): string
     {
-        return $this->template ?? $template;
+        if (isset($this->template)) {
+            $template = $this->template;
+            unset($this->template);
+        }
+        
+        return $template;
     }
 
     /**
@@ -513,7 +534,7 @@ class Twig
         $default = $page->isModule() ? 'modular/default' : 'default';
         $extension = $format ?: $page->templateFormat();
         $twig_extension = $extension ? '.'. $extension .TWIG_EXT : TEMPLATE_EXT;
-        $template_file = $this->template($page->template() . $twig_extension);
+        $template_file = $this->template($template . $twig_extension);
 
         // TODO: no longer needed in Twig 3.
         /** @var ExistsLoaderInterface $loader */
@@ -553,4 +574,5 @@ class Twig
 
         $this->autoescape = (bool) $state;
     }
+
 }

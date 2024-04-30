@@ -3,7 +3,7 @@
 /**
  * @package    Grav\Common
  *
- * @copyright  Copyright (c) 2015 - 2022 Trilby Media, LLC. All rights reserved.
+ * @copyright  Copyright (c) 2015 - 2024 Trilby Media, LLC. All rights reserved.
  * @license    MIT License; see LICENSE file for details.
  */
 
@@ -201,7 +201,7 @@ abstract class Utils
         $compare_func = $case_sensitive ? 'mb_strpos' : 'mb_stripos';
 
         foreach ((array)$needle as $each_needle) {
-            $status = $each_needle === '' || $compare_func($haystack, $each_needle) === 0;
+            $status = $each_needle === '' || $compare_func((string) $haystack, $each_needle) === 0;
             if ($status) {
                 break;
             }
@@ -225,8 +225,8 @@ abstract class Utils
         $compare_func = $case_sensitive ? 'mb_strrpos' : 'mb_strripos';
 
         foreach ((array)$needle as $each_needle) {
-            $expectedPosition = mb_strlen($haystack) - mb_strlen($each_needle);
-            $status = $each_needle === '' || $compare_func($haystack, $each_needle, 0) === $expectedPosition;
+            $expectedPosition = mb_strlen((string) $haystack) - mb_strlen($each_needle);
+            $status = $each_needle === '' || $compare_func((string) $haystack, $each_needle, 0) === $expectedPosition;
             if ($status) {
                 break;
             }
@@ -250,7 +250,7 @@ abstract class Utils
         $compare_func = $case_sensitive ? 'mb_strpos' : 'mb_stripos';
 
         foreach ((array)$needle as $each_needle) {
-            $status = $each_needle === '' || $compare_func($haystack, $each_needle) !== false;
+            $status = $each_needle === '' || $compare_func((string) $haystack, $each_needle) !== false;
             if ($status) {
                 break;
             }
@@ -977,10 +977,10 @@ abstract class Utils
      * @param string $filename
      * @return bool
      */
-    public static function checkFilename($filename)
+    public static function checkFilename($filename): bool
     {
         $dangerous_extensions = Grav::instance()['config']->get('security.uploads_dangerous_extensions', []);
-        $extension = static::pathinfo($filename, PATHINFO_EXTENSION);
+        $extension = mb_strtolower(static::pathinfo($filename, PATHINFO_EXTENSION));
 
         return !(
             // Empty filenames are not allowed.
@@ -989,6 +989,8 @@ abstract class Utils
             || strtr($filename, "\t\v\n\r\0\\/", '_______') !== $filename
             // Filename should not start or end with dot or space.
             || trim($filename, '. ') !== $filename
+            // Filename should not contain path traversal
+            || str_replace('..', '', $filename) !== $filename
             // File extension should not be part of configured dangerous extensions
             || in_array($extension, $dangerous_extensions)
         );
@@ -1145,9 +1147,9 @@ abstract class Utils
             $offset_prefix = $offset < 0 ? '-' : '+';
             $offset_formatted = gmdate('H:i', abs($offset));
 
-            $pretty_offset = "UTC${offset_prefix}${offset_formatted}";
+            $pretty_offset = "UTC{$offset_prefix}{$offset_formatted}";
 
-            $timezone_list[$timezone] = "(${pretty_offset}) " . str_replace('_', ' ', $timezone);
+            $timezone_list[$timezone] = "({$pretty_offset}) " . str_replace('_', ' ', $timezone);
         }
 
         return $timezone_list;
@@ -1330,7 +1332,11 @@ abstract class Utils
         if ($dateformat) {
             $datetime = DateTime::createFromFormat($dateformat, $date);
         } else {
-            $datetime = new DateTime($date);
+            try {
+                $datetime = new DateTime($date);
+            } catch (Exception $e) {
+                $datetime = false;
+            }
         }
 
         // fallback to strtotime() if DateTime approach failed
@@ -1835,7 +1841,7 @@ abstract class Utils
         $parts = parse_url($enc_url);
 
         if ($parts === false) {
-            throw new InvalidArgumentException('Malformed URL: ' . $url);
+            $parts = [];
         }
 
         foreach ($parts as $name => $value) {
@@ -1874,9 +1880,9 @@ abstract class Utils
         }
 
         if ($block) {
-            $string = $parsedown->text($string);
+            $string = $parsedown->text((string) $string);
         } else {
-            $string = $parsedown->line($string);
+            $string = $parsedown->line((string) $string);
         }
 
         return $string;
@@ -1950,10 +1956,10 @@ abstract class Utils
     }
 
     /**
-     * @param string $name
+     * @param string|array|Closure $name
      * @return bool
      */
-    public static function isDangerousFunction(string $name): bool
+    public static function isDangerousFunction($name): bool
     {
         static $commandExecutionFunctions = [
             'exec',
@@ -2048,7 +2054,29 @@ abstract class Utils
             'posix_setpgid',
             'posix_setsid',
             'posix_setuid',
+            'unserialize',
+            'ini_alter',
+            'simplexml_load_file',
+            'simplexml_load_string',
+            'forward_static_call',
+            'forward_static_call_array',
         ];
+
+        if (is_string($name)) {
+            $name = strtolower($name);
+        }
+
+        if ($name instanceof \Closure) {
+            return false;
+        }
+
+        if (is_array($name) || strpos($name, ":") !== false) {
+            return true;
+        }
+
+        if (strpos($name, "\\") !== false) {
+            return true;
+        }
 
         if (in_array($name, $commandExecutionFunctions)) {
             return true;
