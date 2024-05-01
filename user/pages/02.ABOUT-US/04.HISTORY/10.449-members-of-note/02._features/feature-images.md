@@ -2,7 +2,7 @@
 title: 'Past Presidents'
 media_order: 'blank.jpg,akiva1.jpg,sean.jpg,jade.jpg,peter.jpg,nate.jpg,rye.jpg,laura.JPG,urjita.JPG,karina.JPG'
 menu: 'Past Presidents'
-imglocation: /user/pages/02.ABOUT-US/04.HISTORY/10.notable-449-members/02._features/
+imglocation: /user/pages/02.ABOUT-US/04.HISTORY/10.449-members-of-note/02._features/
 class: small
 features:
     -
