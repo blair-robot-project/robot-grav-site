@@ -1,10 +1,15 @@
 ---
 title: Drivers
-media_order: 'blank.jpg,nate.jpg,naveen.JPG,alex.jpg,joshua.jpeg'
+media_order: 'blank.jpg,nate.jpg,naveen.JPG,alex.jpg,joshua.jpeg,PXL_20240404_135006029.PORTRAIT.jpg'
 menu: Drivers
 imglocation: /user/pages/02.ABOUT-US/04.HISTORY/10.449-members-of-note/03._features2/
 class: small
 features:
+    -
+        image: PXL_20240404_135006029.PORTRAIT.jpg
+        header: 'Oliver Wang'
+        text: 2023-present
+        url: null
     -
         image: alex.jpg
         header: 'Alex Heimov'
