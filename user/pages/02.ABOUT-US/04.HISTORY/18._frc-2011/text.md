@@ -1,7 +1,7 @@
 ---
 title: frc-2011
 image_align: left
-published: false
+published: true
 ---
 
 ##Dr. Aguhn

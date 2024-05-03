@@ -1,7 +1,7 @@
 ---
 title: frc-2010
 image_align: right
-published: false
+published: true
 ---
 
 ##Caspian

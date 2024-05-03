@@ -3,7 +3,7 @@ title: frc-2017
 image_align: left
 hero_classes: ''
 hero_image: ''
-published: false
+published: true
 ---
 
 ## Calcifer

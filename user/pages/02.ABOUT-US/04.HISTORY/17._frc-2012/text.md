@@ -1,7 +1,7 @@
 ---
 title: frc-2012
 image_align: right
-published: false
+published: true
 ---
 
 ##Bowser's Castle

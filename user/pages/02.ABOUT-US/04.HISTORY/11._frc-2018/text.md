@@ -3,7 +3,7 @@ title: frc-2018
 media_order: Navi-shronk.jpg
 class: small
 image_align: right
-published: false
+published: true
 ---
 
 ##Navi

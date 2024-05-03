@@ -1,7 +1,7 @@
 ---
 title: frc-2009
 image_align: left
-published: false
+published: true
 ---
 
 ## Archie

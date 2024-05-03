@@ -1,7 +1,7 @@
 ---
 title: frc-2008
 image_align: left
-published: false
+published: true
 ---
 
 ## Edward Scissorlift

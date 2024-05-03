@@ -1,7 +1,7 @@
 ---
 title: bb-2021
 image_align: left
-published: false
+published: true
 media_order: '_MG_7593 (2) (1).jpg'
 ---
 
