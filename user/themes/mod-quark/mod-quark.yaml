@@ -10,6 +10,7 @@ streams:
 enabled: true
 production-mode: true
 grid-size: grid-lg
+custom_logo: 'favicon.png'
 header-fixed: true
 header-animated: true
 header-dark: false
