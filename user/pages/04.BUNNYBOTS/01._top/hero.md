@@ -9,4 +9,4 @@ media_order: _MG_7505.jpg
 
 # **Blair Bunnybots**
 
-### Hosted at Montgomery Blair High School, December 16th, 2023
+### Hosted at Montgomery Blair High School, (tentatively) on December 7th, 2024
