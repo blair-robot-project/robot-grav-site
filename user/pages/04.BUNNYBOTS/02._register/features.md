@@ -21,4 +21,13 @@ image_align: left
 # 
 ---
 ## **2024 Participating Teams** <br> 
-FRC 449 - The Blair Robot Project - 2 Robots
+FRC 449 - The Blair Robot Project - 2 Robots <br>
+FRC 611 - Saxons - 1 Robot <br>
+FRC 686 - Bovine Intervention - 1 Robot <br>
+FRC 5338 - ACL RoboLoCo - 1 Robot <br>
+FRC 5549 - Gryphon Robotics - 1 Robot <br>
+FRC 5587 - Titan Robotics - 1 Robot <br>
+FRC 6882 - Fahrenheit Robotics - 1 Robot <br>
+FRC 8230 - The KoiBots - 1 Robot <br>
+FRC 8592 - Newton Squared - 1 Robot <br>
+FRC 8726 - CryptoHawks - 1 Robot 
