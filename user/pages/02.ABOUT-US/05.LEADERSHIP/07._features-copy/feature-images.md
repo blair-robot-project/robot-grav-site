@@ -15,7 +15,7 @@ features:
         text: 'Vice President of Communications </br> Joined 2022'
         url: null
     -
-        image: reed2.png
+        image: AllisonImg-min.jpg
         header: 'Allison Lin'
         text: 'Vice President of Technology </br> Joined 2022'
         url: null
@@ -25,7 +25,7 @@ features:
         text: 'Vice President of Finance </br> Joined 2022'
         url: null
 published: true
-media_order: 'blank.jpg,reed2.png,2024 team photo (7).png,AryanBunny.jpg,GigglingMatthew.jpg,Zayway.jpg'
+media_order: 'blank.jpg,reed2.png,2024 team photo (7).png,AryanBunny.jpg,GigglingMatthew.jpg,Zayway.jpg,AllisonImg-min.jpg'
 ---
 
 ## Upper Leadership
