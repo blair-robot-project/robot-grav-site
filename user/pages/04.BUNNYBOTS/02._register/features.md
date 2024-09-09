@@ -14,7 +14,7 @@ image_align: left
 ### Volunteer Registration for Blair Bunnybots 2024 is [out](https://forms.gle/d2rBbFN1T7XNDz769)!
 
 # **Game Manual**
-### Game manual releases September 9, 2024.
+### Game manual releases on the evening of September 9, 2024.
 
 ## [Blair Bunnybots 2024 Schedule](https://docs.google.com/document/d/1axW6Y_WmsrgSJ8pNxNLGLyLCSw-21vPZmiJ03NX5nUY/edit) </br> [Blair Bunnybots Navigation Guide 2023](https://docs.google.com/document/d/1A1sW-ku0OS3QPzZ2FyajMLzmF1sdo3C0SFL48GhGnrM/edit?usp=sharing)
 
