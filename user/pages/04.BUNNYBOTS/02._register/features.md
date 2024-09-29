@@ -26,6 +26,7 @@ FRC 449 - The Blair Robot Project - 2 Robots <br>
 FRC 611 - Saxons - 1 Robot <br>
 FRC 614 -  Night Hawks - 1 Robot <br>
 FRC 686 - Bovine Intervention - 1 Robot <br>
+FRC 5115 - Knight Riders - 1 Robot <br>
 FRC 5338 - ACL RoboLoCo - 1 Robot <br>
 FRC 5549 - Gryphon Robotics - 1 Robot <br>
 FRC 5587 - Titan Robotics - 1 Robot <br>
