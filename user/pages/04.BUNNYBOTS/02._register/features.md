@@ -21,7 +21,7 @@ image_align: left
 # 
 ---
 ## **2024 Participating Teams**
-#### Updated 9/8/2024
+#### Updated 10/1/2024
 FRC 449 - The Blair Robot Project - 2 Robots <br>
 FRC 611 - Saxons - 1 Robot <br>
 FRC 614 -  Night Hawks - 1 Robot <br>
