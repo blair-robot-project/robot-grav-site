@@ -6,12 +6,9 @@ published: true
 image_align: left
 ---
 
-# **Blair Bunnybots Registration**
-### Registration for Blair Bunnybots 2024 is [out](https://forms.gle/C1ghNQonnTwrDwrP9)!
-#### Registration is open for $250 per robot
-
-# **Volunteer Registration**
-### Volunteer Registration for Blair Bunnybots 2024 is [out](https://forms.gle/d2rBbFN1T7XNDz769)!
+# **YouTube Blair Bunnybots Stream**
+##
+[plugin:youtube](https://www.youtube.com/watch?v=xWMnm_sOkJ8)
 
 # **Game Manual**
 ### Game manual has been [released](https://docs.google.com/document/d/1ewfl1evrlExPIC_psEIxtAadKxwzkzVaExCZK1W8QyY/edit?usp=sharing)!
