@@ -31,4 +31,29 @@ FRC 5841 - The Patriots - 1 Robot <br>
 FRC 6882 - Fahrenheit Robotics - 1 Robot <br>
 FRC 8230 - The KoiBots - 1 Robot <br>
 FRC 8592 - Newton Squared - 1 Robot <br>
-FRC 8726 - CryptoHawks - 1 Robot 
+FRC 8726 - CryptoHawks - 1 Robot <br>
+
+## **Concessions Menu**
+Donuts	  $15/dozen  $2 each <br> 
+Coffee $2 <br>
+Breakfast Burritos $2 <br>
+Frappuccino $2 <br>
+Pizza	$20/pie  $3/slice <br>
+Hot dog $3 <br>
+    With chili  $4 <br>
+Chili   $4 <br>
+Mac and Cheese  $3 <br>
+Chili & Mac and Cheese $4 <br>
+Lunch Combo $6 <br>
+     Hot dog, chips and drink <br>
+     Pizza, chips and drink <br>
+Popcorn  $2 <br>
+Chips $2 <br>
+Candy $2 <br>
+Soda $2 <br>
+Seltzer water $2 <br>
+Water $1 <br>
+Fruit $1 <br>
+Italian Ice $4 <br>
+
+
