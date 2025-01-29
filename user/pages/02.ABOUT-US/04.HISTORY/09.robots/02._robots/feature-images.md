@@ -1,10 +1,15 @@
 ---
 title: _robots
-media_order: 'flag-picture-01.jpg,ROUS.jpg,calcifer.jpg,navi.jpg,totedile.jpg,2004.jpg,2002.jpg,2003.png,2007.png,scissorhands.jpg,archie.jpg,2001.jpg,caspian.jpg,Aguhn.jpg,bowser.jpg,panda.jpg,ballbasaur.jpg,labo.jpg,legasus.jpg,scissorhands-original.jpg,download (1).png,2004-original.jpg,totedile-original.jpg,legasus-original.jpg,_MG_7593 (3).JPG,navi-original.jpg,bowser-original.jpg,ballbasaur-original.jpg,panda-original.jpg,Aguhn-original.jpg,2002-original.jpg,flag-picture-01-original.jpg,archie-original.jpg,caspian-original.jpg,2001-original.jpg,labo-original.jpg,calcifer-original.jpg,ROUS-original.jpg,hyacinth (1).jpg,pebbles (1).jpg,atlas.jpg,2020 bunnybot.jpg,cinnabun.jpg,voyager.jpg,dumbo.jpg,lilo.png,stitch.png'
+media_order: 'flag-picture-01.jpg,ROUS.jpg,calcifer.jpg,navi.jpg,totedile.jpg,2004.jpg,2002.jpg,2003.png,2007.png,scissorhands.jpg,archie.jpg,2001.jpg,caspian.jpg,Aguhn.jpg,bowser.jpg,panda.jpg,ballbasaur.jpg,labo.jpg,legasus.jpg,scissorhands-original.jpg,download (1).png,2004-original.jpg,totedile-original.jpg,legasus-original.jpg,_MG_7593 (3).JPG,navi-original.jpg,bowser-original.jpg,ballbasaur-original.jpg,panda-original.jpg,Aguhn-original.jpg,2002-original.jpg,flag-picture-01-original.jpg,archie-original.jpg,caspian-original.jpg,2001-original.jpg,labo-original.jpg,calcifer-original.jpg,ROUS-original.jpg,hyacinth (1).jpg,pebbles (1).jpg,atlas.jpg,2020 bunnybot.jpg,cinnabun.jpg,voyager.jpg,dumbo.jpg,lilo.png,stitch.png,whiplash.jpg'
 menu: Robots
 imglocation: /user/pages/02.ABOUT-US/04.HISTORY/09.robots/02._robots/
 class: small
 features:
+    -
+        image: whiplash.jpg
+        header: Whiplash
+        text: 'FRC 2024'
+        url: null
     -
         image: lilo.png
         header: 'Lilo (Vet Bot)'
