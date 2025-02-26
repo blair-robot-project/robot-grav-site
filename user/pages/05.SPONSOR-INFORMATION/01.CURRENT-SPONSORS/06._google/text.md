@@ -1,8 +1,7 @@
 ---
-title: _google
-media_order: Google.png
+title: _dodstem
+media_order: 'DoDSTEM logo-Revised with space.png'
 image_align: right
 ---
 
-###Google
-Gold Sponsor
+### DoD STEM
