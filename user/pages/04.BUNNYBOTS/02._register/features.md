@@ -13,7 +13,7 @@ image_align: left
 # **Game Manual**
 ### Game manual has been [released](https://docs.google.com/document/d/1ewfl1evrlExPIC_psEIxtAadKxwzkzVaExCZK1W8QyY/edit?usp=sharing)!
 
-## [Blair Bunnybots 2024 Schedule](https://docs.google.com/document/d/1axW6Y_WmsrgSJ8pNxNLGLyLCSw-21vPZmiJ03NX5nUY/edit) </br> [Blair Bunnybots Navigation Guide 2023](https://docs.google.com/document/d/1A1sW-ku0OS3QPzZ2FyajMLzmF1sdo3C0SFL48GhGnrM/edit?usp=sharing)
+## [Blair Bunnybots 2024 Schedule](https://docs.google.com/document/d/1axW6Y_WmsrgSJ8pNxNLGLyLCSw-21vPZmiJ03NX5nUY/edit) </br> [Blair Bunnybots Navigation Guide 2024](https://docs.google.com/document/d/1A1sW-ku0OS3QPzZ2FyajMLzmF1sdo3C0SFL48GhGnrM/edit?usp=sharing)
 
 # 
 ---

@@ -12,6 +12,7 @@ content:
     url_taxonomy_filters: true
 login: {  }
 permissions: {  }
+visible: false
 ---
 
 ##Whiplash

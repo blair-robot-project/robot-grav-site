@@ -55,6 +55,18 @@ features:
         header: Basecamp
         text: 'Team communication platform'
         url: 'https://basecamp.com'
+    -
+        image: 'DoDSTEM logo.png'
+        header: DoDSTEM
+        url: 'https://www.dodstem.us'
+    -
+        image: 'Bae logo.png'
+        header: 'BAE Systems'
+        url: 'https://www.baesystems.com/en/home'
+    -
+        image: 'haas logo.png'
+        header: 'Gene Haas Foundation'
+        url: 'https://www.ghaasfoundation.org'
 ---
 
 ## **Our Sponsors**
