@@ -5,3 +5,4 @@ image_align: right
 ---
 
 ###NVIDIA
+Silver Sponsor

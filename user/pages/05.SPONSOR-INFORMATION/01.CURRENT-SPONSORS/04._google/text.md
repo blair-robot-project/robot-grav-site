@@ -5,3 +5,4 @@ image_align: right
 ---
 
 ### DoD STEM
+Platinum Sponsor

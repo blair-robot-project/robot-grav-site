@@ -6,3 +6,4 @@ published: true
 ---
 
 ### Lockheed Martin
+Gold Sponsor

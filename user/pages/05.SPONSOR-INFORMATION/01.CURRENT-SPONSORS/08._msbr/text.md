@@ -5,4 +5,4 @@ image_align: right
 ---
 
 ###The Maryland Space Business Roundtable
-Silver Sponsor
+Gold Sponsor

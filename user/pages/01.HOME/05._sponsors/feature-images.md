@@ -11,6 +11,11 @@ features:
         text: 'Fiscal sponsor'
         url: 'http://www.mbhsmagnet.org'
     -
+        image: 'DoDSTEM logo.png'
+        header: DoDSTEM
+        text: 'Corporate Sponsor'
+        url: 'https://www.dodstem.us'
+    -
         image: 'BlueHalo Logo Updated.png'
         header: BlueHalo
         text: 'Corporate sponsor'
@@ -20,6 +25,11 @@ features:
         header: Boeing
         text: 'Corporate Sponsor'
         url: 'https://www.boeing.com/'
+    -
+        image: 'haas logo.png'
+        header: 'Gene Haas Foundation'
+        text: 'Corporate Sponsor'
+        url: 'https://www.ghaasfoundation.org'
     -
         image: logo-msbr.jpg
         header: 'The Maryland Space Business Roundtable'
@@ -31,10 +41,20 @@ features:
         text: 'Corporate Sponsor'
         url: 'https://www.lockheedmartin.com/en-us/index.html'
     -
+        image: 'Bae logo.png'
+        header: 'BAE Systems'
+        text: 'Corporate Sponsor'
+        url: 'https://www.baesystems.com/en/home'
+    -
         image: NVIDIA.png
         header: NVIDIA
         text: 'Corporate Sponsor'
         url: 'https://www.nvidia.com/en-us/'
+    -
+        image: logo-basecamp.png
+        header: Basecamp
+        text: 'Team communication platform'
+        url: 'https://basecamp.com'
     -
         image: Northrop.png
         header: 'Northrop Grumman'
@@ -50,23 +70,6 @@ features:
         header: 'Takoma Park Folk Festival'
         text: 'Community Sponsor'
         url: 'https://www.tpff.org/'
-    -
-        image: logo-basecamp.png
-        header: Basecamp
-        text: 'Team communication platform'
-        url: 'https://basecamp.com'
-    -
-        image: 'DoDSTEM logo.png'
-        header: DoDSTEM
-        url: 'https://www.dodstem.us'
-    -
-        image: 'Bae logo.png'
-        header: 'BAE Systems'
-        url: 'https://www.baesystems.com/en/home'
-    -
-        image: 'haas logo.png'
-        header: 'Gene Haas Foundation'
-        url: 'https://www.ghaasfoundation.org'
 ---
 
 ## **Our Sponsors**
