@@ -53,23 +53,13 @@ features:
     -
         image: logo-basecamp.png
         header: Basecamp
-        text: 'Team communication platform'
+        text: 'Team Communication Platform'
         url: 'https://basecamp.com'
-    -
-        image: Northrop.png
-        header: 'Northrop Grumman'
-        text: 'Corporate Sponsor'
-        url: 'https://www.northropgrumman.com/'
     -
         image: 'fabworks (1).png'
         header: Fabworks
-        text: 'Machining Sponsor'
+        text: 'Fabrication Sponsor'
         url: 'https://www.fabworks.com/'
-    -
-        image: logo-takomaParkFolkFestival.png
-        header: 'Takoma Park Folk Festival'
-        text: 'Community Sponsor'
-        url: 'https://www.tpff.org/'
 ---
 
 ## **Our Sponsors**

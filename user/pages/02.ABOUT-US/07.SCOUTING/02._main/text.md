@@ -16,18 +16,6 @@ Teams' rankings, Offensive Power Ratings (OPR), and Expected Points Added (EPA) 
 
 [Click here](https://www.statbotics.io/blog/intro) for an explanation of how EPA is calculated and its benefits/limitations.
 
-
-##### Past Scouting History
-In 2016, our scouts recorded their observations on paper scouting sheets, and in 2018 we used an internally-developed app for the Kindle. Quantitative data was given to the data analyst(s) in the form of an excel spreadsheet or .csv file. The data analyst(s) used [Tableau] (https://www.tableau.com/), a versatile data visualization tool, to chart information quickly and effectively.
- 
-Often with paper scouting, a separate team member specifically entered data into Excel to be given to the data analyst(s). We designed our paper scouting sheets to be user-friendly for both the scouts and data entry person. The scouting sheets were also organized chronologically and included diagrams of the field. We used Bluetooth (as part of the internally developed app) to transfer data from the Kindles directly to a .csv file that year. An example scouting sheet is shown below.
-
-<div align="center"><img src="/images/scoutingSheet2017.png"></div>
-
-With Tableau, the data analyst(s) and match strategist(s) prepared the drive team with knowledge about the strengths and weaknesses of our own alliance and our opposing alliances. We also use the data we collect to see which teams would make for good alliance members. An example chart for the 2018 game FIRST Power UP is shown below with anonymized team numbers. Teams that could not consistently score on the scale (e.g. team 35 in the chart) may opt to pick a team that focuses on the scale to complement their strengths, like team 22 or 24.
-
-![](/user/images/websiteExampleGraph.jpg)
-
 ##### Current Scouting Procedure
 Earlier in the 2025 Reefscape season, we partnered with [FRC 1727 REX](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://team1727.org/&ved=2ahUKEwi0prblm_uMAxUYFlkFHWUgOHkQFnoECAkQAQ&usg=AOvVaw2LyXcimksAKO9CLLNtwE4Y), in a joint scouting alliance. It was a mutually beneficial relationship, REX offered us Pit Scouting data and in return we shared our ShinyApp and data (more on that later). Unfortunately, due to the structure of the FIRST Robotics Competition, this alliance could not sustain itself during the World Championships, and thus we had to come up with a new system. Currently, we assign robots to each of our strategists, and pit scout on qualities such as dimensions, motor type, and robot name.
 
@@ -38,6 +26,17 @@ When our strategist needs data to strategize about our team's next match, the Da
 
 
 This year, one of our main priorities has been to create a **positive scouting culture**, where students are eager and willing to scout. We have reaped the benefits of our goal, as we were able to switch from schedule-dependent forced scouting, to volunteers! To facilitate such a change we developed a ShinyApp in RStudio this year, which displays data collected in a meaningful, visual way. 
+
+##### Past Scouting History
+In 2016, our scouts recorded their observations on paper scouting sheets, and in 2018 we used an internally-developed app for the Kindle. Quantitative data was given to the data analyst(s) in the form of an excel spreadsheet or .csv file. The data analyst(s) used [Tableau] (https://www.tableau.com/), a versatile data visualization tool, to chart information quickly and effectively.
+ 
+Often with paper scouting, a separate team member specifically entered data into Excel to be given to the data analyst(s). We designed our paper scouting sheets to be user-friendly for both the scouts and data entry person. The scouting sheets were also organized chronologically and included diagrams of the field. We used Bluetooth (as part of the internally developed app) to transfer data from the Kindles directly to a .csv file that year. An example scouting sheet is shown below.
+
+<div align="center"><img class = "image-container", width = 300px, src="/images/scoutingSheet2017.png"></div>
+
+With Tableau, the data analyst(s) and match strategist(s) prepared the drive team with knowledge about the strengths and weaknesses of our own alliance and our opposing alliances. We also use the data we collect to see which teams would make for good alliance members. An example chart for the 2018 game FIRST Power UP is shown below with anonymized team numbers. Teams that could not consistently score on the scale (e.g. team 35 in the chart) may opt to pick a team that focuses on the scale to complement their strengths, like team 22 or 24.
+
+![](/user/images/websiteExampleGraph.jpg)
 
 ##### Influence
 In the spirit of Gracious Professionalism, we are working towards releasing the ShinyApp for all teams to utilize. Given that this was our first year creating such an App, its inner workings were not quite polished and thus we were unsure of taking initiative towards releasing it to the public (although teams would be given the ShinyApp if requested). It is our hope that next year, we will have the ShinyApp perfectly ready for other users, outside of our team.

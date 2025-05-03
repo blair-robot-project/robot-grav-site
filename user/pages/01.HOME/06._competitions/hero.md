@@ -3,7 +3,7 @@ title: Competitions
 menu: Competitions
 arrow: noarrow
 hero_classes: 'text-light overlay-dark'
-hero_image: worldsFlags2017-compressed.jpg
+hero_image: worldsFlagsOriginal2017-compressed.jpg
 image_align: right
 hero_inline: true
 ---

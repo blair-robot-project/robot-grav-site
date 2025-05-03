@@ -6,22 +6,22 @@ class: small
 features:
     -
         image: GigglingMatthew.jpg
-        header: 'Matthew Nam'
+        header: 'Matthew N'
         text: 'President </br> Joined 2021'
         url: null
     -
         image: AryanBunny.jpg
-        header: 'Aryan Agarwal'
+        header: 'Aryan A'
         text: 'Vice President of Communications </br> Joined 2022'
         url: null
     -
         image: AllisonImg-min.jpg
-        header: 'Allison Lin'
+        header: 'Allison L'
         text: 'Vice President of Technology </br> Joined 2022'
         url: null
     -
         image: Zayway.jpg
-        header: 'Daniel Li'
+        header: 'Daniel L'
         text: 'Vice President of Finance </br> Joined 2022'
         url: null
 published: true

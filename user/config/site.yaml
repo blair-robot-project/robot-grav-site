@@ -13,7 +13,8 @@ summary:
   format: short
   size: 300
   delimiter: '==='
-redirects: null
+redirects:
+  /redirect/frc2025cad: 'https://cad.onshape.com/documents/833021933f1873b79db94064/w/25deaf7f133f59876bd34f33/e/2f0375675e30b00db2114f3c'
 routes: null
 blog:
   route: /blog

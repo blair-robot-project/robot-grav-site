@@ -9,7 +9,7 @@ We'd love to partner with you! Please email us at blair.robot@gmail.com to discu
 
 ##Potential Members
 
-Our team welcomes all high-school students, regardless of school or program. Fill out our [roster](https://www.bit.ly/449roster)! We meet at Montgomery Blair High School in Silver Spring, Maryland. Come up to Room 361 on Thursdays from 3:30 to 6:30 to meet the team and get involved. If you have any questions, please don't hesitate to email us at blair.robot@gmail.com!
+Our team welcomes all high-school students, regardless of school or program. We meet at Montgomery Blair High School in Silver Spring, Maryland. Come up to Room 361 on Thursdays from 3:30 to 6:30 to meet the team and get involved. If you have any questions, please don't hesitate to email us at blair.robot@gmail.com!
 
 ##Potential Mentors
 
