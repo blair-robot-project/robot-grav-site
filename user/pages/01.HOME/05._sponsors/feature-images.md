@@ -1,6 +1,6 @@
 ---
 title: Sponsors
-media_order: 'logo-basecamp.png,porch-logo-standard.png,logo-cocacola.png,logo-convene.png,logo-emergentbiosolutions.png,logo-giant.png,logo-iai.png,logo-magnetFoundation.jpeg,logo-msbr.jpg,logo-privatin.png,logo-takomaParkFolkFestival.png,logo-lassiter.png,logo-hughes.png,logo-constellation.png,coca-cola-logo.png,emergent-biosolutions-logo.png,flag-picture-01.jpg,msbr-logo.jpg,basecamplogo.png,tpms folk festival.png,convene-logo.png,logo-hughes-original.png,basecamplogo-original.png,convene-logo-original.png,logo-cocacola-original.png,logo-emergentbiosolutions-original.png,privatinlogo.png,logo-constellation-original.png,iailogo.png,coca-cola-logo-original.png,logo-convene-original.png,logo-iai-original.png,emergent-biosolutions-logo-original.png,logo-takomaParkFolkFestival-original.png,logo-privatin-original.png,flag-picture-01-original.jpg,logo-lassiter-original.png,logo-msbr-original.jpg,logo-basecamp-original.png,porch-logo-standard-original.png,iailogo-original.png,msbr-logo-original.jpg,logo-giant-original.png,privatinlogo-original.png,BlueHalo Logo Updated.png,Porch Updated.png,32339.png,Google Updated.png,Lockheed.png,Boeing.png,Northrop.png,NVIDIA.png,fabworks (1).png,boeing (2).png'
+media_order: 'logo-basecamp.png,logo-magnetFoundation.jpeg,flag-picture-01.jpg,flag-picture-01-original.jpg,logo-basecamp-original.png,msbr-logo-original.jpg,BlueHalo Logo Updated.png,Northrop.png,NVIDIA.png,fabworks (1).png,haas logo.png,Bae logo.png,dodstem-logo.jpg,dodstem-logo-original.jpg,lockheed-original.png,msbr-logo.jpg,lockheed.jpg,boeing.png,bae-logo-original.svg,bae-logo.jpg,bae-logo-original.png'
 menu: Sponsors
 imglocation: /user/pages/01.HOME/05._sponsors/
 class: small
@@ -11,7 +11,7 @@ features:
         text: 'Fiscal sponsor'
         url: 'http://www.mbhsmagnet.org'
     -
-        image: 'DoDSTEM logo.png'
+        image: dodstem-logo.jpg
         header: DoDSTEM
         text: 'Corporate Sponsor'
         url: 'https://www.dodstem.us'
@@ -21,27 +21,27 @@ features:
         text: 'Corporate sponsor'
         url: 'https://bluehalo.com/'
     -
-        image: 'boeing (2).png'
+        image: boeing.png
         header: Boeing
         text: 'Corporate Sponsor'
         url: 'https://www.boeing.com/'
     -
-        image: 'haas logo.png'
+        image: 'haas-logo.png'
         header: 'Gene Haas Foundation'
         text: 'Corporate Sponsor'
         url: 'https://www.ghaasfoundation.org'
     -
-        image: logo-msbr.jpg
+        image: msbr-logo.jpg
         header: 'The Maryland Space Business Roundtable'
         text: 'Corporate Sponsor'
         url: 'http://www.mdspace.org/'
     -
-        image: Lockheed.png
+        image: lockheed.jpg
         header: 'Lockheed Martin'
         text: 'Corporate Sponsor'
         url: 'https://www.lockheedmartin.com/en-us/index.html'
     -
-        image: 'Bae logo.png'
+        image: bae-logo.png
         header: 'BAE Systems'
         text: 'Corporate Sponsor'
         url: 'https://www.baesystems.com/en/home'
