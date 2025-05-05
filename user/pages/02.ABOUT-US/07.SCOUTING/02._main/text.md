@@ -21,11 +21,14 @@ Earlier in the 2025 Reefscape season, we partnered with [FRC 1727 REX](https://w
 
 As for match-by-match scouting, we have six volunteer members of our team scout each robot in a match. These members record actions performed by their robot on iPads, with QRScout installed. QRScout has been very beneficial towards our goal of moving away from internet-dependent scouting, as we are able to scan the QR code directly into our Data Entry computer. The Data Entry computer is responsible for containing the most up-to-date data and our Data Entry-ist is responsible for performing preliminary checks on the validity of the data (i.e. not having an alliance score more than 12 coral on a level).
 
+We also have a Scout Manager, who keeps scout morale high and answers difficult questions (due to a bad perspective from the stands). The Scout Manager also ensures that when a new member wants to "swap-in", the person with the longest streak is swapped out with a new scout. This way, we maintain a good balance between fun Competition Experience, and necessary Scouting Data. Next year, we hope to prevent people from scouting >196 matches.
+
 When our strategist needs data to strategize about our team's next match, the Data Entry-ist copies a .csv file with the newest data into a USB drive. A hand-off then occurs, where the strategist is now able to access the most recent data. The Strategist has a variety of tools available, such as an online model of the field, a laminated model of the field, and the ShinyApp.
 
-
-
 This year, one of our main priorities has been to create a **positive scouting culture**, where students are eager and willing to scout. We have reaped the benefits of our goal, as we were able to switch from schedule-dependent forced scouting, to volunteers! To facilitate such a change we developed a ShinyApp in RStudio this year, which displays data collected in a meaningful, visual way. 
+
+##### Shiny App in RStudio
+As part of the <s> Data Science</s> team, we are proud of the work we've done with the ShinyApp. Once final edits are made to the ShinyApp, it can be found at this [link](https://www.google.com/search?q=not+published+yet&rlz=1C5CHFA_enUS1110US1112&oq=not+published+yet&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRiPAjIHCAIQIRiPAtIBCDYxOThqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8). The Current Status of the ShinyApp is: Not Published, Pending Final Edits.
 
 ##### Past Scouting History
 In 2016, our scouts recorded their observations on paper scouting sheets, and in 2018 we used an internally-developed app for the Kindle. Quantitative data was given to the data analyst(s) in the form of an excel spreadsheet or .csv file. The data analyst(s) used [Tableau] (https://www.tableau.com/), a versatile data visualization tool, to chart information quickly and effectively.
