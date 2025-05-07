@@ -9,22 +9,22 @@ features:
         image: lobster.jpg
         header: Lobster
         text: 'FRC 2025'
-        url: null
+        url: '#frc-2025'
     -
         image: 'vet 2024.jpg'
         header: 'Vet bot'
         text: 'Blair Bunnybots 2024'
-        url: null
+        url: '#bb-2024-vetbot'
     -
         image: 'rookie 2024.png'
         header: 'Rookie bot'
         text: 'Blair Bunnybots 2024'
-        url: null
+        url: '#bb-2024-rookiebot'
     -
         image: whiplash.jpg
         header: Whiplash
         text: 'FRC 2024'
-        url: null
+        url: '#frc-2024'
     -
         image: lilo.jpg
         header: 'Lilo (Vet Bot)'
@@ -39,7 +39,7 @@ features:
         image: voyager.jpg
         header: Voyager
         text: 'FRC 2023'
-        url: null
+        url: '#frc-2023'
     -
         image: dumbo.jpg
         header: 'Dumbo <br> (Outreach Bot)'

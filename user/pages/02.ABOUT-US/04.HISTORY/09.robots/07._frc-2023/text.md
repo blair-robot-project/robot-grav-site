@@ -6,7 +6,7 @@ media_order: Voyager.png
 ---
 
 ##Voyager
-Our robot for the 2023 FIRST Robotics Competition, Energize. Voyager was capable of... (some junior please help, I wasn't there that season).
+Our robot for the 2023 FIRST Robotics Competition, Charged Up. Voyager was capable of... (some junior please help, I wasn't there that season).
 
 #### Performance
 * 38-27-0 (W-L-T) in official play
@@ -31,15 +31,15 @@ Our robot for the 2023 FIRST Robotics Competition, Energize. Voyager was capable
       </tr>
       <tr>
         <td> CHS - District Championships </td>
-        <td> Rank 16 </td>
+        <td> Rank 16 <br/> Quarterfinalist </td>
       </tr>
       <tr>
           <td> Worlds - Curie Division</td>
-          <td> Rank 18 </td>
+          <td> Rank 18 <br/> Quarterfinalist </td>
       </tr>
       <tr>
           <td> Off-Season - Battle o' Baltimore </td>
-          <td> Rank 16 </td>
+          <td> Rank 16 <br/> Quarterfinalist </td>
       </tr>
     <tr>
   </tbody>

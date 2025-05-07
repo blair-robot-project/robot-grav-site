@@ -2,11 +2,11 @@
 title: frc-2025
 body_classes: modular
 image_align: left
-media_order: Lobster.png
+media_order: 'lobster-tall.jpg, lobster-short.jpg'
 ---
 
 ##Lobster
-Our robot for the 2025 First Robotics Competition, Reefscape. Lobster is able to score on all level of the Reef, but is only able to de-score algae (not score it). [Click here](https://www.youtube.com/watch?v=foMMURS_dLU) to watch our reveal video.
+Our robot for the 2025 First Robotics Competition, Reefscape. Lobster is able to score Coral on and remove Algae from all levels of the Reef, as well as climb on the Deep Cage in endgame. [Click here](https://www.youtube.com/watch?v=foMMURS_dLU) to watch our reveal video.
 
 #### Performance
 * 57-9-1 (W-L-T) in official play
@@ -35,7 +35,7 @@ Our robot for the 2025 First Robotics Competition, Reefscape. Lobster is able to
       </tr>
       <tr>
         <td> Worlds - Newton Division </td>
-        <td> Rank 10 <br> Quarterfinalist </td>
+        <td> Rank 10 <br> Semifinalist </td>
       </tr>
   </tbody>
 </table>

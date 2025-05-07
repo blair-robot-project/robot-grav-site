@@ -1,7 +1,7 @@
 ---
 title: bb-2024-vetbot
 body_classes: modular
-image_align: left
+image_align: right
 media_order: VetBot.png
 ---
 

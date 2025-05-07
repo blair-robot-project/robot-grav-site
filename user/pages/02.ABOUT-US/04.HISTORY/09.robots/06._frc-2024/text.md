@@ -1,7 +1,7 @@
 ---
 title: frc-2024
 body_classes: modular
-image_align: left
+image_align: right
 media_order: Whiplash.png
 ---
 
@@ -35,11 +35,11 @@ Our robot for the 2024 FIRST Robotics Competition, Crescendo. Whiplash incorpora
       </tr>
       <tr>
         <td> Worlds - Daly Division </td>
-        <td> Rank 21 <br> </td>
+        <td> Rank 21 <br> Quarterfinalist </td>
       </tr>
       <tr>
         <td> Off-Season - Chesapeake Robotics Icebreaker </td>
-        <td> Rank 8 <br> </td>
+        <td> Rank 8 <br> Semifinalist</td>
       </tr>
   </tbody>
 </table>
