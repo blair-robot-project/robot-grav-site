@@ -1,6 +1,6 @@
 ---
 title: 'Shirt Designs'
-media_order: 'blank.jpg,2023 shirt.png,2022 shirt.png'
+media_order: 'blank.jpg,2023 shirt.png,2022 shirt.png,2022 shirt rescaled.jpg,2024 shirt.png,2020 shirt.png,2017 shirt.png,2017 shirt rescaled.jpg,2024 shirt rescaled.jpg,2020 shirt rescaled.jpg,2023 shirt rescaled.jpg,2019 shirt.png,2009 shirt.png,2018 shirt.png,2009 shirt rescaled.jpg,2018 shirt rescaled.jpg,2015 shirt.png,2019 shirt rescaled.jpg,2025 shirt.png,2025 shirt rescaled.jpg,2012 shirt.png,2011 shirt.png'
 menu: 'Past Presidents'
 imglocation: /user/pages/02.ABOUT-US/04.HISTORY/22.t-shirt-designs/02._features/
 class: small
@@ -48,10 +48,22 @@ features:
     -
         image: '2015 shirt.png'
         header: 'RECYCLE RUSH 2015 Name: Totedile'
+        text: null
+        url: null
+    -
+        image: '2012 shirt.png'
+        header: 'Rebound Rumble 2012 Name: Bowser''s Castle'
+        text: null
+        url: null
+    -
+        image: '2011 shirt.png'
+        header: 'LOGO MOTION 2011 Name: Dr. Aguhn'
+        text: null
         url: null
     -
         image: '2009 shirt rescaled.jpg'
         header: 'LUNACY 2009 Name: Archie'
+        text: null
         url: null
 ---
 
