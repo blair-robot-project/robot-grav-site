@@ -16,7 +16,7 @@ features:
         text: 'Artist: Allison L and Victoria R'
         url: null
     -
-        image: '2023 shirt rescaled.jpg'
+        image: '2023 shirt.png'
         header: 'CHARGED UP 2023 Name: Voyager'
         text: 'Artist: Lillian Z'
         url: null
@@ -44,6 +44,11 @@ features:
         image: '2017 shirt rescaled.jpg'
         header: 'STEAMWORKS 2017 Name: Calcifer'
         text: 'Artist: Sally Zhao'
+        url: null
+    -
+        image: '2016 shirt.png'
+        header: 'STRONGHOLD 2016 Name: ROUS'
+        text: null
         url: null
     -
         image: '2015 shirt.png'
