@@ -66,7 +66,7 @@ features:
         text: null
         url: null
     -
-        image: '2009 shirt rescaled.jpg'
+        image: '2009 shirt.png'
         header: 'LUNACY 2009 Name: Archie'
         text: null
         url: null
