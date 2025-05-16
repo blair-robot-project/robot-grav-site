@@ -31,15 +31,15 @@ Our robot for the 2024 FIRST Robotics Competition, Crescendo. Whiplash incorpora
       </tr>
       <tr>
         <td> CHS - District Championship </td>
-        <td> Rank 24 <br> Quarterfinalist </td>
+        <td> Rank 24 <br> Playoff 3rd Place </td>
       </tr>
       <tr>
         <td> Worlds - Daly Division </td>
-        <td> Rank 21 <br> Quarterfinalist </td>
+        <td> Rank 21 <br> Playoff 5th Place </td>
       </tr>
       <tr>
         <td> Off-Season - Chesapeake Robotics Icebreaker </td>
-        <td> Rank 8 <br> Semifinalist</td>
+        <td> Rank 8 <br> Playoff 4th Place </td>
       </tr>
   </tbody>
 </table>

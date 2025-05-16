@@ -23,23 +23,23 @@ Our robot for the 2023 FIRST Robotics Competition, Charged Up. Voyager was capab
   <tbody>
      <tr>
         <td> CHS - Bethesda MD</td>
-        <td> Rank 16 <br/> Quarterfinalist <br/> Engineering Inspiration Award</td>
+        <td> Rank 16 <br/> Playoff 3rd Place <br/> Engineering Inspiration Award</td>
       </tr>
      <tr>
         <td> CHS - Glen Allen VA</td>
-        <td> Rank 9 <br/> Finalist <br/> Dean's List Semi-Finalist (John Joseph) </td>
+        <td> Rank 9 <br/> Playoff Finalist <br/> Dean's List Semi-Finalist (John Joseph) </td>
       </tr>
       <tr>
         <td> CHS - District Championships </td>
-        <td> Rank 16 <br/> Quarterfinalist </td>
+        <td> Rank 16 <br/> Playoff 5th Place </td>
       </tr>
       <tr>
           <td> Worlds - Curie Division</td>
-          <td> Rank 18 <br/> Quarterfinalist </td>
+          <td> Rank 18 <br/> Playoff 5th Place </td>
       </tr>
       <tr>
           <td> Off-Season - Battle o' Baltimore </td>
-          <td> Rank 16 <br/> Quarterfinalist </td>
+          <td> Rank 16 <br/> Playoff 5th Place </td>
       </tr>
     <tr>
   </tbody>
