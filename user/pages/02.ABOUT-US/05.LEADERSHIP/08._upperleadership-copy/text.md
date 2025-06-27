@@ -9,7 +9,7 @@ published: true
 ## <center> Lower Leadership </center>
 
 ##### These 12 leaders of our team represent our 4 subteams: Business, Programming, Electronics, and Mechanics.
-* Business: Allison L and Leo J
+* Business: Allison Z and Leo J
 * Programming: Jeffrey J, Rakshay N & Tinbite A
 * Electronics: Frank L, Roman S & Ryan L
 * Mechanics: Filipe L, Gerald L, James Y & Sky Y
