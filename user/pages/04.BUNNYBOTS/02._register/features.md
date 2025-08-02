@@ -6,9 +6,10 @@ published: true
 image_align: left
 ---
 
-# **Game Manual**
+# **2025 Game Manual**
 ### Game manual will be released on September 1, stay tuned!
-
+#####Team registration at: [https://forms.gle/dZRbyBvdmtS8w8ct7](https://forms.gle/dZRbyBvdmtS8w8ct7) by Nov 1.
+#####Volunteer registration at: [https://forms.gle/ggjPXdA8v4UwU4Ao6](https://forms.gle/ggjPXdA8v4UwU4Ao6) by Nov 15.
 # 
 ---
 ## **2024 Participating Teams**
