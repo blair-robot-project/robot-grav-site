@@ -17,7 +17,7 @@ features:
     -
         image: LockedInNate.jpg
         header: 'Nate B'
-        text: 'Vice President of Technology </br> Joined 2022'
+        text: 'Vice President of Technology </br> Joined 2023'
         url: null
     -
         image: Zayway.jpg

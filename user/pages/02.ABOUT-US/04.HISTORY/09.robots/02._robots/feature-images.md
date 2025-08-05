@@ -12,14 +12,14 @@ features:
         url: '#frc-2025'
     -
         image: 'vet 2024.jpg'
-        header: 'Vet bot'
+        header: 'Vet Bot'
         text: 'Blair Bunnybots 2024'
-        url: '#bb-2024-vetbot'
+        url: null
     -
         image: 'rookie 2024.png'
-        header: 'Rookie bot'
+        header: 'Rookie Bot'
         text: 'Blair Bunnybots 2024'
-        url: '#bb-2024-rookiebot'
+        url: null
     -
         image: whiplash.jpg
         header: Whiplash
@@ -59,7 +59,7 @@ features:
         image: pebbles.jpg
         header: Pebbles
         text: 'Blair Bunnybots 2021'
-        url: '#bb-2021'
+        url: null
     -
         image: atlas.jpg
         header: Atlas
@@ -69,7 +69,7 @@ features:
         image: '2020 bunnybot.jpg'
         header: Claude
         text: 'Blair Bunnybots 2019'
-        url: '#bb-2019'
+        url: null
     -
         image: legasus.jpg
         header: Legasus
@@ -79,7 +79,7 @@ features:
         image: labo.jpg
         header: Labo
         text: 'Blair Bunnybots 2018'
-        url: '#bb-2018'
+        url: null
     -
         image: navi.jpg
         header: Navi

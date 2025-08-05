@@ -11,11 +11,6 @@ features:
         text: 'Teacher Sponsor </br> Joined 2014'
         url: null
     -
-        image: mentor_bertaut.jpg
-        header: 'Edgard Bertaut'
-        text: 'Head Technical Mentor </br> Joined 2006'
-        url: null
-    -
         image: kedei-new.jpg
         header: 'Noemi Kedei'
         text: 'Head Non-Technical Mentor </br> Joined 2011'
@@ -26,14 +21,34 @@ features:
         text: 'Technical Mentor </br> Joined 2007'
         url: null
     -
-        image: mentor_mcglade.jpg
-        header: 'Patrick McGlade'
-        text: 'Technical Mentor </br> Joined 2013'
-        url: null
-    -
         image: mentor_gordon.jpg
         header: 'Gordon Franken'
         text: 'Technical Mentor </br> Joined 2012'
+        url: null
+    -
+        image: mentor_bertaut.jpg
+        header: 'Edgard Bertaut'
+        text: 'Head Technical Mentor </br> Joined 2006'
+        url: null
+    -
+        image: mentor_pedersen.jpg
+        header: 'Daniel Pedersen'
+        text: 'Operations Mentor </br> Joined 2015'
+        url: null
+    -
+        image: rafi.jpg
+        header: 'Rafi Pedersen'
+        text: 'Alum & Technical Mentor </br> Joined 20??'
+        url: null
+    -
+        image: james.jpg
+        header: 'James Pham'
+        text: 'Alum & Technical Mentor </br> Joined 20??'
+        url: null
+    -
+        image: mentor_mcglade.jpg
+        header: 'Patrick McGlade'
+        text: 'Technical Mentor </br> Joined 2013'
         url: null
     -
         image: mentor_ehrenstein.jpg
@@ -54,11 +69,6 @@ features:
         image: mentor_caitlin.jpg
         header: 'Caitlin King'
         text: 'Scouting Mentor </br> Joined 2017'
-        url: null
-    -
-        image: mentor_pedersen.jpg
-        header: 'Daniel Pedersen'
-        text: 'Operations Mentor </br> Joined 2015'
         url: null
     -
         image: mentor_koslow.jpg
@@ -96,19 +106,9 @@ features:
         text: 'Alum & Technical Mentor </br> Joined 2016'
         url: null
     -
-        image: rafi.jpg
-        header: 'Rafi Pedersen'
-        text: 'Alum & Technical Mentor </br> Joined 20??'
-        url: null
-    -
         image: mentor_sam.jpg
         header: 'Sam Ehrenstein'
         text: 'Alum & Technical Mentor </br> Joined 2017'
-        url: null
-    -
-        image: james.jpg
-        header: 'James Pham'
-        text: 'Alum & Technical Mentor </br> Joined 20??'
         url: null
     -
         image: markmiranda.jpg

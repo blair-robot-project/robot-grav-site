@@ -1,10 +1,10 @@
 ---
 title: _top
 menu: GBT
-hero_image: 64F957F2-65EA-4B9C-B35A-6A4840B4A736.jpg
+hero_image: image_2025-08-05_174232956.png
 hero_classes: 'parallax text-light overlay-dark hero-large'
 arrow: noarrow
-media_order: 64F957F2-65EA-4B9C-B35A-6A4840B4A736.jpg
+media_order: 'oldFLL.jpg,image_2025-08-05_174232956.png'
 ---
 
 # **The Blair LEGO Project**

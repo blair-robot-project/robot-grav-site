@@ -3,6 +3,7 @@ title: bb-2024-rookiebot
 body_classes: modular
 image_align: left
 media_order: RookieBot.png
+published: false
 ---
 
 ## Rookie Bot

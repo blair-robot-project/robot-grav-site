@@ -5,4 +5,4 @@ image_align: right
 ---
 
 ### Montgomery Blair High School Magnet Foundation
-Fiscal Sponsor
+Platinum & Fiscal Sponsor
