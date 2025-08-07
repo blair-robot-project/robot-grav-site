@@ -24,3 +24,23 @@
 .dropmenu ul ul { background: #161314e6; box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); }
 
 .dropmenu ul li a.active,.dropmenu ul li a:focus,.dropmenu ul li a:hover{color:#fff!important}
+
+.button {
+    border: none;
+    font-weight: bold;
+    background: #a7000a;
+    color: #ffffff;
+}
+
+.button:focus, .button:hover {
+    background: #8c4b4f;
+    /*text-decoration: underline;*/
+}
+
+.nounderline {
+    text-decoration: none;
+}
+
+.nounderline:hover {
+    text-decoration: none;
+}
