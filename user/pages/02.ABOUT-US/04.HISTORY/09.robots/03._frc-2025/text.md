@@ -37,6 +37,10 @@ Our robot for the 2025 First Robotics Competition, Reefscape. Lobster is able to
         <td> Worlds - Newton Division </td>
         <td> Rank 10 <br> Playoff 3rd Place </td>
       </tr>
+      <tr>
+        <td> Off-Season - Indiana Robotics Invitational </td>
+        <td> Rank 58 </td>
+      </tr>
   </tbody>
 </table>
 </html>

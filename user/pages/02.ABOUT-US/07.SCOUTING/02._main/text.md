@@ -28,7 +28,7 @@ When our strategist needs data to strategize about our team's next match, the Da
 This year, one of our main priorities has been to create a **positive scouting culture**, where students are eager and willing to scout. We have reaped the benefits of our goal, as we were able to switch from schedule-dependent forced scouting, to volunteers! To facilitate such a change we developed a ShinyApp in RStudio this year, which displays data collected in a meaningful, visual way. 
 
 ##### Shiny App in RStudio
-As part of the <s> Data Science</s> team, we are proud of the work we've done with the ShinyApp. Once final edits are made to the ShinyApp, it can be found at this [link](https://www.google.com/search?q=not+published+yet&rlz=1C5CHFA_enUS1110US1112&oq=not+published+yet&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRiPAjIHCAIQIRiPAtIBCDYxOThqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8). The Current Status of the ShinyApp is: Not Published, Pending Final Edits.
+As part of the Data Science team, we are proud of the work we've done with the ShinyApp. Once final edits are made to the ShinyApp, it can be found at this [link](https://mitchell-ghosty33.shinyapps.io/2025_Reefscape_Shinyapp/). The Current Status of the ShinyApp is: Published.
 
 ##### Past Scouting History
 In 2016, our scouts recorded their observations on paper scouting sheets, and in 2018 we used an internally-developed app for the Kindle. Quantitative data was given to the data analyst(s) in the form of an excel spreadsheet or .csv file. The data analyst(s) used [Tableau] (https://www.tableau.com/), a versatile data visualization tool, to chart information quickly and effectively.
