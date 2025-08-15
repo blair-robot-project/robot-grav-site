@@ -32,8 +32,13 @@
     color: #ffffff;
 }
 
+.button:visited {
+    color: #ffffff;
+}
+
 .button:focus, .button:hover {
     background: #8c4b4f;
+    color: #ffffff;
     /*text-decoration: underline;*/
 }
 
