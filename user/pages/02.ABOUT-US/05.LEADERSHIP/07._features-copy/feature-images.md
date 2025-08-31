@@ -5,7 +5,7 @@ imglocation: /user/pages/02.ABOUT-US/05.LEADERSHIP/07._features-copy/
 class: small
 features:
     -
-        image: oliver422.png
+        image: HappyOliver.jpg
         header: 'Oliver W'
         text: 'President </br> Joined 2022'
         url: null
