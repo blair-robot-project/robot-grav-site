@@ -4,12 +4,16 @@ class: small
 text_align: center
 published: true
 image_align: left
-media_order: BunnybotsManualv-1.pdf
+media_order: 'BlairBunnybots2025GameManualv1.pdf,BlairBunnybotsTeamUpdate00.pdf'
 ---
 
+# ** 2025 Game Animation **
+[plugin:youtube](https://youtu.be/273OKTFke6c)
 # **2025 Game Manual**
-### Game manual will be released on September 1, stay tuned!
-[Game Manual Releases Sept 1](BunnybotsManualv-1.pdf?classes=nounderline,button,disabled,btn-block)
+### Game manual released!
+[Game Manual v1.0](https://drive.google.com/file/d/103gAiYgOKYJxylJBXBcYJqebPNrjVs-T/view?classes=nounderline,button,btn-block)
+
+[Team Update 00](BlairBunnybotsTeamUpdate00.pdf?classes=nounderline,button,btn-block)
 
 [Team Registration due Nov 1](https://forms.gle/dZRbyBvdmtS8w8ct7?classes=nounderline,button,btn-block)
 
