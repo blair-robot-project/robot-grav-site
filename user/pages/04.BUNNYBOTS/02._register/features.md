@@ -10,8 +10,10 @@ image_align: left
 # ** 2025 Game Animation **
 [plugin:youtube](https://youtu.be/273OKTFke6c)
 # **2025 Game Manual**
-### Game manual released!
-[Game Manual v1.0](https://drive.google.com/file/d/103gAiYgOKYJxylJBXBcYJqebPNrjVs-T/view?classes=nounderline,button,btn-block)
+### Game manual v1.1 available
+Last updated 9/8 - see Revision History section for Team Update 01
+
+[Game Manual v1.1](https://drive.google.com/file/d/1u5bQ-05pgr6ziaXQEs8JUMoBTNO8s_fn/view?classes=nounderline,button,btn-block)
 
 [Team Update 00](BlairBunnybotsTeamUpdate00.pdf?classes=nounderline,button,btn-block)
 
