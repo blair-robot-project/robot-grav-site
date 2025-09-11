@@ -44,5 +44,6 @@ FRC 4821 - CyberUs - 1 Robot <br>
 FRC 5243 - AEGIS - 1 Robot <br>
 FRC 5549 - Gryphon Robotics - 1 Robot <br>
 FRC 8230 - KoiBots - 1 Robot <br>
+FRC 8592 - Newton Squared - 1 Robot <br>
 FRC 8726 - CryptoHawks - 1 Robot <br>
 FRC 9033 - Ocebots - 1 Robot
