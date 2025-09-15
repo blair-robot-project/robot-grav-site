@@ -6,7 +6,7 @@ media_order: Voyager.png
 ---
 
 ##Voyager
-Our robot for the 2023 FIRST Robotics Competition, Charged Up. Voyager was capable of... (some junior please help, I wasn't there that season).
+Our robot for the 2023 FIRST Robotics Competition, Charged Up. 
 
 #### Performance
 * 38-27-0 (W-L-T) in official play
