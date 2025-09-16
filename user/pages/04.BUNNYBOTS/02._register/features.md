@@ -41,6 +41,7 @@ FRC 2537 - Space RAIDers - 1 Robot <br>
 FRC 2988 - RoboRiot - 1 Robot <br>
 FRC 4638 - Jagbots - 1 Robot <br>
 FRC 4821 - CyberUs - 1 Robot <br>
+FRC 5115 - Knight Riders - 1 Robot <br>
 FRC 5243 - AEGIS - 1 Robot <br>
 FRC 5549 - Gryphon Robotics - 1 Robot <br>
 FRC 8230 - KoiBots - 1 Robot <br>
