@@ -40,13 +40,16 @@ Updated 9/23/2025 <br>
 **FRC 1915 - Firebird Robotics** <br>
 **FRC 5115 - Knight Riders** <br>
 **FRC 5243 - AEGIS** <br>
+**FRC 5549 - Gryphon Robotics** <br>
+**FRC 5587 - Titan Robotics** <br>
 **FRC 8592 - Newton Squared** <br>
 FRC 611 - Saxons <br>
 FRC 2537 - Space RAIDers <br>
 FRC 2988 - RoboRiot <br>
 FRC 4638 - Jagbots <br>
 FRC 4821 - CyberUs <br>
-FRC 5549 - Gryphon Robotics <br>
+FRC 5338 - RoboLoCo <br>
+FRC 5353 - ACL Raptors <br>
 FRC 8230 - KoiBots <br>
 FRC 8726 - CryptoHawks <br>
 FRC 9033 - Ocebots
