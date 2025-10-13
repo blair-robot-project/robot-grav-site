@@ -6,7 +6,7 @@ media_order: 'lobster-tall.jpg, lobster-short.jpg'
 ---
 
 ##Lobster
-Our robot for the 2025 First Robotics Competition, Reefscape. Lobster is able to score Coral on and remove Algae from all levels of the Reef, as well as climb on the Deep Cage in endgame. [Click here](https://www.youtube.com/watch?v=foMMURS_dLU) to watch our reveal video.
+Our robot for the 2025 First Robotics Competition, Reefscape. Lobster features a coral and algae ground intake, and is capable of scoring on all levels of the reef and the net. Lobster also climbs on the Deep Cage during endgame. [Click here](https://www.youtube.com/watch?v=foMMURS_dLU) to watch our reveal video.
 
 #### Performance
 * 57-9-1 (W-L-T) in official play
@@ -41,6 +41,8 @@ Our robot for the 2025 First Robotics Competition, Reefscape. Lobster is able to
         <td> Off-Season - Indiana Robotics Invitational </td>
         <td> Rank 58 </td>
       </tr>
+      <td> Off-Season - Chesapeake Robotics Icebreaker </td>
+        <td> Rank 23 </td>
   </tbody>
 </table>
 </html>
