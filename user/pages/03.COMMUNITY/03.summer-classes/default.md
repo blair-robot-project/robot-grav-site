@@ -1,6 +1,7 @@
 ---
 title: 'Summer Classes'
 media_order: 'Screen Shot 2022-05-21 at 3.27.41 PM.png'
+text_align: center
 content:
     items:
         - '@self.children'
