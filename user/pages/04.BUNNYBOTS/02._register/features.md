@@ -33,7 +33,7 @@ Last updated 9/8 - see Revision History section for Team Update 01
 ## **2025 Participating Teams**
 **Bolded** teams are fully paid and confirmed <br>
 Robot counts will not be finalized until registration ends <br>
-Updated 10/15/2025 <br>
+Updated 10/24/2025 <br>
 
 **FRC 449 - The Blair Robot Project** <br>
 **FRC 686 - Bovine Intervention** <br>
