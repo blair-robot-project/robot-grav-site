@@ -33,9 +33,10 @@ Last updated 9/8 - see Revision History section for Team Update 01
 ## **2025 Participating Teams**
 **Bolded** teams are fully paid and confirmed <br>
 Robot counts will not be finalized until registration ends <br>
-Updated 10/28/2025 <br>
+Updated 10/30/2025 <br>
 
 **FRC 449 - The Blair Robot Project** <br>
+**FRC 611 - Saxons** <br>
 **FRC 686 - Bovine Intervention** <br>
 **FRC 1915 - Firebird Robotics** <br>
 **FRC 4638 - Jagbots** <br>
@@ -43,13 +44,12 @@ Updated 10/28/2025 <br>
 **FRC 5243 - AEGIS** <br>
 **FRC 5549 - Gryphon Robotics** <br>
 **FRC 5587 - Titan Robotics** <br>
+**FRC 8230 - KoiBots** <br>
 **FRC 8592 - Newton Squared** <br>
-FRC 611 - Saxons <br>
+**FRC 9033 - Ocebots** <br>
 FRC 2537 - Space RAIDers <br>
 FRC 2988 - RoboRiot <br>
 FRC 4821 - CyberUs <br>
 FRC 5338 - RoboLoCo <br>
 FRC 5353 - ACL Raptors <br>
-FRC 8230 - KoiBots <br>
 FRC 8726 - CryptoHawks <br>
-FRC 9033 - Ocebots
