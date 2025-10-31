@@ -35,8 +35,8 @@ Last updated 9/8 - see Revision History section for Team Update 01
 Robot counts will not be finalized until registration ends <br>
 Updated 10/30/2025 <br>
 
-**FRC 449 - The Blair Robot Project** <br>
-**FRC 611 - Saxons** <br>
+**FRC 449 - The Blair Robot Project (2 robots)** <br>
+**FRC 611 - Saxons (2 robots)** <br>
 **FRC 686 - Bovine Intervention** <br>
 **FRC 1915 - Firebird Robotics** <br>
 **FRC 4638 - Jagbots** <br>
