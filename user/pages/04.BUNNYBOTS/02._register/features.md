@@ -10,10 +10,10 @@ image_align: left
 # ** 2025 Game Animation **
 [plugin:youtube](https://youtu.be/273OKTFke6c)
 # **2025 Game Manual**
-### Game manual v1.1 available
-Last updated 9/8 - see Revision History section for Team Update 01
+### Game manual v1.2 available
+Last updated 11/1 - see Revision History section for Team Update 02
 
-[Game Manual v1.1](https://drive.google.com/file/d/1u5bQ-05pgr6ziaXQEs8JUMoBTNO8s_fn/view?classes=nounderline,button,btn-block)
+[Game Manual v1.2](https://drive.google.com/file/d/1D44qccFE0jz7-Ch-WYBXTt9G4z2JJTo3/view?classes=nounderline,button,btn-block)
 
 [Team Update 00](BlairBunnybotsTeamUpdate00.pdf?classes=nounderline,button,btn-block)
 
@@ -22,8 +22,8 @@ Last updated 9/8 - see Revision History section for Team Update 01
 [Q&A Form](https://forms.gle/4KaxYVdE7smJRrKPA?classes=nounderline,button,btn-block)
 
 ---
-#### Team Registration - Due Nov 1
-[Team Registration Form](https://forms.gle/dZRbyBvdmtS8w8ct7?classes=nounderline,button,btn-block)
+#### Team Registration - Now Closed
+[Team Registration Form](https://forms.gle/dZRbyBvdmtS8w8ct7?classes=nounderline,button,btn-block,disabled)
 
 ---
 #### Volunteer Registration - Due Nov 15
@@ -32,8 +32,8 @@ Last updated 9/8 - see Revision History section for Team Update 01
 ---
 ## **2025 Participating Teams**
 **Bolded** teams are fully paid and confirmed <br>
-Robot counts will not be finalized until registration ends <br>
-Updated 10/30/2025 <br>
+Robot counts will be finalized shortly <br>
+Updated 11/1/2025 <br>
 
 **FRC 449 - The Blair Robot Project (2 robots)** <br>
 **FRC 611 - Saxons (2 robots)** <br>
