@@ -32,8 +32,6 @@ Last updated 11/1 - see Revision History section for Team Update 02
 ---
 ## **2025 Participating Teams**
 **Bolded** teams are fully paid and confirmed <br>
-Robot counts will be finalized shortly <br>
-Updated 11/1/2025 <br>
 
 **FRC 449 - The Blair Robot Project (2 robots)** <br>
 **FRC 611 - Saxons (2 robots)** <br>
