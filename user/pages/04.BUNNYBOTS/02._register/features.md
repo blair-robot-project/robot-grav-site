@@ -9,6 +9,10 @@ image_align: left
 
 # ** 2025 Game Animation **
 [plugin:youtube](https://youtu.be/273OKTFke6c)
+# ** 2025 Event Schedule **
+[Event Schedule](https://docs.google.com/document/d/18cm3BCkFWBru-xkQ_fn2hqtmUP7D-XOH-Tk0Nra9fV4/view?classes=nounderline,button,btn-block)
+
+---
 # **2025 Game Manual**
 ### Game manual v1.2 available
 Last updated 11/1 - see Revision History section for Team Update 02
