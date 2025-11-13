@@ -41,7 +41,9 @@ Last updated 11/1 - see Revision History section for Team Update 02
 **FRC 611 - Saxons (2 robots)** <br>
 **FRC 686 - Bovine Intervention** <br>
 **FRC 1915 - Firebird Robotics** <br>
+**FRC 2537 - Space RAIDers** <br>
 **FRC 4638 - Jagbots** <br>
+**FRC 4821 - CyberUs** <br>
 **FRC 5115 - Knight Riders** <br>
 **FRC 5243 - AEGIS** <br>
 **FRC 5549 - Gryphon Robotics** <br>
@@ -49,9 +51,7 @@ Last updated 11/1 - see Revision History section for Team Update 02
 **FRC 8230 - KoiBots** <br>
 **FRC 8592 - Newton Squared** <br>
 **FRC 9033 - Ocebots** <br>
-FRC 2537 - Space RAIDers <br>
 FRC 2988 - RoboRiot <br>
-FRC 4821 - CyberUs <br>
 FRC 5338 - RoboLoCo <br>
 FRC 5353 - ACL Raptors <br>
 FRC 8726 - CryptoHawks <br>
