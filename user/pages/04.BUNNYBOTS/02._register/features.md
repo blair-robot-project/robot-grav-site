@@ -30,8 +30,8 @@ Last updated 11/1 - see Revision History section for Team Update 02
 [Team Registration Form](https://forms.gle/dZRbyBvdmtS8w8ct7?classes=nounderline,button,btn-block,disabled)
 
 ---
-#### Volunteer Registration - Due Nov 15
-[Volunteer Registration Form](https://forms.gle/ggjPXdA8v4UwU4Ao6?classes=nounderline,button,btn-block)
+#### Volunteer Registration - Now Closed
+[Volunteer Registration Form](https://forms.gle/ggjPXdA8v4UwU4Ao6?classes=nounderline,button,btn-block,disabled)
 # 
 ---
 ## **2025 Participating Teams**
@@ -42,16 +42,16 @@ Last updated 11/1 - see Revision History section for Team Update 02
 **FRC 686 - Bovine Intervention** <br>
 **FRC 1915 - Firebird Robotics** <br>
 **FRC 2537 - Space RAIDers** <br>
+**FRC 2988 - RoboRiot** <br>
 **FRC 4638 - Jagbots** <br>
 **FRC 4821 - CyberUs** <br>
 **FRC 5115 - Knight Riders** <br>
 **FRC 5243 - AEGIS** <br>
+**FRC 5338 - RoboLoCo** <br>
+**FRC 5353 - ACL Raptors** <br>
 **FRC 5549 - Gryphon Robotics** <br>
 **FRC 5587 - Titan Robotics** <br>
 **FRC 8230 - KoiBots** <br>
 **FRC 8592 - Newton Squared** <br>
 **FRC 9033 - Ocebots** <br>
-FRC 2988 - RoboRiot <br>
-FRC 5338 - RoboLoCo <br>
-FRC 5353 - ACL Raptors <br>
 FRC 8726 - CryptoHawks <br>
