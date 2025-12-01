@@ -1,10 +1,15 @@
 ---
 title: 'Past Presidents'
-media_order: 'blank.jpg,akiva1.jpg,sean.jpg,jade.jpg,peter.jpg,nate.jpg,rye.jpg,laura.JPG,urjita.JPG,karina.JPG'
+media_order: 'blank.jpg,akiva1.jpg,sean.jpg,jade.jpg,peter.jpg,nate.jpg,rye.jpg,laura.JPG,urjita.JPG,karina.JPG,mattNam.jpg,GigglingMatthew.jpg,Oliver.png'
 menu: 'Past Presidents'
 imglocation: /user/pages/02.ABOUT-US/04.HISTORY/10.449-members-of-note/02._features/
 class: small
 features:
+    -
+        image: Oliver.png
+        header: 'Oliver W'
+        text: 2025-2026
+        url: null
     -
         image: GigglingMatthew.jpg
         header: 'Matthew N'
