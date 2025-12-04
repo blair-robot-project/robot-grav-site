@@ -12,12 +12,12 @@ features:
         url: '#frc-2025'
     -
         image: 'vet 2024.jpg'
-        header: 'Vet Bot'
+        header: 'Achilles (Vet Bot)'
         text: 'Blair Bunnybots 2024'
         url: null
     -
         image: 'rookie 2024.png'
-        header: 'Rookie Bot'
+        header: 'Patroclus (Rookie Bot)'
         text: 'Blair Bunnybots 2024'
         url: null
     -

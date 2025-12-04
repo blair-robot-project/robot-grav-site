@@ -9,7 +9,7 @@ published: true
 ## <center> Lower Leadership </center>
 
 ##### These 12 leaders of our team represent our 4 subteams: Business, Programming, Electronics, and Mechanics.
-* Business: Allison Z and Leo J
+* Business: Allison Z & Leo J
 * Programming: Jeffrey J, Rakshay N & Tinbite A
 * Electronics: Frank L, Roman S & Ryan L
 * Mechanics: Filipe L, Gerald L, James Y & Sky Y
@@ -20,4 +20,4 @@ published: true
 
 ### Data Science Lead
 ##### The Data Science Lead is responsible for identifying and mentoring data science students on 449. They collaborate with those students to manage 449's data science operations (e.g. scouting, strategy, outreach support) and year-round development (e.g. research, scouting system design).
-* Design Lead: Mitchell H
+* Data Science Lead: Mitchell H

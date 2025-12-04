@@ -6,5 +6,5 @@ media_order: VetBot.png
 published: false
 ---
 
-##Vet Bot
+## Achilles (Vet Bot)
 Our robot created by veterans for our 2024 Bunnybots.

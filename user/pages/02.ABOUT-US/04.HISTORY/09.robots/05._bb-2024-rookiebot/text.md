@@ -6,6 +6,6 @@ media_order: RookieBot.png
 published: false
 ---
 
-## Rookie Bot
+## Patroclus (Rookie Bot)
 
 Our robot created by rookies for our 2024 Bunnybots.
