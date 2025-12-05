@@ -53,5 +53,5 @@ Last updated 11/1 - see Revision History section for Team Update 02
 **FRC 5587 - Titan Robotics** <br>
 **FRC 8230 - KoiBots** <br>
 **FRC 8592 - Newton Squared** <br>
+**FRC 8726 - CryptoHawks** <br>
 **FRC 9033 - Ocebots** <br>
-FRC 8726 - CryptoHawks <br>
