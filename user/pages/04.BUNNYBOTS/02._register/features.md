@@ -34,6 +34,11 @@ Last updated 11/1 - see Revision History section for Team Update 02
 [Volunteer Registration Form](https://forms.gle/ggjPXdA8v4UwU4Ao6?classes=nounderline,button,btn-block,disabled)
 # 
 ---
+#### Provided Bunnybots Shinyapp
+[Bunnybots Shinyapp](https://blair-robot-bunnybots-scouting-2025.share.connect.posit.cloud?classes=nounderline,button,btn-block)
+Status: Real data, last updated: Match 15
+
+---
 ## **2025 Participating Teams**
 **Bolded** teams are fully paid and confirmed <br>
 
