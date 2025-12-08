@@ -7,10 +7,8 @@ text_align: center
 image_align: left
 ---
 
-# ** 2025 Game Animation **
-[plugin:youtube](https://youtu.be/273OKTFke6c)
-# ** 2025 Event Schedule **
-[Event Schedule](https://docs.google.com/document/d/18cm3BCkFWBru-xkQ_fn2hqtmUP7D-XOH-Tk0Nra9fV4/view?classes=nounderline,button,btn-block)
+# ** 2025 Event VOD **
+[plugin:youtube](https://youtu.be/8z1tBnxV6zw)
 
 ---
 # **2025 Game Manual**
@@ -19,29 +17,14 @@ Last updated 11/1 - see Revision History section for Team Update 02
 
 [Game Manual v1.2](https://drive.google.com/file/d/1D44qccFE0jz7-Ch-WYBXTt9G4z2JJTo3/view?classes=nounderline,button,btn-block)
 
-[Team Update 00](BlairBunnybotsTeamUpdate00.pdf?classes=nounderline,button,btn-block)
-
----
-#### Official Q&A Form
-[Q&A Form](https://forms.gle/4KaxYVdE7smJRrKPA?classes=nounderline,button,btn-block)
-
----
-#### Team Registration - Now Closed
-[Team Registration Form](https://forms.gle/dZRbyBvdmtS8w8ct7?classes=nounderline,button,btn-block,disabled)
-
----
-#### Volunteer Registration - Now Closed
-[Volunteer Registration Form](https://forms.gle/ggjPXdA8v4UwU4Ao6?classes=nounderline,button,btn-block,disabled)
-# 
 ---
 #### Provided Bunnybots Shinyapp
 [Bunnybots Shinyapp](https://blair-robot-bunnybots-scouting-2025.share.connect.posit.cloud?classes=nounderline,button,btn-block)
-Status: Real data, last updated: Match 15
+Updated up to: Match 15 <br>
+After further review, the data presented within should not be taken for objective truth — there are quite a few inaccuracies that skew results.
 
 ---
 ## **2025 Participating Teams**
-**Bolded** teams are fully paid and confirmed <br>
-
 **FRC 449 - The Blair Robot Project (2 robots)** <br>
 **FRC 611 - Saxons (2 robots)** <br>
 **FRC 686 - Bovine Intervention** <br>

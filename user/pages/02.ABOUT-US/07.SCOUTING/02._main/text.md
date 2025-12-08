@@ -9,9 +9,6 @@ text_align: justify
     </h3></div>
 <br>
 
-##### Bunnybots Scouting Shinyapp
-Click [here](https://blair-robot-bunnybots-scouting-2025.share.connect.posit.cloud) for a rookie-made Shinyapp that contains Blair-scouted data for Bunnybots! Use the Event Summary for an event-wide snapshot, Match for match-by-match strategy, Compare Teams for picklisting, and Scouts for fun!
-
 ##### Motivation
 Teams' rankings, Offensive Power Ratings (OPR), and Expected Points Added (EPA) are often not most viable metrics for evaluating quality of performance at competitions. Additionally, they provide no detailed information about robots, and do not offer a qualitative perspective. Our scouting system provides higher accuracy by tracking the actions of every robot in every match, which allow us to make well-informed decisions. Additionally, our team has historically (pre-2016) not given enough attention or analysis to the data we collected. Now, our data is at the forefront of our match strategization and alliance selection. 
 
