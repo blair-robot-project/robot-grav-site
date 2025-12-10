@@ -19,7 +19,7 @@ Last updated 11/1 - see Revision History section for Team Update 02
 
 ---
 #### Provided Bunnybots Shinyapp
-[Bunnybots Shinyapp](https://blair-robot-bunnybots-scouting-2025.share.connect.posit.cloud?classes=nounderline,button,btn-block)
+[Bunnybots Shinyapp](https://mitchell-ghosty33.shinyapps.io/bunnybots_scouting_2025_shinyapp/?classes=nounderline,button,btn-block)
 Updated up to: Match 15 <br>
 After further review, the data presented within should not be taken for objective truth — there are quite a few inaccuracies that skew results.
 
