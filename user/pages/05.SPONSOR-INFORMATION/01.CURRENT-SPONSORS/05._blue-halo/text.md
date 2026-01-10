@@ -1,8 +1,8 @@
 ---
-title: _blue-halo
-media_order: BlueHalo_Logo.png
+title: _AeroVironment
+media_order: 'AV-black-blue (1).png'
 image_align: right
 ---
 
-###BlueHalo
+###AeroVironment
 Platinum Sponsor
