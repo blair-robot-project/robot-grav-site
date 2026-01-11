@@ -1,6 +1,6 @@
 ---
 title: Leadership-text
-media_order: '2024 team photo (6).png'
+media_order: 2026STLPhoto.jpg
 image_align: right
 ---
 

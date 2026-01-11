@@ -3,7 +3,7 @@ title: About
 image_align: left
 text_align: justify
 menu: About
-media_order: '2024 team photo (2).png,_MG_0216_Original.jpg,ronaldLobster.JPG'
+media_order: '2026TeamPhoto.jpg,_MG_0216_Original.jpg,ronaldLobster.JPG'
 ---
 
 ## About Our Team
