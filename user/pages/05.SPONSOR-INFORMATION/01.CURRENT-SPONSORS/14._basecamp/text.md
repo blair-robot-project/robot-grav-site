@@ -5,4 +5,4 @@ media_order: logo-basecamp-original.png
 ---
 
 ###Basecamp
-Steel Sponsor
+Bronze Sponsor
