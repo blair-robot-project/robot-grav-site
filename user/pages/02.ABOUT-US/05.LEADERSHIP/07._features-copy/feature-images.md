@@ -10,7 +10,7 @@ features:
         text: 'President </br> Joined 2022'
         url: null
     -
-        image: Ella.png
+        image: EllaWebsite(1).png
         header: 'Ella W'
         text: 'Vice President of Communications </br> Joined 2022'
         url: null
@@ -25,7 +25,7 @@ features:
         text: 'Vice President of Finance </br> Joined 2022'
         url: null
 published: true
-media_order: 'blank.jpg,reed2.png,2024 team photo (7).png,AryanBunny.jpg,GigglingMatthew.jpg,Zayway.jpg,AllisonImg-min.jpg,HappyOliver.jpg,LockedInNate.jpg,oliver.png,ella.png,oliver422.png,Ella.png,NateGeeked.png,Oliver.png,Reanna.png'
+media_order: 'blank.jpg,reed2.png,2024 team photo (7).png,AryanBunny.jpg,GigglingMatthew.jpg,Zayway.jpg,AllisonImg-min.jpg,HappyOliver.jpg,oliver422.png,Ella.png,NateGeeked.png,Oliver.png,Reanna.png,EllaWebsite(1).png'
 ---
 
 ## Upper Leadership
