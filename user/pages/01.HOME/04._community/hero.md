@@ -4,8 +4,8 @@ menu: Community
 arrow: noarrow
 hero_classes: 'parallax text-light overlay-dark-gradient'
 hero_inline: 'true'
-hero_image: severnWinners.JPG
-media_order: 'Bunnybot participants.png,PXL_20230421_232545154.jpg,PXL_20230422_235348641.jpg,IMG_9861.jpg,PXL_20230421_002217699.jpg,severnWinners.JPG'
+hero_image: image_2026-04-17_095105932.jpg
+media_order: 'Bunnybot participants.png,PXL_20230421_232545154.jpg,PXL_20230422_235348641.jpg,IMG_9861.jpg,PXL_20230421_002217699.jpg,severnWinners.JPG,image_2026-04-17_095105932.jpg'
 ---
 
 ## **Community**
