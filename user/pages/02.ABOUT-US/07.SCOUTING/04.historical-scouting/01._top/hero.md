@@ -4,6 +4,8 @@ media_order: 'D85_5976042819.jpg,2019NoahShrujScouting.png,debbie arjun.jpg,PXL_
 hero_classes: 'overlay-dark-gradient text-light hero-large parallax'
 hero_image: D85_5976042819.jpg
 arrow: noarrow
+visible: false
+body_classes: header-fixed
 ---
 
 # **Scouting**

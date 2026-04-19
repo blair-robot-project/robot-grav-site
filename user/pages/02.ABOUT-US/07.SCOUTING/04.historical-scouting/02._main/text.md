@@ -2,6 +2,8 @@
 media_order: image.png
 image_align: left
 text_align: justify
+visible: false
+body_classes: 'modular title-h1h2 header-dark header-transparent header-fixed'
 ---
 
 <div align="center"><h3>
