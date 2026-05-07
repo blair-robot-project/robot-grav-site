@@ -8,12 +8,12 @@ image_align: right
 hero_inline: true
 ---
 
-## **2025 Competition Season Recap**	
-**Team 449 was 57-9-1 in official play in 2025** <br>
+## **2026 Competition Season Recap**	
+**Team 449 was 49-15-0 in official play in 2026** <br>
 <br>
-*CHS District Glen Allen VA Event*: **District Event Winner**, Team 449 was **Rank 3** with a record of **15-1-1**<br>
-*CHS District Severn MD Event*: **District Event Winner**, Team 449 was **Rank 1** with a record of **16-1-0**, won the **Impact Award** <br>
-*FIRST Chesapeake District Championship*:  **District Event Winner**, Team 449 was **Rank 4** with a record of **15-3-0**<br>
-*FIRST Championship, Newton Division*: Team 449 was **Rank 10** with a record of **11-4-0** <br><br>
+*CHS District Alexandria VA Event*: Team 449 was **Rank 7** with a record of **11-5-0**, won the **FIRST Leadership Award**<br>
+*CHS District Bethesda MD Event*: Team 449 was **Rank 5** with a record of **10-6-0**, won the **Engineering Inspiration Award** <br>
+*FIRST Chesapeake District Championship*:  **District Event Winner**, Team 449 was **Rank 1** with a *undefeated* record of **17-0-0**<br>
+*FIRST Championship, Galileo Division*: Team 449 was **Rank 7** with a record of **11-4-0** <br><br>
 ****The Blair Robot Project competes in the FIRST Chesapeake District**** <br>
-**[Click here](https://www.thebluealliance.com/team/449)** for our team's full competition history (2000-2025)
+**[Click here](https://www.thebluealliance.com/team/449)** for our team's full competition history (2000-2026)
