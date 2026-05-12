@@ -8,12 +8,12 @@ features:
     -
         image: '2025 shirt rescaled.jpg'
         header: 'REEFSCAPE 2025 Name: Lobster'
-        text: 'Artist: Cindy C'
+        text: 'Artists: Cindy C & Victoria R'
         url: null
     -
         image: '2024 shirt rescaled.jpg'
         header: 'CRESCENDO 2024 Name: Whiplash'
-        text: 'Artist: Allison L and Victoria R'
+        text: 'Artist: Allison L'
         url: null
     -
         image: '2023 shirt.png'
