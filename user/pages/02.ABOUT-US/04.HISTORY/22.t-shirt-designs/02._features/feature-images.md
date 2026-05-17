@@ -6,6 +6,11 @@ imglocation: /user/pages/02.ABOUT-US/04.HISTORY/22.t-shirt-designs/02._features/
 class: small
 features:
     -
+        image: shirt2026.png
+        header: 'REBUILT 2026 Name: Tumbleweed'
+        text: 'Artist: Sophia Z'
+        url: null
+    -
         image: '2025 shirt rescaled.jpg'
         header: 'REEFSCAPE 2025 Name: Lobster'
         text: 'Artists: Cindy C & Victoria R'
