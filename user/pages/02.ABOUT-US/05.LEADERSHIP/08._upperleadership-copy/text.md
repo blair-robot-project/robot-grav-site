@@ -8,16 +8,13 @@ published: true
 
 ## <center> Lower Leadership </center>
 
-##### These 12 leaders of our team represent our 4 subteams: Business, Programming, Electronics, and Mechanics.
-* Business: Allison Z & Leo J
-* Programming: Jeffrey J, Rakshay N & Tinbite A
-* Electronics: Frank L, Roman S & Ryan L
-* Mechanics: Filipe L, Gerald L, James Y & Sky Y
+##### These 9 leaders of our team represent our 5 subteams: Business, Programming, Electronics, Mechanics, and Data Science.
+* Business: Adoniya Y & Nikhil R
+* Programming: Sophia Z & Tinbite A
+* Electronics: Ashwin N & Alex W
+* Mechanics: Ben P & Alice C
+* Data Science: Mitchell H
 
 ### Design Lead
 ##### Our Design Lead oversees the big picture: design and CAD. They are responsible for the integration of mechanisms, ensuring each part of the robot (sensors, programming, manufacturability, etc.) are thought out.
-* Design Lead: Julian G
-
-### Data Science Lead
-##### The Data Science Lead is responsible for identifying and mentoring data science students on 449. They collaborate with those students to manage 449's data science operations (e.g. scouting, strategy, outreach support) and year-round development (e.g. research, scouting system design).
-* Data Science Lead: Mitchell H
+* Design Lead: Filipe L

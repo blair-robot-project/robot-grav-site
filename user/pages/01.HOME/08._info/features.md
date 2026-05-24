@@ -20,7 +20,6 @@ text_align: center
         <h2><b>Resources</b></h2>
         Youtube: <a href="https://www.youtube.com/user/blairrobot">blairrobot</a><br>
         Github: <a href="https://github.com/blair-robot-project">The Blair Robot Project</a><br>
-        Team Wiki: <a href="http://team449.shoutwiki.com/wiki/Main_Page">ShoutWiki</a><br>
 		Drivetrain Characterization: <a href="https://www.chiefdelphi.com/t/paper-frc-drivetrain-characterization/160915">Paper</a><br>
         FIRST Inspires: <a href="https://www.firstinspires.org/robotics/frc">Website</a><br>
     </div>
