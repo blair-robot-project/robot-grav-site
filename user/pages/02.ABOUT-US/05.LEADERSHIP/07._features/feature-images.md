@@ -1,27 +1,27 @@
 ---
 title: 'Upper Leadership'
 menu: 'Upper Leadership'
-imglocation: /user/pages/02.ABOUT-US/05.LEADERSHIP/07._features-copy/
+imglocation: /user/pages/02.ABOUT-US/05.LEADERSHIP/07._features/
 class: small
 features:
     -
         image: romanStemp2Crop.JPG
-        header: 'Roman Stemp'
+        header: 'Roman S'
         text: 'President </br> Joined 2023'
         url: null
     -
         image: julianGivensCrop.JPG
-        header: 'Julian Givens'
+        header: 'Julian G'
         text: 'Vice President of Technology </br> Joined 2023'
         url: null
     -
         image: allisonNewCrop.png
-        header: 'Allison Zhang'
+        header: 'Allison Z'
         text: 'Vice President of Communications </br> Joined 2024'
         url: null
     -
         image: frankNewCrop.png
-        header: 'Frank Lin'
+        header: 'Frank L'
         text: 'Vice President of Finance </br> Joined 2023'
         url: null
 published: true

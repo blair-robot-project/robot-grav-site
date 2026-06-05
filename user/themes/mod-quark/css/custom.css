@@ -49,3 +49,7 @@
 .nounderline:hover {
     text-decoration: none;
 }
+
+.navbar .navbar-section {
+    justify-content: center;
+}

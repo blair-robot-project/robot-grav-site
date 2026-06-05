@@ -16,6 +16,7 @@ content:
     url_taxonomy_filters: true
 access:
     admin.login: true
+visible: false
 ---
 
 # **Build Blog**

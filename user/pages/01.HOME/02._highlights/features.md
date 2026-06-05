@@ -37,4 +37,8 @@ image_align: left
 text_align: center
 ---
 
-###Find out more about our team below!
+**We are a student-led, mentor-guided [_FIRST_ Robotics Competition](https://www.firstinspires.org/programs/frc/) team based in Silver Spring, Maryland.  **
+
+**[2026 Champions](https://frc-events.firstinspires.org/2026/CHCMP/awards): _FIRST_ Chesapeake District:** 17-0 record, Quality Award
+<br>**[Ranked 7 of 75](https://frc-events.firstinspires.org/2026/GALILEO/rankings) (Galileo Division): 2026_FIRST_ Championship** 
+<br>**[2025 Champions](https://frc-events.firstinspires.org/2025/CHCMP/awards): _FIRST_ Chesapeake District**

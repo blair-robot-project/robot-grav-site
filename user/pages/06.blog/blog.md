@@ -15,6 +15,7 @@ content:
     url_taxonomy_filters: true
 show_sidebar: false
 published: true
+visible: false
 ---
 
 # **Blog**

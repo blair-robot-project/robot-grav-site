@@ -1,5 +1,5 @@
 ---
-title: 'Upper leadership-text (Copy)'
+title: 'Lower Leadership'
 body_classes: modular
 class: small
 image_align: left
