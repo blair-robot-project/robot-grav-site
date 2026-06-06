@@ -28,4 +28,5 @@ published: true
 media_order: 'blank.jpg,reed2.png,2024 team photo (7).png,AryanBunny.jpg,GigglingMatthew.jpg,Zayway.jpg,AllisonImg-min.jpg,HappyOliver.jpg,oliver422.png,Ella.png,NateGeeked.png,Oliver.png,Reanna.png,EllaWebsite(1).png,romanStemp2.JPG,julianGivensCrop.JPG,frankLinCrop.JPG,allisonZhangCrop.JPG,romanStempCrop.JPG,romanStemp2Crop.JPG,allisonNewCrop.png,frankNewCrop.png'
 ---
 
-## Upper Leadership
+## 2026-27
+### Upper Leadership

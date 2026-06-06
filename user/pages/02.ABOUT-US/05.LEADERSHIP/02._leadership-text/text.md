@@ -4,5 +4,6 @@ media_order: 2026STLPhoto.jpg
 image_align: right
 ---
 
-## Positions
-We have four elected leadership positions: President, Vice President of Finances, Vice President of Communications, and Vice President of Technology, who are collectively known as Upper Leadership. We also have between six and twelve subteam leaders a year, appointed by Upper Leadership to run their subteam. Our subteams are mechanics, electronics, programming, business, and data science.
+We have four elected leadership positions: President; Vice President, Communications; Vice President, Finances; and Vice President, Technology. Collectively, they are known as Upper Leadership. 
+
+Each year, Upper Leadership appoints six to 12 members to lead our subteams: business, data science, electronics, mechanics, and programming.
