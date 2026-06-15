@@ -20,7 +20,7 @@
         {% if theme_var('spectre.exp') %}{% do assets.addCss('theme://css-compiled/spectre-exp'~compress)  %}{% endif %}
         {% if theme_var('spectre.icons') %}{%  do assets.addCss('theme://css-compiled/spectre-icons'~compress) %}{% endif %}
         {% do assets.addCss('theme://css-compiled/theme'~compress) %}
-        {% do assets.addCss('theme://css/custom.css') %}
+        {% do assets.addCss('theme://css/custom.css?v=38') %}
         {% do assets.addCss('theme://css/line-awesome.min.css') %}
     {% endblock %}
     {{ assets.css()|raw }}
@@ -40,11 +40,9 @@
         <section id="header" class="section">
             <section class="container {{ grid_size }}">
                 <nav class="navbar">
-		    {# broken for some reason?
                     <section class="navbar-section logo">
                         {% include 'partials/logo.html.twig' %}
                     </section>
-		    #}
                     <section class="navbar-section desktop-menu">
 
                         <nav class="dropmenu animated">
@@ -101,6 +99,8 @@
             </nav>
         </div>
     </div>
+
+{% include 'partials/footer.html.twig' %}
 
 {% block bottom %}
     {{ assets.js('bottom')|raw }}

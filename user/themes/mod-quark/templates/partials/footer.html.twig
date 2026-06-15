@@ -1,0 +1,19 @@
+{% set footer = page.find('/footer') %}
+<footer class="site-footer">
+  <section class="container {{ grid_size }}">
+    <table class="footer-table">
+      <colgroup><col style="width:33.33%"><col style="width:33.33%"><col style="width:33.33%"></colgroup>
+      <tr>
+        <td colspan="3" class="footer-title-cell">The Blair Robot Project | FRC 449</td>
+      </tr>
+      <tr>
+        <td class="footer-cell footer-cell-logo">
+          <img src="{{ base_url }}/user/themes/mod-quark/images/logo/trailing_wrenchman.svg" alt="Wrenchman" class="footer-logo">
+        </td>
+        {% if footer %}{% for col in footer.collection() %}
+        <td class="footer-cell">{{ col.content|raw }}</td>
+        {% endfor %}{% endif %}
+      </tr>
+    </table>
+  </section>
+</footer>

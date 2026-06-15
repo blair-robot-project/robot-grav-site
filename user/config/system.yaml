@@ -185,7 +185,7 @@ media:
   unsupported_inline_types: null
   allowed_fallback_types: null
   auto_metadata_exif: false
-  upload_limit: 2097152
+  upload_limit: 26214400
 session:
   enabled: true
   initialize: true

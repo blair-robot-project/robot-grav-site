@@ -15,7 +15,9 @@
             <div class="column col-6 col-md-12">
                 {% if image %}
                     {% for image in page.media.images %}
-                        {{ image.html }}
+                        {% if page.header.url %}<a href="{{ page.header.url }}" target="_blank" rel="noopener">{% endif %}
+                        {{ image.height(page.header.image_height|default(300)).html }}
+                        {% if page.header.url %}</a>{% endif %}
                     {% endfor %}
                 {% endif %}
             </div>

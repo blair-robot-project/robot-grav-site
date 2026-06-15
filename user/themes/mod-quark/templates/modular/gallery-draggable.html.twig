@@ -1,0 +1,21 @@
+{# Gallery variant: shows ALL page-media images in Page-Media (media_order) order. #}
+{# Drag thumbnails in admin Page Media to reorder. Body text (if any) shows as a caption below. Grid CSS in custom.css. #}
+{% set caption = content|default('') %}
+{% set thumb_w = page.header.thumb.width|default(600) %}
+{% set thumb_h = page.header.thumb.height|default(450) %}
+<div class="lightbox-gallery">
+  <div class="lightbox-gallery__columns">
+    {% for img in page.media.images %}
+      {# Capture source width first: only downscale photos wider than 1200; serve smaller images as-is so resize() does not pad them with white. #}
+      {% set orig_w = img.width %}
+      <div class="lightbox-gallery__column">
+        {% set content = img.cropZoom(thumb_w, thumb_h).html() %}
+        {% set image = orig_w > 1200 ? img.resize(1200).url : img.url %}
+        {% include "partials/lightbox.html.twig" %}
+      </div>
+    {% endfor %}
+  </div>
+  {% if caption|trim %}
+    <div class="lightbox-gallery__caption">{{ caption|raw }}</div>
+  {% endif %}
+</div>

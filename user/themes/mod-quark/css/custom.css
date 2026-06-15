@@ -1,5 +1,5 @@
 #header {
-  background: #161314d6;
+  background: rgba(168, 0, 7, 0.84);
   color: #f0f0f0;
 }
 
@@ -7,7 +7,7 @@
   color: #f0f0f0;
 }
 
-.header-dark #header:not(.scrolled) { background: #222; color: #fff; }
+.header-dark #header:not(.scrolled) { background: rgba(168, 0, 7, 0.84); color: #fff; }
 
 .header-dark #header:not(.scrolled) a { color: rgba(240, 240, 240, 1) !important; }
 
@@ -17,9 +17,9 @@
 
 .header-dark #header:not(.scrolled) .logo svg path { fill: #fff; }
 
-.header-dark.header-transparent #header:not(.scrolled) { background: rgba(0, 0, 0, 0.05); }
+.header-dark.header-transparent #header:not(.scrolled) { background: rgba(168, 0, 7, 0.05); }
 
-.header-transparent #header:not(.scrolled) { background: rgba(255, 255, 255, 0.05); }
+.header-transparent #header:not(.scrolled) { background: rgba(168, 0, 7, 0.05); }
 
 .dropmenu ul ul { background: #161314e6; box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); }
 
@@ -52,4 +52,185 @@
 
 .navbar .navbar-section {
     justify-content: center;
+}
+
+/* Site footer */
+footer.site-footer {
+    background-color: #a80007;
+    color: #fff;
+    font-size: 14px;
+    padding: 0.75rem 0;
+}
+
+footer.site-footer h2 {
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+}
+
+footer.site-footer a {
+    color: #fff;
+}
+
+footer.site-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Footer layout */
+.footer-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.footer-title-cell {
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+    padding-bottom: 0.75rem;
+}
+
+.footer-cell {
+    width: 33.33%;
+    vertical-align: top;
+    padding-right: 16px;
+    font-size: 14px;
+}
+
+.footer-cell h2 {
+    font-size: 14px;
+    color: #fff;
+    margin: 0 0 0.4rem 0;
+}
+
+.footer-cell-logo {
+    text-align: center;
+}
+
+.footer-logo {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
+/* Blair ITC Medium font — DISABLED pending webfont license.
+   BlairMdITC is a commercial ITC/Monotype desktop font ("(c) 1995-1997 International
+   Typeface Corporation. All rights reserved.") — a desktop license does NOT cover web
+   @font-face serving. To ENABLE: uncomment the @font-face block and the h1 font-family
+   line below, and ship user/themes/mod-quark/fonts/BlairMdITC-Medium.{woff2,woff,ttf}. */
+/*
+@font-face {
+    font-family: 'BlairMdITC';
+    src: url('../fonts/BlairMdITC-Medium.woff2') format('woff2'),
+         url('../fonts/BlairMdITC-Medium.woff') format('woff'),
+         url('../fonts/BlairMdITC-Medium-1551.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+
+/* H1 styling */
+h1 {
+    /* font-family: 'BlairMdITC', sans-serif;   <-- re-enable ONLY with a webfont license */
+    font-size: 50px !important;
+    text-transform: uppercase;
+}
+
+/* Ragged-right body text — no justification */
+body, p, li, td, th, blockquote {
+    text-align: left;
+}
+
+/* Tighter spacing for sponsor modules */
+.modular-text {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+/* Error page centering */
+#error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 25vh;
+  margin-top: 0;            /* override Quark default (was 100px) */
+}
+
+#error > div {
+  text-align: center;
+}
+
+#error h1 {
+  margin-top: 0.5rem;       /* trim heading top space (was ~40px) */
+}
+
+#error img {
+  display: block;
+  margin: 0 auto;
+  max-height: 55vh;         /* keep image + caption text within the viewport */
+  width: auto;
+}
+
+/* Center text in highlights/features module */
+.modular-features p,
+.modular-features h1,
+.modular-features h2,
+.modular-features h3,
+.modular-features h4,
+.modular-features h5,
+.modular-features h6 {
+  text-align: center;
+}
+
+/* Halve vertical whitespace above/below menu (features) modules — was 3rem 0 */
+.modular-features .frame-box {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+/* Bigger, padded menu labels — white box padded for legibility over icons */
+.modular-features .feature-icon h6 {
+    font-size: 18px;
+    padding: 2px;
+}
+
+/* Home gallery layout. Quark's gallery template ships this via addInlineCss, which this
+   theme's base doesn't emit, so it lives here. Knobs: column width %, max-width, gap (the
+   matching -10px/10px margins+padding), border-radius. */
+.lightbox-gallery { max-width: 1200px; margin: 20px auto 0; padding: 0 20px; }
+.lightbox-gallery__columns { display: flex; flex-wrap: wrap; margin: 0 -10px; }
+.lightbox-gallery__column { width: 25%; padding: 0 10px; margin-bottom: 20px; }
+.lightbox-gallery img { display: block; width: 100%; height: auto; border-radius: 5px; }
+@media (max-width: 1000px) { .lightbox-gallery__column { width: 33.333%; } }
+@media (max-width: 600px)  { .lightbox-gallery__column { width: 50%; } }
+
+
+/* Transparent white roundrect behind hero H1 titles. Knobs: background alpha (legibility),
+   color (text), padding (box size), border-radius (corner roundness). */
+.hero h1 {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0);
+    padding: 0.15em 0.45em;
+    border-radius: 14px;
+}
+
+
+/* Top-align a text module's content with its image: drop the leading heading's top margin */
+.modular-text .column > :first-child {
+    margin-top: 0;
+}
+
+/* Caption under a gallery (the module body text, if any) */
+.lightbox-gallery__caption {
+    max-width: 1200px;
+    margin: 0.75rem auto 0;
+    padding: 0 20px;
+    text-align: center;
+    font-style: italic;
+    color: #667189;
+}
+.lightbox-gallery__caption p {
+    text-align: center;
+    margin: 0;
 }
