@@ -31,7 +31,7 @@
 {% block header_navigation %}
     {% if show_onpage_menu %}
         <ul class="navigation">
-        {% for module in page.collection() if module.header.visible is not same as(false) %}
+        {% for module in page.collection()|filter(module => module.header.visible is not same as(false)) %}
             {% set current_module = (module.active or module.activeChild) ? 'active' : '' %}
             <li><a class="{{ current_module }}" href="#{{ macro.pageLinkName(module.menu) }}">{{ module.menu }}</a></li>
         {% endfor %}
@@ -50,14 +50,14 @@
 {% endblock %}
 
 {% block hero %}
-    {% for module in page.collection() if module.template == 'modular/hero' and (module.header.hero_inline != true or (module.header.hero_inline is null)) %}
+    {% for module in page.collection()|filter(module => module.template == 'modular/hero' and (module.header.hero_inline != true or (module.header.hero_inline is null))) %}
         <div id="{{ macro.pageLinkName(module.menu) }}"></div>
         {{ module.content|raw }}
     {% endfor %}
 {% endblock %}
 
 {% block body %}
-    {% for module in page.collection() if module.template != 'modular/hero'  or module.header.hero_inline == true %}
+    {% for module in page.collection()|filter(module => module.template != 'modular/hero' or module.header.hero_inline == true) %}
         <div id="{{ macro.pageLinkName(module.menu) }}"></div>
         {{ module.content|raw }}
     {% endfor %}

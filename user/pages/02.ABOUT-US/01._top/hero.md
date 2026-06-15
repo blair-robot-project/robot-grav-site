@@ -1,12 +1,12 @@
 ---
 title: _home
-media_order: 2024TeamPhoto.jpeg
-menu: Home
+media_order: '2024TeamPhoto.jpeg,2026_worlds_group_houston-crop.jpeg'
+menu: Hero
 arrow: arrow
-hero_classes: 'parallax text-light overlay-dark hero-fullscreen'
-hero_image: 2024TeamPhoto.jpeg
+hero_classes: 'parallax text-light hero-large'
+hero_image: 2026_worlds_group_houston-crop2.jpeg
 ---
 
 # **About Us**
 
-[//]: # (Team photo as hero)
+[//]: # (2026 Worlds team photo as hero)

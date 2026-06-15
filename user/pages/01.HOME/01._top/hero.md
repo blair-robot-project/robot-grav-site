@@ -1,6 +1,6 @@
 ---
 title: _home
-menu: Home
+menu: Hero
 arrow: arrow
 hero_classes: 'parallax text-light hero-fullscreen overlay-dark-gradient'
 hero_image: dchamps-champs-group-shot.jpg
@@ -8,4 +8,3 @@ media_order: 'header-original.jpg,header.jpg,headerb-original.jpg,headerb.jpg,pr
 ---
 
 # **The Blair Robot Project**
-##FRC Team 449

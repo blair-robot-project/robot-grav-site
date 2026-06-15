@@ -1,36 +1,58 @@
 ---
-title: 'Sponsor Benefits'
+title: 'Benefits details'
 image_align: left
 class: small
 text_align: left
+menu: 'Text: Benefits levels'
 ---
 
-# ** Sponsor Benefits**
+## Join the sponsors who keep Team 449 rolling! 
 
-### **Title Sponsor** (Upon Request) - $6,000+ (or equivalent value)
-- Inclusive of Everything in Gold PLUS
-- Title Sponsor of either Blair Bunnybots or our FLL Tournament
+Building a robot, improving it over the season, and traveling to put it to the test against other teams takes resources. We are grateful to the community-minded companies and organizations that help us grow—with monetary donations, in-kind donations, services, and mentorship. 
 
-### **Diamond** - $5,000+ (or equivalent value)
-- Inclusive of Everything in Gold PLUS
-- Addendum to Team 449's name, announced at __every competition__
-- Optional __Team 449 outreach visit__ with our robot to your place of work
+We invite you to join them! Learn about the benefits of supporting Team 449 at various levels below, then [reach out to us](mailto:blair.robot@gmail.com)!
 
-### **Gold** - $2,500+ (or equivalent value)
-- Inclusive of Everything in Silver PLUS
-- Logo on our robot
-- Name of sponsor and logo on our __website home__ page AND sponsor page
-- Name of sponsor listed alongside Team 449 on __official FIRST websites__
-### **Silver** - $1,000+ (or equivalent value)
-- Inclusive of Everything in Bronze PLUS
-- Logo on T-shirt
-- Name on our robot
-- Logo on the brochure and banner
-### **Bronze** - $449 (or equivalent value)
-- Logo and sponsor name on the sponsor page of our __website__
-- Name on T-shirt
-- Name of business on __brochure and banner__
+---
 
-*Custom tiers and benefits available upon request too!*
+<a id="title-sponsor"></a>
+#### **Title Sponsor**: $6,000 (or equivalent)
+**_Everything in Gold, plus:_**
+- Title Sponsor of Blair Bunnybots or our FLL Tournament
 
-Last updated 1/23/2026
+<a id="diamond"></a>
+#### **Diamond**: $5,000 (or equivalent)
+_**Everything in Gold, plus:**_
+- Sponsor name announced with Team 449 at **every competition**
+- Team 449 visit with our robot to **your place of work** (optional)
+
+<a id="gold"></a>
+#### **Gold**: $2,500 (or equivalent)
+_**Everything in Silver, plus:**_
+- Sponsor logo on our robot
+- Sponsor name and logo on our **website homepage** and sponsor page
+- Sponsor name listed with Team 449 on **official FIRST websites**
+
+<a id="silver"></a>
+#### **Silver**: $1,000 (or equivalent)
+_**Everything in Bronze, plus:**_
+- Sponsor name on **our robot**
+- Sponsor logo on T-shirt
+- Sponsor logo on our brochure and banner
+ 
+<a id="bronze"></a>
+#### **Bronze**: $449 (or equivalent)
+- Sponsor name and logo on our sponsor webpage
+- Sponsor name on T-shirt
+- Sponsor name on our **brochure and banner**
+
+---
+
+**Got another idea?** [Ask us](mailto:blair.robot@gmail.com) about custom tiers and benefits.
+
+**You may also support us through a simple donation**:
+* [Paypal](https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=WPMD8G4P572UJ), or
+* A check made out to "Montgomery Blair High School Magnet Foundation, Inc." with a memo to "Team 449". Mail it to:
+<br>The Blair Robot Project 
+<br>c/o MBHS Magnet Foundation, Inc. 
+<br>P.O. Box 101 
+<br>Kensington, MD 20895-0101
