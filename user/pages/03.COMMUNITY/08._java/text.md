@@ -1,6 +1,7 @@
 ---
 title: '_Java Programming Class'
 image_align: right
+published: false
 ---
 
 <!--THIS IS THE OFFICIAL NAME OF THE PROGRAM-->

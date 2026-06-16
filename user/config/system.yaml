@@ -25,11 +25,14 @@ languages:
   http_accept_language: false
   override_locale: false
   pages_fallback_only: false
+  debug: false
 home:
   alias: /home
   hide_in_urls: false
 pages:
   type: regular
+  dirs:
+    - 'page://'
   theme: mod-quark
   order:
     by: default
@@ -105,6 +108,7 @@ cache:
   clear_images_by_default: false
   cli_compatibility: false
   lifetime: 604800
+  purge_max_age_days: 30
   gzip: false
   allow_webserver_gzip: false
   redis:
@@ -154,6 +158,7 @@ log:
   handler: file
   syslog:
     facility: local6
+    tag: grav
 debugger:
   enabled: false
   provider: clockwork
@@ -162,6 +167,7 @@ debugger:
     close_connection: true
   twig: true
 images:
+  adapter: gd
   default_image_quality: 85
   cache_all: false
   cache_perms: '0755'
@@ -174,6 +180,8 @@ images:
     retina_scale: '1'
   defaults:
     loading: auto
+    decoding: auto
+    fetchpriority: auto
   watermark:
     image: 'system://images/watermark.png'
     position_y: center
@@ -200,7 +208,7 @@ session:
   domain: null
   path: null
 gpm:
-  releases: stable
+  releases: testing
   official_gpm_only: true
   verify_peer: true
 http:
@@ -214,6 +222,7 @@ http:
 accounts:
   type: regular
   storage: file
+  avatar: gravatar
 flex:
   cache:
     index:

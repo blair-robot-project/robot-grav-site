@@ -5,11 +5,10 @@ text_align: justify
 menu: 'Text: FLL Team'
 ---
 
-<h2> Join our FLL team! </h2>
+<h2> Join FLL Team 57535! </h2>
 
-Join our FLL team!
-FRC Team 449 is excited to be continuing our FIRST LEGO League team!
-FIRST LEGO League ([https://www.firstlegoleague.org](https://www.firstlegoleague.org)) is a robotics competition for middle schoolers. Students will learn how to build and program a robot (EV3 Mindstorms) and will design innovative solutions to real-world problems. Through this experience, they will develop leadership, collaboration, and technical skills!
+The Blair Robot Project is excited to be continuing our [FIRST LEGO League]([https://www.firstlegoleague.org](https://www.firstlegoleague.org)) team! 
 
-Applications for the 2025-2026 season are closed. Please check back in May for application information for the 2026-2027 season. 
-If you have any further questions, please email us at [theblairlegoproject@gmail.com](mailto:theblairlegoproject@gmail.com).
+FLL is a robotics competition for middle schoolers. Students learn how to build and program a robot ([EV3 Mindstorms](https://education.lego.com/en-us/product-resources/mindstorms-ev3/downloads/building-instructions/)) to solve real-world problems. Through this experience, they develop leadership, collaboration, and technical skills!
+
+Application information for the 2026-27 season will be posted later this year. Questions? Please [email us](mailto:theblairlegoproject@gmail.com)!

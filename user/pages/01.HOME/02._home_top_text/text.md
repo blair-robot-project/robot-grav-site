@@ -5,7 +5,7 @@ image_align: left
 menu: 'Text: Top'
 ---
 
-<p style="text-align: center;"><strong>We are a student-led, mentor-guided <a href="https://www.firstinspires.org/programs/frc/"><em>FIRST</em> Robotics Competition</a> team<br> in Silver Spring, Maryland. All high-schoolers are welcome to <a href="/join-us">join</a>.</strong></p>
+<p style="text-align: center;"><strong>We are a student-led, mentor-guided <a href="https://www.firstinspires.org/programs/frc/"><em>FIRST</em> Robotics Competition</a>&nbsp;team in Silver&nbsp;Spring, Maryland.<br>All high-schoolers are welcome to <a href="/join-us">join</a>.</strong></p>
 
 <h2 style="text-align: center;"><a href="https://frc-events.firstinspires.org/2025/CHCMP/awards">2025</a> and <a href="https://frc-events.firstinspires.org/2026/CHCMP/awards">2026</a> <em>FIRST</em> Chesapeake District Champions</h2>
 
