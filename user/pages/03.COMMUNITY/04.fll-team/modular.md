@@ -7,5 +7,8 @@ menu: 'FLL Team: The Blair LEGO Project'
 underconstruction: false
 onpage_menu: false
 published: true
+metadata:
+  description: 'The Blair LEGO Project — FRC Team 449''s FIRST LEGO League team, mentoring younger students in robotics and STEM at Montgomery Blair High School.'
+
 ---
 

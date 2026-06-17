@@ -12,15 +12,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% include 'partials/metadata.html.twig' %}
 
+    {# --- Google Analytics 4 (gtag.js) — emits only when site.google_analytics is set --- #}
+    {% if site.google_analytics %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics|e('html_attr') }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ site.google_analytics|e('js') }}');
+    </script>
+    {% endif %}
+
     <link rel="icon" type="image/png" href="{{ url('theme://images/favicon.png') }}" />
     <link rel="canonical" href="{{ page.url(true, true) }}" />
+    {# --- Social preview: Open Graph + Twitter Card (auto from page, og-default fallback) --- #}
+    {% set seo_title = header.title ? header.title ~ ' | ' ~ site.title : site.title %}
+    {% set seo_desc = page.header.metadata.description ?: site.metadata.description %}
+    {% set seo_img_medium = page.media.images|first %}
+    {% set seo_image = seo_img_medium ? url(seo_img_medium.url, true) : url('theme://images/og-default.png', true) %}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{ site.title|e('html') }}" />
+    <meta property="og:title" content="{{ seo_title|e('html') }}" />
+    <meta property="og:description" content="{{ seo_desc|e('html') }}" />
+    <meta property="og:url" content="{{ page.url(true, true) }}" />
+    <meta property="og:image" content="{{ seo_image }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ seo_title|e('html') }}" />
+    <meta name="twitter:description" content="{{ seo_desc|e('html') }}" />
+    <meta name="twitter:image" content="{{ seo_image }}" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsTeam",
+      "name": "The Blair Robot Project \u2014 FRC Team 449",
+      "alternateName": "FRC Team 449",
+      "sport": "FIRST Robotics Competition",
+      "url": "{{ base_url_absolute }}",
+      "logo": "{{ url('theme://images/og-default.png', true) }}",
+      "memberOf": { "@type": "Organization", "name": "FIRST Robotics Competition" },
+      "parentOrganization": { "@type": "HighSchool", "name": "Montgomery Blair High School" },
+      "sameAs": [
+        "https://www.facebook.com/FRCTeam449",
+        "https://www.instagram.com/frcteam449",
+        "https://github.com/blair-robot-project"
+      ]
+    }
+    </script>
+
 
     {% block stylesheets %}
         {% do assets.addCss('theme://css-compiled/spectre'~compress) %}
         {% if theme_var('spectre.exp') %}{% do assets.addCss('theme://css-compiled/spectre-exp'~compress)  %}{% endif %}
         {% if theme_var('spectre.icons') %}{%  do assets.addCss('theme://css-compiled/spectre-icons'~compress) %}{% endif %}
         {% do assets.addCss('theme://css-compiled/theme'~compress) %}
-        {% do assets.addCss('theme://css/custom.css?v=39') %}
+        {% do assets.addCss('theme://css/custom.css?v=40') %}
         {% do assets.addCss('theme://css/line-awesome.min.css') %}
     {% endblock %}
     {{ assets.css()|raw }}

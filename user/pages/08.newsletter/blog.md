@@ -13,6 +13,9 @@ content:
     pagination: true
     url_taxonomy_filters: true
 published: false
+metadata:
+  description: 'The newsletter of FRC Team 449, the Blair Robot Project — updates from our FIRST Robotics season, events, and team at Montgomery Blair High School.'
+
 ---
 
 ## **Monthly Newsletter!**

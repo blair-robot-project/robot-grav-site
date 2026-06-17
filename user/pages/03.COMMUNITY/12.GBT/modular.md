@@ -7,5 +7,8 @@ menu: 'Java Programming Class'
 underconstruction: false
 onpage_menu: false
 visible: false
+metadata:
+  description: 'Java programming for robotics with FRC Team 449, the Blair Robot Project — learning to code competition robots through our community classes.'
+
 ---
 

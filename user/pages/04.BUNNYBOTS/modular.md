@@ -7,6 +7,9 @@ menu: Bunnybots
 onpage_menu: '0'
 underconstruction: false
 published: true
+metadata:
+  description: 'Bunnybots, the off-season FIRST robotics tournament hosted by FRC Team 449, the Blair Robot Project, at Montgomery Blair High School.'
+
 ---
 
 [//]: # (This page is just a container for the modules that make up the Bunnybot page)

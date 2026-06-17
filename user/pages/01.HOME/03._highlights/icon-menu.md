@@ -6,12 +6,12 @@ features:
     -
         icon: 'fa fa-user-o'
         header: 'About Us'
-        text: 'Learn more about our team and FIRST.'
+        text: 'It''s not just about the robot. Learn about our team and FIRST.'
         url: /about-us/
     -
         icon: 'fa fa-handshake-o'
         header: Community
-        text: 'Learn about our outreach and community involvement.'
+        text: 'Are we coming to a STEM fair near you? Learn about our outreach and community involvement.'
         url: /community
     -
         icon: 'fa fa-money'

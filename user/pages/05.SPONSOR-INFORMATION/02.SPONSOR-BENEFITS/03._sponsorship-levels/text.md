@@ -16,26 +16,26 @@ We invite you to join them! Learn about the benefits of supporting Team 449 at v
 
 <a id="title-sponsor"></a>
 #### **Title Sponsor**: $6,000 (or equivalent)
-**_Everything in Gold, plus:_**
-- Title Sponsor of Blair Bunnybots or our FLL Tournament
+Everything in Gold, plus:
+- Title Sponsor of [Blair Bunnybots](/bunnybots) or our FLL Tournament
 
 <a id="diamond"></a>
 #### **Diamond**: $5,000 (or equivalent)
-_**Everything in Gold, plus:**_
-- Sponsor name announced with Team 449 at **every competition**
-- Team 449 visit with our robot to **your place of work** (optional)
+Everything in Gold, plus:
+- Sponsor name announced with Team 449 at every competition
+- Team 449 visit with our robot to your place of work (optional)
 
 <a id="gold"></a>
 #### **Gold**: $2,500 (or equivalent)
-_**Everything in Silver, plus:**_
+Everything in Silver, plus:
 - Sponsor logo on our robot
-- Sponsor name and logo on our **website homepage** and sponsor page
-- Sponsor name listed with Team 449 on **official FIRST websites**
+- Sponsor name and logo on our website homepage and sponsor page
+- Sponsor name listed with Team 449 on official FIRST websites
 
 <a id="silver"></a>
 #### **Silver**: $1,000 (or equivalent)
-_**Everything in Bronze, plus:**_
-- Sponsor name on **our robot**
+Everything in Bronze, plus:
+- Sponsor name on our robot
 - Sponsor logo on T-shirt
 - Sponsor logo on our brochure and banner
  
@@ -43,7 +43,7 @@ _**Everything in Bronze, plus:**_
 #### **Bronze**: $449 (or equivalent)
 - Sponsor name and logo on our sponsor webpage
 - Sponsor name on T-shirt
-- Sponsor name on our **brochure and banner**
+- Sponsor name on our brochure and banner
 
 ---
 

@@ -58,20 +58,9 @@
     max-width: max-content;
 }
 
-/* "449" wordmark to the left of the navbar logo. System-ui Bold for now;
-   switch font-family to BlairMdITC once a webfont license is in place
-   (see the DISABLED BlairMdITC @font-face block lower in this file). */
 .navbar-brand {
     display: inline-flex;
     align-items: center;
-}
-
-.navbar-449 {
-    font-family: system-ui, sans-serif;
-    font-weight: bold;
-    font-size: 1.6rem;
-    line-height: 1;
-    margin-right: 0.4em;
 }
 
 /* Site footer */

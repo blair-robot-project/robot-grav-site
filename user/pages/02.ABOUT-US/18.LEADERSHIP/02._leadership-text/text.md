@@ -5,6 +5,6 @@ image_align: right
 menu: 'Text: Top'
 ---
 
-We have four elected leadership positions: President; Vice President, Communications; Vice President, Finances; and Vice President, Technology. Collectively, they are known as Upper Leadership. 
+We have four elected positions: President; Vice President of Communications; Vice President of Finances; and Vice President of Technology. 
 
-Each year, Upper Leadership appoints six to 12 members to lead our subteams: business, data science, electronics, mechanics, and programming.
+Each year, this Upper Leadership appoints six to 12 members to lead our subteams: business, data science, electronics, mechanics, and programming.

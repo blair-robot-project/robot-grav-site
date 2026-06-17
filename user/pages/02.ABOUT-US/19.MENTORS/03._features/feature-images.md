@@ -1,7 +1,7 @@
 ---
 title: Mentors
 media_order: 'Davis.jpg,mentor_bertaut.jpg,mentor_mcglade.jpg,mentor_gordon.jpg,mentor_rabinovich.jpg,mentor_eli.JPG,mentor_temkin.jpg,mentor_van_albert.jpg,mentor_ehrenstein.jpg,mentor_caitlin.jpg,mentor_pedersen.jpg,mentor_koslow.jpg,mentor_sam.jpg,mentor_tim.jpg,kedei-new.jpg,szabo.jpg,Chang.png,Yoni.jpeg,Yonaba.jpg,HJiang.jpg,blank.jpg,james.jpg,rafi.jpg,tina.jpg,mark.jpg,mark2.png,tinamiranda.jpg,markmiranda.jpg'
-menu: Mentors
+menu: 'Feature-images: Mentors'
 imglocation: /user/pages/02.ABOUT-US/06.MENTORS/02._features/
 class: small
 features:
@@ -13,7 +13,7 @@ features:
     -
         image: kedei-new.jpg
         header: 'Noemi Kedei'
-        text: 'Head Non-Technical Mentor </br> Joined 2011'
+        text: 'Head Non-Technical Mentor <br> Dr. Bumpers<br> Joined 2011'
         url: null
     -
         image: mentor_van_albert.jpg

@@ -10,5 +10,6 @@ menu: 'Text: Top'
 <h2 style="text-align: center;"><a href="https://frc-events.firstinspires.org/2025/CHCMP/awards">2025</a> and <a href="https://frc-events.firstinspires.org/2026/CHCMP/awards">2026</a> <em>FIRST</em> Chesapeake District Champions</h2>
 
 <p style="text-align: center;"><strong><a href="https://www.thebluealliance.com/team/449/history">Nine Worlds appearances</a> | <a href="https://www.thebluealliance.com/team/449/history">Eight District Event victories</a>
-    <br><a href="https://www.thebluealliance.com/team/449/history">24 District Awards</a>, including a <a href="https://frc-events.firstinspires.org/2025/MDSEV/awards"><em>FIRST</em> Impact Award</a></strong>
-    <br><strong>Host of the annual <a href="/bunnybots">Blair Bunnybots</a></strong></p>
+    <br><a href="https://www.thebluealliance.com/team/449/history">23 District Awards</a></strong>, including two <strong><a href="https://www.firstinspires.org/resources/library/frc/fia-resources"><em>FIRST</em> Impact/Chairman's Awards</a></strong>
+    <br>One <a href="https://www.woodieflowers.org/">Woodie Flowers Finalist</a> | Three <a href="https://www.firstinspires.org/resources/library/frc/submitted-awards#fla">Dean's List Finalists</a>
+    <br><br><strong>Host of the annual <a href="/bunnybots">Blair Bunnybots</a></strong></p>

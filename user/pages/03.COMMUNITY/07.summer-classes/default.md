@@ -12,6 +12,9 @@ content:
     pagination: true
     url_taxonomy_filters: true
 published: false
+metadata:
+  description: 'Summer STEM and robotics classes from FRC Team 449, the Blair Robot Project, for students in the Montgomery Blair High School community.'
+
 ---
 
 ![Screen%20Shot%202022-05-21%20at%203.27.41%20PM](Screen%20Shot%202022-05-21%20at%203.27.41%20PM.png "Screen%20Shot%202022-05-21%20at%203.27.41%20PM")

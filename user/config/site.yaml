@@ -20,3 +20,4 @@ redirects:
 routes: null
 blog:
   route: /blog
+google_analytics: 'G-DQ5XMZL67J'

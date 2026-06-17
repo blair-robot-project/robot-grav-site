@@ -1,3 +1,95 @@
+# v1.7.53
+## 06/16/2026
+
+1. [](#bugfix)
+    * [security] Direct web access to the `user/accounts`, `user/config`, `user/data` and `user/env` folders is now blocked outright in every bundled webserver config, closing a hole where files such as certificates, tokens and databases stored under `user/data` with an unlisted extension could be downloaded directly.
+    * [security] A backup deny-all `.htaccess` now ships inside `user/accounts`, `user/config` and `user/data` so Apache installs stay protected even when the site root `.htaccess` has been customised or is out of date.
+    * [security] The upgrade postflight now patches an existing stock root `.htaccess` to add the folder block automatically, so installs that updated from an earlier version are protected without editing the file by hand.
+    * [security] URL query image transforms (such as `image.jpg?resize=`) are now turned off by default and, when enabled, refuse oversized dimensions above a configurable pixel limit, closing an unauthenticated denial of service where huge resize values could exhaust server memory.
+
+# v1.7.52
+## 04/29/2026
+
+1. [](#new)
+    * GPM client now sends the running PHP version with index requests so the server can substitute PHP-aware compat fallbacks when a plugin's latest release requires a newer PHP than the client can run.
+1. [](#bugfix)
+    * [security] Extended default `uploads_dangerous_extensions` to include `md`, `yaml`, `yml`, `json`, `twig`, `ini` — page-content extensions that can be weaponised via permissive form-upload `accept` policies (GHSA-w4rc-p66m-x6qq, defense-in-depth alongside the Form 9.1.0 plugin fix).
+
+# v1.7.51
+## 04/28/2026
+
+1. [](#new)
+    * Added foundation for migrating to Grav 2.0: cross-major auto-upgrades are blocked in GPM, and core now surfaces a `next_major` hint so admin can point users at the new `migrate-grav` plugin
+    * Added `compatibility:` blueprint support so plugins/themes can declare which Grav versions they support
+    * Added self-upgrade preflight that flags incompatible plugins/themes and `psr/log` / Monolog conflicts before proceeding
+    * Added upgrade resilience with automatic maintenance mode and opcache reset during self-upgrade
+    * Added new `cache-cleanup` CLI command to prune obsolete cache entries
+    * Added new `onFlexDirectoryConfigBeforeSave` event for Flex
+1. [](#improved)
+    * More readable time output in `bin/grav logviewer` [#4009](https://github.com/getgrav/grav/pull/4009)
+    * Removed legacy standalone binary build
+    * Updated vendor libraries to latest versions
+1. [](#bugfix)
+    * Fixed `selectize` field losing values when keyed options were used
+    * Fixed wrong date output in `bin/grav logviewer` [#4007](https://github.com/getgrav/grav/pull/4007)
+    * Fixed undefined array key error triggered by URL-encoded characters in paths [#4012](https://github.com/getgrav/grav/pull/4012)
+    * Fixed assorted issues in the revamped scheduler
+    * Fixed `schedule` flag not being honored in backup profiles
+    * Fixed default-language loading when using the session-based language store
+    * Allow `lang` query parameter to switch back to the default language
+
+# v1.7.49.5
+## 09/10/2025
+
+1. [](#bugfix)
+    * Backup not honoring ignored paths [#3952](https://github.com/getgrav/grav/issues/3952)
+
+# v1.7.49.4
+## 09/03/2025
+
+1. [](#bugfix)
+    * Fixed cron force running jobs severy minute! [#3951](https://github.com/getgrav/grav/issues/3951)
+
+# v1.7.49.3
+## 09/02/2025
+
+1. [](#bugfix)
+    * Fixed an error in ZipArchive that was causing issues on some systems
+    * Fixed namespace change for `Cron\Expression`
+    * Removed broken cron install field... use 'instructions' instead
+    * Fixed duplicate jobs listing in some CLI commands
+
+# v1.7.49.2
+## 08/28/2025
+
+1. [](#bugfix)
+    * Fix translation of key for image adapter [#3944](https://github.com/getgrav/grav/pull/3944)
+
+# v1.7.49.1
+## 08/25/2025
+
+1. [](#new)
+    * Rerelease to include all updated plugins/theme etc.
+
+# v1.7.49
+## 08/25/2025
+
+1. [](#new)
+    * Revamped Grav Scheduler to support webhook to call call scheduler + concurrent jobs + jobs queue + logging, and other improvements
+    * Revamped Grav Cache purge capabilities to only clear obsolete old cache items
+    * Added full imagick support in Grav Image library
+    * Added support for Validate `match` and `match_any` in forms
+1. [](#improved)
+    * Handle empty values on require with ignore fields in Forms
+    * Use `actions/cache@v4` in github workflows
+    * Use `actions/checkout@v4`in github workflows [#3867](https://github.com/getgrav/grav/pull/3867)
+    * Update code block in README.md [#3886](https://github.com/getgrav/grav/pull/3886)
+    * Updated vendor libs to latest
+1. [](#bugfix)
+    * Bug in `exif_read_data` [#3878](https://github.com/getgrav/grav/pull/3878)
+    * Fix parser error in URI: [#3894](https://github.com/getgrav/grav/issues/3894)
+
+
 # v1.7.48
 ## 10/28/2024
 
@@ -12,16 +104,16 @@
 ## 10/23/2024
 
 1. [](#new)
-  * New `Utils::toAscii()` method  
+  * New `Utils::toAscii()` method
   * Added support for Clockwork Debugger to allow web UI (requires new `clockwork-web` plugin)
-1. [](#improved) 
+1. [](#improved)
   * Include modular sub-pages in last-modification date computation [#3562](https://github.com/getgrav/grav/pull/3562)
   * Updated vendor libs to latest versions
   * Updated JQuery to `3.7.1` [#3787](https://github.com/getgrav/grav/pull/3827)
   * Updated vendor libraries to latest versions
   * Support for Fediverse Creator meta tag [#3844](https://github.com/getgrav/grav/pull/3844)
 1. [](#bugfix)
-  * Fixes deprecated for return type in Filesystem with PHP 8.3.6 [#3831](https://github.com/getgrav/grav/issues/3831) 
+  * Fixes deprecated for return type in Filesystem with PHP 8.3.6 [#3831](https://github.com/getgrav/grav/issues/3831)
   * Fix for `exif_imagtetype()` throwing an exception when file doesn't exist
   * Fix JSON output comments check with content type [#3859](https://github.com/getgrav/grav/pull/3859)
 
@@ -30,7 +122,7 @@
 
 1. [](#new)
    * Added a new `Utils::toAscii()` method to remove UTF-8 characters from string
-1. [](#improved) 
+1. [](#improved)
    * Removed unused `symfony/service-contracts` [#3828](https://github.com/getgrav/grav/pull/3828)
    * Upgraded bundled legacy JQuery to `3.7.1` [#3727](https://github.com/getgrav/grav/pull/3827)
    * Include modular pages in header `last-modified:` calculation [#3562](https://github.com/getgrav/grav/pull/3562)
@@ -41,11 +133,11 @@
 # v1.7.46
 ## 05/15/2024
 
-1. [](#improved) 
+1. [](#improved)
    * Better handling of external protocols in `Utils::url()` such as `mailto:`, `tel:`, etc.
    * Handle `GRAV_ROOT` or `GRAV_WEBROOT` when `/` [#3667](https://github.com/getgrav/grav/pull/3667)
 1. [](#bugfix)
-   * Fixes for multi-lang taxonomy when reinitializing the languages (e.g. LangSwitcher plugin) 
+   * Fixes for multi-lang taxonomy when reinitializing the languages (e.g. LangSwitcher plugin)
    * Ensure the full filepath is checked for invalid filename in `MediaUploadTrait::checkFileMetadata()`
    * Fixed a bug in the `on_events` REGEX pattern of `Security::detectXss()` as it was not matching correctly.
    * Fixed an issue where `read_file()` Twig function could be used nefariously in content [#GHSA-f8v5-jmfh-pr69](https://github.com/getgrav/grav/security/advisories/GHSA-f8v5-jmfh-pr69)
@@ -60,7 +152,7 @@
    * Fallback to page modified date if Page date provided is invalid and can't be parsed [getgrav/grav-plugin-admin#2394](https://github.com/getgrav/grav-plugin-admin/issues/2394)
    * Fixed a path traversal vulnerability with file uploads [#GHSA-m7hx-hw6h-mqmc](https://github.com/getgrav/grav/security/advisories/GHSA-m7hx-hw6h-mqmc)
    * Fixed a security issue with insecure Twig functions be processed [#GHSA-2m7x-c7px-hp58](https://github.com/getgrav/grav/security/advisories/GHSA-2m7x-c7px-hp58) [#GHSA-r6vw-8v8r-pmp4](https://github.com/getgrav/grav/security/advisories/GHSA-r6vw-8v8r-pmp4) [#GHSA-qfv4-q44r-g7rv](https://github.com/getgrav/grav/security/advisories/GHSA-qfv4-q44r-g7rv) [#GHSA-c9gp-64c4-2rrh](https://github.com/getgrav/grav/security/advisories/GHSA-c9gp-64c4-2rrh)
-1. [](#improved) 
+1. [](#improved)
    * Updated composer packages
    * Updated `bin/composer.phar` to latest `2.7.2`
 
@@ -72,9 +164,9 @@
    * Added debugger messages when Page routes conflict
    * Added `ISO 8601` date format [#3721](https://github.com/getgrav/grav/pull/37210)
    * Added support for `.vcf` (vCard) in media configuration [#3772](https://github.com/getgrav/grav/pull/3772)
-1. [](#improved) 
+1. [](#improved)
    * Update jQuery to `v3.6.4` [#3713](https://github.com/getgrav/grav/pull/3713)
-   * Updated vendor libraries including Dom-Sanitizer `v1.0.7` that addresses an XSS issue 
+   * Updated vendor libraries including Dom-Sanitizer `v1.0.7` that addresses an XSS issue
    * Updated `bin/composer.phar` to latest `2.6.6`
    * Updated vendor libraries to latest
    * Updated language files
@@ -160,7 +252,7 @@
    * Added various public `Twig` class variables used by admin to address deprecated messages for PHP 8.2+
    * Added `parse_url` to list of PHP functions supported in Twig Extension
    * Added support for dynamic functions in `Parsedown` to stop deprecation messages in PHP 8.2+
- 
+
 # v1.7.40
 ## 03/22/2023
 
