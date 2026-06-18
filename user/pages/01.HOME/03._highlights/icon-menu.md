@@ -6,7 +6,7 @@ features:
     -
         icon: 'fa fa-user-o'
         header: 'About Us'
-        text: 'It''s not just about the robot. Learn about our team and FIRST.'
+        text: 'It''s not just about the robot. Learn about our team''s goals, values, and support for the FIRST&nbsp;ethos.'
         url: /about-us/
     -
         icon: 'fa fa-handshake-o'
@@ -16,7 +16,7 @@ features:
     -
         icon: 'fa fa-money'
         header: Sponsors
-        text: 'Sponsors keep us going. Learn how your organization can help!'
+        text: 'Sponsors power our STEM education and outreach. Learn how your organization can help!'
         url: '/#sponsors'
 image_align: left
 text_align: center

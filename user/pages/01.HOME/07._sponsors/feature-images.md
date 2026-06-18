@@ -47,5 +47,8 @@ features:
         url: /sponsor-information/current-sponsors
 ---
 
-## **Our Sponsors**
-**[Join](/sponsor-information/sponsor-benefits) the community-minded [organizations](/sponsor-information/current-sponsors) that help&nbsp;us&nbsp;roll!**
+## **We thank the sponsors who make all this possible!**
+
+The support of our [sponsors](/sponsor-information/current-sponsors) helps Team 449 build advanced robots, compete at the highest levels of FIRST Robotics, and expand hands-on STEM opportunities for students and the wider community.
+
+**Interested in sponsoring Team 449?** See our [sponsorship opportunities](/sponsor-information/sponsor-benefits)! 
