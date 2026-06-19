@@ -7,6 +7,6 @@ menu: 'Text: Block D'
 
 [//]: # (CommentsGoHere)
 
-### Sponsorship makes this possible
+### Sponsors make this possible
 
-Sponsor support keeps a **competitive, no-fee robotics program** running. It covers robot parts, tools, electronics, fabrication materials, software, competition registration, and travel — and just as importantly, it funds the outreach above: the events we host, the younger teams we mentor, and the materials we put into students' hands at Title I schools.
+Support from our sponsors provides robot parts, tools, electronics, fabrication materials, software, competition registration, and travel. Just as importantly, it funds our outreach: the events we host, the younger teams we mentor, and the materials we put into students' hands at Title I schools.

@@ -5,6 +5,6 @@ image_align: left
 menu: 'Text: top'
 ---
 
-**Blair Bunnybots** is a three-and-a-half-month build season in the fall that culminates in a daylong tournament. All FRC teams are invited to participate; the 2025 season drew 18 teams. 
+**Blair Bunnybots**, our annual off-season FRC-style event, is designed to welcome new members of teams into the _FIRST_ community and to help them develop their skills. The 3-month build season ends with a day of competition that allows new members to show off their work and have fun at an event just for them. The 2025-26 event—our eighth—drew 18 teams from across the Chesapeake region. 
 
-Modeled after FRC Team 1540's [popular event](https://www.team1540.org/bunnybots), Bunnybots is an excellent opportunity for new team members to gain the skills needed to build an FRC-style robot, ending in a competition that allows them to show off their work and have fun at an event just for them. 
+With Blair Bunnybots, we aim to exemplify a culture of healthy competition, kindness, and cooperation. The event embodies the spirit of [Gracious Professionalism](https://ftc-docs.firstinspires.org/en/latest/gracious_professionalism/gp.html) while recognizing the value in teamwork and community. Perhaps most importantly, in demonstrating first-hand the excitement of competition robotics, Blair Bunnybots lights and fuels a lasting passion in participating youth so they keep coming back for more robotics and STEM learning.

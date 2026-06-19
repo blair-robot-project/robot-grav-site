@@ -17,7 +17,7 @@ features:
         icon: 'fa fa-money'
         header: Sponsors
         text: 'Sponsors power our STEM education and outreach. Learn how your organization can help!'
-        url: '/#sponsors'
+        url: /sponsor-information/current-sponsors
 image_align: left
 text_align: center
 ---
