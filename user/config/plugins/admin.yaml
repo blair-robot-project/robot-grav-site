@@ -31,10 +31,10 @@ google_fonts: false
 admin_icons: line-awesome
 enable_auto_updates_check: true
 notifications:
-  feed: true
-  dashboard: true
-  plugins: true
-  themes: true
+  feed: false
+  dashboard: false
+  plugins: false
+  themes: false
 popularity:
   enabled: true
   ignore:

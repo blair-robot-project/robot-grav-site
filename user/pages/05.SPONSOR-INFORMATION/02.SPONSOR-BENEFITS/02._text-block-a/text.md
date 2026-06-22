@@ -5,7 +5,7 @@ image_align: right
 ---
 
 [//]: # (CommentsGoHere)
-**The Blair Robot Project (FRC Team 449)** is a nationally competitive, student-led [_FIRST_ Robotics Competition](https://www.firstinspires.org/programs/frc/) team based at [Montgomery Blair High School](https://mbhs.edu/) in Silver Spring, Maryland. We are dedicated to excellence, inclusivity, and outreach.
+**The Blair Robot Project (FRC Team 449)** is a nationally competitive, student-led [_FIRST_ Robotics Competition](https://www.firstinspires.org/programs/frc/) team based at [Montgomery Blair High School](https://mbhs.edu/) in Silver Spring, Maryland. We are dedicated to STEM education, inclusivity, and outreach.
 
 **Sponsors make this possible.** We appreciate the many ways our sponsors back us: monetary gifts, in-kind donations, services, technical expertise, and mentorship. Scroll down to see standard sponsorship packages — or reach out about building a custom partnership that meets your goals.
 
