@@ -1,5 +1,5 @@
 ---
-title: _about-us-text
+title: 'About Us: Top text'
 image_align: left
 text_align: justify
 menu: 'Text: Top'

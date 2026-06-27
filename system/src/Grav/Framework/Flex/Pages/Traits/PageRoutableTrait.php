@@ -3,7 +3,7 @@
 /**
  * @package    Grav\Framework\Flex
  *
- * @copyright  Copyright (c) 2015 - 2025 Trilby Media, LLC. All rights reserved.
+ * @copyright  Copyright (c) 2015 - 2026 Trilby Media, LLC. All rights reserved.
  * @license    MIT License; see LICENSE file for details.
  */
 
@@ -69,9 +69,10 @@ trait PageRoutableTrait
         $value = $this->loadHeaderProperty(
             'routable',
             $var,
-            static function ($value) {
-                return $value ?? true;
-            }
+            // Treat an empty string (untouched toggleable field) as unset so it
+            // falls back to the `true` default rather than a falsy ''. See
+            // getgrav/grav#4153.
+            static fn($value) => (($value ?? '') === '' ? null : $value) ?? true
         );
 
         return $value && $this->published() && !$this->isModule() && !$this->root() && $this->getLanguages(true);
@@ -300,9 +301,7 @@ trait PageRoutableTrait
         return $this->loadHeaderProperty(
             'redirect',
             $var,
-            static function ($value) {
-                return trim($value) ?: null;
-            }
+            static fn($value) => trim((string) $value) ?: null
         );
     }
 
@@ -409,7 +408,7 @@ trait PageRoutableTrait
      * @param  PageInterface|null $var the parent page object
      * @return PageInterface|null the parent page object if it exists.
      */
-    public function parent(PageInterface $var = null)
+    public function parent(?PageInterface $var = null)
     {
         if (null !== $var) {
             // TODO:

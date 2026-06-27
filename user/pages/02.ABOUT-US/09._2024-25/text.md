@@ -1,5 +1,5 @@
 ---
-title: 2024-25
+title: 'History: 2024-25'
 body_classes: modular
 image_align: right
 media_order: 'IMG_9713.jpeg,2025-dchamps-alliance-group.png'

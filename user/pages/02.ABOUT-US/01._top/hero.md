@@ -1,5 +1,5 @@
 ---
-title: _home
+title: 'About Us: Hero'
 media_order: '2024TeamPhoto.jpeg,2026_worlds_group_houston-crop.jpeg'
 menu: Hero
 arrow: arrow

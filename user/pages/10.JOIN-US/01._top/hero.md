@@ -1,5 +1,5 @@
 ---
-title: _home
+title: 'Join Us: Hero'
 menu: Home
 hero_classes: 'parallax text-light overlay-dark hero-tiny'
 hero_image: 449_team_photo_jan_2026.jpg

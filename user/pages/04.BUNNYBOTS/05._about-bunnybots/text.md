@@ -1,5 +1,5 @@
 ---
-title: 'About Bunnybots'
+title: 'Bunnybots: Text: Why BB?'
 image_align: left
 text_align: justify
 menu: 'Text: bottom (Why Bunnybots)'

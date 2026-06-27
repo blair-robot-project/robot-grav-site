@@ -1,2 +1,27 @@
 title: 'Gallery (drag to reorder)'
 '@extends': default
+
+form:
+  fields:
+    tabs:
+      fields:
+        content:
+          fields:
+            content:
+              default: |
+                [//]: # (HOW TO BUILD THIS GALLERY — none of these notes appear on the website.)
+                [//]: # (Add photos in the Page Media box below — drag them in or click to upload. They are resized automatically. Click Save.)
+                [//]: # (* To set the display order, open the Gallery tab above, then drag the rows into the order you want. Click Save.)
+                [//]: # (* To remove a photo, delete it from the Page Media box by clicking its bottom-right "x" button. Click Save.)
+        gallery_tab:
+          type: tab
+          title: Gallery
+          fields:
+            header.gallery:
+              type: list
+              label: 'Gallery photos (drag rows to reorder)'
+              style: vertical
+              fields:
+                .image:
+                  type: pagemediaselect
+                  label: Photo

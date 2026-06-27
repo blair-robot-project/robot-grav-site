@@ -1,5 +1,5 @@
 ---
-title: _top
+title: 'Robots: Hero'
 menu: Hero
 arrow: noarrow
 hero_classes: 'parallax text-light overlay-dark hero-medium'

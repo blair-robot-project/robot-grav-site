@@ -3,7 +3,7 @@
 /**
  * @package    Grav\Common\Filesystem
  *
- * @copyright  Copyright (c) 2015 - 2025 Trilby Media, LLC. All rights reserved.
+ * @copyright  Copyright (c) 2015 - 2026 Trilby Media, LLC. All rights reserved.
  * @license    MIT License; see LICENSE file for details.
  */
 
@@ -153,8 +153,8 @@ abstract class Folder
         if ($base) {
             $base = preg_replace('![\\\/]+!', '/', $base);
             $path = preg_replace('![\\\/]+!', '/', $path);
-            if (strpos($path, $base) === 0) {
-                $path = ltrim(substr($path, strlen($base)), '/');
+            if (str_starts_with((string) $path, (string) $base)) {
+                $path = ltrim(substr((string) $path, strlen((string) $base)), '/');
             }
         }
 
@@ -178,8 +178,8 @@ abstract class Folder
             return '';
         }
 
-        $baseParts = explode('/', ltrim($base, '/'));
-        $pathParts = explode('/', ltrim($path, '/'));
+        $baseParts = explode('/', ltrim((string) $base, '/'));
+        $pathParts = explode('/', ltrim((string) $path, '/'));
 
         array_pop($baseParts);
         $lastPart = array_pop($pathParts);
@@ -194,7 +194,7 @@ abstract class Folder
         $path = str_repeat('../', count($baseParts)) . implode('/', $pathParts);
 
         return '' === $path
-        || strpos($path, '/') === 0
+        || str_starts_with($path, '/')
         || false !== ($colonPos = strpos($path, ':')) && ($colonPos < ($slashPos = strpos($path, '/')) || false === $slashPos)
             ? "./$path" : $path;
     }
@@ -266,7 +266,7 @@ abstract class Folder
         /** @var RecursiveDirectoryIterator $file */
         foreach ($iterator as $file) {
             // Ignore hidden files.
-            if (strpos($file->getFilename(), '.') === 0 && $file->isFile()) {
+            if (str_starts_with($file->getFilename(), '.') && $file->isFile()) {
                 continue;
             }
             if (!$folders && $file->isDir()) {
@@ -275,7 +275,7 @@ abstract class Folder
             if (!$files && $file->isFile()) {
                 continue;
             }
-            if ($compare && $pattern && !preg_match($pattern, $file->{$compare}())) {
+            if ($compare && $pattern && !preg_match($pattern, (string) $file->{$compare}())) {
                 continue;
             }
             $fileKey = $key ? $file->{$key}() : null;
@@ -283,14 +283,14 @@ abstract class Folder
             if ($filters) {
                 if (isset($filters['key'])) {
                     $pre = !empty($filters['pre-key']) ? $filters['pre-key'] : '';
-                    $fileKey = $pre . preg_replace($filters['key'], '', $fileKey);
+                    $fileKey = $pre . preg_replace($filters['key'], '', (string) $fileKey);
                 }
                 if (isset($filters['value'])) {
                     $filter = $filters['value'];
                     if (is_callable($filter)) {
                         $filePath = $filter($file);
                     } else {
-                        $filePath = preg_replace($filter, '', $filePath);
+                        $filePath = preg_replace($filter, '', (string) $filePath);
                     }
                 }
             }
@@ -331,7 +331,7 @@ abstract class Folder
         // Go through all sub-directories and copy everything.
         $files = self::all($source);
         foreach ($files as $file) {
-            if ($ignore && preg_match($ignore, $file)) {
+            if ($ignore && preg_match($ignore, (string) $file)) {
                 continue;
             }
             $src = $source .'/'. $file;
@@ -377,7 +377,7 @@ abstract class Folder
             return;
         }
 
-        if (strpos($target, $source . '/') === 0) {
+        if (str_starts_with($target, $source . '/')) {
             throw new RuntimeException('Cannot move folder to itself');
         }
 
@@ -419,9 +419,17 @@ abstract class Folder
             return false;
         }
 
-        $success = self::doDelete($target, $include_target);
+        $failure = null;
+        $success = self::doDelete($target, $include_target, $failure);
 
         if (!$success) {
+            // Prefer the precise reason captured at the first failing path
+            // (which file/dir, the OS error, and any owner/process mismatch).
+            // Fall back to the last PHP error, then to a generic message.
+            if (null !== $failure) {
+                throw new RuntimeException($failure);
+            }
+
             $error = error_get_last();
 
             throw new RuntimeException($error['message'] ?? 'Unknown error');
@@ -478,12 +486,22 @@ abstract class Folder
      * @return bool
      * @throws RuntimeException
      */
-    public static function rcopy($src, $dest)
+    public static function rcopy($src, $dest, $preservePermissions = false)
     {
 
         // If the src is not a directory do a simple file copy
         if (!is_dir($src)) {
             copy($src, $dest);
+            if ($preservePermissions) {
+                $perm = @fileperms($src);
+                if ($perm !== false) {
+                    @chmod($dest, $perm & 0777);
+                }
+                $mtime = @filemtime($src);
+                if ($mtime !== false) {
+                    @touch($dest, $mtime);
+                }
+            }
             return true;
         }
 
@@ -492,14 +510,32 @@ abstract class Folder
             static::create($dest);
         }
 
+        if ($preservePermissions) {
+            $perm = @fileperms($src);
+            if ($perm !== false) {
+                @chmod($dest, $perm & 0777);
+            }
+        }
+
         // Open the source directory to read in files
         $i = new DirectoryIterator($src);
         foreach ($i as $f) {
             if ($f->isFile()) {
-                copy($f->getRealPath(), "{$dest}/" . $f->getFilename());
+                $target = "{$dest}/" . $f->getFilename();
+                copy($f->getRealPath(), $target);
+                if ($preservePermissions) {
+                    $perm = @fileperms($f->getRealPath());
+                    if ($perm !== false) {
+                        @chmod($target, $perm & 0777);
+                    }
+                    $mtime = @filemtime($f->getRealPath());
+                    if ($mtime !== false) {
+                        @touch($target, $mtime);
+                    }
+                }
             } else {
                 if (!$f->isDot() && $f->isDir()) {
-                    static::rcopy($f->getRealPath(), "{$dest}/{$f}");
+                    static::rcopy($f->getRealPath(), "{$dest}/{$f}", $preservePermissions);
                 }
             }
         }
@@ -528,21 +564,110 @@ abstract class Folder
      * @return bool
      * @internal
      */
-    protected static function doDelete($folder, $include_target = true)
+    protected static function doDelete($folder, $include_target = true, &$failure = null)
     {
         // Special case for symbolic links.
         if ($include_target && is_link($folder)) {
-            return @unlink($folder);
+            if (!@unlink($folder)) {
+                $failure = $failure ?? self::deleteFailure('remove symlink', $folder);
+                return false;
+            }
+            return true;
         }
+
+        $success = true;
 
         // Go through all items in filesystem and recursively remove everything.
         $files = scandir($folder, SCANDIR_SORT_NONE);
         $files = $files ? array_diff($files, ['.', '..']) : [];
         foreach ($files as $file) {
             $path = "{$folder}/{$file}";
-            is_dir($path) ? self::doDelete($path) : @unlink($path);
+            if (is_dir($path)) {
+                // Recurse; keep the first failure but carry on so the report
+                // reflects the real culprit rather than the parent rmdir that
+                // only fails because the directory is left non-empty.
+                if (!self::doDelete($path, true, $failure)) {
+                    $success = false;
+                }
+            } elseif (!@unlink($path)) {
+                $failure = $failure ?? self::deleteFailure('delete file', $path);
+                $success = false;
+            }
         }
 
-        return $include_target ? @rmdir($folder) : true;
+        if ($include_target && !@rmdir($folder)) {
+            $failure = $failure ?? self::deleteFailure('remove directory', $folder);
+            $success = false;
+        }
+
+        return $success;
+    }
+
+    /**
+     * Build a descriptive failure message for a path that could not be deleted.
+     *
+     * Captures the OS error PHP recorded for the (suppressed) unlink/rmdir, plus
+     * any owner/process-user mismatch — the usual cause of "works from Admin,
+     * fails from CLI", where the web server owns files the CLI user cannot touch.
+     *
+     * @param  string $action
+     * @param  string $path
+     * @return string
+     * @internal
+     */
+    private static function deleteFailure($action, $path)
+    {
+        $message = sprintf('Unable to %s: %s', $action, $path);
+
+        $error = error_get_last();
+        $reason = $error['message'] ?? null;
+        if (null !== $reason) {
+            // Strip the "rmdir(/path): " / "unlink(/path): " prefix PHP prepends,
+            // leaving just the OS reason (e.g. "Permission denied").
+            if (($pos = strpos($reason, '): ')) !== false) {
+                $reason = substr($reason, $pos + 3);
+            }
+            $message .= ' (' . trim($reason) . ')';
+        }
+
+        $owner = self::ownershipHint($path);
+        if ('' !== $owner) {
+            $message .= ' ' . $owner;
+        }
+
+        return $message;
+    }
+
+    /**
+     * Describe an owner/process-user mismatch for a path, when POSIX info is
+     * available. Returns an empty string when ownership cannot be determined
+     * (e.g. Windows) or the process already owns the path.
+     *
+     * @param  string $path
+     * @return string
+     * @internal
+     */
+    private static function ownershipHint($path)
+    {
+        if (!function_exists('posix_geteuid') || !function_exists('posix_getpwuid')) {
+            return '';
+        }
+
+        $fileOwner = @fileowner($path);
+        $procUid = @posix_geteuid();
+        if ($fileOwner === false || $procUid === false || $fileOwner === $procUid) {
+            return '';
+        }
+
+        $fileUser = @posix_getpwuid($fileOwner);
+        $procUser = @posix_getpwuid($procUid);
+        $fileName = $fileUser['name'] ?? (string) $fileOwner;
+        $procName = $procUser['name'] ?? (string) $procUid;
+
+        return sprintf(
+            '[owned by "%s", but this process runs as "%s" — likely a permission/ownership mismatch]',
+            $fileName,
+            $procName
+        );
     }
 }

@@ -1,5 +1,5 @@
 ---
-title: 'Menu (About)'
+title: 'About Us: Icon-menu: Leaders/Mentors/Programming'
 menu: 'Icon-menu: top'
 class: standard
 features:

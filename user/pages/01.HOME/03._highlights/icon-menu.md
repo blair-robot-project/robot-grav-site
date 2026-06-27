@@ -1,12 +1,12 @@
 ---
-title: Menu
+title: 'Home: Icon-menu: About/Community/Sponsors'
 menu: Icon-menu
 class: standard
 features:
     -
         icon: 'fa fa-user-o'
         header: 'About Us'
-        text: 'It''s not just about the robot. Learn about our team''s goals, values, and support for the FIRST&nbsp;ethos.'
+        text: "It's not just about the robot. Learn about our team's goals, values, and support for the FIRST&nbsp;ethos."
         url: /about-us/
     -
         icon: 'fa fa-handshake-o'

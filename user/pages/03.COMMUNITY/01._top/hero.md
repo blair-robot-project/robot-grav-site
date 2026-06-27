@@ -1,5 +1,5 @@
 ---
-title: _top
+title: 'Community: Hero'
 arrow: arrow
 media_order: PXL_20230421_232545154.jpg
 hero_classes: 'parallax text-light overlay-dark hero-fullscreen'

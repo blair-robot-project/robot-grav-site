@@ -1,5 +1,5 @@
 ---
-title: 'Menu (History)'
+title: 'History: Icon-menu: Robots/Notables/Shirts'
 menu: 'Icon-menu: History pages'
 class: standard
 features:

@@ -1,5 +1,5 @@
 ---
-title: 'Bunnybots Intro'
+title: 'Bunnybots: Text: Top'
 text_align: justify
 image_align: left
 menu: 'Text: top'

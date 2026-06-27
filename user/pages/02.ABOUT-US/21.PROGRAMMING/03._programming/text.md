@@ -1,5 +1,5 @@
 ---
-title: Programming
+title: 'Programming: Text'
 image_align: right
 text_align: justify
 menu: 'Text: Top'

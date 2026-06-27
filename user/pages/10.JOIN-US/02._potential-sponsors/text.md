@@ -1,5 +1,5 @@
 ---
-title: 'Join the 449 Family'
+title: 'Join Us: Text'
 image_align: left
 ---
 

@@ -1,14 +1,14 @@
 ---
-title: 'Community Events'
+title: 'Community: Text: Events, Advocacy'
 image_align: right
-media_order: 'makerFaire.png,mkpcSciExpo2018-original.jpg'
+media_order: 'img_9890.jpeg, mkpcSciExpo2018-original.jpg, makerFaire.png'
 menu: 'Text: Community Events'
 ---
 
 Our team members come from many backgrounds and cultures. We are dedicated to giving back our diverse community and the world at large, inspiring and preparing students for careers in STEM through outreach events, workshops, and long-term parnerships.
 
 ## Appearances
-We make regular appearances in the community, including at such events as:  
+We give talks and robot demos at such community events as:  
 * Takoma Park Middle School STEAM Night
 * Robert Frost Middle School STEM Night
 * USA Science & Engineering Festival

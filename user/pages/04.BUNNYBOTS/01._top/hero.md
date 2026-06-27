@@ -1,5 +1,5 @@
 ---
-title: _top
+title: 'Bunnybots: Hero'
 menu: Hero
 hero_classes: 'parallax text-light overlay-dark hero-large'
 hero_image: _MG_7505.jpg

@@ -1,5 +1,5 @@
 ---
-title: _history-top
+title: 'History: Text: Team History: Top'
 menu: 'Text: History top'
 arrow: noarrow
 hero_classes: 'parallax text-light overlay-dark hero-large'

@@ -1,5 +1,5 @@
 ---
-title: tag
+title: 'Sponsors: Text: Top'
 text_align: center
 class: small
 menu: 'Text: Top'

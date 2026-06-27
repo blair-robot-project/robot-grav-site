@@ -1,5 +1,5 @@
 ---
-title: leadershiphero
+title: 'Leadership: Hero'
 body_classes: modular
 arrow: noarrow
 media_order: District2025.png

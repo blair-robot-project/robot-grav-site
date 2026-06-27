@@ -1,5 +1,5 @@
 ---
-title: 2025-26
+title: 'History: 2025-26'
 body_classes: modular
 image_align: left
 date: '09-06-2026 11:11'

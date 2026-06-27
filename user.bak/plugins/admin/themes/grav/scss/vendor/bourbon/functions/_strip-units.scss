@@ -1,7 +1,0 @@
-@use 'sass:math';
-
-// Srtips the units from a value. e.g. 12px -> 12
-
-@function strip-units($val) {
-  @return math.div($val, $val * 0 + 1);
-}

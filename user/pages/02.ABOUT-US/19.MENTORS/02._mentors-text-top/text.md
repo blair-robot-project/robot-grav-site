@@ -1,5 +1,5 @@
 ---
-title: mentors-text-top
+title: 'Mentors: Text'
 body_classes: modular
 image_align: left
 ---

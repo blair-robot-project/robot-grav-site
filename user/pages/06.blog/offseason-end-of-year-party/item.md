@@ -1,5 +1,5 @@
 ---
-title: 'Offseason - End Of Year Party'
+title: 'Offseason - 2023 End Of Year Party'
 content:
     items:
         - '@self.children'

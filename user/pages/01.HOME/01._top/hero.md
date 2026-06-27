@@ -1,5 +1,5 @@
 ---
-title: _home
+title: 'Home: Hero'
 menu: Hero
 arrow: arrow
 hero_classes: 'parallax text-light hero-fullscreen overlay-dark-gradient'

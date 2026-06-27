@@ -1,5 +1,5 @@
 ---
-title: '2025 Bunnybots'
+title: 'Bunnybots: Text: 2025 Bunnybots'
 media_order: 'BlairBunnybots2025GameManualv1.pdf,BlairBunnybotsTeamUpdate00.pdf'
 published: true
 class: small

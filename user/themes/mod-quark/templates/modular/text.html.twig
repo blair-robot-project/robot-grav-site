@@ -16,7 +16,7 @@
                 {% if image %}
                     {% for image in page.media.images %}
                         {% if page.header.url %}<a href="{{ page.header.url }}" target="_blank" rel="noopener">{% endif %}
-                        {{ image.height(page.header.image_height|default(300)).html }}
+                        {{ image.height(page.header.image_height|default(300)).html|raw }}
                         {% if page.header.url %}</a>{% endif %}
                     {% endfor %}
                 {% endif %}

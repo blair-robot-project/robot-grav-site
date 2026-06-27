@@ -1,5 +1,5 @@
 ---
-title: Top
+title: 'Sponsors: Hero'
 media_order: 'bumperheader.jpg,opening_logos.jpeg'
 menu: Hero
 arrow: arrow

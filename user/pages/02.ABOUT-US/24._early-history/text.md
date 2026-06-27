@@ -1,5 +1,5 @@
 ---
-title: early-history
+title: 'History: Text: 2023 and earlier'
 body_classes: modular
 image_align: left
 menu: 'Text: Early history'
