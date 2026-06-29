@@ -1,7 +1,7 @@
 ---
 title: 'Home: Gallery'
 body_classes: modular
-media_order: 'DSC_0501.jpeg,IMG_7391.jpeg,IMG_0982.jpeg,NIK_6593.jpeg,DSC_0051.jpeg,IMG_9664.jpeg,screenshot_2025-08-04.png,IMG_9718.jpeg,IMG_9382.jpeg,screenshot_2026-06-11.png,IMG_5162.JPG,DSC_0834.jpeg'
+media_order: 'DSC_0501.jpeg, IMG_7391.jpeg, IMG_0982.jpeg, nik_6593.jpeg, DSC_0051.jpeg, IMG_9664.jpeg, screenshot_2025-08-04.png, IMG_9718.jpeg, IMG_9382.jpeg, screenshot_2026-06-11.png, IMG_5162.JPG, DSC_0834.jpeg'
 thumb:
     width: 600
     height: 450
@@ -14,7 +14,7 @@ gallery:
     -
         image: IMG_0982.jpeg
     -
-        image: NIK_6593.jpeg
+        image: nik_6593.jpeg
     -
         image: DSC_0051.jpeg
     -
