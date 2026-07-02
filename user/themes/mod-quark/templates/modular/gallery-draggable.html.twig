@@ -1,36 +1,18 @@
-{# Gallery variant: drag rows in the admin "Gallery" tab to set photo order. #}
-{# Order source: prefer the drag-reorderable `gallery` list (admin2-friendly); fall back to ALL page-media in media_order (legacy galleries not yet migrated). #}
+{# Photo order = the admin Page Media panel's own drag order (native admin2 reorder, fixed in admin2 v2.0.7/2.0.8 — getgrav/grav-plugin-admin2#74). No separate ordering UI needed. #}
 {# Body text (if any) shows as a single caption below. Grid CSS in custom.css. #}
 {% set caption = content|default('') %}
 {% set thumb_w = page.header.thumb.width|default(600) %}
 {% set thumb_h = page.header.thumb.height|default(450) %}
-{% set gallery = page.header.gallery %}
 <div class="lightbox-gallery">
   <div class="lightbox-gallery__columns">
-    {% if gallery %}
-      {% for row in gallery %}
-        {# admin2 saves the single-field list as flat filenames; tolerate the {image: ...} map form too. #}
-        {% set fname = row.image is defined ? row.image : row %}
-        {% set img = page.media[fname] %}
-        {% if img %}
-          {# Capture source width first: only downscale photos wider than 1200; serve smaller images as-is so resize() does not pad them with white. #}
-          <div class="lightbox-gallery__column">
-            {% set content = img.cropZoom(thumb_w, thumb_h).html() %}
-            {% set image = img.width > 1200 ? img.resize(1200).url : img.url %}
-            {% include "partials/lightbox.html.twig" %}
-          </div>
-        {% endif %}
-      {% endfor %}
-    {% else %}
-      {% for img in page.media.images %}
-        {% set orig_w = img.width %}
-        <div class="lightbox-gallery__column">
-          {% set content = img.cropZoom(thumb_w, thumb_h).html() %}
-          {% set image = orig_w > 1200 ? img.resize(1200).url : img.url %}
-          {% include "partials/lightbox.html.twig" %}
-        </div>
-      {% endfor %}
-    {% endif %}
+    {% for img in page.media.images %}
+      {# Only downscale photos wider than 1200; serve smaller images as-is so resize() doesn't pad them with white. #}
+      <div class="lightbox-gallery__column">
+        {% set content = img.cropZoom(thumb_w, thumb_h).html() %}
+        {% set image = img.width > 1200 ? img.resize(1200).url : img.url %}
+        {% include "partials/lightbox.html.twig" %}
+      </div>
+    {% endfor %}
   </div>
   {% if caption|trim %}
     <div class="lightbox-gallery__caption">{{ caption|raw }}</div>

@@ -1,3 +1,34 @@
+# v2.0.6
+## 06/30/2026
+
+1. [](#bugfix)
+    * [security] Flex user avatars stored under `user/accounts/<username>/` (folder storage) are now served too; the 2.0.5 avatar carve-out only covered the flatfile `user/accounts/avatars/` layout, so folder-storage avatars kept returning a 403. Existing sites self-heal on upgrade. Fixes [getgrav/grav#4185](https://github.com/getgrav/grav/issues/4185).
+
+# v2.0.5
+## 06/30/2026
+
+1. [](#bugfix)
+    * A page's `translatedLanguages()` now returns each language's own route, so a translation with a localized `slug:` produces the correct cross-language link instead of repeating the default language's URL. Fixes [getgrav/grav#4183](https://github.com/getgrav/grav/issues/4183).
+    * [security] Profile avatars display again instead of returning a 403; the folder hardening that locked down `user/accounts` now makes a narrow exception for avatar images while account data such as password hashes stays blocked, and existing sites self-heal on upgrade. Fixes [getgrav/grav#4185](https://github.com/getgrav/grav/issues/4185).
+    * Loading a page no longer fails with a "Failed to write cache file" error when Grav can't save the compiled template cache, such as on a shared folder, a full disk, or during a save-then-reload race; the page still renders and the problem is logged instead. Fixes [getgrav/grav#4184](https://github.com/getgrav/grav/issues/4184).
+
+# v2.0.4
+## 06/29/2026
+
+1. [](#new)
+    * Plugins can now register trusted iframe hosts so legitimate provider embeds (such as YouTube) are no longer blanked by the content XSS scan on hardened sites.
+    * Added an `onXssTrustedMarkup` event that lets a plugin exempt its own rendered markup from the content XSS scan without weakening it for editor-authored content.
+1. [](#bugfix)
+    * [security] Grav's `.htaccess` rules blocking sensitive folders and files are now matched case-insensitively, closing a bypass where, on case-insensitive filesystems (Windows, macOS, some Docker mounts), a differently-cased request could reach files such as account and config YAML; existing sites are healed on upgrade ([GHSA-vwg3-w8w3-pc79](https://github.com/getgrav/grav/security/advisories/GHSA-vwg3-w8w3-pc79)).
+    * [security] The `user/data` folder now ships a media-aware allowlist that serves uploaded assets such as images, fonts, CSS and JS while keeping data files like YAML and JSON blocked, and upgrading widens an over-narrow allowlist from earlier security updates in place so legitimate theme assets stop returning 403. Fixes [getgrav/grav#4169](https://github.com/getgrav/grav/issues/4169).
+    * [security] The Twig `regex_replace` filter now returns its input unchanged instead of null when a pattern hits a PCRE error such as a backtrack-limit, so a catastrophic pattern can no longer break output ([GHSA-37f3-6p89-6qr9](https://github.com/getgrav/grav/security/advisories/GHSA-37f3-6p89-6qr9)).
+    * `bin/gpm self-upgrade` no longer fails on shared-folder setups such as a VirtualBox shared folder, where the `bin` directory holding the running script could not be deleted, by overwriting the upgrade files in place instead. Fixes [getgrav/grav#4171](https://github.com/getgrav/grav/issues/4171).
+    * Debug messages logged during API requests now reach the Admin2 API debug panel and Clockwork even when the debugger is set to PHP DebugBar, which can only display on normal pages. Fixes [getgrav/grav-plugin-admin2#76](https://github.com/getgrav/grav-plugin-admin2/issues/76).
+    * Resizing an image larger than its original size with `?resize=` no longer pads it onto an oversized canvas with a white border, returning the image at its natural size instead unless `?forceresize` is used. Fixes [getgrav/grav#4173](https://github.com/getgrav/grav/issues/4173).
+    * Turning off the Twig sandbox no longer breaks pages or modules that contain a form, which previously failed with a "SandboxExtension extension is not enabled" error. Fixes [getgrav/grav#4175](https://github.com/getgrav/grav/issues/4175).
+    * A blueprint validation error now names the value it rejected, so a message like "Invalid input in Process" explains what actually caused it instead of leaving you guessing. Relates to [getgrav/grav#4178](https://github.com/getgrav/grav/issues/4178).
+    * Adding a blocked item to the Twig sandbox allowlist from the Tools report now clears that block from the recent-blocks list, so a resolved entry no longer lingers as if nothing happened. Fixes [getgrav/grav-plugin-admin2#85](https://github.com/getgrav/grav-plugin-admin2/issues/85).
+
 # v2.0.3
 ## 06/25/2026
 

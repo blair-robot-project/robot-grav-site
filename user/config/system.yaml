@@ -236,5 +236,6 @@ flex:
       lifetime: 600
 strict_mode:
   yaml_compat: false
-  twig_compat: true
   blueprint_compat: false
+  twig2_compat: true
+  twig3_compat: true
