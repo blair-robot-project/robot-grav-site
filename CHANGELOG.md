@@ -6,6 +6,14 @@ For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md]
 
 ---
 
+### 2026-07-03 — 🚀 LIVE + 🟢 STAGING: connected both sites to Claude Code via Grav MCP
+Installed the Grav **`api`** plugin on both sites and registered each as a Claude Code MCP server, backed by a locally-built `grav-mcp` (the `getgrav/grav-mcp` npm package isn't published yet — built from source at `~/Documents/449/grav-mcp/` instead). Gives an AI assistant direct, structured access to Grav (pages, media, users, plugins, config, backups, scheduler) instead of only SSH + manual edits. See CLAUDE.md "MCP integration" for the registered server names/URLs and which user account each key was generated against.
+- **Staging:** `bin/gpm install api` + `bin/plugin api keys:generate` needed the explicit `/usr/local/bin/php-8.3` binary — DreamHost's bare `php`/`bin/gpm` resolve to the account default (8.2), not the site's actual 8.3.
+- **Live:** ran as `sudo -u grav` (per the standing GPM-ownership rule) against **`bradP`**, not `admin` — the generic `admin` account is disabled on live (see account-roster history), and API keys inherit the full permission set of whichever user they're generated against, so re-enabling a deliberately-disabled shared account wasn't worth it.
+- **Incident:** the first live key got corrupted in transit — pasting the SSH output's `API Key: grav_...` line (not just the token) into the `claude mcp add --env` command split on the extra words, silently mis-registering the MCP server's args. Caught via `claude mcp list` showing "Failed to connect"; the key had also been exposed in plaintext by that point, so it was revoked and regenerated rather than just fixing the args. New "Lessons that bite" entry in CLAUDE.md covers the paste-safety fix.
+
+---
+
 ### 2026-06-28 — 🚀 LIVE (Grav 2.0): turned on automated nightly backups (Grav scheduler, keep 7)
 Put the built-in full-site backup on an automatic nightly schedule with a 7-copy cap, using Grav 2.0's scheduler + backup. Previously the `default-site-backup` job had a schedule (`0 3 * * *`) in `backups.yaml` but **never fired** — no scheduler crontab existed, so nothing triggered it.
 - **Installed the scheduler crontab as user `grav`** (the web user — *not* root, per the ownership rule, so backup zips land `grav:editor`): `* * * * * cd /srv/robot-grav-site; /usr/bin/php bin/grav scheduler …`. Confirmed it's the *only* scheduler entry (`grep -rl "grav scheduler" /etc/cron* /var/spool/cron` → just `/var/spool/cron/crontabs/grav`); root's crontab keeps only the 22:34 `backup.sh` git-push + the Sat-7am reboot, untouched.

@@ -4,20 +4,9 @@ Operational reference for the FRC 449 Grav sites: environment facts, the staging
 
 ---
 
-## ⏸️ PENDING DECISION — merge sanitized docs into the team's public repo
+## ✅ Docs import into this repo — resolved 2026-07-03
 
-The 10 docs in this (private) repo have been sanitized (secrets extracted to the private `CREDENTIALS.md`, never to leave this repo) and are ready to publish, per Brad's 2026-06-26 decision. **Not yet executed** — revisit when ready. Mechanics, since Brad has no push access to the team repo:
-
-1. **Fork** `blair-robot-project/robot-grav-site` to `bpeniston`.
-2. Add the sanitized docs to the fork — **excluding `CREDENTIALS.md`**.
-3. **Open a PR** for a team maintainer to merge.
-
-**Open sub-decisions (Brad to confirm before executing):**
-- **Location in the target repo** — a `docs/` folder at the repo root? (Likely cleanest, since that repo is the whole Grav site, not just docs.)
-- **Scope** — all 10 sanitized docs, or hold any back?
-- **Who opens the PR** — Claude now (creates the fork + PR under Brad's `gh` login), or Brad gets write access to the org repo first and does it himself?
-
-Also flagged, still open: a `git add -A` swept some unrelated untracked working files (`*.webp`, `estimate_grav_image_savings.py`, `shrink_grav_images.py`, `trailing_wrenchman.svg`) into the 2026-06-26 sanitization commit — confirm whether those belong in this repo or should be removed.
+The sanitized-docs import (previously pending here) happened directly on `master`, not via a fork+PR — Brad has direct contributor access to `blair-robot-project/robot-grav-site`, so forking was unnecessary overhead. All docs except `CREDENTIALS.md` (private, stays in the source repo) were imported under `docs/`; `CLAUDE.md`, `CHANGELOG.md`, `RUNBOOK.md`, and `Changes.md` were then promoted to the repo root (`CLAUDE.md` in particular needs to be at root for Claude Code to auto-load it). See CHANGELOG.md's 2026-07-03 entries for the full sequence.
 
 ---
 
@@ -33,6 +22,7 @@ Also flagged, still open: a `git add -A` swept some unrelated untracked working 
 | SSH | `ssh USER@robot.mbhs.edu` | `ssh USER@navybook.com` |
 | Grav root | `/srv/robot-grav-site/` | `~/449.navybook.com/` |
 | Web user:group | `grav:editor` | host-managed |
+| MCP (Claude Code) | `grav-live` → `/api`, key on `bradP` | `grav-staging` → `/api`, key on `admin` |
 
 > **The Grav-2.0 migration trajectory:** live → Grav 2.0 is being proven on the **449.navybook.com** staging subdomain. Live itself remains **1.7.53** until that move is scheduled. **Prerequisites already met on live** (recon 2026-06-26): PHP **8.3.31** (web + CLI), **2 GB swap**, and the **`migrate-grav`** plugin installed. The cutover plan + carry-forward checklist live in the **"Live → Grav 2.0 migration"** section below.
 
@@ -296,7 +286,7 @@ Grav has **no dedicated notes field**. House conventions:
 These projects are **done**; the step-by-step playbooks were removed to keep this runbook current. The dated narrative and evidence live in **[CHANGELOG.md](CHANGELOG.md)** and git history.
 
 - **Original staging build (navybook.com/449)** — Grav 1.7 subdirectory clone of live, built June 2026 from a ~321 MB Grav backup zip (the zip excludes `cache`/`images`/`logs`/`tmp`/`backup`; media was rsynced separately). Subdirectory installs need `custom_base_url` set in `system.yaml` or all assets 404. **Retired June 2026** (see Environments above).
-- **Phase A — theme + `image-intake` plugin deploy to live** — DONE 2026-06-14/15. The visual redesign (galleries, error page, site-wide footer, menus, feature-images lightbox) + the upload-resize plugin, routed staging→local Mac→live. Deployed the **license-safe** `custom.css` (BlairMdITC font OFF; see font gate below). Phase B (bulk content reconciliation) was deferred — staging content diverged heavily from live; see **[AUDIT.md](AUDIT.md)**.
+- **Phase A — theme + `image-intake` plugin deploy to live** — DONE 2026-06-14/15. The visual redesign (galleries, error page, site-wide footer, menus, feature-images lightbox) + the upload-resize plugin, routed staging→local Mac→live. Deployed the **license-safe** `custom.css` (BlairMdITC font OFF; see font gate below). Phase B (bulk content reconciliation) was deferred — staging content diverged heavily from live; see **[docs/AUDIT.md](docs/AUDIT.md)**.
 - **PHP upgrades on live** — 8.0.30 (EOL) → 8.2 → **8.3**, done as their own backed-up/tested cutovers with the 8.x pools kept side-by-side for one-line rollback. Live is now on 8.3.
 - **Image-handling decision (2026-06-11)** — chose the custom **`image-intake`** plugin (sanitize filename + shrink-on-upload + discard original), which is memory-safe at 128M (resizes via the `convert` subprocess) and suits live's 1 GB / no-swap box — over raising PHP `memory_limit`.
 - **Grav 2.0 migration** — proven on the 449.navybook.com subdomain (2026-06-23 onward); see the Staging section above.

@@ -30,6 +30,13 @@ Working context for changes to this site (theme / templates / CSS / content). Re
 | System / plugin config | `user/config/system.yaml`, `user/config/plugins/` |
 | Grav CLI | `bin/grav` — run as grav: `sudo -u grav php bin/grav …` |
 
+## MCP integration
+Both sites are reachable from Claude Code via the Grav `api` plugin + a locally-built `grav-mcp` server (the `getgrav/grav-mcp` npm package isn't published yet, so it's built from source at `~/Documents/449/grav-mcp/`). Registered as project-scoped Claude Code MCP servers:
+- **`grav-staging`** → `https://449.navybook.com/api`, key generated against the `admin` user.
+- **`grav-live`** → `https://robot.mbhs.edu/api`, key generated against **`bradP`** (live's generic `admin` account is disabled — see account roster history; API keys inherit the full permission set of whichever user they're generated against, so `bradP`'s super-admin access applies here).
+
+Tool surface covers pages, media, users, plugins (GPM), config, backups, and the scheduler — effectively full admin capability, not just content edits. Keys live only in local Claude Code config (`--env GRAV_API_KEY=...`), never in this repo.
+
 ## Mod Quark templates that exist
 Modular (`templates/modular/NAME.html.twig`):
 - **feature-images** — image grid, optional per-item link + lightbox; resolves images via `page.media`.
@@ -55,3 +62,4 @@ Partials: **base** (head/scaffold + the `?v=` cache-bust), **footer** (renders t
 - **Fonts: BlairMdITC is license-gated and currently OFF** — its `@font-face` + the `h1` font-family are commented out in `custom.css` and the font files are **not** shipped. Don't enable it without a purchased **webfont** license (a desktop license doesn't cover web serving).
 - **In-content notes use `[//]: # (...)`** (emits nothing, not even in HTML — unlike `<!-- -->`, which ships). New folders/pages/modules auto-prefill Content with `[//]: # (CommentsGoHere)` via a blueprint default; replace it with a real note when there is one.
 - **Only edit `mod-quark`, never the parent `quark` theme.**
+- **Grav `api` plugin keys: paste only the bare `grav_...` token.** Generating a key (`bin/plugin api keys:generate`) prints a line like `API Key: grav_...`; copying more than the token itself into a `claude mcp add --env GRAV_API_KEY=...` command splits on the extra words and silently corrupts the registered command's args. Select just the token (double-click it) before pasting.

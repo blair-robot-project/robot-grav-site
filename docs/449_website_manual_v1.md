@@ -232,4 +232,4 @@ Set the type of a *top-level* page.
 
 ---
 
-*Questions: Brad (comms@navybook.com). Server/infrastructure: Rafi Pedersen. See also `CHANGELOG.md` (the change history) and `RUNBOOK.md` (deeper ops detail and gotchas) in this folder.*
+*Questions: Brad (comms@navybook.com). Server/infrastructure: Rafi Pedersen. See also `CHANGELOG.md` (the change history) and `RUNBOOK.md` (deeper ops detail and gotchas) at the repo root.*
