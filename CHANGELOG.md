@@ -1,11 +1,15 @@
 # FRC Team 449 Website — Changelog
-*Last updated: 2026-07-04 · rev 2026-07-04b*
+*Last updated: 2026-07-04 · rev 2026-07-04c*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu, Grav 1.7) or 🟢 **STAGING** (449.navybook.com, Grav 2.0). All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-04 — 🚀 LIVE (Grav 2.0): removed two stale "under construction" banners; unpublished abandoned Scouting section
+Two separate fixes found via a document-review pass (comparing the June 5 Starter Kit doc against the real live site) and confirmed via direct curl before and after.
+- **"Under construction" banners removed from Robots and T-Shirt Designs.** Root cause: a boolean `underconstruction:` frontmatter flag drives a template-rendered banner — not literal text in the page body, which is why earlier greps for the rendered phrase came up empty. Flipped `underconstruction: true` → `false` in both pages' `modular.md`. Full-site backup taken first (`bin/grav backup`), cache cleared, verified live via curl: banner gone from both pages.
+- **Unpublished the Scouting parent page and Historical Scouting** (`published: false`), both about-us/scouting URLs now correctly 404. Investigation revealed this section was real, substantive work-in-progress: it appears the team built out a Scouting page as recently as the 2024-25 season, began reorganizing it into "Historical Scouting" plus a new page for the 2025-26 season, then left the effort unfinished — a genuinely abandoned mid-refactor, not simple neglect. **Flagged as a possible future student line of effort**, not deleted. A third folder, `03.current scouting` (note the space in the name), has no actual page file — just two orphaned module fragments with nothing routing to them; already 404 on its own, left untouched pending a cleanup decision.
 
 ### 2026-07-04 — 🚀 LIVE (Grav 2.0): fixed a leaked "Folder: " admin-default prefix in the FLL Team page title
 The public title tag for `/community/fll-team` was rendering as **"Folder: FLL Team: The Blair LEGO Project | FRC Team 449"** — a literal `"Folder: "` string that Grav's admin auto-fills for a new page/folder and that had never been cleaned up, sitting directly in `user/pages/03.COMMUNITY/04.fll-team/modular.md`'s `title:` frontmatter field. Found via a full-site audit re-verification pass (curl against every page, run directly from the server). Fix: full-site backup taken first (`bin/grav backup`), then a one-line edit removing the "Folder: " prefix, done as `grav` (not `USER`, per the ownership rule) to avoid needing a follow-up `chown`. Cache cleared (`bin/grav cache`). Verified live via curl: title now correctly reads `FLL Team: The Blair LEGO Project | FRC Team 449`.
