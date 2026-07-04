@@ -1,11 +1,16 @@
 # FRC Team 449 Website — Changelog
-*Last updated: 2026-07-04 · rev 2026-07-04c*
+*Last updated: 2026-07-04 · rev 2026-07-04d*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu, Grav 1.7) or 🟢 **STAGING** (449.navybook.com, Grav 2.0). All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-04 — 🚀 LIVE (Grav 2.0): built out the Current Scouting page and fixed Scouting's folder structure
+Follow-up to the same-day Scouting unpublish. Renamed `03.current scouting` (space in the name) to `03.current-scouting`, and renumbered its two orphaned module fragments (`_top`, `_main`) to `01._top`/`02._main` to match Historical Scouting's convention. Added the missing `modular.md` page wrapper (Current Scouting never had one, which is why it 404'd) with a hero matching Historical Scouting's style, and real placeholder body copy that links to Historical Scouting, per Brad's decision that a reader arriving from an external link (bypassing the nav dropdown) still needs a way to find the historical content. Both pages left `published: false` — content, not visibility, is what's still missing.
+- **Investigation found real, substantive prior work worth preserving:** Historical Scouting's existing body content includes a full "Current Scouting Procedure" section (written 2025) describing QRScout-based match scouting, a Scout Manager role, and a custom RStudio ShinyApp for visualizing data — a strong starting point for whoever eventually writes the real Current Scouting page, rather than starting from scratch. Documented as a "future line of effort" in the team manual.
+- **Verified via a temporary publish/unpublish cycle:** flipped Current Scouting to `published: true`, confirmed via curl that the title, hero heading, and the Historical Scouting link all render correctly, then flipped back to `false` and confirmed 404. Full-site backup taken first (`bin/grav backup`); cache cleared after each change.
+
 ### 2026-07-04 — 🚀 LIVE (Grav 2.0): removed two stale "under construction" banners; unpublished abandoned Scouting section
 Two separate fixes found via a document-review pass (comparing the June 5 Starter Kit doc against the real live site) and confirmed via direct curl before and after.
 - **"Under construction" banners removed from Robots and T-Shirt Designs.** Root cause: a boolean `underconstruction:` frontmatter flag drives a template-rendered banner — not literal text in the page body, which is why earlier greps for the rendered phrase came up empty. Flipped `underconstruction: true` → `false` in both pages' `modular.md`. Full-site backup taken first (`bin/grav backup`), cache cleared, verified live via curl: banner gone from both pages.
