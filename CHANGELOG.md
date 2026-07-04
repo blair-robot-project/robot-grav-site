@@ -1,10 +1,14 @@
 # FRC Team 449 Website — Changelog
+*Last updated: 2026-07-04 · rev 2026-07-04b*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu, Grav 1.7) or 🟢 **STAGING** (449.navybook.com, Grav 2.0). All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+
+### 2026-07-04 — 🚀 LIVE (Grav 2.0): fixed a leaked "Folder: " admin-default prefix in the FLL Team page title
+The public title tag for `/community/fll-team` was rendering as **"Folder: FLL Team: The Blair LEGO Project | FRC Team 449"** — a literal `"Folder: "` string that Grav's admin auto-fills for a new page/folder and that had never been cleaned up, sitting directly in `user/pages/03.COMMUNITY/04.fll-team/modular.md`'s `title:` frontmatter field. Found via a full-site audit re-verification pass (curl against every page, run directly from the server). Fix: full-site backup taken first (`bin/grav backup`), then a one-line edit removing the "Folder: " prefix, done as `grav` (not `USER`, per the ownership rule) to avoid needing a follow-up `chown`. Cache cleared (`bin/grav cache`). Verified live via curl: title now correctly reads `FLL Team: The Blair LEGO Project | FRC Team 449`.
 
 ### 2026-07-03 — 🟢 STAGING: reorganized Team History content under `/about-us/history`
 Consolidated scattered season content (an old top-level blog, a 2019 build-blog, two overlapping newsletter archives, and five About-Us modular fragments) under one `/about-us/history` folder, so student admins editing "history" no longer have to hunt across five unrelated top-level folders.
