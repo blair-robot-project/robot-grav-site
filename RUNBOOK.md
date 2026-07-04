@@ -1,4 +1,5 @@
 # FRC Team 449 Website — Runbook
+*Last updated: 2026-07-04 · rev 2026-07-04a*
 
 Operational reference for the FRC 449 Grav sites: environment facts, the staging (Grav 2.0) operational notes, live server-housekeeping + security to-dos, cautions/gotchas, and key file paths. For the dated history of changes, see **[CHANGELOG.md](CHANGELOG.md)**. For the concise working-context doc to read first, see **[CLAUDE.md](CLAUDE.md)**.
 
@@ -7,6 +8,9 @@ Operational reference for the FRC 449 Grav sites: environment facts, the staging
 ## ✅ Docs import into this repo — resolved 2026-07-03
 
 The sanitized-docs import (previously pending here) happened directly on `master`, not via a fork+PR — Brad has direct contributor access to `blair-robot-project/robot-grav-site`, so forking was unnecessary overhead. All docs except `CREDENTIALS.md` (private, stays in the source repo) were imported under `docs/`; `CLAUDE.md`, `CHANGELOG.md`, `RUNBOOK.md`, and `Changes.md` were then promoted to the repo root (`CLAUDE.md` in particular needs to be at root for Claude Code to auto-load it). See CHANGELOG.md's 2026-07-03 entries for the full sequence.
+- **Not a deploy source:** confirmed 2026-07-02 that nothing pulls from this repo to robot.mbhs.edu — no webhooks, no GitHub Actions, no `git pull` anywhere on the server. The live site serves local flat files on its own droplet.
+- **Not a live content mirror:** the old `backup.sh` cron (nightly `git push` of `user/pages/*` into this repo) was retired 2026-07-02, replaced by Grav's own nightly scheduler backup running directly on the server. `archive/user/pages/` here is a frozen 2026-07-02 snapshot, not a live copy.
+- **Where secrets live:** not in this (public) repo. `CREDENTIALS.md` stays in the original private working repo. Server SSH access, the DigitalOcean console, and site secrets are held by Rafi (infrastructure) and Brad (project lead).
 
 ---
 

@@ -1,6 +1,10 @@
 # CLAUDE.md — FRC Team 449 Website
+*Last updated: 2026-07-04 · rev 2026-07-04a*
 
 Working context for changes to this site (theme / templates / CSS / content). Read this first; ask to read a specific file before editing it.
+
+
+> **Source of truth:** this repo (`blair-robot-project/robot-grav-site`) holds all of Team 449's site documentation at its root and is authoritative — check it first. It is documentation plus a historical `archive/` snapshot, not a deploy source (nothing pulls from it to the live site) and not a live content mirror (the old nightly `backup.sh` git-push was retired 2026-07-02 in favor of Grav's own scheduler backups running on the server). Secrets are not in this repo — they're held by Rafi (infrastructure) and Brad (project lead).
 
 ## The site
 - **FRC Team 449** ("The Blair Robot Project"), Montgomery Blair HS robotics team.

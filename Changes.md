@@ -1,6 +1,15 @@
 # FRC Team 449 Website — Summary of Changes
+*Last updated: 2026-07-04 · rev 2026-07-04a*
 
 A plain-language summary of the major work on the team website ([robot.mbhs.edu](http://robot.mbhs.edu)), written for team leadership. For the full technical detail, see [CHANGELOG.md](CHANGELOG.md) and [RUNBOOK.md](RUNBOOK.md) in this folder.
+
+## July 2026 — moved documentation into the team's own GitHub, ready for student handoff
+
+- **Put everything in one place the team owns.** All the project documentation (this summary, the change log, the operations runbook, the how-to guides, and the site audit) now lives in the team's own GitHub repository, not on any one person's laptop — so the answer to "where do I find out how the website works?" is simply: look in the team repo.
+- **Tidied the repository so it's approachable.** Thousands of leftover files from the original website software were moved into a clearly-labeled archive folder, kept for reference but not needed for day-to-day work, so a student opening the repo sees the documentation first.
+- **Made clear where the passwords live.** Site passwords and server keys are deliberately not in the (public) repository; a note in the repo says so plainly and points to who holds them.
+- **Simplified how backups work.** Retired an older backup method (a nightly job copying page text into GitHub) now that the website's own built-in nightly backup covers it.
+- **Tidied up the site's own content.** Consolidated older seasons' content (old blog posts, old newsletters) under one "Team History" section, and connected an AI assistant directly to the site for faster day-to-day maintenance.
 
 ## June 2026 — site overhaul and migration to the live server
 
