@@ -1,7 +1,7 @@
 # FRC Team 449 Website — Runbook
-*Last updated: 2026-07-05 · rev 2026-07-05b*
+*Last updated: 2026-07-05*
 
-Operational reference for the FRC 449 Grav sites: environment facts, server housekeeping + security status, cautions/gotchas, and key file paths. For the dated history of changes, see **[CHANGELOG.md](CHANGELOG.md)**. For the concise working-context doc to read first, see **[CLAUDE.md](CLAUDE.md)**.
+Operational reference for the FRC 449 Grav site: environment facts, server housekeeping + security status, cautions/gotchas, and key file paths. For dated history of changes, see [CHANGELOG.md](CHANGELOG.md). For orientation, who's involved, and the doc to start a Claude Code session with, see [README.md](README.md).
 
 ---
 
@@ -30,11 +30,19 @@ This repo (`blair-robot-project/robot-grav-site`) is the source of truth for sit
 | MCP (Claude Code) | `grav-live` → `/api`, key on `bradP` |
 | Admin | Admin Next (admin2 + api plugin) |
 
-**Required config deviations from Grav defaults (reapply if the site is ever rebuilt or re-migrated):**
+**Required config deviations from Grav defaults** (reapply if the site is ever rebuilt or re-migrated):
 - `pages.markdown.gfm.tagfilter: false` in `system.yaml` — Grav's default GFM tagfilter escapes raw `<iframe>` tags, breaking every YouTube/video embed.
 - `text.html.twig` uses `image.height(N).html|raw` — without the `|raw`, Grav 2.0.3+ autoescapes derivative-medium HTML, so text-module images render as literal tag text instead of actual images.
 - An `/api/v1/sync` → 403 block in the nginx config — the `api` plugin doesn't implement these routes, and without the 403 they 404-flood and degrade the page editor.
 - `image-intake` plugin must be **v0.5.0+** — earlier versions' gallery auto-sync silently stops working once the `api` plugin reaches ~1.0.3 (it now saves the page before firing its update event; v0.5.0 added a hook that handles this correctly).
+
+---
+
+## Access & Ownership
+
+- **SSH hardened (2026-06-16):** root login disabled (log in as a normal user, then `sudo`); **fail2ban** bans an IP after repeated failed logins (don't lock yourself out testing — unban: `sudo fail2ban-client set sshd unbanip <IP>`; thresholds in CREDENTIALS.md). Password auth is still on (key-only is the optional next step). **Recovery / DO console:** the DigitalOcean web console logs in as any non-root user (then `sudo`) — so DO-dashboard access is root-equivalent, meaning the DO account needs a strong password + 2FA.
+- Web + admin run as user `grav` (primary group `editor`). `USER` is in `sudo` + `editor`.
+- **OWNERSHIP — the #1 gotcha.** Site files must be `grav:editor` so the web/admin user can write them. If you create/overwrite files as `USER` (scp, rsync, `>` redirects), `chown` them back: `sudo chown -R grav:editor <paths>` (exclude `.git` — its index is root-owned for the backup cron). Symptoms of getting it wrong: admin "Failed to save," or a 500 after a plugin op.
 
 ---
 
@@ -64,33 +72,42 @@ Smallest layer wins; all four are raised on live so 9-12 MB phone photos upload 
 
 ---
 
+## Architecture reference
+
+**Modular templates** (`templates/modular/NAME.html.twig`):
+- **feature-images** — image grid, optional per-item link + lightbox; resolves images via `page.media`.
+- **icon-menu** — icon + label + link "nav cards" (frontmatter key stays `features:`).
+- **gallery-draggable** — photo gallery; display order = the admin Page-Media drag order (`page.media.images`); click → lightbox.
+- **text**, **hero** — lightly customized standards. **footer-col** — minimal footer-column wrapper.
+
+**Partials:** base (head/scaffold + the `?v=` cache-bust), footer (renders the `/footer` page's modules), lightbox (no-JS clickable thumbnail), error (the branded 404).
+
+**Images:** PHP gd + the ImageMagick `convert` binary. The custom image-intake plugin sanitizes filenames + shrinks photos on upload (per-template max widths, set in Admin → Plugins → Image Intake).
+
+A fuller template reference (including page-level templates and admin-selectability) lives in `INSTRUCTIONS.md`'s appendix.
+
+---
+
 ## Cautions & Gotchas
 
-### OWNERSHIP — the #1 live gotcha
-Live site files must be `grav:editor` so the web/admin user can write them. If you create/overwrite files as `USER` (scp, rsync, `>` redirects), `chown` them back: `sudo chown -R grav:editor <paths>` (exclude `.git`). Symptoms of getting it wrong: admin "Failed to save," or a 500 after a plugin operation.
-
-### Protect custom theme blueprints before any theme update
-Mod Quark has custom module types (`feature-images`, `icon-menu`, `gallery-draggable`, ...) built on stock Quark. Before any theme update, copy the theme first (`cp -r user/themes/mod-quark user/themes/mod-quark-backup-$(date +%Y%m%d)`), then diff afterward to confirm nothing custom got overwritten.
-
-### Mod Quark is a custom Git repo — not GPM-managed
-Not installed through Grav's package manager; `bin/gpm update` may not handle it. Manage manually via SSH/GitHub. **Plugin/Grav GPM updates: only ever as `grav`** (Admin "Update," or `sudo -u grav php bin/gpm update`) — never as `USER`. **Don't remove the `email` plugin** — it's a required admin dependency.
-
-### Update one thing at a time
-Update a single plugin/theme, verify it works, then move to the next. Never chain updates — if something breaks, you want to know exactly which change caused it. Take a fresh Grav backup right before any plugin/theme update.
-
-### Portable linking conventions
-Any link/image that bakes in the domain, a base path, or a folder's numeric prefix can break if the folder gets renumbered or the site ever moves hosts.
-- **Page-media images:** filename only. `![](filename.jpg)`.
-- **Shared images** (`user/images/`): `![](/user/images/x.jpg)` — Grav auto-prepends the base for markdown, but **not for raw HTML `<img src>`** — for raw HTML, add `process: { twig: true }` and use `src="{{ base_url }}/user/images/x.jpg"`.
-- **Internal page links:** root-relative, no domain — `[text](/about-us/leadership)`.
-- **Frontmatter URLs rendered via Twig** (e.g. `icon-menu`/`feature-images` `url:` values): Grav does **not** auto-prepend the base to these — the template must (`icon-menu`/`feature-images` already do). Any new module emitting a frontmatter URL through Twig needs the same treatment.
-
-### Notes & comments conventions
-Grav has no dedicated notes field. House conventions:
-- **Every new folder/page/module** starts its Content field with `[//]: # (CommentsGoHere)` — a blueprint default (`mod-quark/blueprints/default.yaml`) that every page/module inherits via `@extends: default`. Replace with a real note when there is one.
-- **A note a teammate should see** → `[//]: # (your note here)` in Content — renders nothing, visible in the editor.
-- **A "how this folder works" note** → a sidecar `_NOTES.md` file (Grav ignores non-template files).
-- **Avoid `<!-- HTML comments -->`** for anything non-trivial — unlike `[//]: #`, they ship in the rendered HTML source.
+- **Only edit `mod-quark`, never the parent `quark` theme.** Mod Quark (`user/themes/mod-quark/`) is a custom child of stock Quark (`user/themes/quark/`).
+- **A custom modular template needs a matching blueprint.** New `templates/modular/NAME.html.twig` requires `blueprints/modular/NAME.yaml` (`@extends: default`), or the admin **silently overwrites your template** to a stock type when the module is saved. (Why feature-images / icon-menu / gallery-draggable each have one.)
+- **Protect custom theme blueprints before any theme update.** Copy the theme first (`cp -r user/themes/mod-quark user/themes/mod-quark-backup-$(date +%Y%m%d)`), then diff afterward to confirm nothing custom got overwritten.
+- **Mod Quark is a custom Git repo — not GPM-managed.** Not installed through Grav's package manager; `bin/gpm update` may not handle it. Manage manually via SSH/GitHub. **Plugin/Grav GPM updates: only ever as `grav`** (Admin "Update," or `sudo -u grav php bin/gpm update`) — never as `USER` (it half-installs and breaks admin). **Don't remove the `email` plugin** — it's a required admin dependency (admin 500s without it), even though the site has no Grav forms (contact is `mailto:` links).
+- **Update one thing at a time.** Update a single plugin/theme, verify it works, then move to the next. Never chain updates — if something breaks, you want to know exactly which change caused it. Take a fresh Grav backup right before any plugin/theme update.
+- **Link portability — never hardcode paths.**
+  - Page-media images: filename only. `![](filename.jpg)`.
+  - Shared images (`user/images/`): `![](/user/images/x.jpg)` — Grav auto-prepends the base for markdown, but **not** for raw HTML `<img src>` — for raw HTML, add `process: { twig: true }` and use `src="{{ base_url }}/user/images/x.jpg"`.
+  - Internal page links: root-relative, no domain — `[text](/about-us/leadership)`.
+  - Frontmatter URLs rendered via Twig (e.g. `icon-menu`/`feature-images` `url:` values): Grav does **not** auto-prepend the base to these — the template must (existing menu templates already do). Any new module emitting a frontmatter URL through Twig needs the same treatment.
+- **Admin `</>` raw-source toggle is broken** — you can't edit frontmatter via the WYSIWYG. Use SSH (or admin Expert Mode) for frontmatter; normal body text edits in the WYSIWYG work fine.
+- **Notes & comments conventions.** Grav has no dedicated notes field:
+  - Every new folder/page/module starts its Content field with `[//]: # (CommentsGoHere)` — a blueprint default (`mod-quark/blueprints/default.yaml`) every page/module inherits via `@extends: default`. Replace with a real note when there is one.
+  - A note a teammate should see → `[//]: # (your note here)` — renders nothing, visible in the editor.
+  - A "how this folder works" note → a sidecar `_NOTES.md` file (Grav ignores non-template files).
+  - Avoid `<!-- HTML comments -->` for anything non-trivial — unlike `[//]: #`, they ship in rendered HTML.
+- **Uploads:** image-intake auto-shrinks on upload. Size limits are already set across all 4 layers (see Server Housekeeping above); `memory_limit` is 128M (resize runs in the `convert` subprocess, so it's safe).
+- **Grav `api` plugin keys: paste only the bare `grav_...` token.** Generating a key (`bin/plugin api keys:generate`) prints a line like `API Key: grav_...`; copying more than the token itself into a `claude mcp add --env GRAV_API_KEY=...` command splits on the extra words and silently corrupts the registered command's args. Select just the token (double-click it) before pasting.
 
 ### Rollback options (live)
 - **Primary: Grav's own nightly scheduled backup** (7-copy rotation, `backup/` folder) — `php bin/grav restore <zip>`, then `php bin/grav clearcache`.
@@ -126,16 +143,6 @@ The 1.7 to 2.0 migration (completed 2026-06-27) is done and its environment-spec
 | Cache-bust version | `?v=NN` in `templates/partials/base.html.twig` |
 | PHP config (live) | `/etc/php/8.3/fpm/php.ini` |
 | nginx config (live) | `/etc/nginx/sites-available/grav` |
-
----
-
-## Source Site Reference (live)
-
-- **Live site / admin:** https://robot.mbhs.edu - https://robot.mbhs.edu/admin
-- **Theme GitHub:** https://github.com/blair-robot-project/grav-theme-mod-quark
-- **Server:** Ubuntu 22.04 LTS, nginx 1.18.0, PHP 8.3 FPM
-- **Grav:** **2.0.7**, Admin Next (admin2 + api plugin)
-- **Site admin contact:** Rafi Pedersen — see CREDENTIALS.md
 
 ---
 

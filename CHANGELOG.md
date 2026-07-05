@@ -1,11 +1,17 @@
 # FRC Team 449 Website — Changelog
-*Last updated: 2026-07-05 · rev 2026-07-05b*
+*Last updated: 2026-07-05 · rev 2026-07-05c*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu) or 🟢 **STAGING** (449.navybook.com) — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-05 — 📁 REPO (docs only, no live-site change): consolidated CLAUDE.md into README.md; merged CLAUDE's gotchas into RUNBOOK.md
+Repo was down to three overlapping working docs (CLAUDE.md, README.md, RUNBOOK.md) with several facts duplicated verbatim across two or three of them (the ownership rule, the BlairMdITC font constraint, key-paths tables, portable-linking rules, the Mod-Quark-not-GPM-managed gotcha). Restructured to two docs so a future student maintainer — or a fresh Claude Code session — has one clear entry point instead of three overlapping ones.
+- **README.md** gained a **Welcome** section (what the site/team is, who to ask, pointers to INSTRUCTIONS.md/TODO.md/RUNBOOK.md/CHANGELOG.md/Changes.md/the purpose brief) and a **Quick Context** section carrying forward everything CLAUDE.md held (stack, access/ownership rule, key paths, MCP integration, the how-to-make-a-change steps, and a trimmed "Top gotchas" list) — each item cross-linking to RUNBOOK.md for the full version. Also fixed two stale links left over from the INSTRUCTIONS.md/TODO.md renames (README still pointed at the old `449_website_manual_v1.md`/`449_website_todo_v1.md` filenames).
+- **RUNBOOK.md** absorbed CLAUDE.md's "Lessons that bite" into its existing Cautions & Gotchas (deduped against RUNBOOK's own overlapping entries rather than left as two separate lists), gained a new **Architecture reference** section (the Mod Quark template/partials list, previously only in CLAUDE.md), and dropped its old "Source Site Reference" section (pure duplication of the Environments table and README's Links).
+- **CLAUDE.md** shrunk to a 2-line stub (`@README.md` import) — kept at repo root only so Claude Code's auto-load convention still picks it up; README.md's Quick Context is now the actual content.
+
 ### 2026-07-05 — 📁 REPO (docs only, no live-site change): removed staging-site references from README/CLAUDE/RUNBOOK/Manual
 Per Brad: the team no longer needs a staging environment going forward. Both students avoiding major surgery on a stable Grav 2.0.x site, nightly automated backups providing an easy undo, and low site traffic (a mistake is cheap and low-stakes) together made a permanent staging server more complexity than value. **This entry is the intentional exception to the removal — CHANGELOG keeps the historical record of 449.navybook.com intact**; only the forward-looking docs were changed.
 - **CLAUDE.md:** dropped the staging bullet and the 1.7-archive/migration aside from the Stack line (also corrected the Grav version there from a stale 2.0.3 to the current 2.0.7); simplified MCP integration to describe only the live `grav-live` server, removing `grav-staging`.
