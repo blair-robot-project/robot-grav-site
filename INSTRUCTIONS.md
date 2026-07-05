@@ -3,9 +3,9 @@
 
 This manual is in two parts:
 
-- **Part 1 — For Everyone** covers everything you can do through the **admin panel** in a web browser: understanding how the site is built, and updating **text**, **images**, and **modules**.
-- **Part 2 — For Power Users** covers the things you can only do with **SSH and CSS**, including inventing entirely new module types.
-> **The live site:** `https://robot.mbhs.edu`. Admin panel: `https://robot.mbhs.edu/admin`. There's no separate staging/practice site — the site gets a full automatic backup every night, and traffic is low enough that a mistake is easy to fix and low-stakes. Just be reasonably careful, and use the nightly backup as your safety net.
+- **Part 1 — For Everyone.** Explains how to update **text**, **images**, and **modules** via [`https://robot.mbhs.edu/admin`](https://robot.mbhs.edu/admin).
+- **Part 2 — For Power Users.** Covers things you can only do with **SSH and CSS**, including inventing new module types.
+> The site gets a full automatic backup every night, and traffic is low enough that a mistake is easy to fix and low-stakes. Just be reasonably careful, and use the nightly backup as your safety net.
 
 ---
 
@@ -13,18 +13,18 @@ This manual is in two parts:
 
 ## 1. Site basics
 
-Our site runs on **[Grav](https://getgrav.org/)**. Unlike some CMSes, there is no database — the entire website is just files and folders. That makes it simple and very backup-friendly.
+Our site runs on **[Grav](https://getgrav.org/)**. Unlike some CMSes, there is no database; the entire website is just backup-friendly files and folders.
 
 Three words you'll hear constantly:
 
 - **Folder** — the container on disk. Can be either:
-  - **Page** — a folder that Grav turns into a web address (URL). The folder `02.ABOUT-US` becomes the page at `/about-us`.
-  - **Module** — a "building block" that is **not** its own web address. Modules are stacked to build a page (a **modular page**). Our Home and About Us pages are modular pages: the hero banner, each text block, each photo menu, the gallery — those are all separate modules assembled into one page. Their names begin with a **leading underscore** (like `_mission`).
+  - a **Page** — a folder that Grav turns into a web address (URL). The folder `02.ABOUT-US` becomes the page at `/about-us`.
+  - a **Module** — a "building block" that is **not** its own web address. Modules are stacked to build a page (a **modular page**). Our Home and About Us pages are modular pages: the hero banner, each text block, each photo menu, the gallery — those are all separate modules assembled into one page. Their names begin with a **leading underscore** (like `_mission`).
 
-**Why this matters:** when you want to edit "the mission statement on the About Us page," you're really editing the **`_mission` module** *inside* the About Us page — not the About Us page itself. In the admin's Pages list, expand the parent page and you'll see its modules underneath.
+**Why this matters:** when you want to edit "the top text statement on the About Us page," you're really editing the [`_mission` module](https://robot.mbhs.edu/admin/pages/edit/about-us/_mission) *inside* the About Us page — not the About Us page itself. In the admin's Pages list, expand the parent page and you'll see its modules underneath.
 
 ### Logging in
-Go to `https://robot.mbhs.edu/admin` and sign in. The admin interface — **Admin Next** — has Pages, Configuration, Plugins, Themes, and Tools sections in the left sidebar. You'll spend almost all your time in **Pages**.
+Go to [`https://robot.mbhs.edu/admin`](https://robot.mbhs.edu/admin) and sign in. The admin interface — **Admin Next** — has Pages, Configuration, Plugins, Themes, and Tools sections in the left sidebar. You'll spend almost all your time in **Pages**.
 
 > Your access level (Editor / Onboarder / Admin) controls what you can do. Most people should be **Editor**. Ask Brad or Rafi if you need more.
 
@@ -46,33 +46,29 @@ The Content box uses **Markdown**:
 | `[click here](/about-us)` | a link |
 | `<br>` | a line break |
 
+> Here's a [full guide](https://learn.getgrav.org/17/content/markdown) to using Markdown in Grav.
+
 You can also use HTML for effects Markdown can't do easily.
 
-**Leaving notes for other editors:** type `[//]: # (your note here)` in the Content box. It shows for editors but never appears on the public page.
+**Leaving notes for other editors:** type `[//]: # (your note here)` in the Content box. It shows for editors but never appears on the public page. 
+> Each new folder, page, and module starts with a `[//]: # CommentsGoHere` in the Content box; use that to leave helpful documentation.
 
 **Editing frontmatter (advanced settings):** every module/page has a **Normal / Expert** toggle in the top bar. Normal shows the friendly form; **Expert shows the raw settings file directly, and you can edit it there** — this is how you change things like hero images, gallery order, and menu item lists without needing SSH. Be careful in Expert mode: it's real file content, and a typo can break the page. If you're not sure, ask a Power User first.
 
 ## 3. Images
 
-### a) An image next to a block of text
-Open the module. Scroll to **Page Media** (below the Content box). **Drag a new image in** to upload, or delete the old one. The **first image** listed is the one shown next to the content.
-
-### b) The home-page photo gallery
-Open the **gallery** module. It uses the **`gallery-draggable`** template, which shows **every** image in its Page Media in the **order they appear there**:
-- **Add a photo:** drag it into **Page Media**.
-- **Remove a photo:** delete it from Page Media.
-- **Reorder:** drag the thumbnails in Page Media.
-- **Caption:** any text you type in the gallery's **Content** box appears centered below the photos.
-
-### Image uploads are auto-handled (the `image-intake` plugin)
 Every image you upload is automatically **resized** to a sensible max width for its context (gallery 1200px, hero 2560px, sponsor/mentor grids 800px, else 2000px) and its **filename sanitized**. Drag in full-size photos with messy names — it just works.
+
+### a) Images next to a block of text
+In the module, drag one or more new images into the Page Media field to upload them. The images appear on the web page in the order they appear in the Page Media box. There's a button that toggles drag-to-reorder just above the box.
+
+### b) Rows of images
+To create one or more rows of four images on a page, create a module with type _gallery-draggable_. Then drag images onto the Page Media field. You can reorder them by dragging the faint icon on the top right of each image. 
+- **Caption:** any text you type in the gallery's **Content** box appears centered below the photos.
 
 ## 4. Creating a page or module
 
-**Both use the same "Add" flow** in Pages, which offers three options: **Page**, **Folder**, and **Module**.
-
-1. Navigate to where you want the new thing to go (you can move it later).
-2. Click **Add**, choose **Page** or **Module** as appropriate.
+1. On the **[Pages](https://robot.mbhs.edu/admin/pages)** page, click **Add** and choose **Page**, **Folder**, or **Module**.
 3. Give it a title and pick a **template** from the dropdown — for a module, this list shows every module type our theme already supports (Text, Hero, Icon-menu, Feature-images, Gallery-draggable, Footer-col, and a few unused stock ones).
 4. Set its position under **Order** (or drag it into place in the Pages list).
 5. Click **Continue**, then add your Content, Save.
@@ -84,7 +80,7 @@ Every image you upload is automatically **resized** to a sensible max width for 
 This site is **student-led, mentor-guided** — most of what follows is a checklist of what needs doing once a year, not a rigid calendar you have to follow to the day. A few items genuinely are tied to a specific trigger (a season ending, registration opening); those are marked as such.
 
 ### During FRC season
-- Keep the homepage **"What's new"** module current — match results, community outreach, other notable events.
+- Keep the homepage **"What's new"** module current with match results, community outreach, and other notable events.
 
 ### May, right after Worlds or the final competition
 - Update the homepage rollup (`_home_top_text`) with the season's headline result.
@@ -96,21 +92,21 @@ These three share the same pattern: each has its own page, and each needs the sa
 - **When registration/applications close:** remove the "What's new" line, and replace the page copy with a "closed, check back next season" message.
 
 **Per-program notes:**
-- **FLL** — bare-minimum maintenance (open/close only) is an acceptable cadence for this program. Example phrasing: *"Applications are open [here] for the 2026-27 FLL season!"* → *"The 2026-27 season is underway. Check back in mid-2027 to apply to join!"*
-- **Bunnybots** — same open/close pattern, **plus an extra step after the season ends**: add an update to the bottom of the Bunnybots page. Bunnybots also carries its own history-management decision, separate from the open/close cycle — each year, decide whether that season's wrap-up content stays on the page itself or recedes into a link out to an archive, once the page gets long enough to warrant it. Not a one-time call; revisit it each year.
-- **Summer Programming** — **currently dormant.** If/when revived, treat it with the same open/close pattern as FLL — no special handling needed beyond that.
+- **FLL** — All you really need is *"Applications are open [here] for the 2026-27 FLL season!"* and then *"The 2026-27 season is underway. Check back in mid-2027 to apply to join!"*
+- **Bunnybots** — Same open/close pattern, **plus an extra step after the season ends**: add an update to the bottom of the Bunnybots page. Bunnybots also carries its own history-management decision, separate from the open/close cycle — each year, decide whether that season's wrap-up content stays on the page itself or recedes into a link out to an archive, once the page gets long enough to warrant it. 
+- **Summer Programming** — **currently dormant.** If 449 decides to revive it, the page could be updated, then changed twice a year ("registration open!" / "Check back in MONTH").
 
 ### Annual, but timing is the team's call
 1. **Team History** — write up the just-ended season. Includes creating that season's new module under `_history-top` (About Us) as part of this task, not a separate step.
-2. **New Leaders** — update the Leadership page once elections (May) have happened.
-3. **Mentors** — fix any "Joined 20??" placeholders; add new mentors who joined.
-4. **Members of Note** — update if there's new content to add.
-5. **Sponsors** — update logos/roster; exact cadence intentionally left for the team to figure out.
-6. **T-Shirt Designs** — upload each year's design once finalized.
+2. **New Leaders** — update the Leadership page after elections in May.
+3. **Mentors** — fix any "Joined 20??" placeholders; add new mentors.
+4. **Members of Note** — update if desired.
+5. **Sponsors** — update logos/roster; exact cadence left for the team to figure out.
+6. **T-Shirt Designs** — upload each year's design.
 
 ### Currently dormant — update only if revived, no schedule otherwise
 - Blog, Newsletter, Build Blog
-- Scouting *(tracked separately as a "future line of effort" — see Handoff)*
+- Scouting 
 
 ## 6. Gotchas everyone should know
 
@@ -259,4 +255,4 @@ Set the type of a *top-level* page.
 
 ---
 
-*Questions: Brad (comms@navybook.com). Server/infrastructure: Rafi Pedersen. See also `CHANGELOG.md` (the change history) and `RUNBOOK.md` (deeper ops detail and gotchas) at the repo root.*
+*Questions: Brad (brad at navybook.com). Server/infrastructure: Rafi Pedersen. See also `CHANGELOG.md` (the change history) and `RUNBOOK.md` (deeper ops detail and gotchas) at the repo root.*
