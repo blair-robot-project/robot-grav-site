@@ -1,11 +1,14 @@
 # FRC Team 449 Website — Changelog
-*Last updated: 2026-07-05 · rev 2026-07-05c*
+*Last updated: 2026-07-05 · rev 2026-07-05d*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu) or 🟢 **STAGING** (449.navybook.com) — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-05 — 📁 REPO (docs only, no live-site change): renamed the purpose-brief doc to fix GitHub rendering; fixed README's now-broken link to it
+The doc formerly at `449_website_purpose_brief_v1_2026-06-05.md` had been renamed to `Why_have_a_website?` — no file extension, and a literal `?` in the name. GitHub only renders `.md`/`.markdown` files as formatted Markdown, so it was showing as raw plain text (line numbers, Code/Blame view) instead of a rendered page; the `?` is also the URL query-string delimiter, so any relative Markdown link to it was liable to break outside GitHub's own handling. Renamed to `Why_have_a_website.md` and updated README.md's "Why the site exists" pointer to match — it had still targeted the pre-rename filename.
+
 ### 2026-07-05 — 📁 REPO (docs only, no live-site change): consolidated CLAUDE.md into README.md; merged CLAUDE's gotchas into RUNBOOK.md
 Repo was down to three overlapping working docs (CLAUDE.md, README.md, RUNBOOK.md) with several facts duplicated verbatim across two or three of them (the ownership rule, the BlairMdITC font constraint, key-paths tables, portable-linking rules, the Mod-Quark-not-GPM-managed gotcha). Restructured to two docs so a future student maintainer — or a fresh Claude Code session — has one clear entry point instead of three overlapping ones.
 - **README.md** gained a **Welcome** section (what the site/team is, who to ask, pointers to INSTRUCTIONS.md/TODO.md/RUNBOOK.md/CHANGELOG.md/Changes.md/the purpose brief) and a **Quick Context** section carrying forward everything CLAUDE.md held (stack, access/ownership rule, key paths, MCP integration, the how-to-make-a-change steps, and a trimmed "Top gotchas" list) — each item cross-linking to RUNBOOK.md for the full version. Also fixed two stale links left over from the INSTRUCTIONS.md/TODO.md renames (README still pointed at the old `449_website_manual_v1.md`/`449_website_todo_v1.md` filenames).

@@ -42,7 +42,7 @@ working facts a Claude Code session needs before touching anything.
 - **What's currently outstanding** → [`TODO.md`](TODO.md) — short-lived by design; expect it to be rewritten fresh as items resolve.
 - **Deeper server/ops reference** (environments, security status, gotchas) → [`RUNBOOK.md`](RUNBOOK.md).
 - **History of changes** → [`CHANGELOG.md`](CHANGELOG.md) (dated/technical) or [`Changes.md`](Changes.md) (plain language, for team leadership).
-- **Why the site exists, who it's for** → [`449_website_purpose_brief_v1_2026-06-05.md`](449_website_purpose_brief_v1_2026-06-05.md) — a discussion guide, best used as a conversation starter.
+- **Why the site exists, who it's for** → [`Why_have_a_website.md`](Why_have_a_website.md) — a discussion guide, best used as a conversation starter.
 
 ---
 
