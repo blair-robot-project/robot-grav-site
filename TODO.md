@@ -7,13 +7,11 @@ For **recurring, calendar-based maintenance** (what to update every season, ever
 
 ---
 
-## 🔴 Immediate To-Do
+## 🔴 To-Do
 
 **Fix the sponsor mismatch on the homepage.** The homepage still credits **"BlueHalo"** as a Platinum Sponsor; the actual current sponsor is **AeroVironment** (Current Sponsors page already has this right). If a logo image is used, swap it too.
 
-That's the only must-fix item right now — everything else below is optional.
-
-**Beyond this one fix:** the team should take over sponsor-roster maintenance going forward. There's no fixed schedule for this (deliberately left for the team to figure out — see Manual's Update Schedule), but the current roster as of the 2025-26 season is: Takoma Park Folk Festival, DoD STEM, Fabworks, Intuitive Foundation, Lockheed Martin, AeroVironment, Basecamp, Boeing, Gene Haas Foundation, Jane Street Capital, Blair Magnet Foundation, Molex, Maryland Space Business Roundtable, PTC, Team Anvil.
+That's the only must-fix item right now — everything else is optional.
 
 ---
 
