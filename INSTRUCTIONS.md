@@ -3,7 +3,7 @@
 
 This manual is in two parts:
 
-- **Part 1 — For Everyone.** Explains how to update **text**, **images**, and **modules** via [`https://robot.mbhs.edu/admin`](https://robot.mbhs.edu/admin).
+- **Part 1 — For Everyone.** Explains how to update **text**, **images**, and **modules** via [`https://robot.mbhs.edu/admin`](https://robot.mbhs.edu/admin). Includes suggestions for an **update schedule**.
 - **Part 2 — For Power Users.** Covers things you can only do with **SSH and CSS**, including inventing new module types.
 > The site gets a full automatic backup every night, and traffic is low enough that a mistake is easy to fix and low-stakes. Just be reasonably careful, and use the nightly backup as your safety net.
 
@@ -69,35 +69,31 @@ To create one or more rows of four images on a page, create a module with type _
 ## 4. Creating a page or module
 
 1. On the **[Pages](https://robot.mbhs.edu/admin/pages)** page, click **Add** and choose **Page**, **Folder**, or **Module**.
-3. Give it a title and pick a **template** from the dropdown — for a module, this list shows every module type our theme already supports (Text, Hero, Icon-menu, Feature-images, Gallery-draggable, Footer-col, and a few unused stock ones).
-4. Set its position under **Order** (or drag it into place in the Pages list).
-5. Click **Continue**, then add your Content, Save.
+2. Give it a title and pick a **template** from the dropdown — for a module, this list shows every module type our theme already supports (Text, Hero, Icon-menu, Feature-images, Gallery-draggable, Footer-col, and a few unused stock ones).
+3. Set its position under **Order** (or drag it into place in the Pages list).
+4. Click **Continue**, then add your Content, Save.
 
 > **This only works for module *types* that already exist.** If you need an entirely new kind of module — one that doesn't behave like any of the templates in that dropdown — that's a Power User task (Part 2, §9).
 
 ## 5. Update Schedule
 
-This site is **student-led, mentor-guided** — most of what follows is a checklist of what needs doing once a year, not a rigid calendar you have to follow to the day. A few items genuinely are tied to a specific trigger (a season ending, registration opening); those are marked as such.
+All of these are suggestions to keep the site useful and not stale; the site can always be redesigned if the update burden is too much.
 
-### During FRC season
-- Keep the homepage **"What's new"** module current with match results, community outreach, and other notable events.
+### Year-round: "What's new"
+- Keep the homepage ["What's new"](https://robot.mbhs.edu/admin/pages/edit/home/_about) module current with match results, community outreach, and other notable events.
 
-### May, right after Worlds or the final competition
-- Update the homepage rollup (`_home_top_text`) with the season's headline result.
+### End of FRC season
+- Update the [homepage top text](https://robot.mbhs.edu/admin/pages/edit/home/_home_top_text).
 
-### Registration-based programs — FLL, Bunnybots, Summer Programming
-These three share the same pattern: each has its own page, and each needs the same two touch-points around its registration/application window.
+### Registration-based programs: FLL, Bunnybots, Summer Programming
+Each of these requires two changes a year to the ["What's new"](https://robot.mbhs.edu/admin/pages/edit/home/_about) module and to the program's own page:
+1. When registrations open, add a line like "Applications are open [here] for the 2026-27 season!". You might also consider updating the page with the season's specifics; even if most participants find out through social media — parents in particular still check the open web, and it's the one place that's always there regardless of which platform is currently popular.
+2. When registrations close, add a line like "Check back in \[when?\] for program registration." 
 
-- **When registration/applications open:** add a line to "What's new," and update the program's own page with an invitation to participate — including a link or info on how to join (a Google Form, Instagram, whatever's actually in use). Put this on the webpage itself even if most participants find out through social media — parents in particular still check the open web, and it's the one place that's always there regardless of which platform is currently popular.
-- **When registration/applications close:** remove the "What's new" line, and replace the page copy with a "closed, check back next season" message.
+**Notes.** If desired, the team can update the **Bunnybots** page once a year to describe the most recent season. **Summer Programming** is currently dormant.
 
-**Per-program notes:**
-- **FLL** — All you really need is *"Applications are open [here] for the 2026-27 FLL season!"* and then *"The 2026-27 season is underway. Check back in mid-2027 to apply to join!"*
-- **Bunnybots** — Same open/close pattern, **plus an extra step after the season ends**: add an update to the bottom of the Bunnybots page. Bunnybots also carries its own history-management decision, separate from the open/close cycle — each year, decide whether that season's wrap-up content stays on the page itself or recedes into a link out to an archive, once the page gets long enough to warrant it. 
-- **Summer Programming** — **currently dormant.** If 449 decides to revive it, the page could be updated, then changed twice a year ("registration open!" / "Check back in MONTH").
-
-### Annual, but timing is the team's call
-1. **Team History** — write up the just-ended season. Includes creating that season's new module under `_history-top` (About Us) as part of this task, not a separate step.
+### Annual
+1. **Team History** — write up the just-ended season in a new module for the season under `_history-top` (About Us).
 2. **New Leaders** — update the Leadership page after elections in May.
 3. **Mentors** — fix any "Joined 20??" placeholders; add new mentors.
 4. **Members of Note** — update if desired.
