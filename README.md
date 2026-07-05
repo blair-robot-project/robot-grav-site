@@ -1,38 +1,23 @@
 # FRC Team 449 Website (robot.mbhs.edu)
 
-Grav CMS site for FRC Team 449, The Blair Robot Project. **This repository
-is the source of truth** for how the site is built, run, and maintained —
-if you need to know something about the 449 site, look here first.
-
-The live site runs on its own server; this repo holds documentation plus a
-frozen historical snapshot under `archive/` (not current — see its own
-README). Secrets are **not** in this repo — see [RUNBOOK.md](RUNBOOK.md)
-for who holds them.
-
----
-
-## Welcome
-
-Team 449 ("The Blair Robot Project") is Montgomery Blair High School's FRC
-robotics team, and this repo documents the team's own website at
-**robot.mbhs.edu**. The site runs on **Grav**, a CMS with no database —
+This repo documents **[robot.mbhs.edu](http://robot.mbhs.edu)**, the website of FRC Team 449 ("The Blair Robot Project") at Montgomery Blair High School. The site runs on **[Grav](https://getgrav.org)**, a CMS with no database —
 every page is just files and folders, edited mostly through a normal web
 admin panel.
 
-If you're new to maintaining this site — student or otherwise — you don't
-need to know PHP or servers for most changes. Day-to-day edits (text,
-photos, new pages) happen through the admin panel at `/admin`, and
-**[INSTRUCTIONS.md](INSTRUCTIONS.md) is the actual how-to walkthrough for
-that** — start there for hands-on editing. This README is oriented
-differently: it's the map of the project (what exists, who's involved,
-where to go for what), plus — below, in **Quick Context** — the dense
-working facts a Claude Code session needs before touching anything.
+The live site runs on its own server. This repo holds documentation plus a
+frozen historical snapshot under `archive/` (see its own
+README). Secrets are not in this repo — see [RUNBOOK.md](RUNBOOK.md)
+for who holds them.
+
+If you're new to maintaining this site, you don't need to know PHP or servers for most changes. Day-to-day edits (text,
+photos, new pages) happen through the [admin panel](https://robot.mbhs.edu/admin/) at `/admin`. See
+**[INSTRUCTIONS.md](INSTRUCTIONS.md)** for a how-to guide. 
 
 **Who to ask:**
 
 | Who | For what |
 |---|---|
-| Brad (comms@navybook.com) | Did mid-2026 site upgrade |
+| Brad Peniston (brad at navybook.com) | Did mid-2026 site upgrade |
 | Rafi Pedersen | Server/infrastructure owner — system-level recovery |
 | James P | Previously rescued the site after a PHP update broke it |
 
@@ -47,7 +32,7 @@ working facts a Claude Code session needs before touching anything.
 ---
 
 ## Quick Context
-*Read this before making any change — including at the start of a Claude Code session.*
+Working facts for a Claude Code session.
 
 ### The site & stack
 - Grav **2.0.7** (Admin Next/admin2 SPA + api plugin), PHP **8.3.31**, nginx 1.18.0, Ubuntu 22.04, on a **dedicated** DigitalOcean droplet.
