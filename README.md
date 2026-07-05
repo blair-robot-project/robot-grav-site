@@ -90,7 +90,6 @@ Tool surface covers pages, media, users, plugins, config, backups, and the sched
 ### Top gotchas
 - A custom modular template **needs a matching blueprint** (`blueprints/modular/NAME.yaml`, `@extends: default`) or the admin silently reverts it to a stock type.
 - **Never hardcode links.** Internal links: root-relative (`/about-us/leadership`). Page-media images: filename only (`![](photo.jpg)`).
-- The admin **`</>` raw-source toggle is broken** — use SSH (or Expert Mode) for frontmatter edits; WYSIWYG body edits are fine.
 - **Plugin/Grav updates: GPM only as `grav`** (Admin "Update," or `sudo -u grav php bin/gpm update`) — never as `USER`.
 
 Full gotchas list (rollback options, migration lessons, font licensing, notes conventions, GPM specifics): [RUNBOOK.md](RUNBOOK.md) § Cautions & Gotchas.
