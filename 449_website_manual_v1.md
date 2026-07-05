@@ -1,15 +1,11 @@
 # FRC 449 Website — Teammate Instruction Manual
-*Last updated: 2026-07-04 · Version 2.0*
+*Last updated: 2026-07-05 · Version 2.1*
 
 This manual is in two parts:
 
 - **Part 1 — For Everyone** covers everything you can do through the **admin panel** in a web browser: understanding how the site is built, and updating **text**, **images**, and **modules**.
 - **Part 2 — For Power Users** covers the things you can only do with **SSH and CSS**, including inventing entirely new module types.
-
-> **Two sites, never confuse them.**
-> - **Staging (practice/sandbox):** `https://449.navybook.com` — a full copy where we try changes safely. **Do your experimenting here.**
-> - **Live (real site):** `https://robot.mbhs.edu` — the public site. Only apply changes here after they're validated on staging.
-> The admin panels are at `…/admin` on each (e.g. `https://449.navybook.com/admin`).
+> **The live site:** `https://robot.mbhs.edu`. Admin panel: `https://robot.mbhs.edu/admin`. There's no separate staging/practice site — the site gets a full automatic backup every night, and traffic is low enough that a mistake is easy to fix and low-stakes. Just be reasonably careful, and use the nightly backup as your safety net.
 
 ---
 
@@ -28,7 +24,7 @@ Three words you'll hear constantly:
 **Why this matters:** when you want to edit "the mission statement on the About Us page," you're really editing the **`_mission` module** *inside* the About Us page — not the About Us page itself. In the admin's Pages list, expand the parent page and you'll see its modules underneath.
 
 ### Logging in
-Go to `https://449.navybook.com/admin` (staging) or `https://robot.mbhs.edu/admin` (live) and sign in. The admin interface — **Admin Next** — has Pages, Configuration, Plugins, Themes, and Tools sections in the left sidebar. You'll spend almost all your time in **Pages**.
+Go to `https://robot.mbhs.edu/admin` and sign in. The admin interface — **Admin Next** — has Pages, Configuration, Plugins, Themes, and Tools sections in the left sidebar. You'll spend almost all your time in **Pages**.
 
 > Your access level (Editor / Onboarder / Admin) controls what you can do. Most people should be **Editor**. Ask Brad or Rafi if you need more.
 
@@ -121,7 +117,7 @@ These three share the same pattern: each has its own page, and each needs the sa
 - **Frontmatter (Expert mode) is real file content.** A typo can break the page — if you're not confident editing it directly, ask a Power User.
 - **You can't invent a brand-new module type from the admin.** You can add another instance of an *existing* type (Text, Hero, Icon-menu, etc.) freely — inventing a new type entirely requires SSH (Part 2, §9).
 - **Ignore "update available" prompts** for plugins and themes. Updating has broken the site before. Leave them alone unless Rafi says otherwise.
-- **Work on staging first.** Never make a change directly on the live site that hasn't been tried on `449.navybook.com`.
+- **There's a nightly backup, so mistakes are recoverable.** Still, make risky changes carefully — double-check before saving, and ask a Power User if you're unsure.
 
 ---
 
@@ -131,9 +127,7 @@ This part assumes you're comfortable with a command line and basic CSS. It cover
 
 ## 7. Getting in and where things live
 
-**SSH:**
-- Staging: `ssh USER@navybook.com` — Grav root: `~/449.navybook.com/`
-- Live: `ssh <you>@robot.mbhs.edu` — Grav root: `/srv/robot-grav-site/`
+**SSH:** `ssh <you>@robot.mbhs.edu` — Grav root: `/srv/robot-grav-site/`
 
 **Key paths** (relative to the Grav root):
 
@@ -154,8 +148,8 @@ A page on disk: `user/pages/02.ABOUT-US/05._2025-26/text.md`. The `---` block at
 ### Edit frontmatter directly (for multi-line or scripted edits)
 The admin's Expert mode (Part 1, §2) handles most frontmatter edits fine. For scripted, multi-line, or bulk changes, edit the `.md` file directly. For multi-line edits over SSH, **use Python, not `sed`** (sed doesn't do multi-line reliably):
 ```bash
-cat << 'PYEOF' | ssh USER@navybook.com python3
-p='/home/USER/449.navybook.com/user/pages/.../text.md'
+cat << 'PYEOF' | ssh USER@robot.mbhs.edu python3
+p='/srv/robot-grav-site/user/pages/.../text.md'
 c=open(p).read()
 c=c.replace('old','new')
 open(p,'w').write(c)
@@ -165,8 +159,8 @@ PYEOF
 ### Create a module using a custom one-off variant of an existing template
 For the common case — adding another instance of an existing module type (another `text`, another `gallery-draggable`, etc.) — use the admin's Add → Module flow (Part 1, §4); no SSH needed anymore. SSH is still useful if you want to hand-clone an existing module folder as a starting point for heavy customization:
 ```bash
-cd ~/449.navybook.com/user/pages/01.HOME
-cp -r 02._highlights 04._newthing
+cd /srv/robot-grav-site/user/pages/01.HOME
+sudo -u grav cp -r 02._highlights 04._newthing
 # edit 04._newthing/*.md; renumber the prefix to set order
 ```
 
@@ -177,7 +171,7 @@ All custom styling goes in **`custom.css`**. After editing CSS you must do **two
 
 Verify with `curl` to tell the two caches apart:
 ```bash
-curl -s "https://449.navybook.com/user/themes/mod-quark/css/custom.css?v=NN" | grep YOUR_RULE
+curl -s "https://robot.mbhs.edu/user/themes/mod-quark/css/custom.css?v=NN" | grep YOUR_RULE
 ```
 If curl shows the new value but your browser doesn't, it's *browser* cache — bump `?v=`.
 
@@ -207,23 +201,21 @@ Adding another instance of an *existing* template (Text, Hero, Icon-menu, etc.) 
 - **A module's own injected CSS does NOT reach the page.** Stock Quark modules sometimes add CSS via `assets.addInlineCss(...)` at render time, but our custom `base.html.twig` outputs the `<head>` *before* module content runs, so that CSS is dropped. **Fix: move that CSS into `custom.css`.**
 - **Frontmatter URLs are not auto-base-prefixed.** See §11.
 
-## 11. Round-trip-safe linking (staging ↔ live)
+## 11. Portable linking conventions
 
-Staging lives at its own subdomain (`449.navybook.com`); live is at the root of its own domain (`robot.mbhs.edu`). Any path that hardcodes the **domain** or a **folder number** will break on one side. Rules:
+Any path that hardcodes the **domain** or a **folder number** can break if a folder gets renumbered or the site ever moves hosts. Rules:
 
 - **Internal links:** root-relative, no domain — `[text](/about-us/leadership)`. Never the full domain.
 - **Page images in Markdown:** `![](filename.jpg)` (just the filename) — Grav resolves it correctly on both sites.
 - **Shared images in Markdown:** `![](/user/images/x.jpg)` — Grav auto-adds the base. **But raw HTML `<img src="/...">` is NOT rewritten** — for raw HTML, add `process: { twig: true }` to the page and use `src="{{ base_url }}/user/images/x.jpg"`.
 - **Frontmatter URLs rendered by a template** (e.g. menu item `url:` values) are **not** auto-prefixed either — the template must prepend `{{ base_url }}`. Our `icon-menu` and `feature-images` templates were patched to do this.
 
-> **Porting to live:** theme files (CSS, templates, partials) and content (pages) are separate. A fix in a template won't take effect on live unless you carry the template over too.
-
 ## 12. How Mod Quark differs from regular Quark
 
 Our theme **Mod Quark** (`user/themes/mod-quark/`) is a **custom child of Quark** (`user/themes/quark/`). Key differences:
 
 - **It is hand-managed, NOT installed through Grav's package manager.** **Do not run `bin/gpm update` on it** — manage it manually via SSH / the team GitHub repo.
-- **Custom module types: `icon-menu` and `feature-images`.** Quark's stock `features` (a grid of Font-Awesome icons) is customized and **renamed `icon-menu`** in our theme (its links were patched to be base-path-safe). We also added **`feature-images`** — the same idea but with **photos** (Sponsors, Mentors, Robots, etc.); its image resolution uses Grav page media so it survives folder renumbering and the staging↔live move.
+- **Custom module types: `icon-menu` and `feature-images`.** Quark's stock `features` (a grid of Font-Awesome icons) is customized and **renamed `icon-menu`** in our theme (its links were patched to be base-path-safe). We also added **`feature-images`** — the same idea but with **photos** (Sponsors, Mentors, Robots, etc.); its image resolution uses Grav page media so it survives folder renumbering.
 - **Custom `base.html.twig`.** Our base template is a full override of Quark's, with our own header markup, our `custom.css` include (with the `?v=` cache-bust), and our own asset handling.
 - **The footer is a custom partial + an editable page.** Stock Quark's footer is a throwaway credit line. Ours is `partials/footer.html.twig` (structure + logo) that pulls its content from a hidden, admin-editable `/footer` page.
 - **Some stock Quark pieces are missing.** Example: Quark's **gallery** template is present but its required `partials/lightbox.html.twig` (+ the glightbox library) was never carried over, so we supplied a minimal no-JS `lightbox.html.twig`.
@@ -233,7 +225,6 @@ Our theme **Mod Quark** (`user/themes/mod-quark/`) is a **custom child of Quark*
 - **Backups:** before any risky edit, copy the file: `cp file file.bak-$(date +%Y%m%d-%H%M%S)`. The live site's primary backup is Grav's own **nightly scheduled full-site backup** (7-copy rotation), run automatically via the Grav scheduler.
 - **Clear the cache** after most changes: via the admin's Tools → Cache panel, or `rm -rf <gravroot>/cache/*`.
 - **🔴 Never update PHP, nginx, Ubuntu, or OS packages** on either server without Rafi. A past PHP upgrade broke the live site and needed expert recovery. This is the one category that can't be safely rolled back through Grav.
-- **Staging → test → live**, always in that order.
 
 ---
 

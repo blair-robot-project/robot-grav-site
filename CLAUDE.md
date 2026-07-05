@@ -1,5 +1,5 @@
 # CLAUDE.md — FRC Team 449 Website
-*Last updated: 2026-07-04 · rev 2026-07-04a*
+*Last updated: 2026-07-05 · rev 2026-07-05a*
 
 Working context for changes to this site (theme / templates / CSS / content). Read this first; ask to read a specific file before editing it.
 
@@ -10,10 +10,9 @@ Working context for changes to this site (theme / templates / CSS / content). Re
 - **FRC Team 449** ("The Blair Robot Project"), Montgomery Blair HS robotics team.
 - **Grav CMS** (flat-file, no database), live at **http://robot.mbhs.edu**.
 - One **dedicated** DigitalOcean droplet runs only this site.
-- **Staging** is **https://449.navybook.com** (Grav **2.0**, DreamHost subdomain) — test changes there first. *(The old navybook.com/449 staging clone was retired June 2026; 449.navybook.com is a verified superset and is now the sole staging site.)*
 
 ## Stack
-- Grav **2.0.3** (admin2 SPA + api plugin), PHP **8.3.31** (web-FPM + CLI; cut over from 8.2 on 2026-06-15), nginx 1.18.0, Ubuntu 22.04, **2 GB swap**. *(Live **cut over from Grav 1.7.53 to 2.0.3 on 2026-06-27** via the proven parallel-build → directory-swap; the 1.7 tree is preserved at `/srv/robot-grav-site-1.7-archive` for one-command rollback. Staging at 449.navybook.com is also Grav 2.0.3 — but on **Apache** vs. live's **nginx**, which matters for access rules: nginx ignores Grav's bundled `.htaccess`, so live's `user/`-folder denies live in the hand-maintained vhost. See RUNBOOK "Live → Grav 2.0 migration".)*
+- Grav **2.0.7** (Admin Next/admin2 SPA + api plugin), PHP **8.3.31** (web-FPM + CLI), nginx 1.18.0, Ubuntu 22.04, **2 GB swap**.
 - Theme: **Mod Quark** (`user/themes/mod-quark/`) — a custom child of stock **Quark** (`user/themes/quark/` = parent, **don't edit it**). Mod Quark is hand-managed, not GPM-managed.
 - Images: PHP **gd** + the ImageMagick **`convert`** binary. The custom **image-intake** plugin sanitizes filenames + shrinks photos on upload (per-template max widths, set in Admin → Plugins → Image Intake).
 
@@ -35,8 +34,7 @@ Working context for changes to this site (theme / templates / CSS / content). Re
 | Grav CLI | `bin/grav` — run as grav: `sudo -u grav php bin/grav …` |
 
 ## MCP integration
-Both sites are reachable from Claude Code via the Grav `api` plugin + a locally-built `grav-mcp` server (the `getgrav/grav-mcp` npm package isn't published yet, so it's built from source at `~/Documents/449/grav-mcp/`). Registered as project-scoped Claude Code MCP servers:
-- **`grav-staging`** → `https://449.navybook.com/api`, key generated against the `admin` user.
+The live site is reachable from Claude Code via the Grav `api` plugin + a locally-built `grav-mcp` server (the `getgrav/grav-mcp` npm package isn't published yet, so it's built from source at `~/Documents/449/grav-mcp/`). Registered as a project-scoped Claude Code MCP server:
 - **`grav-live`** → `https://robot.mbhs.edu/api`, key generated against **`bradP`** (live's generic `admin` account is disabled — see account roster history; API keys inherit the full permission set of whichever user they're generated against, so `bradP`'s super-admin access applies here).
 
 Tool surface covers pages, media, users, plugins (GPM), config, backups, and the scheduler — effectively full admin capability, not just content edits. Keys live only in local Claude Code config (`--env GRAV_API_KEY=...`), never in this repo.

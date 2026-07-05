@@ -1,5 +1,5 @@
 # FRC Team 449 Website — Runbook
-*Last updated: 2026-07-05 · rev 2026-07-05a*
+*Last updated: 2026-07-05 · rev 2026-07-05b*
 
 Operational reference for the FRC 449 Grav sites: environment facts, server housekeeping + security status, cautions/gotchas, and key file paths. For the dated history of changes, see **[CHANGELOG.md](CHANGELOG.md)**. For the concise working-context doc to read first, see **[CLAUDE.md](CLAUDE.md)**.
 
@@ -17,23 +17,23 @@ This repo (`blair-robot-project/robot-grav-site`) is the source of truth for sit
 
 ## Environments
 
-| | **LIVE** robot.mbhs.edu | **STAGING** 449.navybook.com |
-|---|---|---|
-| Role | Production | Staging / dev — test everything here first |
-| Host | DigitalOcean droplet (nyc1), dedicated | DreamHost shared (subdomain) |
-| OS / web server | Ubuntu 22.04, nginx 1.18.0 | DreamHost-managed, Apache (`.htaccess`) |
-| Grav | **2.0.7** | **2.0.6** *(one patch version behind live — worth updating when convenient)* |
-| PHP | **8.3** | **8.3** (default `php` CLI is 8.2 — use `php-8.3`) |
-| SSH | `ssh USER@robot.mbhs.edu` | `ssh USER@navybook.com` |
-| Grav root | `/srv/robot-grav-site/` | `~/449.navybook.com/` |
-| Web user:group | `grav:editor` | host-managed |
-| MCP (Claude Code) | `grav-live` → `/api`, key on `bradP` | `grav-staging` → `/api`, key on `admin` |
-| Admin | Admin Next (admin2 + api plugin) | Admin Next (admin2 + api plugin) |
+| | **LIVE** robot.mbhs.edu |
+|---|---|
+| Role | Production — the only environment |
+| Host | DigitalOcean droplet (nyc1), dedicated |
+| OS / web server | Ubuntu 22.04, nginx 1.18.0 |
+| Grav | **2.0.7** |
+| PHP | **8.3** |
+| SSH | `ssh USER@robot.mbhs.edu` |
+| Grav root | `/srv/robot-grav-site/` |
+| Web user:group | `grav:editor` |
+| MCP (Claude Code) | `grav-live` → `/api`, key on `bradP` |
+| Admin | Admin Next (admin2 + api plugin) |
 
-**Required config deviations from Grav defaults (both environments — reapply if either is ever rebuilt or re-migrated):**
+**Required config deviations from Grav defaults (reapply if the site is ever rebuilt or re-migrated):**
 - `pages.markdown.gfm.tagfilter: false` in `system.yaml` — Grav's default GFM tagfilter escapes raw `<iframe>` tags, breaking every YouTube/video embed.
 - `text.html.twig` uses `image.height(N).html|raw` — without the `|raw`, Grav 2.0.3+ autoescapes derivative-medium HTML, so text-module images render as literal tag text instead of actual images.
-- An `/api/v1/sync` → 403 block in the webserver config (nginx `location` block on live; `.htaccess` on staging, since DreamHost's `.htaccess` matching quirk requires conditioning on `%{THE_REQUEST}`, not `%{REQUEST_URI}`) — the `api` plugin doesn't implement these routes, and without the 403 they 404-flood and degrade the page editor.
+- An `/api/v1/sync` → 403 block in the nginx config — the `api` plugin doesn't implement these routes, and without the 403 they 404-flood and degrade the page editor.
 - `image-intake` plugin must be **v0.5.0+** — earlier versions' gallery auto-sync silently stops working once the `api` plugin reaches ~1.0.3 (it now saves the page before firing its update event; v0.5.0 added a hook that handles this correctly).
 
 ---
@@ -70,16 +70,16 @@ Smallest layer wins; all four are raised on live so 9-12 MB phone photos upload 
 Live site files must be `grav:editor` so the web/admin user can write them. If you create/overwrite files as `USER` (scp, rsync, `>` redirects), `chown` them back: `sudo chown -R grav:editor <paths>` (exclude `.git`). Symptoms of getting it wrong: admin "Failed to save," or a 500 after a plugin operation.
 
 ### Protect custom theme blueprints before any theme update
-Mod Quark has custom module types (`feature-images`, `icon-menu`, `gallery-draggable`, ...) built on stock Quark. Before any theme update, copy the theme first (`cp -r user/themes/mod-quark user/themes/mod-quark-backup-$(date +%Y%m%d)`), then diff afterward to confirm nothing custom got overwritten. Test on staging before live, always.
+Mod Quark has custom module types (`feature-images`, `icon-menu`, `gallery-draggable`, ...) built on stock Quark. Before any theme update, copy the theme first (`cp -r user/themes/mod-quark user/themes/mod-quark-backup-$(date +%Y%m%d)`), then diff afterward to confirm nothing custom got overwritten.
 
 ### Mod Quark is a custom Git repo — not GPM-managed
 Not installed through Grav's package manager; `bin/gpm update` may not handle it. Manage manually via SSH/GitHub. **Plugin/Grav GPM updates: only ever as `grav`** (Admin "Update," or `sudo -u grav php bin/gpm update`) — never as `USER`. **Don't remove the `email` plugin** — it's a required admin dependency.
 
-### Update one thing at a time, staging-first
-Update a single plugin/theme, test thoroughly on staging, then apply the identical change to live. Never chain updates.
+### Update one thing at a time
+Update a single plugin/theme, verify it works, then move to the next. Never chain updates — if something breaks, you want to know exactly which change caused it. Take a fresh Grav backup right before any plugin/theme update.
 
-### Round-trip-safe linking (staging <-> live)
-Any link/image that bakes in the domain, a base path, or a folder's numeric prefix will break on one side.
+### Portable linking conventions
+Any link/image that bakes in the domain, a base path, or a folder's numeric prefix can break if the folder gets renumbered or the site ever moves hosts.
 - **Page-media images:** filename only. `![](filename.jpg)`.
 - **Shared images** (`user/images/`): `![](/user/images/x.jpg)` — Grav auto-prepends the base for markdown, but **not for raw HTML `<img src>`** — for raw HTML, add `process: { twig: true }` and use `src="{{ base_url }}/user/images/x.jpg"`.
 - **Internal page links:** root-relative, no domain — `[text](/about-us/leadership)`.
@@ -88,8 +88,8 @@ Any link/image that bakes in the domain, a base path, or a folder's numeric pref
 ### Notes & comments conventions
 Grav has no dedicated notes field. House conventions:
 - **Every new folder/page/module** starts its Content field with `[//]: # (CommentsGoHere)` — a blueprint default (`mod-quark/blueprints/default.yaml`) that every page/module inherits via `@extends: default`. Replace with a real note when there is one.
-- **A note a teammate should see** -> `[//]: # (your note here)` in Content — renders nothing, visible in the editor.
-- **A "how this folder works" note** -> a sidecar `_NOTES.md` file (Grav ignores non-template files).
+- **A note a teammate should see** → `[//]: # (your note here)` in Content — renders nothing, visible in the editor.
+- **A "how this folder works" note** → a sidecar `_NOTES.md` file (Grav ignores non-template files).
 - **Avoid `<!-- HTML comments -->`** for anything non-trivial — unlike `[//]: #`, they ship in the rendered HTML source.
 
 ### Rollback options (live)
@@ -105,7 +105,7 @@ The 1.7 to 2.0 migration (completed 2026-06-27) is done and its environment-spec
 
 - **Parallel-build-then-swap beats an in-place upgrade** on a production box: build and fully test the new version on a copy with zero visitor impact, then cut over via a directory swap (fast, trivially reversible) rather than upgrading in place.
 - **A migration/distribution tool that swaps in a "fresh" install can silently drop non-distribution files** sitting at the docroot root (upload-limit configs, `robots.txt`, verification files, `.git`) — anything outside the tool's own file manifest. Inventory and re-copy these explicitly; don't assume they survive.
-- **Verify rendered behavior, not just HTTP 200s.** Version-skew between a staging environment and a fresh install pulled by a migration tool can introduce regressions that only show up by actually looking at pages with images/embeds, not by checking status codes.
+- **Verify rendered behavior, not just HTTP 200s.** Version-skew between a test copy and a fresh install pulled by a migration tool can introduce regressions that only show up by actually looking at pages with images/embeds, not by checking status codes.
 - **New installs created by migration tooling may have different default file ownership** than the established convention — check and fix before deploying custom carry-forward files into them.
 - **Get a full site backup and confirm it off-server before starting**, and keep the pre-migration environment available for a real soak period (roughly a week) before removing it — but do actually remove it once the soak period is over, rather than let it linger indefinitely as silent disk/attack-surface debt.
 
@@ -144,11 +144,11 @@ The 1.7 to 2.0 migration (completed 2026-06-27) is done and its environment-spec
 | Person | Role |
 |--------|------|
 | Rafi Pedersen | Site admin, server/infrastructure owner. Contact for live-server system-level recovery. |
-| Brad (comms@navybook.com) | Project lead. Editor + Onboarder + Admin on live; super-admin on both live and staging. SSH access to both servers. |
+| Brad (comms@navybook.com) | Project lead. Editor + Onboarder + Admin on live; super-admin access. SSH access to the live server. |
 | James P | Previously rescued the site after a PHP update broke it — reference for system-level issues. |
 
 ---
 
 ## Standing constraint — BlairMdITC font (license-gated, OFF)
 
-Both sites serve `custom.css` with BlairMdITC's `@font-face` and the `h1` font-family rule **commented out**. The font is a commercial ITC/Monotype **desktop** font — a desktop license doesn't cover web `@font-face` serving. To enable: purchase an ITC Blair Medium **webfont** license (MyFonts/Monotype, ~$30-60 lowest tier; register to the team, keep the receipt/EULA), then uncomment the two spots. **Font files already exist on staging** (`user/themes/mod-quark/fonts/`), confirmed present 2026-07-04, publicly servable there even while disabled in CSS — low-priority cleanup if pursued before a license is purchased.
+`custom.css` has BlairMdITC's `@font-face` and the `h1` font-family rule **commented out**. The font is a commercial ITC/Monotype **desktop** font — a desktop license doesn't cover web `@font-face` serving. **Future improvement, not currently planned:** if the team ever wants to enable it, purchase an ITC Blair Medium **webfont** license (MyFonts/Monotype, ~$30-60 lowest tier; register to the team, keep the receipt/EULA), then uncomment the two spots and ship the font files to `user/themes/mod-quark/fonts/`.
