@@ -32,7 +32,7 @@ working facts a Claude Code session needs before touching anything.
 
 | Who | For what |
 |---|---|
-| Brad (comms@navybook.com) | Project lead — start here for almost anything |
+| Brad (comms@navybook.com) | Did mid-2026 site upgrade |
 | Rafi Pedersen | Server/infrastructure owner — system-level recovery |
 | James P | Previously rescued the site after a PHP update broke it |
 
