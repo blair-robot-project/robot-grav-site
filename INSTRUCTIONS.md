@@ -1,12 +1,11 @@
 # FRC 449 Website — Teammate Instruction Manual
 *Last updated: 2026-07-09 · Version 2.2*
+The site gets a full automatic backup every night, and traffic is low enough that a mistake is easy to fix and low-stakes. Just be reasonably careful, and use the nightly backup as your safety net.
 
 This manual is in two parts:
 
 - **Part 1 — For Everyone.** Explains how to update **text**, **images**, and **modules** via [`https://robot.mbhs.edu/admin`](https://robot.mbhs.edu/admin). Includes suggestions for an **update schedule**.
 - **Part 2 — For Power Users.** Covers things you can only do with **SSH and CSS**, including inventing new module types.
-> The site gets a full automatic backup every night, and traffic is low enough that a mistake is easy to fix and low-stakes. Just be reasonably careful, and use the nightly backup as your safety net.
-
 ---
 
 # Part 1 — For Everyone
@@ -80,7 +79,7 @@ To create one or more rows of four images on a page, create a module with type _
 The homepage — or any other page you choose — can show a dismissible announcement banner (e.g. "Registration closes June 21") without any developer work. Unlike other content, banners aren't a module you add to a specific page; they live in one central place and you tell each banner which page(s) to appear on.
 
 **To add or edit a banner:**
-1. In the admin, go to **Pages → Banners Data** (or visit `https://robot.mbhs.edu/admin/pages/edit/banners-data` directly).
+1. In the admin, go to **Pages → [Banners Data](https://robot.mbhs.edu/admin/pages/edit/banners-data)**.
 2. Click the **Banners** tab. Click **Add item** for a new banner, or click an existing banner's row to expand it (rows load collapsed to keep the list scannable as it grows).
 3. Fill in:
    - **Internal Title** — for your own reference only, never shown on the site. Since the collapsed row just shows this text, it's worth including the date range here too, e.g. "FLL Registration — Jul 8–21".
