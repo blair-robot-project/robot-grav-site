@@ -1,5 +1,5 @@
 # FRC 449 Website — Teammate Instruction Manual
-*Last updated: 2026-07-05 · Version 2.1*
+*Last updated: 2026-07-09 · Version 2.2*
 
 This manual is in two parts:
 
@@ -73,9 +73,27 @@ To create one or more rows of four images on a page, create a module with type _
 3. Set its position under **Order** (or drag it into place in the Pages list).
 4. Click **Continue**, then add your Content, Save.
 
-> **This only works for module *types* that already exist.** If you need an entirely new kind of module — one that doesn't behave like any of the templates in that dropdown — that's a Power User task (Part 2, §9).
+> **This only works for module *types* that already exist.** If you need an entirely new kind of module — one that doesn't behave like any of the templates in that dropdown — that's a Power User task (Part 2, §10).
 
-## 5. Update Schedule
+## 5. Announcement banners
+
+The homepage — or any other page you choose — can show a dismissible announcement banner (e.g. "Registration closes June 21") without any developer work. Unlike other content, banners aren't a module you add to a specific page; they live in one central place and you tell each banner which page(s) to appear on.
+
+**To add or edit a banner:**
+1. In the admin, go to **Pages → Banners Data** (or visit `https://robot.mbhs.edu/admin/pages/edit/banners-data` directly).
+2. Click the **Banners** tab. Click **Add item** for a new banner, or click an existing banner's row to expand it (rows load collapsed to keep the list scannable as it grows).
+3. Fill in:
+   - **Internal Title** — for your own reference only, never shown on the site. Since the collapsed row just shows this text, it's worth including the date range here too, e.g. "FLL Registration — Jul 8–21".
+   - **Message** — the actual banner text shown to visitors.
+   - **Link (optional)** — where the banner goes if clicked: an internal page like `/community/fll-team`, or a full `https://` URL. Leave blank for a plain, non-clickable banner.
+   - **Color / Urgency** — yellow, red, blue, or green.
+   - **Show on Pages** — comma-separated page routes, e.g. `/, /community/fll-team`. Leave blank to show on the homepage only.
+   - **Start showing** / **Stop showing** — the banner appears and disappears automatically on these dates — no need to remember to take it down.
+4. Click **Save**.
+
+A visitor can dismiss a banner with its **×** button; it stays hidden for that visit but reappears the next time they come back. Multiple banners can be active (and shown on the same page) at once.
+
+## 6. Update Schedule
 
 All of these are suggestions to keep the site useful and not stale; the site can always be redesigned if the update burden is too much.
 
@@ -87,7 +105,7 @@ All of these are suggestions to keep the site useful and not stale; the site can
 
 ### Registration-based programs: FLL, Bunnybots, Summer Programming
 Each of these requires two changes a year to the ["What's new"](https://robot.mbhs.edu/admin/pages/edit/home/_about) module and to the program's own page:
-1. When registrations open, add a line like "Applications are open [here] for the 2026-27 season!". You might also consider updating the page with the season's specifics; even if most participants find out through social media — parents in particular still check the open web, and it's the one place that's always there regardless of which platform is currently popular.
+1. When registrations open, add a line like "Applications are open [here] for the 2026-27 season!". You might also consider updating the page with the season's specifics; even if most participants find out through social media — parents in particular still check the open web, and it's the one place that's always there regardless of which platform is currently popular. Consider also adding a time-limited [announcement banner](#5-announcement-banners) for extra visibility while registration is open.
 2. When registrations close, add a line like "Check back in \[when?\] for program registration." 
 
 **Notes.** If desired, the team can update the **Bunnybots** page once a year to describe the most recent season. **Summer Programming** is currently dormant.
@@ -104,10 +122,10 @@ Each of these requires two changes a year to the ["What's new"](https://robot.mb
 - Blog, Newsletter, Build Blog
 - Scouting 
 
-## 6. Gotchas everyone should know
+## 7. Gotchas everyone should know
 
 - **Frontmatter (Expert mode) is real file content.** A typo can break the page — if you're not confident editing it directly, ask a Power User.
-- **You can't invent a brand-new module type from the admin.** You can add another instance of an *existing* type (Text, Hero, Icon-menu, etc.) freely — inventing a new type entirely requires SSH (Part 2, §9).
+- **You can't invent a brand-new module type from the admin.** You can add another instance of an *existing* type (Text, Hero, Icon-menu, etc.) freely — inventing a new type entirely requires SSH (Part 2, §10).
 - **Ignore "update available" prompts** for plugins and themes. Updating has broken the site before. Leave them alone unless Rafi says otherwise.
 - **There's a nightly backup, so mistakes are recoverable.** Still, make risky changes carefully — double-check before saving, and ask a Power User if you're unsure.
 
@@ -117,7 +135,7 @@ Each of these requires two changes a year to the ["What's new"](https://robot.mb
 
 This part assumes you're comfortable with a command line and basic CSS. It covers what you **can't** do through the admin.
 
-## 7. Getting in and where things live
+## 8. Getting in and where things live
 
 **SSH:** `ssh <you>@robot.mbhs.edu` — Grav root: `/srv/robot-grav-site/`
 
@@ -135,7 +153,7 @@ This part assumes you're comfortable with a command line and basic CSS. It cover
 
 A page on disk: `user/pages/02.ABOUT-US/05._2025-26/text.md`. The `---` block at the top of a `.md` file is the **frontmatter** (YAML settings); below it is the **content** (Markdown).
 
-## 8. Things you can only do over SSH
+## 9. Things you can only do over SSH
 
 ### Edit frontmatter directly (for multi-line or scripted edits)
 The admin's Expert mode (Part 1, §2) handles most frontmatter edits fine. For scripted, multi-line, or bulk changes, edit the `.md` file directly. For multi-line edits over SSH, **use Python, not `sed`** (sed doesn't do multi-line reliably):
@@ -156,6 +174,14 @@ sudo -u grav cp -r 02._highlights 04._newthing
 # edit 04._newthing/*.md; renumber the prefix to set order
 ```
 
+### Create a brand-new file (not editing an existing one)
+Site files are owned `grav:editor`; your own account normally can't create a *new* file in a theme directory even if you can edit files that already exist there (the directories themselves aren't group-writable — only individual files that have been explicitly loosened to `664`). To create a new file as `grav` in one step:
+```bash
+sudo -u grav touch /path/to/new/file
+sudo chmod 664 /path/to/new/file
+```
+After that, you (or an automated tool acting as you) can write its content over plain SSH/SCP with no further `sudo` needed. This came up building the announcement-banner feature (§5) — its three new theme files were created this way.
+
 ### Edit CSS — and clear BOTH caches
 All custom styling goes in **`custom.css`**. After editing CSS you must do **two** things or you won't see your change:
 1. **Clear Grav's cache:** via the admin's Tools → Cache panel, or `rm -rf <gravroot>/cache/*` over SSH.
@@ -170,7 +196,7 @@ If curl shows the new value but your browser doesn't, it's *browser* cache — b
 ### Edit templates / partials
 Layout and structure live in `templates/`. The footer, header, and how modules render are here. Back up before editing: `cp file file.bak-$(date +%Y%m%d)`.
 
-## 9. Create a new module template (a genuinely new type)
+## 10. Create a new module template (a genuinely new type)
 
 Adding another instance of an *existing* template (Text, Hero, Icon-menu, etc.) is now an admin-only task — see Part 1, §4. This section is for when you need a module that behaves in a way **none** of the existing templates do.
 
@@ -187,22 +213,25 @@ Adding another instance of an *existing* template (Text, Hero, Icon-menu, etc.) 
 4. Edit the `.yaml` blueprint's fields to match whatever settings your new template actually needs.
 5. Clear the cache. Test by adding a module of your new type via the admin (Part 1, §4) — it should now appear in the template dropdown.
 
-## 10. CSS & asset conventions (important quirks)
+**If what you actually need is an admin-editable *list* of things (not a one-off module)** — like the announcement banners in §5 — a plain module isn't the right shape. The working pattern instead is a single hidden page with a repeating **list** field in its blueprint (`type: list`), the same way `banners-data` and `sponsors-data` work: fully editable through the normal Pages UI, no new module type needed. Note that the admin's list-field rows have no built-in way to color-code by a field value or combine multiple fields into the collapsed summary — the summary is always just "whatever's in the first text field" — so if you want a specific field visible at a glance, put it in that first field directly (as §5 does with dates in the title).
+
+## 11. CSS & asset conventions (important quirks)
 
 - **Put all CSS in `custom.css`.** Don't scatter `<style>` blocks.
 - **A module's own injected CSS does NOT reach the page.** Stock Quark modules sometimes add CSS via `assets.addInlineCss(...)` at render time, but our custom `base.html.twig` outputs the `<head>` *before* module content runs, so that CSS is dropped. **Fix: move that CSS into `custom.css`.**
-- **Frontmatter URLs are not auto-base-prefixed.** See §11.
+- **Frontmatter URLs are not auto-base-prefixed.** See §12.
+- **Anything you insert into `base.html.twig` between the header and the hero block needs its own positioning** — don't just drop it into normal document flow. The fixed navbar (`position: fixed`) relies on the hero rendering directly behind it (for its see-through look); pushing the hero down to make room for new content breaks that. Give new content `position: absolute` with an explicit `top` offset instead (matching the header's height plus a bit of gap) so it floats over the hero rather than displacing it, and give it a `z-index` *below* the header's so the header still shows on top while scrolling past. The `site-banner` CSS (§5) is a working example.
 
-## 11. Portable linking conventions
+## 12. Portable linking conventions
 
 Any path that hardcodes the **domain** or a **folder number** can break if a folder gets renumbered or the site ever moves hosts. Rules:
 
 - **Internal links:** root-relative, no domain — `[text](/about-us/leadership)`. Never the full domain.
 - **Page images in Markdown:** `![](filename.jpg)` (just the filename) — Grav resolves it correctly on both sites.
 - **Shared images in Markdown:** `![](/user/images/x.jpg)` — Grav auto-adds the base. **But raw HTML `<img src="/...">` is NOT rewritten** — for raw HTML, add `process: { twig: true }` to the page and use `src="{{ base_url }}/user/images/x.jpg"`.
-- **Frontmatter URLs rendered by a template** (e.g. menu item `url:` values) are **not** auto-prefixed either — the template must prepend `{{ base_url }}`. Our `icon-menu` and `feature-images` templates were patched to do this.
+- **Frontmatter URLs rendered by a template** (e.g. menu item `url:` values, or a banner's `link:` value) are **not** auto-prefixed either — the template must prepend `{{ base_url }}`. Our `icon-menu`, `feature-images`, and `banners` templates were all written to do this.
 
-## 12. How Mod Quark differs from regular Quark
+## 13. How Mod Quark differs from regular Quark
 
 Our theme **Mod Quark** (`user/themes/mod-quark/`) is a **custom child of Quark** (`user/themes/quark/`). Key differences:
 
@@ -210,9 +239,10 @@ Our theme **Mod Quark** (`user/themes/mod-quark/`) is a **custom child of Quark*
 - **Custom module types: `icon-menu` and `feature-images`.** Quark's stock `features` (a grid of Font-Awesome icons) is customized and **renamed `icon-menu`** in our theme (its links were patched to be base-path-safe). We also added **`feature-images`** — the same idea but with **photos** (Sponsors, Mentors, Robots, etc.); its image resolution uses Grav page media so it survives folder renumbering.
 - **Custom `base.html.twig`.** Our base template is a full override of Quark's, with our own header markup, our `custom.css` include (with the `?v=` cache-bust), and our own asset handling.
 - **The footer is a custom partial + an editable page.** Stock Quark's footer is a throwaway credit line. Ours is `partials/footer.html.twig` (structure + logo) that pulls its content from a hidden, admin-editable `/footer` page.
+- **The site-wide announcement banner is a partial, not a module.** `partials/banners.html.twig` is included once from `base.html.twig` and reads from a hidden `banners-data` page — see §5 and §10.
 - **Some stock Quark pieces are missing.** Example: Quark's **gallery** template is present but its required `partials/lightbox.html.twig` (+ the glightbox library) was never carried over, so we supplied a minimal no-JS `lightbox.html.twig`.
 
-## 13. Backups, rollback, and hard limits
+## 14. Backups, rollback, and hard limits
 
 - **Backups:** before any risky edit, copy the file: `cp file file.bak-$(date +%Y%m%d-%H%M%S)`. The live site's primary backup is Grav's own **nightly scheduled full-site backup** (7-copy rotation), run automatically via the Grav scheduler.
 - **Clear the cache** after most changes: via the admin's Tools → Cache panel, or `rm -rf <gravroot>/cache/*`.
@@ -235,7 +265,7 @@ The module's `.md` filename selects its template. These are what you assemble mo
 | `gallery` | Lightbox photo grid from a hand-listed `items:` list in frontmatter. | stock Quark | ⚠️ no blueprint |
 | `footer-col` | Internal helper: outputs only its content (used for the footer's columns). | custom | — |
 
-\* Selectable **and** survives admin saves only if the template has a blueprint (`blueprints/modular/NAME.yaml`) — see §9.
+\* Selectable **and** survives admin saves only if the template has a blueprint (`blueprints/modular/NAME.yaml`) — see §10.
 
 ### Page templates (whole-page types)
 Set the type of a *top-level* page.
@@ -248,6 +278,7 @@ Set the type of a *top-level* page.
 | `blog` | A blog index / listing page. |
 | `error` | The 404 / error page. |
 | `comments` | Stock Quark comments listing — effectively unused. |
+| `banners-data` | Not a visible page — a hidden data store for the announcement banners (§5), edited via its own **Banners** tab rather than normal content fields. |
 
 ---
 

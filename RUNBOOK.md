@@ -1,5 +1,5 @@
 # FRC Team 449 Website — Runbook
-*Last updated: 2026-07-05*
+*Last updated: 2026-07-09*
 
 Operational reference for the FRC 449 Grav site: environment facts, server housekeeping + security status, cautions/gotchas, and key file paths. For dated history of changes, see [CHANGELOG.md](CHANGELOG.md). For orientation, who's involved, and the doc to start a Claude Code session with, see [README.md](README.md).
 
@@ -80,7 +80,9 @@ Smallest layer wins; all four are raised on live so 9-12 MB phone photos upload 
 - **gallery-draggable** — photo gallery; display order = the admin Page-Media drag order (`page.media.images`); click → lightbox.
 - **text**, **hero** — lightly customized standards. **footer-col** — minimal footer-column wrapper.
 
-**Partials:** base (head/scaffold + the `?v=` cache-bust), footer (renders the `/footer` page's modules), lightbox (no-JS clickable thumbnail), error (the branded 404).
+**Partials:** base (head/scaffold + the `?v=` cache-bust), footer (renders the `/footer` page's modules), lightbox (no-JS clickable thumbnail), error (the branded 404), **banners** (site-wide dismissible announcement banner, added 2026-07-09 — see below).
+
+**Admin-editable "list" data pages** (not modules — a single hidden page with a repeating list field, for content that's a growing collection rather than a one-off block): **sponsors-data** (sponsor roster, synced from a Google Sheet via webhook) and **banners-data** (announcement banners — title/message/link/color/pages/dates per entry, see `INSTRUCTIONS.md` §5). Both read via `page.find(route, true)` from the template that needs them, not the `pages` global — non-routable pages aren't visible to `pages.find()` in this Twig build.
 
 **Images:** PHP gd + the ImageMagick `convert` binary. The custom image-intake plugin sanitizes filenames + shrinks photos on upload (per-template max widths, set in Admin → Plugins → Image Intake).
 
@@ -108,6 +110,9 @@ A fuller template reference (including page-level templates and admin-selectabil
   - Avoid `<!-- HTML comments -->` for anything non-trivial — unlike `[//]: #`, they ship in rendered HTML.
 - **Uploads:** image-intake auto-shrinks on upload. Size limits are already set across all 4 layers (see Server Housekeeping above); `memory_limit` is 128M (resize runs in the `convert` subprocess, so it's safe).
 - **Grav `api` plugin keys: paste only the bare `grav_...` token.** Generating a key (`bin/plugin api keys:generate`) prints a line like `API Key: grav_...`; copying more than the token itself into a `claude mcp add --env GRAV_API_KEY=...` command splits on the extra words and silently corrupts the registered command's args. Select just the token (double-click it) before pasting.
+- **Creating a brand-new theme file over SSH needs one `sudo` step first.** An SSH account that's only in the `editor` group (not `grav` itself) can edit *existing* `664` files fine, but the theme directories aren't group-writable, so it can't create a new file directly. Fix: `sudo -u grav touch <path> && sudo chmod 664 <path>` once, then write the content over plain SSH/SCP — no further `sudo` needed. The `api` plugin's `upload_blueprint_file`/`blueprint-upload` endpoint looked like a no-sudo alternative (it runs as `grav`) but explicitly rejects `.yaml` destinations for security (`grav.log`: "File extension '.yaml' is not allowed for security reasons") — it's scoped to actual blueprint-referenced uploads (images etc.), not general-purpose file creation. Used this pattern to deploy the announcement-banner feature's new files (2026-07-09).
+- **Admin Next's `list` blueprint field has no per-item styling or multi-field summary hooks.** `collapsed: true` on the field is a real, supported option (rows load collapsed to one line instead of always-expanded — worth setting once a list is expected to grow). But the collapsed row's label is hardcoded client-side to "the first non-empty string field's value" — no config for color-coding rows by a field value, or combining multiple fields into the summary. Confirmed by reading the compiled admin2 JS bundle (`user/plugins/admin2/app/_app/immutable/chunks/*.js`); there's also no `custom_css`/`custom_js` injection point for this SPA (unlike the classic admin plugin's `onAdminCss` hook, which doesn't apply since admin2 is a separately-built static app, not Twig-rendered). Workaround: put whatever you want visible collapsed into the first field itself (e.g. dates folded into a title field) rather than expecting it to be computed.
+- **A fixed-position `#header` needs deliberate top-offset handling for anything inserted above the hero.** See `INSTRUCTIONS.md` §11 for the specific rule (`position: absolute` + explicit `top`, never `margin-top`/normal flow) — pushing the hero down to make room breaks the header's see-through look, since it depends on the hero rendering directly behind it.
 
 ### Rollback options (live)
 - **Primary: Grav's own nightly scheduled backup** (7-copy rotation, `backup/` folder) — `php bin/grav restore <zip>`, then `php bin/grav clearcache`.
