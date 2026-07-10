@@ -1,5 +1,5 @@
 # FRC 449 Website — Teammate Instruction Manual
-*Last updated: 2026-07-09 · Version 2.2*
+*Last updated: 2026-07-10 · Version 2.3*
 
 The site gets a full automatic backup every night, and traffic is low enough that a mistake is easy to fix and low-stakes. Just be reasonably careful, and use the nightly backup as your safety net.
 
@@ -126,6 +126,7 @@ Each of these requires two changes a year to the ["What's new"](https://robot.mb
 
 - **Frontmatter (Expert mode) is real file content.** A typo can break the page — if you're not confident editing it directly, ask a Power User.
 - **You can't invent a brand-new module type from the admin.** You can add another instance of an *existing* type (Text, Hero, Icon-menu, etc.) freely — inventing a new type entirely requires SSH (Part 2, §10).
+- **Reordering pages can accidentally expose others in the navbar.** Dragging a page to a new spot in the Pages list doesn't just renumber the ones you moved — it can hand out a numeric order prefix to *every* sibling page, including ones (like Banners Data, 404, Media, Images) that were deliberately left off the navbar. In Grav, a page with a numeric order prefix defaults to **visible** in the nav unless told otherwise. **To force a page off the navbar regardless of its order prefix:** open it, switch to **Expert mode** (§2), and add `visible: false` to its frontmatter — that's how Banners Data, 404/Error, Media, and Images stay hidden today.
 - **Ignore "update available" prompts** for plugins and themes. Updating has broken the site before. Leave them alone unless Rafi says otherwise.
 - **There's a nightly backup, so mistakes are recoverable.** Still, make risky changes carefully — double-check before saving, and ask a Power User if you're unsure.
 
