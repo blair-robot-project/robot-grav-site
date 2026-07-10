@@ -1,11 +1,16 @@
 # FRC Team 449 Website — Changelog
-*Last updated: 2026-07-10 · rev 2026-07-10a*
+*Last updated: 2026-07-10 · rev 2026-07-10b*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu) or 🟢 **STAGING** (449.navybook.com) — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-10 — 🚀 LIVE: fixed /media navbar-visibility fix not persisting (no backing page file)
+Follow-up to the same-day banners-data/404/media/images navbar fix. Three of the four pages had real `.md` files, so writing `visible: false` to their frontmatter stuck. `/media` (`12.media/`) never had a page file at all — just the `whitepapers/` media subfolder — so both an API `visible: false` write and a save via the Admin UI's Advanced tab silently succeeded in the response/UI but wrote nothing to disk (confirmed via `ls` on the folder and Grav's own error log, which showed nothing new). The Admin edit form for a folder that Grav lists in the Pages tree purely because it has children, but that was never a real page, appears to have no working save path — nothing to attach the write to.
+
+Fix: created a real `default.md` in `12.media/` directly. The directory itself isn't group-writable (`drwxr-sr-x grav:editor`, same as every other page folder — group has no write bit), so creating a brand-new file needed `sudo -u grav touch` + `chmod 664`, run by Brad interactively over SSH (no passwordless sudo on this box). Once the file existed, wrote `title: Media` / `visible: false` into it over plain SSH (no sudo needed for editing an existing 664 file), verified via the API, and cleared the cache. This one should now survive future cache cycles the way the other three already do.
+
 ### 2026-07-10 — 🚀 LIVE: added margin to floated content images (.float-left / .float-right)
 Editors floating an inline content image via Grav's markdown `?classes=float-left` (or `float-right`) action got text bumping right up against the image — Quark's own `.float-left`/`.float-right` rules (in `spectre.css`) only set `float`, with no margin. Added two rules to `custom.css` giving floated images breathing room: `.float-left { margin: 0 1.5rem 1rem 0; }` and `.float-right { margin: 0 0 1rem 1.5rem; }` (horizontal space off the text, bottom space for when the image is taller than the wrapped paragraph). Site-wide fix, not a one-off class, so it applies to every floated image going forward. Bumped `custom.css?v=42` → `?v=43` in `base.html.twig` to bust the browser cache; Grav cache cleared; verified live via curl.
 
