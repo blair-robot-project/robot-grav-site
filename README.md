@@ -35,9 +35,9 @@ photos, new pages) happen through the [admin panel](https://robot.mbhs.edu/admin
 Working facts for a Claude Code session.
 
 ### The site & stack
-- Grav **2.0.7** (Admin Next/admin2 SPA + api plugin), PHP **8.3.31**, nginx 1.18.0, Ubuntu 22.04, on a **dedicated** DigitalOcean droplet.
+- Grav **2.0.9** (admin2 **2.0.13**, confirmed 2026-07-10 — drifts via GPM, re-check with `bin/grav --version`), PHP **8.3.31**, nginx 1.18.0, Ubuntu 22.04, on a **dedicated** DigitalOcean droplet.
 - Theme: **Mod Quark** (`user/themes/mod-quark/`) — a custom child of stock **Quark** (`user/themes/quark/` = parent, **don't edit it**). Hand-managed, not GPM-managed.
-- Custom modular templates: `feature-images`, `icon-menu`, `gallery-draggable`, plus modified `text`/`hero` and helper `footer-col` — what each does is in [RUNBOOK.md](RUNBOOK.md) § Architecture reference (or the fuller table in `INSTRUCTIONS.md`'s appendix).
+- Custom modular templates: `feature-images`, `icon-menu`, `gallery-draggable`, `gallery-banners`, plus modified `text`/`hero` and helper `footer-col` — what each does is in [RUNBOOK.md](RUNBOOK.md) § Architecture reference (or the fuller table in `INSTRUCTIONS.md`'s appendix).
 - Images: PHP **gd** + ImageMagick **`convert`**; the **image-intake** plugin sanitizes filenames + shrinks uploads.
 - Full environment facts (config deviations, security status, disk): [RUNBOOK.md](RUNBOOK.md) § Environments.
 

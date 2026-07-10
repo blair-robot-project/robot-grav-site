@@ -22,7 +22,7 @@ This repo (`blair-robot-project/robot-grav-site`) is the source of truth for sit
 | Role | Production — the only environment |
 | Host | DigitalOcean droplet (nyc1), dedicated |
 | OS / web server | Ubuntu 22.04, nginx 1.18.0 |
-| Grav | **2.0.7** |
+| Grav | **2.0.9** (admin2 **2.0.13**) — confirmed via `bin/grav --version` 2026-07-10; drifts via GPM, re-check before trusting |
 | PHP | **8.3** |
 | SSH | `ssh USER@robot.mbhs.edu` |
 | Grav root | `/srv/robot-grav-site/` |
@@ -78,6 +78,7 @@ Smallest layer wins; all four are raised on live so 9-12 MB phone photos upload 
 - **feature-images** — image grid, optional per-item link + lightbox; resolves images via `page.media`.
 - **icon-menu** — icon + label + link "nav cards" (frontmatter key stays `features:`).
 - **gallery-draggable** — photo gallery; display order = the admin Page-Media drag order (`page.media.images`); click → lightbox.
+- **gallery-banners** — single shrink-to-fit row, no lightbox, no rendered title; same `page.media.images`-order pattern as gallery-draggable. Home page's 13-banner Blue Alliance trophy history (added 2026-07-10, ported from staging same day).
 - **text**, **hero** — lightly customized standards. **footer-col** — minimal footer-column wrapper.
 
 **Partials:** base (head/scaffold + the `?v=` cache-bust), footer (renders the `/footer` page's modules), lightbox (no-JS clickable thumbnail), error (the branded 404), **banners** (site-wide dismissible announcement banner, added 2026-07-09 — see below).
