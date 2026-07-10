@@ -1,11 +1,14 @@
 # FRC Team 449 Website — Changelog
-*Last updated: 2026-07-05 · rev 2026-07-05d*
+*Last updated: 2026-07-10 · rev 2026-07-10a*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu) or 🟢 **STAGING** (449.navybook.com) — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-10 — 🚀 LIVE: added margin to floated content images (.float-left / .float-right)
+Editors floating an inline content image via Grav's markdown `?classes=float-left` (or `float-right`) action got text bumping right up against the image — Quark's own `.float-left`/`.float-right` rules (in `spectre.css`) only set `float`, with no margin. Added two rules to `custom.css` giving floated images breathing room: `.float-left { margin: 0 1.5rem 1rem 0; }` and `.float-right { margin: 0 0 1rem 1.5rem; }` (horizontal space off the text, bottom space for when the image is taller than the wrapped paragraph). Site-wide fix, not a one-off class, so it applies to every floated image going forward. Bumped `custom.css?v=42` → `?v=43` in `base.html.twig` to bust the browser cache; Grav cache cleared; verified live via curl.
+
 ### 2026-07-05 — 📁 REPO (docs only, no live-site change): renamed the purpose-brief doc to fix GitHub rendering; fixed README's now-broken link to it
 The doc formerly at `449_website_purpose_brief_v1_2026-06-05.md` had been renamed to `Why_have_a_website?` — no file extension, and a literal `?` in the name. GitHub only renders `.md`/`.markdown` files as formatted Markdown, so it was showing as raw plain text (line numbers, Code/Blame view) instead of a rendered page; the `?` is also the URL query-string delimiter, so any relative Markdown link to it was liable to break outside GitHub's own handling. Renamed to `Why_have_a_website.md` and updated README.md's "Why the site exists" pointer to match — it had still targeted the pre-rename filename.
 
