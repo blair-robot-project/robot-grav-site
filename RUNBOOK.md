@@ -78,7 +78,7 @@ Smallest layer wins; all four are raised on live so 9-12 MB phone photos upload 
 - **feature-images** — image grid, optional per-item link + lightbox; resolves images via `page.media`.
 - **icon-menu** — icon + label + link "nav cards" (frontmatter key stays `features:`).
 - **gallery-draggable** — photo gallery; display order = the admin Page-Media drag order (`page.media.images`); click → lightbox.
-- **gallery-banners** — single shrink-to-fit row, no lightbox, no rendered title; same `page.media.images`-order pattern as gallery-draggable. Home page's 13-banner Blue Alliance trophy history (added 2026-07-10, ported from staging same day).
+- **gallery-banners** — single shrink-to-fit row, no lightbox, no rendered title; same `page.media.images`-order pattern as gallery-draggable. Home page's 13-banner Blue Alliance trophy history (added 2026-07-10, ported from staging same day). Each banner can optionally link to its real thebluealliance.com event page via an admin-editable `banner_links` field (image + URL per row, in the module's "Banners" tab) — verify new links against the real TBA API, not guesses (key in `bpeniston/449-website`'s `CREDENTIALS.md`).
 - **text**, **hero** — lightly customized standards. **footer-col** — minimal footer-column wrapper.
 
 **Partials:** base (head/scaffold + the `?v=` cache-bust), footer (renders the `/footer` page's modules), lightbox (no-JS clickable thumbnail), error (the branded 404), **banners** (site-wide dismissible announcement banner, added 2026-07-09 — see below).

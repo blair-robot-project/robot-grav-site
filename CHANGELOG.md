@@ -1,11 +1,18 @@
 # FRC Team 449 Website — Changelog
-*Last updated: 2026-07-10 · rev 2026-07-10c*
+*Last updated: 2026-07-10 · rev 2026-07-10d*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu) or 🟢 **STAGING** (449.navybook.com) — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-10 — 🚀 LIVE: gallery-banners images now link to their real thebluealliance.com event pages
+Follow-up to the gallery-banners port earlier today. Added a `banner_links` admin field (image picker + URL per row, in the module's existing "Banners" tab) so each of the 13 Blue Banners can optionally link out to the TBA page for that event — ported staging's blueprint/template changes plus all 13 links, each individually verified against the real **TBA API v3** (`GET /team/frc449/awards/{year}`, using a free key Brad generated) rather than guessed. Two — the 2013 Woodie Flowers Finalist and 2021 Chairman's Award banners — had gone in via web-search inference first (thebluealliance.com blocks automated page fetches) and were subsequently confirmed to match TBA's own award records exactly.
+- **Smaller permissions ask than the initial port:** the 2 theme files were already `664` from earlier today; only the *page* file needed a one-line `sudo chmod 664` from Brad (existing-file edit, not a new-file/directory creation — much smaller than the full block the initial port needed).
+- **Re-pulled fresh staging content immediately before porting, not a stale local copy** — staging had moved on since the morning port (2013/2021 links deep-link to `#awards`, new in-editor notes for future banner additions) and ported that exact current state.
+- **TBA API v3 requires a key on every request, even for public read data** — no anonymous access. Key saved in `bpeniston/449-website`'s `CREDENTIALS.md` (this repo doesn't hold secrets) for reuse on future FRC-history content.
+- **✅ Verified via curl:** all 13 banners render with the correct matching link, `grav.log` shows no new errors (the same pre-existing, unrelated language-cache `CRITICAL` from earlier today recurred again, still unaddressed).
+
 ### 2026-07-10 — 🚀 LIVE: ported a new gallery-banners module and a "Resources" nav page from staging
 Ported three changes verified on **449.navybook.com** (staging — still very much active day-to-day; see note below) to live: a fixed `gallery-banners` module (a single-row, no-lightbox photo gallery — Home page's 13-banner Blue Alliance trophy history), a new top-level **Resources** nav page (Hero + Text modules, links to the team's public GitHub repos and a technical whitepaper), and hiding "Home" from the main nav (redundant with the logo link).
 - **`gallery-banners` was entirely new to live** — it only ever existed on staging. Live's `gallery-draggable` was already running the current, simplified pattern (native admin2 Page Media drag-reorder, no custom Gallery tab — confirmed byte-identical to staging's version, and live's admin2 is **2.0.13**, past the v2.0.7 upstream fix that pattern depends on), so the port was low-risk: new `blueprints/modular/gallery-banners.yaml` + `templates/modular/gallery-banners.html.twig`, a `.gallery-banners` CSS block appended to `custom.css` (cache-bust `?v=43` → `?v=44`), and the page + all 13 banner PNGs uploaded to a new `user/pages/01.home/03._blue-banners/` folder.
