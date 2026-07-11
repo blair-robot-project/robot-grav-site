@@ -59,12 +59,6 @@ Working facts for a Claude Code session.
 
 Full path reference (server/PHP/nginx configs too): [RUNBOOK.md](RUNBOOK.md) § Key File Paths Reference.
 
-### MCP integration
-The live site is reachable from Claude Code via the Grav `api` plugin + a locally-built `grav-mcp` server (built from source at `~/Documents/449/grav-mcp/` — the `getgrav/grav-mcp` npm package isn't published yet). Registered as a project-scoped MCP server:
-- **`grav-live`** → `https://robot.mbhs.edu/api`, key generated against **`bradP`** (API keys inherit the full permission set of whichever user generated them).
-
-Tool surface covers pages, media, users, plugins, config, backups, and the scheduler — effectively full admin capability, not just content edits. Keys live only in local Claude Code config, never in this repo.
-
 ### How to make a change
 1. **Back up** anything risky: `sudo -u grav php bin/grav backup`, or `cp x x.bak-$(date +%Y%m%d-%H%M%S)`.
 2. **Edit** as `grav`, or as `USER` then `chown` back (see ownership rule above).
@@ -78,6 +72,12 @@ Tool surface covers pages, media, users, plugins, config, backups, and the sched
 - **Plugin/Grav updates: GPM only as `grav`** (Admin "Update," or `sudo -u grav php bin/gpm update`) — never as `USER`.
 
 Full gotchas list (rollback options, migration lessons, font licensing, notes conventions, GPM specifics): [RUNBOOK.md](RUNBOOK.md) § Cautions & Gotchas.
+
+### MCP integration
+The live site is reachable from Claude Code via the Grav `api` plugin + a locally-built `grav-mcp` server (built from source at `~/Documents/449/grav-mcp/` — the `getgrav/grav-mcp` npm package isn't published yet). Registered as a project-scoped MCP server:
+- **`grav-live`** → `https://robot.mbhs.edu/api`, key generated against **`bradP`** (API keys inherit the full permission set of whichever user generated them).
+
+Tool surface covers pages, media, users, plugins, config, backups, and the scheduler — effectively full admin capability, not just content edits. Keys live only in local Claude Code config, never in this repo.
 
 ---
 
