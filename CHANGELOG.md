@@ -1,9 +1,15 @@
 # FRC Team 449 Website — Changelog
-*Last updated: 2026-07-14 · rev 2026-07-14a*
+*Last updated: 2026-07-14 · rev 2026-07-14b*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu) or 🟢 **STAGING** (449.navybook.com) — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
+
+---
+### 2026-07-14 — 🚀 LIVE: year-module photos now open full-size in a new tab
+Small follow-up to today's Team History port: each photo in a year module's image column now wraps in a link that opens the largest available version (an `-original` companion if the folder has one, else the displayed file) in a new tab — the exact "largest available" logic already used on the Robots page, applied to `mod-quark/templates/modular/text.html.twig`'s photo loop. `page.header.url` still overrides the target if a module ever sets it.
+- **Same permission situation as the theme files in today's earlier migration:** `text.html.twig` is `grav`-owned with no group-write, so Brad ran `sudo cp` + `chown grav:editor` from a staged file rather than a direct `scp`.
+- **✅ Verified:** tested on staging first (44 photo links across the Team History page render correctly, including modules where the click target correctly resolves to the same file when no separate larger original exists), then live; confirmed the About Us mission-text logo — an inline content image, not template-driven — is unaffected; `grav.log` clean (no new entries).
 
 ---
 ### 2026-07-14 — 🚀 LIVE: Team History rebuild ported from staging — new year-module system, jump-to-year index, redesigned Robots page
