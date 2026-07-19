@@ -9,9 +9,7 @@ For **recurring, calendar-based maintenance** (what to update every season, ever
 
 ## 🔴 To-Do
 
-**Fix the sponsor mismatch on the homepage.** The homepage still credits **"BlueHalo"** as a Platinum Sponsor; the actual current sponsor is **AeroVironment** (Current Sponsors page already has this right). If a logo image is used, swap it too.
-
-That's the only must-fix item right now — everything else is optional.
+Nothing outstanding right now — the homepage sponsor mismatch (BlueHalo → AeroVironment) was fixed 2026-07-18; see CHANGELOG.md.
 
 ---
 

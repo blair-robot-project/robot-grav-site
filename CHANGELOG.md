@@ -6,6 +6,13 @@ Reverse-chronological record of notable changes to the site — theme, templates
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-18 — 🚀 LIVE: fixed homepage sponsor mismatch (BlueHalo → AeroVironment)
+TODO.md's only must-fix item: the homepage's Sponsors module (`/home/_sponsors`, `modular/feature-images`) still credited **BlueHalo** as a Platinum Sponsor; the actual current sponsor is **AeroVironment**. The Current Sponsors page (`/sponsor-information/current-sponsors`) already had this right — its AeroVironment entry (folder still internally named `_blue-halo` from before the sponsor changed, header/content correctly say AeroVironment) was the source of truth for the correct name, logo, and URL (avinc.com).
+- Updated `/home/_sponsors`'s `features` array via the `grav-live` API: swapped the `BlueHalo`/`bluehalo.com` entry for `AeroVironment`/`avinc.com`, pointing at a copy of the same logo file (`AV-black-blue (1).png`) already used on the Current Sponsors page.
+- New-file creation in `01.home/08._sponsors/` needed root/`grav` (same as every other page-media directory this week) — Brad copied the logo across and removed the old one with `sudo cp`/`chown`/`chmod`/`rm`, one block, no separate back-and-forth needed since the API-side data update was already staged first.
+- **✅ Verified via curl:** homepage HTML has zero remaining "BlueHalo" references, the new logo renders correctly linked to avinc.com with `alt="AeroVironment"`, the old logo file 404s (removed), homepage still 200.
+
+---
 ### 2026-07-18 — 🚀 LIVE: SEO audit — homepage `<title>` rewritten; HTML caching shortened; static assets now cache for a year
 Three smaller items from the same Search Console-driven SEO pass as the entries below. **Title:** the homepage was the one page on the site whose `<title>` didn't lead with a descriptive keyword ("Home | FRC Team 449", vs. every other page's "Page Name | FRC Team 449") — changed the `/home` page's title field to "The Blair Robot Project", now rendering "The Blair Robot Project | FRC Team 449". **Caching:** response headers showed the policy was backwards — HTML pages carried `Cache-Control: max-age=604800` (7 days) while images/CSS/JS carried no cache headers at all, meaning a returning visitor could get served a week-old page while re-downloading unchanging assets on every single visit.
 - Fixed the HTML half via `system.pages.expires` → `0` (Grav renders this as `no-store, no-cache, must-revalidate` — stricter than a bare `max-age=0`, but correctly kills the stale-page problem).
