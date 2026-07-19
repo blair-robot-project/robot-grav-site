@@ -1,5 +1,5 @@
 # FRC 449 Website — Teammate Instruction Manual
-*Last updated: 2026-07-10 · Version 2.3*
+*Last updated: 2026-07-19 · Version 2.4*
 
 The site gets a full automatic backup every night, and traffic is low enough that a mistake is easy to fix and low-stakes. Just be reasonably careful, and use the nightly backup as your safety net.
 
@@ -75,23 +75,25 @@ To create one or more rows of four images on a page, create a module with type _
 
 > **This only works for module *types* that already exist.** If you need an entirely new kind of module — one that doesn't behave like any of the templates in that dropdown — that's a Power User task (Part 2, §10).
 
-## 5. Announcement banners
+## 5. Announcements
 
-The homepage — or any other page you choose — can show a dismissible announcement banner (e.g. "Registration closes June 21") without any developer work. Unlike other content, banners aren't a module you add to a specific page; they live in one central place and you tell each banner which page(s) to appear on.
+The homepage — or any other page you choose — can show a dismissible announcement (e.g. "Registration closes June 21") without any developer work. Unlike other content, announcements aren't a module you add to a specific page; they live in one central place and you tell each announcement which page(s) to appear on.
 
-**To add or edit a banner:**
-1. In the admin, go to **Pages → [Banners Data](https://robot.mbhs.edu/admin/pages/edit/banners-data)**.
-2. Click the **Banners** tab. Click **Add item** for a new banner, or click an existing banner's row to expand it (rows load collapsed to keep the list scannable as it grows).
+*(Called "Announcements" to distinguish this from the unrelated **Blue Banners** photo gallery on the homepage — same everyday word, two different features; renamed 2026-07-19.)*
+
+**To add or edit an announcement:**
+1. In the admin, go to **Pages → [Announcements Data](https://robot.mbhs.edu/admin/pages/edit/announcements-data)**.
+2. Click the **Announcements** tab. Click **Add item** for a new announcement, or click an existing announcement's row to expand it (rows load collapsed to keep the list scannable as it grows).
 3. Fill in:
    - **Internal Title** — for your own reference only, never shown on the site. Since the collapsed row just shows this text, it's worth including the date range here too, e.g. "FLL Registration — Jul 8–21".
-   - **Message** — the actual banner text shown to visitors.
-   - **Link (optional)** — where the banner goes if clicked: an internal page like `/community/fll-team`, or a full `https://` URL. Leave blank for a plain, non-clickable banner.
+   - **Message** — the actual text shown to visitors.
+   - **Link (optional)** — where it goes if clicked: an internal page like `/community/fll-team`, or a full `https://` URL. Leave blank for a plain, non-clickable announcement.
    - **Color / Urgency** — yellow, red, blue, or green.
    - **Show on Pages** — comma-separated page routes, e.g. `/, /community/fll-team`. Leave blank to show on the homepage only.
-   - **Start showing** / **Stop showing** — the banner appears and disappears automatically on these dates — no need to remember to take it down.
+   - **Start showing** / **Stop showing** — it appears and disappears automatically on these dates — no need to remember to take it down.
 4. Click **Save**.
 
-A visitor can dismiss a banner with its **×** button; it stays hidden for that visit but reappears the next time they come back. Multiple banners can be active (and shown on the same page) at once.
+A visitor can dismiss an announcement with its **×** button; it stays hidden for that visit but reappears the next time they come back. Multiple announcements can be active (and shown on the same page) at once.
 
 ## 6. Update Schedule
 
@@ -105,7 +107,7 @@ All of these are suggestions to keep the site useful and not stale; the site can
 
 ### Registration-based programs: FLL, Bunnybots, Summer Programming
 Each of these requires two changes a year to the ["What's new"](https://robot.mbhs.edu/admin/pages/edit/home/_about) module and to the program's own page:
-1. When registrations open, add a line like "Applications are open [here] for the 2026-27 season!". You might also consider updating the page with the season's specifics; even if most participants find out through social media — parents in particular still check the open web, and it's the one place that's always there regardless of which platform is currently popular. Consider also adding a time-limited [announcement banner](#5-announcement-banners) for extra visibility while registration is open.
+1. When registrations open, add a line like "Applications are open [here] for the 2026-27 season!". You might also consider updating the page with the season's specifics; even if most participants find out through social media — parents in particular still check the open web, and it's the one place that's always there regardless of which platform is currently popular. Consider also adding a time-limited [announcement](#5-announcements) for extra visibility while registration is open.
 2. When registrations close, add a line like "Check back in \[when?\] for program registration." 
 
 **Notes.** If desired, the team can update the **Bunnybots** page once a year to describe the most recent season. **Summer Programming** is currently dormant.
@@ -126,7 +128,7 @@ Each of these requires two changes a year to the ["What's new"](https://robot.mb
 
 - **Frontmatter (Expert mode) is real file content.** A typo can break the page — if you're not confident editing it directly, ask a Power User.
 - **You can't invent a brand-new module type from the admin.** You can add another instance of an *existing* type (Text, Hero, Icon-menu, etc.) freely — inventing a new type entirely requires SSH (Part 2, §10).
-- **Reordering pages can accidentally expose others in the navbar.** Dragging a page to a new spot in the Pages list doesn't just renumber the ones you moved — it can hand out a numeric order prefix to *every* sibling page, including ones (like Banners Data, 404, Media, Images) that were deliberately left off the navbar. In Grav, a page with a numeric order prefix defaults to **visible** in the nav unless told otherwise. **To force a page off the navbar regardless of its order prefix:** open it, switch to **Expert mode** (§2), and add `visible: false` to its frontmatter — that's how Banners Data, 404/Error, Media, and Images stay hidden today.
+- **Reordering pages can accidentally expose others in the navbar.** Dragging a page to a new spot in the Pages list doesn't just renumber the ones you moved — it can hand out a numeric order prefix to *every* sibling page, including ones (like Announcements Data, 404, Media, Images) that were deliberately left off the navbar. In Grav, a page with a numeric order prefix defaults to **visible** in the nav unless told otherwise. **To force a page off the navbar regardless of its order prefix:** open it, switch to **Expert mode** (§2), and add `visible: false` to its frontmatter — that's how Announcements Data, 404/Error, Media, and Images stay hidden today.
 - **Ignore "update available" prompts** for plugins and themes. Updating has broken the site before. Leave them alone unless Rafi says otherwise.
 - **There's a nightly backup, so mistakes are recoverable.** Still, make risky changes carefully — double-check before saving, and ask a Power User if you're unsure.
 
@@ -181,7 +183,7 @@ Site files are owned `grav:editor`; your own account normally can't create a *ne
 sudo -u grav touch /path/to/new/file
 sudo chmod 664 /path/to/new/file
 ```
-After that, you (or an automated tool acting as you) can write its content over plain SSH/SCP with no further `sudo` needed. This came up building the announcement-banner feature (§5) — its three new theme files were created this way.
+After that, you (or an automated tool acting as you) can write its content over plain SSH/SCP with no further `sudo` needed. This came up building the announcements feature (§5) — its three new theme files were created this way.
 
 ### Edit CSS — and clear BOTH caches
 All custom styling goes in **`custom.css`**. After editing CSS you must do **two** things or you won't see your change:
@@ -214,14 +216,14 @@ Adding another instance of an *existing* template (Text, Hero, Icon-menu, etc.) 
 4. Edit the `.yaml` blueprint's fields to match whatever settings your new template actually needs.
 5. Clear the cache. Test by adding a module of your new type via the admin (Part 1, §4) — it should now appear in the template dropdown.
 
-**If what you actually need is an admin-editable *list* of things (not a one-off module)** — like the announcement banners in §5 — a plain module isn't the right shape. The working pattern instead is a single hidden page with a repeating **list** field in its blueprint (`type: list`), the same way `banners-data` and `sponsors-data` work: fully editable through the normal Pages UI, no new module type needed. Note that the admin's list-field rows have no built-in way to color-code by a field value or combine multiple fields into the collapsed summary — the summary is always just "whatever's in the first text field" — so if you want a specific field visible at a glance, put it in that first field directly (as §5 does with dates in the title).
+**If what you actually need is an admin-editable *list* of things (not a one-off module)** — like the announcements in §5 — a plain module isn't the right shape. The working pattern instead is a single hidden page with a repeating **list** field in its blueprint (`type: list`), the same way `announcements-data` and `sponsors-data` work: fully editable through the normal Pages UI, no new module type needed. Note that the admin's list-field rows have no built-in way to color-code by a field value or combine multiple fields into the collapsed summary — the summary is always just "whatever's in the first text field" — so if you want a specific field visible at a glance, put it in that first field directly (as §5 does with dates in the title).
 
 ## 11. CSS & asset conventions (important quirks)
 
 - **Put all CSS in `custom.css`.** Don't scatter `<style>` blocks.
 - **A module's own injected CSS does NOT reach the page.** Stock Quark modules sometimes add CSS via `assets.addInlineCss(...)` at render time, but our custom `base.html.twig` outputs the `<head>` *before* module content runs, so that CSS is dropped. **Fix: move that CSS into `custom.css`.**
 - **Frontmatter URLs are not auto-base-prefixed.** See §12.
-- **Anything you insert into `base.html.twig` between the header and the hero block needs its own positioning** — don't just drop it into normal document flow. The fixed navbar (`position: fixed`) relies on the hero rendering directly behind it (for its see-through look); pushing the hero down to make room for new content breaks that. Give new content `position: absolute` with an explicit `top` offset instead (matching the header's height plus a bit of gap) so it floats over the hero rather than displacing it, and give it a `z-index` *below* the header's so the header still shows on top while scrolling past. The `site-banner` CSS (§5) is a working example.
+- **Anything you insert into `base.html.twig` between the header and the hero block needs its own positioning** — don't just drop it into normal document flow. The fixed navbar (`position: fixed`) relies on the hero rendering directly behind it (for its see-through look); pushing the hero down to make room for new content breaks that. Give new content `position: absolute` with an explicit `top` offset instead (matching the header's height plus a bit of gap) so it floats over the hero rather than displacing it, and give it a `z-index` *below* the header's so the header still shows on top while scrolling past. The `site-announcement` CSS (§5) is a working example.
 
 ## 12. Portable linking conventions
 
@@ -230,7 +232,7 @@ Any path that hardcodes the **domain** or a **folder number** can break if a fol
 - **Internal links:** root-relative, no domain — `[text](/about-us/leadership)`. Never the full domain.
 - **Page images in Markdown:** `![](filename.jpg)` (just the filename) — Grav resolves it correctly on both sites.
 - **Shared images in Markdown:** `![](/user/images/x.jpg)` — Grav auto-adds the base. **But raw HTML `<img src="/...">` is NOT rewritten** — for raw HTML, add `process: { twig: true }` to the page and use `src="{{ base_url }}/user/images/x.jpg"`.
-- **Frontmatter URLs rendered by a template** (e.g. menu item `url:` values, or a banner's `link:` value) are **not** auto-prefixed either — the template must prepend `{{ base_url }}`. Our `icon-menu`, `feature-images`, and `banners` templates were all written to do this.
+- **Frontmatter URLs rendered by a template** (e.g. menu item `url:` values, or an announcement's `link:` value) are **not** auto-prefixed either — the template must prepend `{{ base_url }}`. Our `icon-menu`, `feature-images`, and `announcements` templates were all written to do this.
 
 ## 13. How Mod Quark differs from regular Quark
 
@@ -240,7 +242,7 @@ Our theme **Mod Quark** (`user/themes/mod-quark/`) is a **custom child of Quark*
 - **Custom module types: `icon-menu` and `feature-images`.** Quark's stock `features` (a grid of Font-Awesome icons) is customized and **renamed `icon-menu`** in our theme (its links were patched to be base-path-safe). We also added **`feature-images`** — the same idea but with **photos** (Sponsors, Mentors, Robots, etc.); its image resolution uses Grav page media so it survives folder renumbering.
 - **Custom `base.html.twig`.** Our base template is a full override of Quark's, with our own header markup, our `custom.css` include (with the `?v=` cache-bust), and our own asset handling.
 - **The footer is a custom partial + an editable page.** Stock Quark's footer is a throwaway credit line. Ours is `partials/footer.html.twig` (structure + logo) that pulls its content from a hidden, admin-editable `/footer` page.
-- **The site-wide announcement banner is a partial, not a module.** `partials/banners.html.twig` is included once from `base.html.twig` and reads from a hidden `banners-data` page — see §5 and §10.
+- **The site-wide announcement bar is a partial, not a module.** `partials/announcements.html.twig` is included once from `base.html.twig` and reads from a hidden `announcements-data` page — see §5 and §10.
 - **Some stock Quark pieces are missing.** Example: Quark's **gallery** template is present but its required `partials/lightbox.html.twig` (+ the glightbox library) was never carried over, so we supplied a minimal no-JS `lightbox.html.twig`.
 
 ## 14. Backups, rollback, and hard limits
@@ -279,7 +281,7 @@ Set the type of a *top-level* page.
 | `blog` | A blog index / listing page. |
 | `error` | The 404 / error page. |
 | `comments` | Stock Quark comments listing — effectively unused. |
-| `banners-data` | Not a visible page — a hidden data store for the announcement banners (§5), edited via its own **Banners** tab rather than normal content fields. |
+| `announcements-data` | Not a visible page — a hidden data store for the announcements (§5), edited via its own **Announcements** tab rather than normal content fields. |
 
 ---
 

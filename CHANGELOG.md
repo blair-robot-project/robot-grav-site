@@ -6,6 +6,17 @@ Reverse-chronological record of notable changes to the site — theme, templates
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-19 — 🟢 STAGING: renamed the announcement-bar feature from "banners" to "announcements"
+
+The site overloads "banner" two ways: the FRC award-photo module (`gallery-banners`, Blue Banners row on the homepage) and the dismissible site-wide message bar built 2026-07-08. Brad asked to disambiguate by renaming the latter; picked "Announcement" from a few options discussed with Claude (Notice, Alert were the others considered — Alert rejected since the field's "positive/green" urgency level reads oddly as an "alert"). `gallery-banners` and its CSS/blueprint/template are untouched. **Live not yet ported** — staging only so far.
+
+- **Renamed identifiers:** page `09.banners-data`/`/banners-data` → `09.announcements-data`/`/announcements-data`; blueprint `banners-data.yaml` → `announcements-data.yaml` (tab `banners_tab`/"Banners" → `announcements_tab`/"Announcements", field `header.banners` → `header.announcements`); page template `banners-data.html.twig` → `announcements-data.html.twig`; partial `partials/banners.html.twig` → `partials/announcements.html.twig` (all internal Twig vars and JS renamed to match); CSS `.site-banner*` → `.site-announcement*` classes in `custom.css`; `base.html.twig` include path updated; cache-bust `?v=62` → `?v=63`.
+- **Data preserved exactly** — the two currently-configured entries (the live FLL registration notice through 7/20, and the queued Worlds 2026 video notice for 7/21–7/28) carried over unchanged under the new `announcements` key.
+- **Files:** `.bak-20260719-063135` backups of all four old theme files kept in `~/agent-backups` before removal.
+- **✅ Verified:** homepage renders the FLL announcement with the new `site-announcement*` classes and correct `level-blue` styling; `get_blueprint` via the Grav API confirms the "Announcements" tab loads with no blueprint errors; `grav.log` clean of new errors after cache clear.
+- **Docs updated to match:** `INSTRUCTIONS.md` §5 (rewritten, admin path/tab renamed) and `RUNBOOK.md` architecture-reference lines in this repo; the `449_website` repo's `CLAUDE.md` partials line.
+- **Not touched:** `~/robojawn-449-banner/banner_watch.py` on Brad's Air (dormant, event-bounded automation in a separate repo) still hardcodes the old `/pages/banners-data` route — flagged in this repo's `RUNBOOK.md` as needing an update before any future reuse.
+
 ### 2026-07-18/19 — 🚀 LIVE: site-wide alt-text pass — fixed a third template bug, closed 80 of 123 remaining gaps
 Follow-up to the homepage alt-text fix: a full-site crawl (492 `<img>` tags across all 70 sitemap pages) found 123 more empty `alt=""` attributes beyond the homepage, concentrated in three places — and a third instance of the same class of bug found on the homepage (`gallery-banners.html.twig`, `gallery-draggable.html.twig`).
 
