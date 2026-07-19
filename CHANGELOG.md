@@ -1,9 +1,20 @@
 # FRC Team 449 Website — Changelog
-*Last updated: 2026-07-18 · rev 2026-07-18a*
+*Last updated: 2026-07-19 · rev 2026-07-19a*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu) or 🟢 **STAGING** (449.navybook.com) — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
+
+---
+### 2026-07-18/19 — 🚀 LIVE: site-wide alt-text pass — fixed a third template bug, closed 80 of 123 remaining gaps
+Follow-up to the homepage alt-text fix: a full-site crawl (492 `<img>` tags across all 70 sitemap pages) found 123 more empty `alt=""` attributes beyond the homepage, concentrated in three places — and a third instance of the same class of bug found on the homepage (`gallery-banners.html.twig`, `gallery-draggable.html.twig`).
+
+- **Root cause, `templates/modular/text.html.twig`** — the single highest-leverage fix, since this template renders sponsor logos, all 25 Team History year-modules, and most single-image content blocks site-wide. It called `{{ image.height(...).html|raw }}` — zero arguments passed, not even a swapped one. Fixed by adding a `page.header.alt` field (falls back to `page.header.title` if unset) and passing it to both the `.html()` alt/title params and the wrapping link's `title` attribute.
+- **This one fix alone resolved all 59 empty images on `/about-us/history`** (the 25 year-modules) for free, via the `page.header.title` fallback (e.g. "History: 2018-19") — no per-page data changes needed there.
+- **Added real `page.header.alt` data to 19 pages** using the same template: all 15 published Current Sponsors logos (e.g. "AeroVironment logo", name-derived, no visual review needed), plus one image each on Sponsor Benefits, the Leadership page's top photo and Past Presidents photo, and Community's events photo — the last four written after downloading and visually reviewing each one (a leadership group photo; two COVID-era team photos on the school stairwell; a Maker Faire / STEM Fair outreach photo).
+- **Permissions:** same pattern as the last two theme-file fixes — `text.html.twig` was `grav`-owned, not group-writable; Brad ran `sudo chmod 664` himself (a plain `chmod` fails even for Brad, confirming only root/the file's owner can grant it).
+- **Cache gotcha repeated:** deploying the template wasn't enough on its own — needed an explicit `clear_cache` (scope `"standard"`) before the new alt text actually rendered, same as the gallery fix two days ago.
+- **✅ Verified via a full re-crawl:** site-wide empty-alt count went from 123 → 43. The remaining 43 are ~41 images across the 2019 season blog and 2022-23 blog (a different, older template — `blog`/`item`, not `modular/text` — needing real per-photo visual review, deliberately left for a separate pass; see TODO.md) plus 2 intentional decorative placeholders (the homepage's "+more sponsors" icon, a Mentors grid filler tile).
 
 ---
 ### 2026-07-18 — 🚀 LIVE: fixed homepage sponsor mismatch (BlueHalo → AeroVironment)
