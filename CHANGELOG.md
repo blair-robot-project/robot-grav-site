@@ -1,14 +1,24 @@
 # FRC Team 449 Website — Changelog
-*Last updated: 2026-07-19 · rev 2026-07-19a*
+*Last updated: 2026-07-19 · rev 2026-07-19b*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu) or 🟢 **STAGING** (449.navybook.com) — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-19 — 🚀 LIVE: ported the banners→announcements rename from staging
+
+Same rename as the staging entry directly below, ported to robot.mbhs.edu same day.
+
+- **New-file permission gotcha, same shape as every prior live port:** `brad`'s SSH account can't rename/move files under `user/pages/` or theme directories on live (`drwxr-sr-x grav:editor`, no group-write on the directory itself). Asked Brad to run one `sudo` block of 5 `mv` commands to rename the page folder + page file + blueprint + page template + partial in place (preserves `grav:editor` ownership, no new touch/chmod dance needed). One follow-up: the renamed page file came out `644` instead of `664` (group read-only, not writable) — a second one-line `sudo chmod 664` from Brad fixed that before content could be written.
+- **`sed -i` failed on the two shared, already-664 files** (`base.html.twig`, `custom.css`) — `couldn't open temporary file ... Permission denied`, because `sed -i` writes a new temp file in the same directory and renames over the original, which needs directory write permission (not just file permission) even though the target file itself is group-writable. Worked around with `sed '...' file > /tmp/out && cat /tmp/out > file`, which truncates the existing file in place and only needs file-level write access.
+- **Content:** identical data migration as staging — both live announcement entries (FLL registration through 7/20, queued Worlds 2026 video for 7/21–7/28) carried over unchanged under the new `announcements` key. CSS/JS/Twig identifiers renamed identically to staging's version (see that entry for the full list). Cache-bust `?v=62` → `?v=63`.
+- **✅ Verified:** homepage renders the FLL announcement with `site-announcement*` classes and `level-blue` styling (curl — `robot.mbhs.edu` still blocks browser automation); `get_page`/`get_blueprint` via the `grav-live` API confirm the renamed route and the "Announcements" tab both load correctly, data intact; `grav.log` shows no new entries after the change (last entries pre-date this session); homepage and `/about-us` both 200.
+- **Backups:** `.bak-20260719-141427` on `base.html.twig`/`custom.css` in `~/agent-backups` on live.
+
 ### 2026-07-19 — 🟢 STAGING: renamed the announcement-bar feature from "banners" to "announcements"
 
-The site overloads "banner" two ways: the FRC award-photo module (`gallery-banners`, Blue Banners row on the homepage) and the dismissible site-wide message bar built 2026-07-08. Brad asked to disambiguate by renaming the latter; picked "Announcement" from a few options discussed with Claude (Notice, Alert were the others considered — Alert rejected since the field's "positive/green" urgency level reads oddly as an "alert"). `gallery-banners` and its CSS/blueprint/template are untouched. **Live not yet ported** — staging only so far.
+The site overloads "banner" two ways: the FRC award-photo module (`gallery-banners`, Blue Banners row on the homepage) and the dismissible site-wide message bar built 2026-07-08. Brad asked to disambiguate by renaming the latter; picked "Announcement" from a few options discussed with Claude (Notice, Alert were the others considered — Alert rejected since the field's "positive/green" urgency level reads oddly as an "alert"). `gallery-banners` and its CSS/blueprint/template are untouched. **Ported to live same day** — see the entry directly above.
 
 - **Renamed identifiers:** page `09.banners-data`/`/banners-data` → `09.announcements-data`/`/announcements-data`; blueprint `banners-data.yaml` → `announcements-data.yaml` (tab `banners_tab`/"Banners" → `announcements_tab`/"Announcements", field `header.banners` → `header.announcements`); page template `banners-data.html.twig` → `announcements-data.html.twig`; partial `partials/banners.html.twig` → `partials/announcements.html.twig` (all internal Twig vars and JS renamed to match); CSS `.site-banner*` → `.site-announcement*` classes in `custom.css`; `base.html.twig` include path updated; cache-bust `?v=62` → `?v=63`.
 - **Data preserved exactly** — the two currently-configured entries (the live FLL registration notice through 7/20, and the queued Worlds 2026 video notice for 7/21–7/28) carried over unchanged under the new `announcements` key.
