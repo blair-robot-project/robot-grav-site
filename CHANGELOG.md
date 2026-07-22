@@ -6,6 +6,18 @@ Reverse-chronological record of notable changes to the site — theme, templates
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-22 — 🚀 LIVE: Phase 1 of the Mod Quark → Quark 2 migration plan — parallel copy stood up
+
+Full detail in `RUNBOOK.md`'s migration-plan section. Public robot.mbhs.edu is untouched throughout - everything below lives at `/srv/robot-grav-site-quark2` behind a loopback-only nginx vhost (`127.0.0.1:8081`, SSH-tunnel access only, never public), same pattern as the 1.7→2.0 core migration's test vhost.
+
+- **Parallel copy + vhost:** `sudo cp -a` of `/srv/robot-grav-site` → `/srv/robot-grav-site-quark2`; new vhost `grav-quark2-test` re-roots the live vhost's exact security rules onto the copy, reuses the existing `php8.3-fpm` pool. Brad ran the sudo steps (no passwordless sudo on this box), I drove the rest read/write over plain SSH after a one-time `chown -R brad:editor` on the disposable copy.
+- **Gotcha:** the plain `cp -a` also copied all 14 rotating backups (4.9 GB) into the test copy for no reason - removed. Removing `backup/` then tripped Grav's Problems plugin (treats it as a required folder, blocks the whole site with a diagnostic page) - fixed by recreating it empty.
+- **Quark 2 installed, pinned:** `bin/gpm install quark2:1.1.6`.
+- **`mod-quark-2` child theme built**, mirroring the actual (non-obvious) inheritance mechanism `mod-quark` uses today: not just the `extends Quark` PHP class, but a `streams:` block in the theme's own yaml listing both the child and parent as `theme://` prefixes - Grav doesn't cascade config between parent/child automatically, only that stream lookup does.
+- **Verified 3x consistent** across 8 paths (all standard page types, `/admin`, and the `/api/v1/sync` 403 block) - real Quark 2 fingerprints, actual 449 content rendering through it, clean `grav.log`. **Brad confirmed visually** via `ssh -L 8081:127.0.0.1:8081 449-live` + browser.
+- **Gotcha worth remembering for Phase 4's real cutover verification:** PHP opcache only revalidates every ~2s per worker, so a page can 500 right after an edit and pass cleanly a few retries later with nothing else changed - don't chase a ghost from one immediate post-edit failure.
+- **Phase 2 (porting each custom piece) not started.**
+
 ### 2026-07-22 — 🚀 LIVE: Phase 0 recon for the Mod Quark → Quark 2 migration plan
 
 No theme/template changes - recon and one backup only, per the plan's own "no live changes" scope for this phase. Full findings in `RUNBOOK.md`'s migration-plan section.
