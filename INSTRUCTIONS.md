@@ -221,6 +221,7 @@ Adding another instance of an *existing* template (Text, Hero, Icon-menu, etc.) 
 ## 11. CSS & asset conventions (important quirks)
 
 - **Put all CSS in `custom.css`.** Don't scatter `<style>` blocks.
+- **Comment non-obvious rules inline, right above them** — not in a separate doc. If a rule's effect isn't clear from its selector/properties alone (it depends on a specific frontmatter field, it's working around a framework quirk, it only matters in combination with another rule elsewhere), say so in a `/* ... */` block right there. A comment living next to the code it explains stays accurate; a separate reference doc drifts out of sync with the code silently. The `.year-module` blockquote/flex-order block and the header-color rules at the top of `custom.css` are worked examples — both took real reverse-engineering time to figure out during the 2026-07-22 Quark 2 migration audit before they got comments.
 - **A module's own injected CSS does NOT reach the page.** Stock Quark modules sometimes add CSS via `assets.addInlineCss(...)` at render time, but our custom `base.html.twig` outputs the `<head>` *before* module content runs, so that CSS is dropped. **Fix: move that CSS into `custom.css`.**
 - **Frontmatter URLs are not auto-base-prefixed.** See §12.
 - **Anything you insert into `base.html.twig` between the header and the hero block needs its own positioning** — don't just drop it into normal document flow. The fixed navbar (`position: fixed`) relies on the hero rendering directly behind it (for its see-through look); pushing the hero down to make room for new content breaks that. Give new content `position: absolute` with an explicit `top` offset instead (matching the header's height plus a bit of gap) so it floats over the hero rather than displacing it, and give it a `z-index` *below* the header's so the header still shows on top while scrolling past. The `site-announcement` CSS (§5) is a working example.
@@ -260,15 +261,20 @@ The module's `.md` filename selects its template. These are what you assemble mo
 
 | Template | What it does | 449-custom? | Admin-selectable* |
 |---|---|---|---|
-| `text` | A text block, optionally with one image beside it (left/right). | modified | ✅ |
+| `text` | A text block, optionally with one image beside it. Also powers the Team History year-modules — see below. | modified | ✅ |
 | `hero` | Full-width banner: background image + big title (top of a page). | stock Quark | ✅ |
-| `icon-menu` | Grid of Font Awesome **icon** links — e.g. Leadership / Mentors / Programming. | custom | ✅ |
-| `feature-images` | Grid of **photo** links — Sponsors, Mentor headshots, Robots, T-shirts. | custom | ✅ |
-| `gallery-draggable` | Photo grid in **Page-Media drag order** (no list to edit). | custom | ✅ |
+| `icon-menu` | Grid of Font Awesome **icon** links — e.g. Leadership / Mentors / Programming. Icon values are full two-part FA classes (e.g. `fa-solid fa-users`, or `fa-brands fa-android` for logos) — the icon picker field stores whatever you pick as-is; if an icon doesn't render, the class name is probably wrong for the FA version this theme loads. | custom | ✅ |
+| `feature-images` | Grid of **photo** links — Sponsors, Mentor headshots, Robots, T-shirts. `separate_links: true` makes the image link to a full-size `-original` companion file (if one exists in the page folder) while the header/caption link elsewhere instead. | custom | ✅ |
+| `gallery-draggable` | Photo grid in **Page-Media drag order** (no list to edit), click-to-zoom via the no-JS lightbox partial. | custom | ✅ |
+| `gallery-banners` | Single shrink-to-fit row of images, no lightbox, no titles — the homepage's Blue Alliance trophy history. Same Page-Media drag order as `gallery-draggable`. Optional per-image links via `banner_links` (matched by filename). | custom | ✅ |
 | `gallery` | Lightbox photo grid from a hand-listed `items:` list in frontmatter. | stock Quark | ⚠️ no blueprint |
 | `footer-col` | Internal helper: outputs only its content (used for the footer's columns). | custom | — |
 
 \* Selectable **and** survives admin saves only if the template has a blueprint (`blueprints/modular/NAME.yaml`) — see §10.
+
+**`text` module fields worth knowing:**
+- `image_align: left` / `right` — **mostly cosmetic today.** It only shifts the text column's left padding by 30px; there's no CSS rule that actually swaps which side the image renders on. Not a bug worth chasing unless someone wants to finish the feature — just don't expect picking "left" to visibly move the image.
+- `year_bar: '2025-26'` + `class: year-module` (both frontmatter-only, set together) — turns the module into a Team History year entry: a big year label + "Back to top" link + rule above the content, and the module's `<blockquote>`s render as label:value stat rows (`**Record:**` etc.) instead of plain quotes. The image/text side-by-side layout for these specifically comes from CSS flex `order`, not from `image_align` — see the comment block above `.year-module` in `custom.css`. Look at any page under `about-us/history/` for a working example.
 
 ### Page templates (whole-page types)
 Set the type of a *top-level* page.
@@ -279,7 +285,7 @@ Set the type of a *top-level* page.
 | `modular` | A page assembled by stacking the modular templates above (Home, About Us). |
 | `item` | A single blog post / article page. |
 | `blog` | A blog index / listing page. |
-| `error` | The 404 / error page. |
+| `error` | The 404 / error page. Content is a real custom page (`user/pages/11.error/`) with a photo and a "Team 404" joke, not Grav's generic error text — edit that page's content directly to change it. |
 | `comments` | Stock Quark comments listing — effectively unused. |
 | `announcements-data` | Not a visible page — a hidden data store for the announcements (§5), edited via its own **Announcements** tab rather than normal content fields. |
 
