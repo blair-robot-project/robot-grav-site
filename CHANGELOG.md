@@ -6,6 +6,17 @@ Reverse-chronological record of notable changes to the site — theme, templates
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-22 — 🚀 LIVE: Phase 2 of the Mod Quark → Quark 2 migration plan — every custom piece ported
+
+All work on the isolated test copy (`/srv/robot-grav-site-quark2`, loopback-only). Public robot.mbhs.edu untouched. Full detail in `RUNBOOK.md`'s migration-plan section - this entry is the short version.
+
+- **All 14 Phase 2 items done:** icon-menu, feature-images, gallery-draggable/gallery-banners, footer-col, announcements, logo, error.html.twig, base.html.twig, features/macros/radio templates, text.html.twig, a full `custom.css` audit, the BlairMdITC font-face carry-forward, cache-bust versioning, and the accent-color/dark-mode decision.
+- **Three real bugs found and fixed, not just gaps filled:** (1) the original CSS's scroll-detection selectors were written for Quark 1's JS (`.scrolled` on `#header`) and would have silently never worked under Quark 2's JS (`.scrolled` on `<body>`); (2) Blades CSS has no global `box-sizing:border-box` reset the way Spectre did, which made percentage-width columns overflow and wrap instead of sitting side by side; (3) a full block of Team History CSS (the blockquote-as-table styling and the actual image/text-side-swap mechanism for year-modules) was missed during the `text.html.twig` port and only caught during the dedicated CSS audit.
+- **Two near-miss regressions self-caught before shipping:** `icon-menu`'s `text_align` hook and icon-only click target were accidentally dropped during a rewrite and restored after Brad set the ground rule that this migration should reproduce current behavior exactly, with any actual redesign left for the team to decide later, separately. `macros.html.twig` (nav) had never been overridden yet and was silently falling back to Quark 2's own stock version the whole session - a naive verbatim port would have deleted the CSS class the dropdown chevrons depend on.
+- **Tooling gotcha worth remembering:** `getComputedStyle()`/`getBoundingClientRect()` reads via the Browser tool's `javascript_exec` returned stale values after DOM mutations for most of this session, confirmed by a test where an inline `!important` style visibly worked in a screenshot while a JS read claimed nothing had changed. Screenshots only, going forward, for any visual verification.
+- **Decided (Brad):** accent color `#a80007` (449 red), pinned to light-only - no dark mode toggle exposed, though Quark 2's dark-mode CSS is left intact for the team to revisit later if wanted.
+- **Phase 3 (verify, still not public) not started.**
+
 ### 2026-07-22 — 🚀 LIVE: Phase 1 of the Mod Quark → Quark 2 migration plan — parallel copy stood up
 
 Full detail in `RUNBOOK.md`'s migration-plan section. Public robot.mbhs.edu is untouched throughout - everything below lives at `/srv/robot-grav-site-quark2` behind a loopback-only nginx vhost (`127.0.0.1:8081`, SSH-tunnel access only, never public), same pattern as the 1.7→2.0 core migration's test vhost.
