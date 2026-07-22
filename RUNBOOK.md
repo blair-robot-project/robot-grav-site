@@ -1,5 +1,5 @@
 # FRC Team 449 Website — Runbook
-*Last updated: 2026-07-19*
+*Last updated: 2026-07-22*
 
 Operational reference for the FRC 449 Grav site: environment facts, server housekeeping + security status, cautions/gotchas, and key file paths. For dated history of changes, see [CHANGELOG.md](CHANGELOG.md). For orientation, who's involved, and the doc to start a Claude Code session with, see [README.md](README.md).
 
@@ -139,28 +139,37 @@ The 1.7 to 2.0 migration (completed 2026-06-27) is done and its environment-spec
 
 ## Draft — Mod Quark -> Quark 2 migration plan (not started, come back to this)
 
-**Status: draft only, filed 2026-07-21. Nothing here has been executed - revisit when there is a between-events window, not mid-season.** Companion to the "Open decision" section above; this is the concrete parallel-build-then-cutover plan for whenever the team decides to act on it.
+**Status: draft only, filed 2026-07-21, Phase 0 done 2026-07-22. Nothing beyond Phase 0 has been executed - revisit when there is a between-events window, not mid-season.** This is the concrete parallel-build-then-cutover plan for whenever the team decides to act on it.
 
 **Strategy:** same pattern as the 1.7->2.0 core migration - parallel build, verify, then cut over. Never an in-place theme swap on live.
 
-### Phase 0 - Recon and backup (no live changes)
-- [ ] Confirm current Grav/admin2/API versions, take a full site backup first.
-- [ ] Inventory everything non-stock in Mod Quark: templates (`icon-menu`, `feature-images`, `gallery-draggable`, `gallery-banners`, `footer-col`), partials (`base`, `footer`, `lightbox`, `banners`, `logo`), `error.html.twig` overrides, all of `custom.css`, the `sponsors-data`/`banners-data` pages, the disabled BlairMdITC `@font-face` block.
+### Phase 0 - Recon and backup (no live changes) — done 2026-07-22
+- [x] Confirm current Grav/admin2/API versions, take a full site backup first. **Live:** Grav 2.0.12, Admin2 2.0.15, API 1.0.12, PHP 8.3.31. Backup `default_site_backup--20260722071456.zip` (367 MB) taken via the API plugin - 14th in the 14-count/5 GB-capped rotation (4.9 GB used, already at the policy ceiling); **not yet copied off-server**, unlike the general migration prerequisite above.
+- [x] Inventory everything non-stock in Mod Quark: templates (`icon-menu`, `feature-images`, `gallery-draggable`, `gallery-banners`, `footer-col`), partials (`base`, `footer`, `lightbox`, `logo`), `error.html.twig` overrides, all of `custom.css` (479 lines), the `announcements-data` page, the disabled BlairMdITC `@font-face` block (still present, still commented out, `custom.css:126-148`). **`sponsors-data` does not exist on live** - never carried over from staging, nothing to inventory there (see the note on the Architecture Reference entry above, which currently says otherwise and needs correcting). **Found but not previously documented anywhere** - confirmed genuinely modified by diffing against stock `quark`, not just present by name: `templates/modular/features.html.twig` (adds a `text_align` style hook), `templates/macros/macros.html.twig` (reworked nav - active-class handling + a `notclickable` non-link menu-item mode), `templates/forms/fields/radio/radio.html.twig` (fallback for a custom `tu` translation filter). Also: 16 stray `.bak-*` files scattered live inside `mod-quark/` (dated 06-15 through 07-02) - clutter worth knowing about when diffing against stock, left alone.
+
+**Quark 2 clarified (2026-07-22):** it's a real, separate GPM theme - [`getgrav/grav-theme-quark2`](https://github.com/getgrav/grav-theme-quark2), slug `quark2` - **not** a version bump of the `quark` package already on live (that one's still v2.1.4, Spectre-based, legacy, and is a red herring for this plan). `quark2` is currently **v1.1.6** (13 releases since 1.0.0 on 2026-04-15 - pin a specific version in Phase 1 rather than always-latest, and re-check right before Phase 1 actually starts). Its README confirms the plan's assumptions below were right all along: Blades CSS (Pico's maintained successor, `--pico-*`/`--q2-*` custom properties), Font Awesome 7, Cal Sans/Inter fonts, sticky/animated header, and a built-in accent-color + auto/light/dark mode option. Comparing its stock `templates`/`blueprints` against the Mod Quark inventory above:
+  - No stock equivalent at all (fully custom, as already assumed below): `icon-menu`, `feature-images`, `gallery-draggable`, `gallery-banners`, `lightbox`, `announcements`. (`quark2` does ship its own `modular/gallery.html.twig`, but per its README that only works with the premium Lightbox Gallery plugin, so it's no help here.)
+  - Stock exists to re-diff against: `features.html.twig`, `base.html.twig`, `logo.html.twig`, `footer.html.twig`, `text.html.twig`.
+  - **Possible scope reductions - check before porting:** `text.html.twig`'s `image_align` behavior may already ship natively in `quark2` (could drop our override entirely); `logo.html.twig` may not need a template fork at all - `quark2` documents `custom_logo`/`custom_logo_mobile` YAML options that might cover the 449 wordmark + wrenchman directly.
+  - Optional, not required: `quark2` recommends the `github-markdown-alerts` plugin over the currently-installed `markdown-notices`. It also ships its own `quark2.php` (registers Twig helper functions), worth a look alongside `mod-quark.php`.
 
 ### Phase 1 - Stand up the parallel copy
 - [ ] `sudo cp -a` live to a parallel path, loopback-only test vhost (SSH tunnel only, never public) - same as the 2.0 core migration.
-- [ ] Install Quark 2 via GPM on the copy only.
+- [ ] Install Quark 2 via GPM on the copy only (`bin/gpm install quark2` - separate package from `quark`, installs to `user/themes/quark2/`; confirmed not present anywhere yet, including live). Pin to a specific release (currently 1.1.6) rather than always-latest.
 - [ ] New child theme `user/themes/mod-quark-2/` inheriting Quark 2, same inheritance pattern Mod Quark uses today for Quark 1.
 - [ ] Point the copy's `pages.theme` at `mod-quark-2` and confirm it renders as stock Quark 2 before porting anything.
 
 ### Phase 2 - Port each piece, one at a time
 - [ ] `icon-menu` - Font Awesome 7 icon-name check, base-path-safe links.
 - [ ] `feature-images` - grid/lightbox markup re-based on Quark 2 classes; `page.media` logic is theme-agnostic, should port cleanly.
-- [ ] `gallery-draggable` / `gallery-banners` - the admin2 `list`-field drag-reorder logic is independent of the theme; only front-end grid CSS needs re-basing.
-- [ ] `footer-col`, footer partial and `/footer` page - check whether Quark 2 ships its own configurable footer before assuming we still need ours.
-- [ ] Banners partial and `banners-data` - restyle per-entry colors as Blades variables if we want them to respect dark mode.
-- [ ] `logo.html.twig` (449 wordmark + wrenchman SVG) - re-check against Quark 2's sticky/animated header.
+- [ ] `gallery-draggable` / `gallery-banners` - the admin2 `list`-field drag-reorder logic is independent of the theme; only front-end grid CSS needs re-basing. (`quark2`'s own gallery template is premium-plugin-gated, not usable as a base.)
+- [ ] `footer-col`, footer partial and `/footer` page - `quark2` does ship its own `partials/footer.html.twig` (confirmed 2026-07-22); evaluate whether it covers what ours does before assuming we still need the custom version.
+- [ ] `announcements` partial + `announcements-data` page (renamed from `banners`/`banners-data` on 2026-07-19, before this plan was even filed - the wording below was already stale) - restyle per-entry colors as Blades/`--q2-*` variables if we want them to respect dark mode. `sponsors-data` doesn't exist on live - drop this unless it lands before the migration starts.
+- [ ] `logo.html.twig` (449 wordmark + wrenchman SVG) - re-check against Quark 2's sticky/animated header; also check `quark2`'s documented `custom_logo`/`custom_logo_mobile` option first, since a template fork may not be necessary at all.
 - [ ] `error.html.twig` - re-derive the spacing fixes against Quark 2's own error template/variables rather than copying the old Quark-1/Spectre-specific overrides verbatim.
+- [ ] `base.html.twig` - the most heavily-modified file in the theme (4 separate `.bak-*` snapshots, more than anything else) and the root layout shell (nav/header/footer wiring). Missing from the original draft of this checklist; needs its own explicit re-basing against `quark2`'s `base.html.twig`, not just whatever falls out of the CSS audit below.
+- [ ] `features.html.twig`, `macros.html.twig` (nav), `templates/forms/fields/radio/radio.html.twig` - small but real customizations found in the 2026-07-22 Phase 0 inventory, missed by the original draft of this checklist; re-diff each against `quark2`'s stock versions.
+- [ ] `text.html.twig` - check whether `quark2`'s native `image_align` option (documented in its README) already covers what our override does before porting the override at all.
 - [ ] Full `custom.css` audit, rule by rule: delete what Quark 2 already handles, convert what can become a `--pico-*`/Blades variable override, keep only what's genuinely bespoke (`.navbar-449`, gallery caption centering, etc).
 - [ ] Carry the disabled BlairMdITC `@font-face` block forward as-is - still license-gated.
 - [ ] Confirm the `?v=NN` cache-bust mechanism still applies the same way under Quark 2's asset pipeline.
@@ -182,13 +191,13 @@ The 1.7 to 2.0 migration (completed 2026-06-27) is done and its environment-spec
 
 ### Phase 5 - Soak and cleanup
 - [ ] Keep the Quark-1 archive about 1 week before removing anything.
-- [ ] Update this doc's Key File Paths / Architecture reference for the new theme.
-- [ ] Close out the "Open decision" section above and log the outcome in CHANGELOG.
+- [ ] Update this doc's Key File Paths / Architecture reference for the new theme, including correcting the `sponsors-data` line (currently describes it as present; verified absent from live 2026-07-22, see Phase 0 above).
+- [ ] Log the final outcome (shipped / abandoned / deferred) in CHANGELOG.md and Changes.md.
 - [ ] Retire the old `mod-quark` and Quark 1 parent theme directories.
 
 **Rollback:** the Phase 4 directory swap makes rollback a one-line `mv` back to the archived Quark-1 tree - same as every other cutover on this site.
 
-**Effort:** closer in scope to the Grav 2.0 core migration than a routine CSS tweak - five templates plus a full `custom.css` audit. Plan for a between-events window, not mid-season.
+**Effort:** closer in scope to the Grav 2.0 core migration than a routine CSS tweak - a dozen-plus templates/partials (full corrected list in the Phase 0 findings above) plus a full `custom.css` audit. Plan for a between-events window, not mid-season.
 
 ---
 

@@ -1,11 +1,22 @@
 # FRC Team 449 Website — Changelog
-*Last updated: 2026-07-19 · rev 2026-07-19b*
+*Last updated: 2026-07-22*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu) or 🟢 **STAGING** (449.navybook.com) — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-22 — 🚀 LIVE: Phase 0 recon for the Mod Quark → Quark 2 migration plan
+
+No theme/template changes - recon and one backup only, per the plan's own "no live changes" scope for this phase. Full findings in `RUNBOOK.md`'s migration-plan section.
+
+- **Versions confirmed:** Grav 2.0.12, Admin2 2.0.15, API 1.0.12, PHP 8.3.31. The parent `quark` theme already on live is v2.1.4 (Spectre-based, GPM-latest, inactive) - a completely different package from Quark 2, see below.
+- **Backup:** `default_site_backup--20260722071456.zip` (367 MB) via the API plugin - 14th in the 14-count/5 GB-capped rotation (4.9 GB used, already at the policy ceiling). Not yet copied off-server.
+- **Inventory:** confirmed everything the draft plan already listed, plus three previously-undocumented customizations found by diffing against stock `quark` - `features.html.twig` (text-align hook), `macros.html.twig` (reworked nav, adds a `notclickable` mode), `templates/forms/fields/radio/radio.html.twig` (fallback for a custom `tu` filter). Also found 16 stray `.bak-*` files scattered live inside `mod-quark/`.
+- **Corrected the draft plan's stale terminology:** it referred to `banners`/`banners-data`, written without accounting for the 2026-07-19 rename to `announcements`/`announcements-data` (see entries below) despite being filed two days later. Also confirmed `sponsors-data` doesn't exist on live at all - contradicts this file's own Architecture Reference line claiming it does; flagged in RUNBOOK.md, not yet resolved.
+- **Resolved what "Quark 2" actually is:** confirmed via [`getgrav/grav-theme-quark2`](https://github.com/getgrav/grav-theme-quark2) on GitHub - a real, separate GPM theme (slug `quark2`), not a version bump of the `quark` package already on live. Currently v1.1.6. Pulled its template/blueprint structure and found a couple of likely scope reductions (native `image_align`, a documented `custom_logo` option) and one real gap in the draft plan (`base.html.twig` - the most-modified file in the theme - wasn't named in the port checklist at all).
+- **RUNBOOK.md updated** with all of the above under the Phase 0 checklist; both Phase 0 boxes checked off.
+
 ### 2026-07-19 — 🚀 LIVE: ported the banners→announcements rename from staging
 
 Same rename as the staging entry directly below, ported to robot.mbhs.edu same day.
