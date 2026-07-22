@@ -1,5 +1,5 @@
 # FRC 449 Website — Teammate Instruction Manual
-*Last updated: 2026-07-19 · Version 2.4*
+*Last updated: 2026-07-22 · Version 2.5*
 
 The site gets a full automatic backup every night, and traffic is low enough that a mistake is easy to fix and low-stakes. Just be reasonably careful, and use the nightly backup as your safety net.
 
@@ -51,7 +51,7 @@ The Content box uses **Markdown**:
 You can also use HTML for effects Markdown can't do easily.
 
 **Leaving notes for other editors:** type `[//]: # (your note here)` in the Content box. It shows for editors but never appears on the public page. 
-> Each new folder, page, and module starts with a `[//]: # CommentsGoHere` in the Content box; use that to leave helpful documentation.
+> Each new folder, page, and module starts with a `[//]: # (CommentsGoHere)` in the Content box (parentheses required — that's what makes it a hidden comment rather than visible text); use that to leave helpful documentation.
 
 **Editing frontmatter (advanced settings):** every module/page has a **Normal / Expert** toggle in the top bar. Normal shows the friendly form; **Expert shows the raw settings file directly, and you can edit it there** — this is how you change things like hero images, gallery order, and menu item lists without needing SSH. Be careful in Expert mode: it's real file content, and a typo can break the page. If you're not sure, ask a Power User first.
 
@@ -69,7 +69,7 @@ To create one or more rows of four images on a page, create a module with type _
 ## 4. Creating a page or module
 
 1. On the **[Pages](https://robot.mbhs.edu/admin/pages)** page, click **Add** and choose **Page**, **Folder**, or **Module**.
-2. Give it a title and pick a **template** from the dropdown — for a module, this list shows every module type our theme already supports (Text, Hero, Icon-menu, Feature-images, Gallery-draggable, Footer-col, and a few unused stock ones).
+2. Give it a title and pick a **template** from the dropdown — for a module, this list shows every module type our theme already supports (Text, Hero, Icon-menu, Feature-images, Gallery-draggable, Gallery-banners, Footer-col, and a few unused stock ones).
 3. Set its position under **Order** (or drag it into place in the Pages list).
 4. Click **Continue**, then add your Content, Save.
 
@@ -216,7 +216,7 @@ Adding another instance of an *existing* template (Text, Hero, Icon-menu, etc.) 
 4. Edit the `.yaml` blueprint's fields to match whatever settings your new template actually needs.
 5. Clear the cache. Test by adding a module of your new type via the admin (Part 1, §4) — it should now appear in the template dropdown.
 
-**If what you actually need is an admin-editable *list* of things (not a one-off module)** — like the announcements in §5 — a plain module isn't the right shape. The working pattern instead is a single hidden page with a repeating **list** field in its blueprint (`type: list`), the same way `announcements-data` and `sponsors-data` work: fully editable through the normal Pages UI, no new module type needed. Note that the admin's list-field rows have no built-in way to color-code by a field value or combine multiple fields into the collapsed summary — the summary is always just "whatever's in the first text field" — so if you want a specific field visible at a glance, put it in that first field directly (as §5 does with dates in the title).
+**If what you actually need is an admin-editable *list* of things (not a one-off module)** — like the announcements in §5 — a plain module isn't the right shape. The working pattern instead is a single hidden page with a repeating **list** field in its blueprint (`type: list`), the same way `announcements-data` works: fully editable through the normal Pages UI, no new module type needed. (A similar `sponsors-data` list exists on the staging site but hasn't shipped to live yet — don't go looking for it here.) Note that the admin's list-field rows have no built-in way to color-code by a field value or combine multiple fields into the collapsed summary — the summary is always just "whatever's in the first text field" — so if you want a specific field visible at a glance, put it in that first field directly (as §5 does with dates in the title).
 
 ## 11. CSS & asset conventions (important quirks)
 
@@ -240,7 +240,7 @@ Any path that hardcodes the **domain** or a **folder number** can break if a fol
 Our theme **Mod Quark** (`user/themes/mod-quark/`) is a **custom child of Quark** (`user/themes/quark/`). Key differences:
 
 - **It is hand-managed, NOT installed through Grav's package manager.** **Do not run `bin/gpm update` on it** — manage it manually via SSH / the team GitHub repo.
-- **Custom module types: `icon-menu` and `feature-images`.** Quark's stock `features` (a grid of Font-Awesome icons) is customized and **renamed `icon-menu`** in our theme (its links were patched to be base-path-safe). We also added **`feature-images`** — the same idea but with **photos** (Sponsors, Mentors, Robots, etc.); its image resolution uses Grav page media so it survives folder renumbering.
+- **Five custom module types: `icon-menu`, `feature-images`, `gallery-draggable`, `gallery-banners`, `footer-col`** — see the Appendix for what each does. Quark's stock `features` (a grid of Font-Awesome icons) is customized and **renamed `icon-menu`** in our theme (its links were patched to be base-path-safe). `feature-images` is the same idea but with **photos** (Sponsors, Mentors, Robots, etc.); its image resolution uses Grav page media so it survives folder renumbering.
 - **Custom `base.html.twig`.** Our base template is a full override of Quark's, with our own header markup, our `custom.css` include (with the `?v=` cache-bust), and our own asset handling.
 - **The footer is a custom partial + an editable page.** Stock Quark's footer is a throwaway credit line. Ours is `partials/footer.html.twig` (structure + logo) that pulls its content from a hidden, admin-editable `/footer` page.
 - **The site-wide announcement bar is a partial, not a module.** `partials/announcements.html.twig` is included once from `base.html.twig` and reads from a hidden `announcements-data` page — see §5 and §10.
