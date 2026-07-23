@@ -6,6 +6,16 @@ Reverse-chronological record of notable changes to the site — theme, templates
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-23 — 🚀 LIVE: Built an automated live-vs-Quark2 comparison tool, found and fixed 5 more regressions with it
+
+Full detail in `RUNBOOK.md`. Brad asked for a way to automate the manual screenshot-comparison we'd been doing by hand - built a Playwright script (`~/449-quark2-compare/compare.js`) running on his always-on Air, reusing its already-installed Playwright rather than a fresh install. Reaches the test copy over Tailscale via an additive second bind on the existing SSH tunnel (no new credentials on the droplet). Checks 18 pages × 2 viewports against a checklist of signature selectors and outputs a diff report - this is what actually found everything below, after manual eyeballing had already missed all of it once.
+
+- **Fixed: active nav link (current page) was a lighter font-weight (600 vs 700)** - invisible on the homepage since nothing's "active" there, only surfaced once the tool checked pages with a highlighted nav item.
+- **Discovered live's root font-size is fluid** (`calc(16px + ...)` between 480-1280px viewports, not a fixed 20px) - the earlier nav/pill fixes were only correct at the one desktop width they were measured at. Redid both as `clamp()` formulas verified against both mobile and desktop data points.
+- **Fixed: icon-menu/Sponsors column padding** was hardcoded at 20px; live's is also fluid (1rem of the same responsive root) - and it turns out to come from **Quark 1's own stock theme**, not Mod Quark's custom.css, which is why Phase 2's audit never caught it.
+- **Fixed: icon-menu/Sponsors columns were 14-23% too wide** - live wraps them in a narrower Spectre container (`max-width:976px`) the port never replicated (Blades' equivalent caps at 1200px), and live's outer `.section` wrapper carries a universal padding inset from Quark 1's stock theme that Quark 2 has no equivalent of at all (likely affects other modules too, not audited beyond icon-menu/Sponsors here).
+- **Result:** re-verified across all 18 pages × 2 viewports - nav and the announcement pill match exactly everywhere now; icon-menu/Sponsors width is within <1px of live (sub-pixel) at desktop and exact at mobile. Only remaining diff anywhere is the already-known H1 position residual.
+
 ### 2026-07-23 — 🚀 LIVE: Two more Quark 2 regressions found and fixed — leftover card styling and a footer text-color bug
 
 Still on the isolated test copy, loopback-only, never public. Full detail in `RUNBOOK.md`. Found via the same side-by-side comparison as the icon-menu/Sponsors grid bug below, right after fixing it.
