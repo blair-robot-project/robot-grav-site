@@ -6,6 +6,14 @@ Reverse-chronological record of notable changes to the site — theme, templates
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-23 — 🚀 LIVE: Fifth Quark 2 regression found and fixed — icon-menu/Sponsors grid, a silent CSS parse bug from Phase 2
+
+Still on the isolated test copy, loopback-only, never public. Full detail in `RUNBOOK.md`. Brad caught this by eye, comparing live and the test copy side by side at the same screen size - it wasn't caught by any curl sweep or computed-style check because the page never errored, it just silently rendered with the wrong (but valid-looking) grid layout.
+
+- **Root cause: one `*/` too many, inside a comment, not a real CSS bug.** A Phase 2 comment above the icon-menu/Sponsors grid-fix rule contained the literal text `col-*/col-md-*/col-sm-*` - and that `*/` closed the CSS comment early, mid-sentence. Everything between that accidental closer and the real one got swallowed into one giant invalid selector, silently dropping the *entire* rule underneath it (properties included) - so Quark 2's own stock `display: grid` won by default with nothing to override it, instead of the intended `display: flex` grid restoring Mod Quark's original look.
+- **Confirmed properly, not guessed:** checked the browser's own parsed `document.styleSheets` - the rule was completely absent from the parsed stylesheet, not just losing a cascade fight. That's what pointed straight at a parse error rather than a specificity/override issue.
+- **Fixed:** reworded the comment (commas instead of slashes: `col-*, col-md-*, col-sm-*`), bumped `custom.css?v=13` → `?v=14`. Verified via computed styles - columns are now exact 33.3%/25% of their container, matching live. Re-checked the whole file's comment-marker balance (25 `/*`, 25 `*/`) to rule out another instance of the same mistake.
+
 ### 2026-07-23 — 🚀 LIVE: Phase 3 of the Mod Quark → Quark 2 migration plan complete — nav/hero typography fixed, mobile overlap resolved
 
 Still on the isolated test copy (`/srv/robot-grav-site-quark2`, loopback-only, never public). Full detail in `RUNBOOK.md`'s migration-plan section - this entry is the short version. Closes out the deferred item from yesterday's Phase 3 sweep.
