@@ -1,5 +1,5 @@
 # FRC Team 449 Website — Runbook
-*Last updated: 2026-07-22*
+*Last updated: 2026-07-23*
 
 Operational reference for the FRC 449 Grav site: environment facts, server housekeeping + security status, cautions/gotchas, and key file paths. For dated history of changes, see [CHANGELOG.md](CHANGELOG.md). For orientation, who's involved, and the doc to start a Claude Code session with, see [README.md](README.md).
 
@@ -280,6 +280,11 @@ The 1.7 to 2.0 migration (completed 2026-06-27) is done and its environment-spec
 | Page content | `user/pages/` |
 | Grav CLI / package manager | `bin/grav`, `bin/gpm` (run as grav: `sudo -u grav php bin/grav ...`) |
 | Cache-bust version | `?v=NN` in `templates/partials/base.html.twig` |
+| Activity log script (nightly diff → `ACTIVITY.md`) | `/srv/scripts/activity-log.sh` (cron: `brad`, `15 3 * * *` UTC) |
+| Activity log output | `/srv/scripts/activity-log.log` |
+| Activity log shadow copies (diff baseline) | `/srv/.activity-shadow/` |
+| Docs-repo clone (pushes `ACTIVITY.md` to this repo) | `/srv/robot-grav-site-docs/` |
+| Docs-repo deploy key | `~brad/.ssh/robot_grav_site_docs_deploy` (SSH config alias `github-robot-grav-site-docs`) |
 | PHP config (live) | `/etc/php/8.3/fpm/php.ini` |
 | nginx config (live) | `/etc/nginx/sites-available/grav` |
 
