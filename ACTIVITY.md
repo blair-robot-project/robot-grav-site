@@ -17,3 +17,39 @@ Format:
 ```
 
 Nights with no changes get no entry — this file only grows when something actually changed.
+
+### 2026-07-23
+
+```diff
+
+user/pages
+Only in /srv/robot-grav-site/user/pages: 01.home
+Only in /srv/robot-grav-site/user/pages: 02.about-us
+Only in /srv/robot-grav-site/user/pages: 03.community
+Only in /srv/robot-grav-site/user/pages: 04.bunnybots
+Only in /srv/robot-grav-site/user/pages: 05.resources
+Only in /srv/robot-grav-site/user/pages: 05.sponsor-information
+Only in /srv/robot-grav-site/user/pages: 06.build-blog
+Only in /srv/robot-grav-site/user/pages: 07.newsletter
+Only in /srv/robot-grav-site/user/pages: 08.join-us
+Only in /srv/robot-grav-site/user/pages: 09.announcements-data
+Only in /srv/robot-grav-site/user/pages: 10.footer
+Only in /srv/robot-grav-site/user/pages: 11.error
+Only in /srv/robot-grav-site/user/pages: 12.media
+Only in /srv/robot-grav-site/user/pages: 13.images
+Only in /srv/robot-grav-site/user/pages: bumperheader.jpg
+
+user/themes/mod-quark
+Only in /srv/robot-grav-site/user/themes/mod-quark: CHANGELOG.md
+Only in /srv/robot-grav-site/user/themes/mod-quark: LICENSE
+Only in /srv/robot-grav-site/user/themes/mod-quark: README.md
+Only in /srv/robot-grav-site/user/themes/mod-quark: blueprints
+Only in /srv/robot-grav-site/user/themes/mod-quark: blueprints.yaml
+Only in /srv/robot-grav-site/user/themes/mod-quark: css
+Only in /srv/robot-grav-site/user/themes/mod-quark: images
+Only in /srv/robot-grav-site/user/themes/mod-quark: mod-quark.php
+Only in /srv/robot-grav-site/user/themes/mod-quark: mod-quark.yaml
+Only in /srv/robot-grav-site/user/themes/mod-quark: screenshot.jpg
+Only in /srv/robot-grav-site/user/themes/mod-quark: templates
+Only in /srv/robot-grav-site/user/themes/mod-quark: thumbnail.jpg
+```
