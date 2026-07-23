@@ -68,3 +68,18 @@ diff -ru /srv/.activity-shadow/user/themes/mod-quark/css/custom.css /srv/robot-g
  }
 +/* activity-log.sh test edit 2026-07-23, safe to remove */
 ```
+
+### 2026-07-23
+
+```diff
+
+user/themes/mod-quark
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/css/custom.css /srv/robot-grav-site/user/themes/mod-quark/css/custom.css
+--- /srv/.activity-shadow/user/themes/mod-quark/css/custom.css	2026-07-23 18:24:10.416122764 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/css/custom.css	2026-07-23 18:24:22.888609195 +0000
+@@ -498,4 +498,3 @@
+ .year-index p a:hover {
+     text-decoration: underline;
+ }
+-/* activity-log.sh test edit 2026-07-23, safe to remove */
+```
