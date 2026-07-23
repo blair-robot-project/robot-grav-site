@@ -139,7 +139,7 @@ The 1.7 to 2.0 migration (completed 2026-06-27) is done and its environment-spec
 
 ## Draft — Mod Quark -> Quark 2 migration plan (not started, come back to this)
 
-**Status: filed 2026-07-21, Phases 0-2 done 2026-07-22 (parallel copy stood up, Quark 2 installed, every custom piece ported, full CSS audit complete, accent-color/light-mode decided). Phase 3 (verify) not yet started.** This is the concrete parallel-build-then-cutover plan for whenever the team decides to act on it.
+**Status: filed 2026-07-21, Phases 0-2 done 2026-07-22. Phase 3 (verify) substantially underway 2026-07-22/23** - admin2 pass, gallery drag-reorder retest, and a live-vs-copy screenshot comparison are done, surfacing 2 real regressions (both fixed and verified), 2 pre-existing admin2 bugs unrelated to the migration, and a nav/hero base-typography gap deferred to its own pass. Still open: full `curl` sweep of every page, broader image-bearing-page eyeball pass, mobile screenshot comparison. Phase 4 (cutover) not started. This is the concrete parallel-build-then-cutover plan for whenever the team decides to act on it.
 
 **Read this before touching Phase 3+:**
 - **The test copy's ownership is `brad:editor`, not `grav:editor`.** Deliberate, for Phase 1/2 iteration speed (no sudo per file edit) - but admin2 (PHP-FPM, running as `grav`) needs write access for Phase 3's save-test pass. Flip back with `sudo chown -R grav:editor /srv/robot-grav-site-quark2` before starting Phase 3, and re-apply the `chmod -R g+w` on `cache/logs/tmp/images/assets/user/{accounts,data,config,pages}` afterward if ownership ever moves again - Grav's Problems plugin will show a "not writeable" diagnostic page instead of the site if this is missed (cost real time twice this session).
@@ -189,10 +189,36 @@ The 1.7 to 2.0 migration (completed 2026-06-27) is done and its environment-spec
 ### Phase 3 - Verify (still not public)
 - [ ] `curl` sweep of every page, not just the homepage.
 - [ ] Eyeball image-bearing pages, not just status codes (bit us once already during the 2.0 core migration).
-- [ ] Admin2 pass: sign in, edit one page of each custom module type, confirm Save and content-seed still work.
-- [ ] Re-test gallery drag-reorder.
-- [ ] `grav.log` clean.
-- [ ] Screenshot comparison vs current live, desktop and mobile.
+- [x] Admin2 pass: sign in, edit one page of each custom module type, confirm Save and content-seed still work. **4 of 5 clean** (`icon-menu`, `feature-images`, `gallery-draggable`, `text`/`hero` all edit+save+revert cleanly). `gallery-banners`' drag-to-reorder (the Banners-tab list field) doesn't work - but confirmed **also broken on live**, unmodified, so it's a pre-existing admin2 bug, not a migration regression. Out of scope here.
+- [x] Re-test gallery drag-reorder. Confirmed working (native admin2 Page Media "Reorder" control on `gallery-draggable`, per the retirement note above).
+- [x] `grav.log` clean - no new errors from today's edits. The log **does** contain a handful of `grav.CRITICAL` "syntax error... expecting ']'" entries, but they're all byte-identical to entries in **live's own** `grav.log` at the same timestamps (2026-07-15, 07-18, and 07-22T13:38:28 - all predating or coinciding with the Phase 1 `cp -a`, which copies `logs/` along with everything else). Inherited historical log content, not anything new. Separately worth knowing: this looks like a real, recurring, low-grade **live** issue (a compiled language-cache file occasionally getting corrupted/truncated - garbled fragments like `PAG`/`се`/`REN` mid-file, classic concurrent-write corruption) - self-heals on next request, unrelated to Quark 2, not investigated further here.
+- [x] Screenshot comparison vs current live, desktop - **2 real regressions found and fixed**, 1 item deferred:
+  1. **Fixed: `header-dark` missing from the `body_class()` whitelist in `mod-quark-2/templates/partials/base.html.twig` line 1.** Live's array has 5 entries (`header-fixed, header-animated, header-dark, header-transparent, sticky-footer`); the port had only 4. Restored to match.
+  2. **Fixed: `#header` used Quark 2's native `position: sticky` instead of Mod Quark's `position: fixed`**, breaking the "hero renders full-bleed behind the transparent header" effect (this exact fixed-header/hero interaction is already flagged as fragile on this site - see the Banners-feature lessons-learned entry on manual top-offsets). Sticky reserves its own space in flow, pushing the hero down instead of letting it start at y=0 behind the header. Fix - scoped override in `mod-quark-2/css/custom.css` (bumped `?v=11` → `?v=12`):
+     ```css
+     body.header-transparent #header {
+       position: fixed;
+       left: 0;
+       right: 0;
+     }
+     ```
+     Scoped to `.header-transparent` only, so every normal (non-hero) page keeps Quark 2's sticky default untouched. Verified both states match live exactly: transparent/white-text at page load (hero photo visible through the header), solid 449-red with compact nav (Quark 2's own `.scrolled` min-height rule) once scrolled.
+  3. **Open, deferred - nav + hero base typography not yet reconciled.** Phase 2's CSS audit covered custom components/colors, not Quark 2's own native nav/hero rules. Measured side-by-side at a 1175px viewport (computed styles, live vs test copy):
+
+     | Property | Live (Spectre) | Test copy (Blades/Quark 2) |
+     |---|---|---|
+     | Root font-size | ~20px (`html{font-size:20px}`) | 16px (Pico's `--pico-font-size` default, never overridden) |
+     | Nav link font-size | 13.6px | 15px |
+     | Nav link font-weight | 700 | 500 |
+     | Nav link spacing | padding `7px 30px 7px 20px` (50px combined) | `gap:20px` + padding `8px 15px` (30px combined) |
+     | Hero vertical padding → H1 position | H1 @ 305px from top | H1 @ 141px from top (164px shallower) |
+
+     Checked but **not actually different** (screenshot-scale illusion, not a real gap): announcement-pill padding (10.1×21.8px vs 10.4×22.4px) and H1 font-size (50px both). Root-font-size alone doesn't explain the nav weight/padding-scheme difference (500 vs 700 isn't a rem-scaling artifact) - this needs a property-by-property override of Quark 2's native nav/hero rules to match the measured live values above, not one blanket fix. Deferred to its own pass, not done same-session as the rest of Phase 3.
+- [ ] Screenshot comparison vs current live, mobile - not yet done.
+
+**Unrelated pre-existing bug found, confirmed NOT a migration issue (present on unmodified live too):** admin2's own Page Media preview thumbnails don't render in the page editor (e.g. `/admin/pages/edit/home/_gallery` - broken-image icons instead of thumbnails). Verified the actual files exist on disk with correct `grav:editor` permissions, nginx isn't blocking them, disk space is fine (6.4G free), GD/Imagick both loaded, nothing image-related in `grav.log`. **The public site is completely unaffected** - the real front-end image URL (`/images/.../hash-filename.jpeg`) returns a valid 200 with real image bytes. Admin2's own internal preview mechanism only, cosmetic, not blocking anything. Initially suspected `custom_base_url` (below) but that's disproven - live has the identical broken thumbnails with `custom_base_url` pointed correctly at its own domain, so that config was never the cause.
+
+**Test-copy-only config change (not a fix for the above, kept anyway):** `system.yaml`'s `custom_base_url: 'https://robot.mbhs.edu'` was commented out on the test copy only (`/srv/robot-grav-site-quark2/user/config/system.yaml`, backup alongside as `system.yaml.bak-quark2test`) since it's more correct for a non-standard loopback-origin test environment regardless of the thumbnail investigation's outcome. Live's own `system.yaml` is untouched. Revert if ever needed for byte-parity with live's config.
 
 ### Phase 4 - Cutover
 - [ ] Low-traffic overnight window, fresh backup first.

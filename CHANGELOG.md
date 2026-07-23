@@ -6,6 +6,16 @@ Reverse-chronological record of notable changes to the site — theme, templates
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-22 — 🚀 LIVE: Phase 3 of the Mod Quark → Quark 2 migration plan — verification underway, 2 regressions fixed
+
+Still on the isolated test copy (`/srv/robot-grav-site-quark2`, loopback-only, never public). Full detail in `RUNBOOK.md`'s migration-plan section - this entry is the short version.
+
+- **Admin2 pass + gallery drag-reorder retest done:** 4 of 5 custom module types (`icon-menu`, `feature-images`, `gallery-draggable`, `text`/`hero`) edit+save+revert cleanly; `gallery-draggable`'s native reorder confirmed working. `gallery-banners`' drag-reorder doesn't work, but confirmed also broken on unmodified live - pre-existing, not a migration bug.
+- **Two real regressions found via live-vs-copy screenshot comparison, both fixed and verified:** (1) `header-dark` was missing from the `body_class()` whitelist in the ported `base.html.twig`, restored to match live's 5-entry array; (2) `#header` used Quark 2's native `position: sticky` instead of Mod Quark's `position: fixed`, which broke the "hero renders full-bleed behind the transparent header" effect entirely - fixed with a scoped `body.header-transparent #header { position: fixed; }` override in `custom.css` (bumped to `?v=12`) so every non-hero page keeps Quark 2's sticky default. Verified both the transparent-at-top and solid-red-on-scroll states now match live exactly.
+- **Nav + hero base typography measured, found genuinely different, fix deferred to its own pass:** nav link font-weight (700 on live vs 500 on Quark 2's stock), nav spacing mechanism (padding-based on live vs flex-gap on Quark 2), and hero vertical padding (H1 sits 164px higher on the test copy). None of this was touched by Phase 2's CSS audit, which focused on custom components, not the base theme's own nav/hero rules. Root font-size also differs (20px live vs 16px Quark 2 default) but doesn't explain the weight/spacing gaps by itself.
+- **Unrelated pre-existing bug found, confirmed NOT caused by the migration:** admin2's own Page Media preview thumbnails don't render in the page editor - confirmed identically broken on unmodified live, public site completely unaffected (real front-end image URLs verified 200 with real bytes). Cosmetic admin2-only issue, not investigated further.
+- **Phase 3 still open:** full `curl` sweep of every page, broader image-page eyeball pass, mobile screenshot comparison, and the nav/hero typography fix above.
+
 ### 2026-07-22 — 🚀 LIVE: Phase 2 of the Mod Quark → Quark 2 migration plan — every custom piece ported
 
 All work on the isolated test copy (`/srv/robot-grav-site-quark2`, loopback-only). Public robot.mbhs.edu untouched. Full detail in `RUNBOOK.md`'s migration-plan section - this entry is the short version.
