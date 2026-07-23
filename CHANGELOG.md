@@ -1,11 +1,20 @@
 # FRC Team 449 Website — Changelog
-*Last updated: 2026-07-22*
+*Last updated: 2026-07-23*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu) or 🟢 **STAGING** (449.navybook.com) — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-23 — 🚀 LIVE: Phase 3 of the Mod Quark → Quark 2 migration plan complete — nav/hero typography fixed, mobile overlap resolved
+
+Still on the isolated test copy (`/srv/robot-grav-site-quark2`, loopback-only, never public). Full detail in `RUNBOOK.md`'s migration-plan section - this entry is the short version. Closes out the deferred item from yesterday's Phase 3 sweep.
+
+- **Nav link typography fixed to match live exactly:** font-size 15px→13.6px, font-weight 500→700, spacing changed from Quark 2's gap-based mechanism to live's padding-only mechanism (`7px 30px 7px 20px`, gap zeroed). All in absolute `px`, not `rem`, sidestepping the 16px-vs-20px root-font-size difference between the two themes entirely.
+- **Hero content centering fixed - the real root cause, not a padding tweak:** live's Spectre hero is `display:flex; flex-direction:column; align-items:center; justify-content:center` inside a full-viewport-height box, vertically centering its content. Quark 2's own `.hero` rule had no flex/centering properties at all - just `padding-block` - so content just hugged the top instead. Restored the actual mechanism rather than guessing a magic padding number; verified the H1 now lands within 18px of live's measured position (residual is live's own H1 margin-top that Quark 2's h1 rule doesn't set - visually negligible).
+- **This same fix resolved the mobile banner/title overlap for free** - it was the identical root cause (un-centered hero content sitting too high, colliding with the announcement banner's fixed position) rather than a separate bug needing its own fix.
+- **Phase 3 checklist is now fully complete.** Next step is Phase 4 (cutover), whenever the team schedules the window.
+
 ### 2026-07-22 — 🚀 LIVE: Phase 3 of the Mod Quark → Quark 2 migration plan — full verify checklist worked through, 2 regressions fixed, 1 more found
 
 Still on the isolated test copy (`/srv/robot-grav-site-quark2`, loopback-only, never public). Full detail in `RUNBOOK.md`'s migration-plan section - this entry is the short version.
