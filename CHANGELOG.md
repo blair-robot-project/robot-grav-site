@@ -6,6 +6,14 @@ Reverse-chronological record of notable changes to the site — theme, templates
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-23 — 🚀 LIVE: Two more Quark 2 regressions found and fixed — leftover card styling and a footer text-color bug
+
+Still on the isolated test copy, loopback-only, never public. Full detail in `RUNBOOK.md`. Found via the same side-by-side comparison as the icon-menu/Sponsors grid bug below, right after fixing it.
+
+- **Fixed: icon-menu/Sponsors columns still looked like cards** (visible border-ish shadow, white background, extra padding) even after the grid mechanism was fixed. Quark 2's own `.modular-features .column` rule carries `box-shadow`, `background`, and `1.5rem 1.25rem` padding for its native card look - Phase 2's audit fixed the layout (flex vs grid) but never stripped this, since it wasn't visible until the columns actually sat side by side correctly. Added `box-shadow: none; background: transparent;` and a full `padding: 0 0.4rem` reset.
+- **Fixed: footer text was rendering dark gray instead of white** - looked blank against the dark red footer background in a screenshot, though the content and background were both actually fine. Blades' base CSS sets `color` directly on every `<td>`/`<th>`, which beats an inherited color from the footer regardless of specificity, since a direct property always wins over inheritance. Added an explicit `color: #fff` to `.footer-cell`.
+- Both bumped `custom.css?v=14` → `?v=15`, confirmed via computed styles after the fix, not just by re-reading the CSS source.
+
 ### 2026-07-23 — 🚀 LIVE: Fifth Quark 2 regression found and fixed — icon-menu/Sponsors grid, a silent CSS parse bug from Phase 2
 
 Still on the isolated test copy, loopback-only, never public. Full detail in `RUNBOOK.md`. Brad caught this by eye, comparing live and the test copy side by side at the same screen size - it wasn't caught by any curl sweep or computed-style check because the page never errored, it just silently rendered with the wrong (but valid-looking) grid layout.
