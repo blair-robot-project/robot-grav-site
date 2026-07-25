@@ -6,6 +6,15 @@ Reverse-chronological record of notable changes to the site — theme, templates
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-23 — 🚀 LIVE: Quark 2 icon-menu still divergent after "fix" — 3 more regressions, systematic audit started (in progress, not done)
+
+Full detail in `RUNBOOK.md` (search "Systematic pattern identified"). Brad kept reporting icon-menu/Sponsors still looked wrong after it was declared fixed, and was right each time - the computed-style checks being used only ever verified individual element properties, never whether elements actually fit together on a row or whether unrelated properties were still wrong.
+
+- **Fixed: icon-menu/Sponsors were still actually wrapping** (2 columns + 1 orphaned row) despite every individual column measuring the correct width - Quark 2's own stock grid rule still had `gap: 20px` that was never zeroed when the layout was switched to flex. Found the identical latent bug in the text-module grid too (bigger gap, `3.5rem`) and fixed both.
+- **Fixed: icon-menu icons were rendering at browser-default 16px instead of live's 130px**, and the feature heading's line-height was off too - both are Quark 1 stock-theme properties Mod Quark's own custom.css never restates, so Phase 2's audit had no way to find them.
+- **Still open:** even after all three fixes, the icon-menu/Sponsors *section* height doesn't fully match live yet (confirmed real via a timing-controlled measurement, not a rendering race). A **systematic audit is now queued** - every CSS selector live's custom.css uses, cross-referenced against Quark 1's stock theme.css for properties Quark 2 has no equivalent for. This is the same root cause as every fix in this entry and the last one, found one property at a time - the audit is meant to find the rest in one pass instead. **Not run yet.**
+- **Phase 3 is not "done."** Don't report it as complete again until the audit has actually run.
+
 ### 2026-07-23 — 🚀 LIVE: Built an automated live-vs-Quark2 comparison tool, found and fixed 5 more regressions with it
 
 Full detail in `RUNBOOK.md`. Brad asked for a way to automate the manual screenshot-comparison we'd been doing by hand - built a Playwright script (`~/449-quark2-compare/compare.js`) running on his always-on Air, reusing its already-installed Playwright rather than a fresh install. Reaches the test copy over Tailscale via an additive second bind on the existing SSH tunnel (no new credentials on the droplet). Checks 18 pages × 2 viewports against a checklist of signature selectors and outputs a diff report - this is what actually found everything below, after manual eyeballing had already missed all of it once.
