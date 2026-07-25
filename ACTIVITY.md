@@ -20,6 +20,26 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-07-25
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/09.announcements-data/announcements-data.md /srv/robot-grav-site/user/pages/09.announcements-data/announcements-data.md
+--- /srv/.activity-shadow/user/pages/09.announcements-data/announcements-data.md	2026-07-24 00:56:52.476913312 +0000
++++ /srv/robot-grav-site/user/pages/09.announcements-data/announcements-data.md	2026-07-24 16:02:55.543364247 +0000
+@@ -21,7 +21,7 @@
+         end_date: '28-08-2026 12:00'
+     -
+         title: 'Summer classes signup (7/23-7/31)'
+-        message: 'Register for our summer programs now! FLL by Aug. 1 or summer math and programming classes by July 31'
++        message: 'Register for our FLL team and summer classes today!'
+         start_date: ''
+         end_date: '2026-07-31 12:00'
+         level: blue
+```
+
+
 ### 2026-07-24
 
 ```diff
