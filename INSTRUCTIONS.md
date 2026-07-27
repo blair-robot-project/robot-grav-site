@@ -263,13 +263,14 @@ The two groups:
 | Group | What it allows |
 |---|---|
 | **Editor** | Create and edit pages, upload and delete media. The right default for most people. |
-| **Admin** | Site configuration, plugin/theme updates, backups, scheduler, reports. **Not** a superuser, and does **not** include Editor — assign both if they need to edit content too. |
+| **Admin** | Everything Editor can do, **plus** site configuration, plugin/theme updates, backups, scheduler, and reports. Assign this group on its own — you don't also need to add Editor. Still **not** a superuser: an Admin cannot invite people or change anyone's permissions. |
 
 Neither group can invite people or change anyone's permissions. If someone genuinely needs that, they need full superuser, which is a deliberate decision — not a routine grant.
 
-**Two gotchas:**
+**Three gotchas:**
 - Permissions load into the session at **login**, so anyone already signed in must log out and back in before a change takes effect.
 - Grav's permission names changed in the 2.0 upgrade (`admin.*` → `api.*`). If you ever hand-edit a `user/accounts/*.yaml` or `user/config/groups.yaml`, note that **`api.access` is mandatory** — without it every other permission is ignored and the account can log in but do nothing. Prefer the admin UI over hand-editing. (See CHANGELOG, 2026-07-27.)
+- **Grav groups can't inherit from each other.** Admin covers Editor only because Editor's page/media grants are *copied into* it. If you ever change what Editor can do, **make the same change to Admin**, or the two will drift apart. The Admin group's description in the admin UI says so too.
 
 ---
 

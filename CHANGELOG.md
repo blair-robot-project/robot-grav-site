@@ -54,7 +54,16 @@ So the tiers were never "misconfigured by Rafi" — his `admin.*` structure was 
 
 **Filed upstream: [getgrav/grav-plugin-migrate-grav#18](https://github.com/getgrav/grav-plugin-migrate-grav/issues/18)** — covers both defects, with a three-step repro plus one of our migrated account files as the concrete case (`access` block only; no name, email, or password hash included). Suggested fixes: mirror `groups.yaml` too; always emit `api.access` alongside any `api.*` grant; map to the *registered* `api.*` set rather than copying key names verbatim; and report "0 groups migrated" instead of unqualified success — the silence is what made this expensive to find. Offered to test a patch, since the pre-migration state is backed up at `/srv/migration-backup-1.7.53--20260626180149.zip`.
 
-**Open items (not addressed):** the shared `admin` super account (blair.robot@gmail.com) has no 2FA; zero enabled accounts have 2FA on.
+**Fourth follow-up — Admin made a superset of Editor; `kiran` tidied.** Brad noted (correctly, and as most people would assume) that an Admin ought to have Editor rights, and there's no reason for the split. Grav groups **cannot inherit**, so this was done by copying Editor's grants (`api.pages.read/write`, `api.media.read/write`, `api.flex-objects.list`) into the Admin group, making it a superset. The trade-off is a maintenance obligation — change Editor and you must change Admin too — recorded in the Admin group's own `description` field rather than a YAML comment, since the API/admin write path regenerates `groups.yaml` and would discard comments. Also documented in INSTRUCTIONS §15.
+
+Rationale for folding rather than keeping them orthogonal: least-privilege separation is theoretical here (same students do both jobs), while the cost of *not* folding is concrete and already demonstrated — an Admin-only account is silently half-broken in exactly the way that started this whole investigation. Composability only pays off if you actually compose; with two groups and ten users it's overhead.
+
+Verified end-to-end on staging, since live has no Admin-only account to isolate against: staging's Admin group was synced to match, a test account set to `groups: [admin]` with `access: {}`, and checked via an unscoped key on a non-super account — `pages` and `media` now **200** (were 403 under the old split), alongside all the config/system/gpm/scheduler/reports rights, `super_admin: false`. Test account restored byte-identical from backup; key revoked and confirmed dead (401).
+
+- **`kiran`** — leftover per-user `access` block from the workaround period cleared to `{}`; he now draws purely from `[editor, admin]` like `margrety123`. The old block had also granted `api.webhooks`, which is outside both tiers.
+- **Note:** staging still has the `onboarder` group (deleted on live only) — harmless drift, not yet reconciled.
+
+**Open items (not addressed):** the shared `admin` super account (blair.robot@gmail.com) has no 2FA; zero enabled accounts have 2FA on; staging/live `onboarder` drift above.
 
 ### 2026-07-23 — 🚀 LIVE: Quark 2 icon-menu still divergent after "fix" — 3 more regressions, systematic audit started (in progress, not done)
 
