@@ -41,7 +41,18 @@ Changes made accordingly:
 - Backups added: `~/perm-fix-backup/roman.yaml.bak`, `~/perm-fix-backup/sophia.yaml.bak`.
 - Note: the grav-live MCP API key belongs to **`bradP`** and is super — all API writes in this work were performed as Brad's account.
 
-**Open items (not addressed):** `sophia` has `api.super` but no `admin.super`/`admin.login` — the same class of inconsistency just fixed on `roman`, functionally moot (api.super is strictly more powerful) but worth normalizing; the shared `admin` super account (blair.robot@gmail.com) has no 2FA; zero enabled accounts have 2FA on.
+**Third follow-up — `sophia` normalized, and ROOT CAUSE traced to the `migrate-grav` wizard.** `sophia` was normalized to the same shape as `roman` (`site.login`, `admin.login`, `admin.super`, `api.super`), keeping her super. Brad then hypothesized the whole mess originated with the 1.7 → 2.0 migration not accounting for permission groups. **Confirmed by reading the installed `migrate-grav` plugin — and it's worse than the hypothesis.**
+
+The wizard's Step 3 runs `mg_migrate_account_perms()` (`wizard/migrate.php`), which for each file in `user/accounts/` copies every key under `access.admin.*` to `access.api.*` 1:1. Its own UI text promises: *"Mirroring `admin.*` permissions to `api.*` in place **so the same users keep full access on Admin 2.0**."* Two defects:
+
+1. **`user/config/groups.yaml` is never touched.** The string `groups` appears nowhere in the plugin's code (only once in its own CHANGELOG, unrelated). Group-derived permissions get no mirror at all — which is exactly why our three groups stayed pure `admin.*` and every group-only user was locked out.
+2. **The mirror is a naive 1:1 key copy, and the `api.*` namespace is not a 1:1 image of `admin.*`.** It never adds **`api.access`** — the mandatory gate every endpoint checks first — so a mirrored non-super account still gets `403 "API access is not enabled for this user."` It also faithfully copies keys that don't exist in the api namespace (`api.cache`, `api.maintenance`, `api.statistics`, `api.plugins`, `api.themes`, `api.tools`, `api.configuration`, `api.login` — `api.login` confirmed checked nowhere), producing accounts that look richly provisioned and are functionally inert.
+
+The transform's fingerprint is unmistakable across our migrated accounts: `yash`, `yaphet`, `willroe`, `mitchell` et al. have `api.*` blocks that are byte-for-byte mirrors of their `admin.*` blocks, legacy key names and all. `mitchell` is the proof of defect 2 — the wizard ran on his account, mirrored ~10 permissions, and he still couldn't perform a single operation, because `api.access` wasn't among them. Note also the whole transform is **optional** (`migrate_perms`); unchecked, even accounts get nothing.
+
+So the tiers were never "misconfigured by Rafi" — his `admin.*` structure was correct for the Grav 1.7 site he built it on, and the migration silently left it behind. Worth filing upstream at [grav-plugin-migrate-grav](https://github.com/getgrav/grav-plugin-migrate-grav/issues); not yet filed as of this entry.
+
+**Open items (not addressed):** the shared `admin` super account (blair.robot@gmail.com) has no 2FA; zero enabled accounts have 2FA on.
 
 ### 2026-07-23 — 🚀 LIVE: Quark 2 icon-menu still divergent after "fix" — 3 more regressions, systematic audit started (in progress, not done)
 
