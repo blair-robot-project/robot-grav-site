@@ -252,6 +252,25 @@ Our theme **Mod Quark** (`user/themes/mod-quark/`) is a **custom child of Quark*
 - **Clear the cache** after most changes: via the admin's Tools → Cache panel, or `rm -rf <gravroot>/cache/*`.
 - **🔴 Never update PHP, nginx, Ubuntu, or OS packages** on either server without Rafi. A past PHP upgrade broke the live site and needed expert recovery. This is the one category that can't be safely rolled back through Grav.
 
+## 15. Inviting a new user (Editor or Admin)
+
+**Only a superuser can do this** — assigning someone to a permission group is a superuser-only action in Grav, by design (a group can grant any permission, so handing out group membership is equivalent to handing out superuser). Ask Brad, Rafi, Roman, or Sophia. There is no middle tier that can onboard people; we tried one and removed it.
+
+In the admin: **Accounts → Invite User**. Enter their email, pick the group(s), send. They get an emailed invitation link (you can also copy the link and send it yourself); it expires after 7 days. They click it, choose their own password, and land in the account with exactly the groups you set — an invitee can never give themselves more access than you assigned.
+
+The two groups:
+
+| Group | What it allows |
+|---|---|
+| **Editor** | Create and edit pages, upload and delete media. The right default for most people. |
+| **Admin** | Site configuration, plugin/theme updates, backups, scheduler, reports. **Not** a superuser, and does **not** include Editor — assign both if they need to edit content too. |
+
+Neither group can invite people or change anyone's permissions. If someone genuinely needs that, they need full superuser, which is a deliberate decision — not a routine grant.
+
+**Two gotchas:**
+- Permissions load into the session at **login**, so anyone already signed in must log out and back in before a change takes effect.
+- Grav's permission names changed in the 2.0 upgrade (`admin.*` → `api.*`). If you ever hand-edit a `user/accounts/*.yaml` or `user/config/groups.yaml`, note that **`api.access` is mandatory** — without it every other permission is ignored and the account can log in but do nothing. Prefer the admin UI over hand-editing. (See CHANGELOG, 2026-07-27.)
+
 ---
 
 ## Appendix: Template reference
