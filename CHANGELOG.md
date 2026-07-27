@@ -1,11 +1,31 @@
 # FRC Team 449 Website — Changelog
-*Last updated: 2026-07-23*
+*Last updated: 2026-07-27*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu) or 🟢 **STAGING** (449.navybook.com) — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-27 — 🚀 LIVE + 🟢 STAGING: Fixed the admin permission tiers — Editor/Onboarder/Admin now work without superuser
+
+Brad invited ~8 students as site admins, but nobody could do anything unless made a superuser. **Root cause: `groups.yaml` granted only `admin.*` permissions, while the admin UI enforces `api.*` ones.** The site runs **admin2** (the classic `admin` plugin isn't installed) — a SPA that performs every real operation through the `api` plugin. Every endpoint begins with `requirePermission(..., 'api.access')` (`AbstractApiController.php:88`), and the groups granted **zero `api.*` keys**. Group members could log in and load the shell, then got `403 "API access is not enabled for this user."` on everything. The only bypass is the super short-circuit `isSuperAdmin() = $user->get('access.api.super')` three lines up — hence superuser being the sole thing that worked.
+
+Contributing factors:
+- **Most `admin.*` names in `groups.yaml` no longer exist.** `admin.cache`, `admin.statistics`, `admin.maintenance`, `admin.plugins`, `admin.themes`, `admin.tools` are Grav 1.7 admin-classic names; admin2's `permissions.yaml` registers only `site.login`, `admin.login`, `admin.super`. The rest were inert. The structure appears to have been written off the getgrav.org docs, which are still the 1.7 Legacy set — correct for the Grav we *used* to run.
+- **Grav groups don't inherit.** "Onboarder = Editor + invites" isn't expressible; `UserObject::getGroups()` just ORs the named groups. Tiers must be assigned in combination.
+- **"Admin = SSH" was a category error** — Grav groups are app-level ACLs in YAML and cannot confer OS access.
+
+**Fix:** rewrote all three groups against `api.*`. Editor → `api.access` + `api.pages.read/write` + `api.media.read/write` + `api.flex-objects.list`. Onboarder → `api.access` + `api.users.read/write`. Admin → `api.access` + `api.config`, `api.system` (incl. backup), `api.gpm`, `api.scheduler`, `api.reports`. This works because `PermissionResolver::buildFlatAccess()` merges group access from `config.groups.{group}.access` before overlaying the user's own — groups were always honored, they were just granting keys nobody checks.
+
+**Verification (staging first, then live).** Reproduced the failure on staging with a clean group-only account (`access: {}`, `groups: [editor]`) using an unscoped API key on a **non-super** account — real HTTP through the full middleware, no passwords involved. Before: `403 "API access is not enabled for this user."` After: `pages`/`media` → 200, `config/system`/`system/info` → 403 with the *specific* missing permission named, confirming `api.access` resolves via group and fine-grained tiers still enforce. Checked all three tiers via `GET /me` (returns the resolved permission matrix). Admin-group-only correctly gets config/system but **403 on pages**, confirming tiers don't inherit. Then verified on live against `lucaszenghi` (a real affected student): now gets exactly the six Editor permissions, `super_admin: false`.
+
+- Live `groups.yaml` was written **via the `/api/v1/groups` PATCH endpoint**, not SSH — `user/config/` isn't group-writable and there's no passwordless sudo, so the API (running as `grav`) was the only way to preserve `grav:editor` ownership. Confirmed still `grav:editor` afterward.
+- Reused the existing grav-live MCP API key; **no account was modified to do the deploy**. Temp verification keys on `mitchell` (staging) and `lucaszenghi` (live) were revoked and confirmed dead (401); staging `mitchell.yaml` restored byte-identical from backup.
+- **`bradp.yaml` and `rafi.yaml` untouched** — SHA-256 verified identical before and after on both hosts, per Brad's explicit instruction.
+- Backups: `~/perm-fix-backup/groups.yaml.bak` (staging) and `~/perm-fix-backup/groups.yaml.live.bak` (live).
+
+**Open items (not addressed here):** `roman` has `admin.super: false` but `api.super: true` — a full superuser the admin UI's super toggle won't reveal; `sophia` and `margrety123` hold `api.super` from the earlier workaround and should now be stripped back to groups; the shared `admin` super account (blair.robot@gmail.com) has no 2FA; zero enabled accounts have 2FA on. Also note an Onboarder **cannot** assign groups or access flags — those are stripped for non-supers (GHSA-m86m-jjcg-gcvv) — so they can invite, but Brad still has to place people in the Editor group.
+
 ### 2026-07-23 — 🚀 LIVE: Quark 2 icon-menu still divergent after "fix" — 3 more regressions, systematic audit started (in progress, not done)
 
 Full detail in `RUNBOOK.md` (search "Systematic pattern identified"). Brad kept reporting icon-menu/Sponsors still looked wrong after it was declared fixed, and was right each time - the computed-style checks being used only ever verified individual element properties, never whether elements actually fit together on a row or whether unrelated properties were still wrong.
