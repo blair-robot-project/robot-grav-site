@@ -29,7 +29,19 @@ Contributing factors:
 - Three accounts still list the now-deleted `onboarder` group: `bradp.yaml`, `sophia.yaml`, `margrety123.yaml`. **Harmless** — `getGroups()` selects by name and simply doesn't match, verified live on margrety123 with no error. Left in place deliberately: cleaning them means writing `groups`, which requires super, and `bradp.yaml` is off-limits per Brad's instruction.
 - Backups added: `~/perm-fix-backup/groups.yaml.live.postfix.bak`, `~/perm-fix-backup/margrety123.yaml.bak`.
 
-**Open items (not addressed):** `roman` has `admin.super: false` but `api.super: true` — a full superuser the admin UI's super toggle won't reveal; `sophia` still holds `api.super` from the earlier workaround; the shared `admin` super account (blair.robot@gmail.com) has no 2FA; zero enabled accounts have 2FA on.
+**Second follow-up, same day — super-account cleanup, and confirmation that super-only group assignment is by design.** Brad asked whether super-only group assignment means we're misusing Grav's group model. **We aren't.** Grav *core*'s own account blueprint (`system/blueprints/user/account.yaml`) marks **both** `groups` **and** `access` as `security@: admin.super` — granting permissions in any form is a super-only act in stock Grav, not an admin2 or api-plugin quirk. The `api` plugin is in fact *more* permissive than core: it lets an `api.users.write` manager set another user's `access` (blocked only from granting super, via `accessGrantsSuper()`), while keeping `groups` strictly super-gated — because a group can confer *any* permission including super, so delegating group assignment would be delegating super (GHSA-m86m-jjcg-gcvv).
+
+So: groups-as-permission-bundles, assigned by a super, **is** the intended model, and Editor/Admin map onto it cleanly. What Grav does not support at any version is **delegated administration** — a mid-tier role that can onboard people. There's no scoped user-admin concept. That's precisely why Onboarder couldn't work; it wasn't a misconfiguration. admin2's invitation system doesn't create a delegation path either — seeding `groups`/`access` on an invite is likewise super-only. In practice Grav has two levels: **super**, and everyone else holding permission bundles.
+
+Changes made accordingly:
+- **`roman` (team president) — kept super, inconsistency fixed.** Was `admin.super: false` + `api.super: true` (full superuser invisible to the admin UI's super toggle) plus ~20 inert Grav 1.7 keys. Normalized to the minimal correct shape: `site.login`, `admin.login`, `admin.super`, `api.super`. Dropped keys (`cache`, `configuration`, `maintenance`, `statistics`, `plugins`, `themes`, `tools`, `flex-objects`, `users.*`, `api.login`) are all unregistered — `api.login` confirmed checked nowhere in the codebase.
+- **`sophia` (programming lead) — kept super** (`api.super` retained), `onboarder` removed from her groups → `[admin, editor]`.
+- **`margrety123` — tidied**, `onboarder` removed → `[editor, admin]`.
+- **Zero `onboarder` references remain** in any account. (Brad removed his own via the admin UI during the session — that, not any action here, is why `bradp.yaml`'s checksum moved; his `admin.super`/`api.super` are intact.)
+- Backups added: `~/perm-fix-backup/roman.yaml.bak`, `~/perm-fix-backup/sophia.yaml.bak`.
+- Note: the grav-live MCP API key belongs to **`bradP`** and is super — all API writes in this work were performed as Brad's account.
+
+**Open items (not addressed):** `sophia` has `api.super` but no `admin.super`/`admin.login` — the same class of inconsistency just fixed on `roman`, functionally moot (api.super is strictly more powerful) but worth normalizing; the shared `admin` super account (blair.robot@gmail.com) has no 2FA; zero enabled accounts have 2FA on.
 
 ### 2026-07-23 — 🚀 LIVE: Quark 2 icon-menu still divergent after "fix" — 3 more regressions, systematic audit started (in progress, not done)
 
