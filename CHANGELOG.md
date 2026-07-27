@@ -61,7 +61,7 @@ Rationale for folding rather than keeping them orthogonal: least-privilege separ
 Verified end-to-end on staging, since live has no Admin-only account to isolate against: staging's Admin group was synced to match, a test account set to `groups: [admin]` with `access: {}`, and checked via an unscoped key on a non-super account — `pages` and `media` now **200** (were 403 under the old split), alongside all the config/system/gpm/scheduler/reports rights, `super_admin: false`. Test account restored byte-identical from backup; key revoked and confirmed dead (401).
 
 - **`kiran`** — leftover per-user `access` block from the workaround period cleared to `{}`; he now draws purely from `[editor, admin]` like `margrety123`. The old block had also granted `api.webhooks`, which is outside both tiers.
-- **Note:** staging still has the `onboarder` group (deleted on live only) — harmless drift, not yet reconciled.
+- **Staging reconciled:** `onboarder` deleted on staging too, and the two environments' group definitions verified **byte-identical** by diffing normalized `GET /groups` output from both (`editor`, `admin` only). Backup at `~/perm-fix-backup/groups.yaml.staging.prefold.bak`. One inert `onboarder` reference remains in staging's `bradp.yaml` — left in place per the standing instruction not to touch Brad's account; it grants nothing (the group no longer exists) and his `admin.super`/`api.super` are intact.
 
 **Open items (not addressed):** the shared `admin` super account (blair.robot@gmail.com) has no 2FA; zero enabled accounts have 2FA on; staging/live `onboarder` drift above.
 
