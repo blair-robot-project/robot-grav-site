@@ -20,6 +20,26 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-07-27
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/20.SCOUTING/modular.md /srv/robot-grav-site/user/pages/02.about-us/20.SCOUTING/modular.md
+--- /srv/.activity-shadow/user/pages/02.about-us/20.SCOUTING/modular.md	2026-06-26 17:56:50.728232819 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/20.SCOUTING/modular.md	2026-07-26 21:46:27.084410202 +0000
+@@ -8,7 +8,6 @@
+ underconstruction: false
+ published: false
+ metadata:
+-  description: 'Scouting at FRC Team 449, the Blair Robot Project — how we gather and analyze match data to drive strategy at FIRST Robotics Competitions.'
+-
++    description: 'Scouting at FRC Team 449, the Blair Robot Project — how we gather and analyze match data to drive strategy at FIRST Robotics Competitions.'
+ ---
+ 
+```
+
+
 ### 2026-07-25
 
 ```diff
