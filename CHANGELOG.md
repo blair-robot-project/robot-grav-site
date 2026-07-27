@@ -50,7 +50,9 @@ The wizard's Step 3 runs `mg_migrate_account_perms()` (`wizard/migrate.php`), wh
 
 The transform's fingerprint is unmistakable across our migrated accounts: `yash`, `yaphet`, `willroe`, `mitchell` et al. have `api.*` blocks that are byte-for-byte mirrors of their `admin.*` blocks, legacy key names and all. `mitchell` is the proof of defect 2 — the wizard ran on his account, mirrored ~10 permissions, and he still couldn't perform a single operation, because `api.access` wasn't among them. Note also the whole transform is **optional** (`migrate_perms`); unchecked, even accounts get nothing.
 
-So the tiers were never "misconfigured by Rafi" — his `admin.*` structure was correct for the Grav 1.7 site he built it on, and the migration silently left it behind. Worth filing upstream at [grav-plugin-migrate-grav](https://github.com/getgrav/grav-plugin-migrate-grav/issues); not yet filed as of this entry.
+So the tiers were never "misconfigured by Rafi" — his `admin.*` structure was correct for the Grav 1.7 site he built it on, and the migration silently left it behind.
+
+**Filed upstream: [getgrav/grav-plugin-migrate-grav#18](https://github.com/getgrav/grav-plugin-migrate-grav/issues/18)** — covers both defects, with a three-step repro plus one of our migrated account files as the concrete case (`access` block only; no name, email, or password hash included). Suggested fixes: mirror `groups.yaml` too; always emit `api.access` alongside any `api.*` grant; map to the *registered* `api.*` set rather than copying key names verbatim; and report "0 groups migrated" instead of unqualified success — the silence is what made this expensive to find. Offered to test a patch, since the pre-migration state is backed up at `/srv/migration-backup-1.7.53--20260626180149.zip`.
 
 **Open items (not addressed):** the shared `admin` super account (blair.robot@gmail.com) has no 2FA; zero enabled accounts have 2FA on.
 
