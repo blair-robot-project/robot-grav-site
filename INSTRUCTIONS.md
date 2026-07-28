@@ -1,5 +1,5 @@
 # FRC 449 Website — Teammate Instruction Manual
-*Last updated: 2026-07-28 · Version 2.6*
+*Last updated: 2026-07-28 · Version 2.7*
 
 The site gets a full automatic backup every night, and traffic is low enough that a mistake is easy to fix and low-stakes. Just be reasonably careful, and use the nightly backup as your safety net.
 
@@ -250,7 +250,7 @@ Our theme **Mod Quark** (`user/themes/mod-quark/`) is a **custom child of Quark*
 
 ## 14. Backups, rollback, and hard limits
 
-- **Backups:** before any risky edit, copy the file: `cp file file.bak-$(date +%Y%m%d-%H%M%S)`. The live site's primary backup is Grav's own **nightly scheduled full-site backup** (7-copy rotation), run automatically via the Grav scheduler.
+- **Backups:** before any risky edit, copy the file: `cp file file.bak-$(date +%Y%m%d-%H%M%S)`. The live site's primary backup is Grav's own **nightly scheduled full-site backup** (5-copy rotation), run automatically via the Grav scheduler. Separately, every page/theme save is also pushed to a private GitHub repo in real time (**Git Sync**, added 2026-07-28) — ask a Power User if you ever need to see or recover an older version of a specific page.
 - **Clear the cache** after most changes: via the admin's Tools → Cache panel, or `rm -rf <gravroot>/cache/*`.
 - **🔴 Never update PHP, nginx, Ubuntu, or OS packages** on either server without Rafi. A past PHP upgrade broke the live site and needed expert recovery. This is the one category that can't be safely rolled back through Grav.
 

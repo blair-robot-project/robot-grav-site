@@ -1,9 +1,39 @@
 # FRC Team 449 Website — Changelog
-*Last updated: 2026-07-27*
+*Last updated: 2026-07-28*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu) or 🟢 **STAGING** (449.navybook.com) — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
+
+---
+### 2026-07-28 — 🚀 LIVE: Git Sync installed — real commit history for page/theme edits
+
+Live now pushes every admin save/delete/media change to a dedicated GitHub repo (`blair-robot-project/robot-grav-site-sync`, private), giving actual diffable history for `user/pages`/`user/themes` — something the nightly whole-site zip backup was never designed for. **Kiran** installed and configured the plugin itself, following a written checklist; Brad handled the parts needing server access or credentials.
+
+**Prerequisite: retired a dormant, unrelated git mechanism first.** `/srv/robot-grav-site/.git` turned out to already be a *whole-install* git repo — leftover from a 2022-era `backup.sh` cron (root-owned, self-described in its own comment as "janky and unsafe af"), pushing nightly to this same public repo's `archive/grav/` under a dedicated bot identity (`blair-robot <blair.robot@gmail.com>`), deliberately disabled 2026-07-02 during the 2.0 migration and never revisited. Left in place, Git Sync would have `git init`'d its own repo *nested inside* it. **Checked for leaked secrets before touching anything: clean** — no `user/accounts/` content, no credential-bearing plugin config ever committed. Rafi signed off; renamed (not deleted) to `.git.retired-20260727` — full history stays intact on GitHub under `archive/grav/` if ever needed. **Still open:** the root SSH deploy key that mechanism used (`/root/.ssh/id_ed25519`) is still referenced as the default `Host github.com` identity in `/root/.ssh/config` — Rafi to rotate/remove; confirmed this doesn't affect Git Sync itself, which authenticates over HTTPS as a different account entirely, not SSH.
+
+**New repo, not this one.** Same reasoning as staging's equivalent setup: this repo is hand-curated documentation, and folding an automated per-save mirror into it would drown that curation under auto-generated commits. `robot-grav-site-sync` started **private** — `user/pages` includes unpublished drafts, which would go public the instant Git Sync ran otherwise.
+
+**Repo creation needed more than Brad's own GitHub permissions.** `bpeniston` turned out not to have org-level repo-create rights on `blair-robot-project` — asked **James**, who created the repo (seeded with a README so `main` existed before the first sync) and added `bpeniston` as a collaborator, but not `blair-robot`. Since `bpeniston` is a confirmed org Owner (role `admin` via the API — distinct from the repo-level admin James's grant alone would have given), added `blair-robot` as a `push` collaborator directly rather than routing back through James.
+
+**Auth: a fine-grained PAT from the `blair-robot` account** (Contents: Read & write, scoped to only this repo) — not a personal token, matching the precedent already set for staging. **The `blair-robot` GitHub password turned out to be held by team leadership**, not any single person — Brad requested and received it through them rather than the account being genuinely inaccessible.
+
+**Configuration**, same as staging's proven setup: `folders: [pages, themes]` (never `config`/`plugins`/`data` — `user/config/plugins/git-sync.yaml` would hold this very token), `sync.direction: both` (the plugin has no true push-only mode), webhook disabled (⚠️ the plugin's admin UI **mislabels this field** — the toggle that actually enables/disables the webhook is labeled "Web Hook Secret," while the real secret text sits in a separate field called "Repository Web Hook Secret"), `on_save`/`on_delete`/`on_media` triggers on, scheduler cron off.
+
+**✅ Verified working end-to-end by Kiran** following the written checklist: settings saved and reload-confirmed, first sync succeeded, repo tree checked for secrets (no `config`/`plugins`/`data`/`accounts` present), a live test edit produced a new commit within seconds.
+
+**Not yet on live:** the Claude-API commit-message generator (a `post-commit` hook that replaces Git Sync's generic `(Grav GitSync) Automatic Commit` messages with real ones) — built and verified working on staging, but deliberately not carried to live yet.
+
+---
+### 2026-07-28 — 🚀 LIVE: nightly backup was silently doubling in size — root cause + fix, plus retention cut 14→5
+
+**Found while sizing an unrelated offsite-backup plan:** the nightly full-site backup zip jumped from ~392MB to ~770MB overnight (confirmed via two backups landing at the identical 770,400,150 bytes, ruling out a one-off fluke). Traced by listing the zip's actual contents rather than guessing: **359.5MB of it was `.git.retired-20260727/objects/pack`** — the retired git repo from the entry above. Its backup-profile `exclude_files` list only matches files literally named `.git`; renaming it to retire it took the directory *out* of that match instead of just moving it aside. Fixed by adding `/.git.retired-20260727` to the profile's `exclude_paths` explicitly (`backups` config scope, not `system`).
+
+**Also resolved, no fix needed:** confirmed the profile's existing `/images` exclude refers to a root-level, auto-generated image-derivative cache (hash-bucketed, regenerates on its own) — **not** `user/images/`. Real source images have been included in every backup all along; nothing was missing.
+
+**Retention cut from 14 to 5** (`max_backups_count`, same `backups` scope) — page/theme content history is now Git Sync's job (entry above), so the nightly zip's remaining purpose narrows to disaster recovery of what git-sync doesn't cover (system, config, accounts, core). Reclaims real disk on a box that was sitting at ~80% used with ~5.1GB free — the fix and the retention cut both apply going forward; existing oversized backups roll off naturally as the new 5-count cap catches up over the next several nights, not retroactively.
+
+**Open, tracked separately:** a periodic offsite copy to Google Drive (grandfather-father-son rotation) is planned but not started — blocked on confirming Drive access to the `blair-robot@gmail.com` account (not Workspace; plain consumer account, 15GB total quota shared with whatever else lives there).
 
 ---
 ### 2026-07-27 — 🚀 LIVE + 🟢 STAGING: Fixed the admin permission tiers — Editor/Onboarder/Admin now work without superuser

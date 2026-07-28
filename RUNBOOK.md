@@ -1,5 +1,5 @@
 # FRC Team 449 Website — Runbook
-*Last updated: 2026-07-23*
+*Last updated: 2026-07-28*
 
 Operational reference for the FRC 449 Grav site: environment facts, server housekeeping + security status, cautions/gotchas, and key file paths. For dated history of changes, see [CHANGELOG.md](CHANGELOG.md). For orientation, who's involved, and the doc to start a Claude Code session with, see [README.md](README.md).
 
@@ -48,13 +48,14 @@ This repo (`blair-robot-project/robot-grav-site`) is the source of truth for sit
 
 ## Server housekeeping — live (robot.mbhs.edu)
 
-**Disk:** 25 GB total, ~63% used, ~9.2 GB free (as of 2026-07-05, after retiring the 1.7 archive and unused PHP-FPM pools — see CHANGELOG).
+**Disk:** 25 GB total, ~80% used, ~5.1 GB free (as of 2026-07-28). Tighter than the 2026-07-05 figure below — grown with site content since, and a since-fixed backup bug (see Git Sync section) was briefly doubling nightly backup size on top of that. Backup retention was just cut 14→5 and the bug fixed; expect this to improve over the next several nights as oversized old backups roll off, not retroactively.
 
 - [ ] **SSH hardening — partially done.** fail2ban active, root login disabled. **Still open:** `PasswordAuthentication` is still `yes` in `sshd_config` — switching to key-only auth would close the remaining gap (verify a new key login works before disabling).
 - [ ] **Grav admin 2FA — still 0 of the active accounts have TOTP enabled.** `/admin` is internet-reachable; enabling 2FA at least on super-admin accounts is the recommended next step.
 - [ ] **MariaDB running but apparently unused** (Grav is flat-file; bound to 127.0.0.1). Confirm nothing depends on it, then `sudo systemctl disable --now mariadb` to free resources and reduce surface area.
 - [ ] **No Content-Security-Policy header.** Optional defense-in-depth; would need per-page testing before enabling.
 - [ ] **(Optional) Restrict `/admin` reachability** — IP-allowlist or HTTP basic-auth in front of it, for defense-in-depth beyond account-level 2FA.
+- [ ] **Rotate/remove the old root SSH deploy key** (`/root/.ssh/id_ed25519`, still the default `Host github.com` identity in `/root/.ssh/config`) — leftover from the now-retired `backup.sh` mechanism (see Git Sync section), still has push access to this public repo. Rafi's action — needs root.
 
 **Already done, no longer open (see CHANGELOG for dates):** nginx TLS/headers/server_tokens hardening; stale-account pruning; nginx blocklist gap that let `user/data/` runtime files leak (fixed); root-level `.md` file disclosure (fixed); ImageMagick MVG/MSL policy hardening; journal size is healthy (56 MB, no vacuum needed); the 1.7 archive, the loopback-only test vhost, and the unused PHP 8.0/8.2-FPM pools have all been retired (2026-07-05).
 
@@ -91,6 +92,21 @@ A fuller template reference (including page-level templates and admin-selectabil
 
 ---
 
+## Git Sync (added 2026-07-28)
+
+The official Git Sync plugin pushes `user/pages` + `user/themes` to a dedicated private repo, **[`blair-robot-project/robot-grav-site-sync`](https://github.com/blair-robot-project/robot-grav-site-sync)** — deliberately not this repo, which is hand-curated docs, not an automated content mirror. Fires in real time on every admin save/delete/media change (`on_save`/`on_delete`/`on_media`); no cron, no inbound webhook (the plugin's own webhook toggle stays **Disabled** — see the gotcha below on its misleading label).
+
+- **To see what changed and when:** the repo's [commit history](https://github.com/blair-robot-project/robot-grav-site-sync/commits/main) — click any commit for the exact files touched. Messages are currently generic (`(Grav GitSync) Automatic Commit`) — a Claude-API hook that writes real descriptions exists and is verified working on **staging only**, not yet carried to live.
+- **`config`/`plugins`/`data` are deliberately excluded** from the sync scope — `user/config/` holds secrets, including this plugin's own GitHub token (`user/config/plugins/git-sync.yaml`). Never add those to the Folders setting.
+- **Auth is a fine-grained PAT on the `blair-robot` account** (Contents: Read & write, scoped to only this one repo) — not tied to any individual's personal GitHub account, so it keeps working through personnel turnover. The account's GitHub password is held by team leadership.
+- **A whole-site git mechanism predates this and is now retired** — `/srv/robot-grav-site/.git.retired-20260727` (renamed, not deleted; full history preserved on GitHub under this repo's own `archive/grav/`). It was a 2022-era root-cron script (`backup.sh.disabled-20260702`), unrelated to Git Sync, disabled during the 2.0 migration and forgotten until this work rediscovered it. **Still open:** its root SSH deploy key (`/root/.ssh/id_ed25519`) is still the default `Host github.com` identity in `/root/.ssh/config` — needs rotation/removal by Rafi (Git Sync itself doesn't use it — HTTPS + PAT, not SSH).
+- **This directory caused a real backup bug, since fixed** — see Server Housekeeping's disk note above and the 2026-07-28 CHANGELOG entry. If `.git.retired-20260727` is ever fully deleted (not just excluded), no further action needed here; if it's ever renamed again for any reason, update the backup profile's `exclude_paths` to match the new name or the same bloat recurs.
+
+### Gotcha: the webhook toggle is mislabeled in the plugin's own UI
+Two adjacent, near-identically-named fields: the toggle that actually enables/disables the webhook is labeled **"Web Hook Secret"**; the actual secret text lives in a separate field called **"Repository Web Hook Secret."** The one to keep **Disabled** is the toggle, not the text field. This is a plugin bug, not a documentation gap — confirmed against the plugin's own blueprint source.
+
+---
+
 ## Cautions & Gotchas
 
 - **Only edit `mod-quark`, never the parent `quark` theme.** Mod Quark (`user/themes/mod-quark/`) is a custom child of stock Quark (`user/themes/quark/`).
@@ -119,7 +135,8 @@ A fuller template reference (including page-level templates and admin-selectabil
 - **Grav's `Medium::html()` puts `$title` before `$alt`** — full signature `html($title = null, $alt = null, $class = null, $id = null, $reset = true)`. Easy to get backwards: most people instinctively expect alt first, since it's the attribute that actually matters for accessibility/SEO, title is just a tooltip. Pass one positional arg meaning it as alt text and it silently lands in `title` instead, leaving `alt=""`. This is Grav behaving correctly and as documented, not a bug — confirmed against Grav's own core source and a closed upstream issue (`getgrav/grav#1253`) establishing that Grav can't invent alt text for you, so it deliberately emits valid-but-empty `alt=""` when nothing is passed rather than guessing. Bit three separate Mod Quark templates this way before a full-site alt-text audit caught and fixed all of them (`gallery-banners.html.twig`, `gallery-draggable.html.twig`, `text.html.twig`; 2026-07-18/19, see CHANGELOG). **Any new image-rendering template: pass both, explicitly, in order** — `image.html(alt_text, alt_text)` sidesteps the ordering risk entirely by using the same value for both.
 
 ### Rollback options (live)
-- **Primary: Grav's own nightly scheduled backup** (7-copy rotation, `backup/` folder) — `php bin/grav restore <zip>`, then `php bin/grav clearcache`.
+- **Whole-site: Grav's own nightly scheduled backup** (5-copy rotation as of 2026-07-28, down from 14 — see Git Sync section; `backup/` folder) — `php bin/grav restore <zip>`, then `php bin/grav clearcache`.
+- **Single page/theme file: Git Sync's history** (see Git Sync section above) — browse or check out an older version of one file from `robot-grav-site-sync` on GitHub without restoring the whole site.
 - **Admin-panel changes** (plugin/theme config) can usually be reverted through the admin panel — the safest option.
 - **Do not attempt PHP/system-level rollbacks yourself** — contact Rafi Pedersen for that level of recovery.
 
@@ -304,6 +321,8 @@ The 1.7 to 2.0 migration (completed 2026-06-27) is done and its environment-spec
 | Activity log shadow copies (diff baseline) | `/srv/.activity-shadow/` |
 | Docs-repo clone (pushes `ACTIVITY.md` to this repo) | `/srv/robot-grav-site-docs/` |
 | Docs-repo deploy key | `~brad/.ssh/robot_grav_site_docs_deploy` (SSH config alias `github-robot-grav-site-docs`) |
+| Git Sync local repo | `user/.git` (pushes to `robot-grav-site-sync` on GitHub) |
+| Retired whole-site git repo (inert, kept for reference) | `.git.retired-20260727` (Grav root) |
 | PHP config (live) | `/etc/php/8.3/fpm/php.ini` |
 | nginx config (live) | `/etc/nginx/sites-available/grav` |
 
