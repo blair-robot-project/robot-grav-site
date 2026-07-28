@@ -1,5 +1,5 @@
 # FRC 449 Website — Teammate Instruction Manual
-*Last updated: 2026-07-22 · Version 2.5*
+*Last updated: 2026-07-28 · Version 2.6*
 
 The site gets a full automatic backup every night, and traffic is low enough that a mistake is easy to fix and low-stakes. Just be reasonably careful, and use the nightly backup as your safety net.
 
@@ -57,7 +57,9 @@ You can also use HTML for effects Markdown can't do easily.
 
 ## 3. Images
 
-Every image you upload is automatically **resized** to a sensible max width for its context (gallery 1200px, hero 2560px, sponsor/mentor grids 800px, else 2000px) and its **filename sanitized**. Drag in full-size photos with messy names — it just works.
+Every image you upload is automatically **resized** to a sensible max width for its context (gallery 1200px, hero 2560px, sponsor/mentor grids 1600px, else 2000px) and its **filename sanitized**. Drag in full-size photos with messy names — it just works.
+
+Resizing is handled by **Image Intake**, a plugin written for this site. To change a limit — or turn resizing off for one module type — go to **Plugins → Image Intake → Per-template maximum widths**: one field per module type, where blank = use the default and **`0` = never resize** (keeps the original at full size, with its EXIF photo-credit intact). ⚠️ Shrinking happens **on upload, and the original is discarded** — set the limit *before* you upload, not after.
 
 ### a) Images next to a block of text
 In the module, drag one or more new images into the Page Media field to upload them. The images appear on the web page in the order they appear in the Page Media box. There's a button that toggles drag-to-reorder just above the box.
