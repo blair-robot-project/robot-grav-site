@@ -20,6 +20,37 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-07-28
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/03.community/07.summer-classes/default.md /srv/robot-grav-site/user/pages/03.community/07.summer-classes/default.md
+--- /srv/.activity-shadow/user/pages/03.community/07.summer-classes/default.md	2026-07-24 00:54:24.575159160 +0000
++++ /srv/robot-grav-site/user/pages/03.community/07.summer-classes/default.md	2026-07-28 02:39:04.004412302 +0000
+@@ -20,14 +20,14 @@
+ 
+ Team 449 is dedicated to giving back to our community through education. This summer, we’ll be teaching 4 **free and virtual** classes, running from **August 1 to 23**. Hosted on Google Meet, these classes are available for **all students in grades K-12**, and will be taught by our team’s members, with a dedicated curriculum for each class. More information on each class can be found at the links below. **Signups are due July 31**.
+ 
+-[_Algebra 1 Bootcamp:_](https://docs.google.com/forms/d/e/1FAIpQLScYXokYeYmHDFhwBQyKfj44WqlBLTYRyFjrRuAmBQncw33vKg/viewform) Math: Introduction to Algebra 1 (generally recommended for students in grades 4-8)
++[_Algebra 1 Bootcamp:_](https://canva.link/pt4iaq0o51jstny) Math: Introduction to Algebra 1 (generally recommended for students in grades 4-8)
+ <br>August 1-22, Saturdays 11 a.m.-noon 
+ 
+-[_Python PROgramming:_](https://docs.google.com/forms/d/e/1FAIpQLSeuM5_z1_L32aykdMXssF83LMSMWI2RZ_rc256pWCCeD8RfDw/viewform) Python: general programming for complete beginners
++[_Python PROgramming:_](https://canva.link/547xxkg3dhrrjin) Python: general programming for complete beginners
+ <br>August 1-22, Saturdays 2-3 p.m.
+ 
+-[_CAD Basics:_](https://docs.google.com/forms/d/e/1FAIpQLSd-AFnm7gSYDcH8MFdhobilZ9QoSqVfI3Otv11_56Upcj2slg/viewform) Computer-Aided Design (CAD) Onshape for beginners
++[_CAD Basics:_](https://canva.link/lp7iar9pjqf36ki) Computer-Aided Design (CAD) Onshape for beginners
+ <br>August 2-23, Sundays 11 a.m.-noon
+ 
+-[_Scratch Simplified:_](https://docs.google.com/forms/d/e/1FAIpQLSfXfMJhcCq6bfMVrPZh2OwJE5TbCmXtrx8e0-lxEV0FlkV0qA/viewform) Scratch: block-based visual programming for complete beginners
++[_Scratch Simplified:_](https://canva.link/b3gfysayt4yo5ju) Scratch: block-based visual programming for complete beginners
+ <br>August 2-23, Sundays 2-3 p.m.
+\ No newline at end of file
+```
+
+
 ### 2026-07-27
 
 ```diff
