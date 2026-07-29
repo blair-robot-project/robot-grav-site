@@ -6,6 +6,12 @@ Reverse-chronological record of notable changes to the site — theme, templates
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-29: Added on-hover image change functionality to `text.md`
+Two main changes:
+1. `text.md` module now only displays images listed in header's `media_order`
+2. In a `text.md` module if an image `[img].[ext]` is displayed and an image `[img]-hover.[ext]` exists in that folder, `[img]-hover.[ext]` will be displayed when the cursor hovers over the image.
+
+---
 ### 2026-07-28 — 🚀 LIVE: Git Sync installed — real commit history for page/theme edits
 
 Live now pushes every admin save/delete/media change to a dedicated GitHub repo (`blair-robot-project/robot-grav-site-sync`, private), giving actual diffable history for `user/pages`/`user/themes` — something the nightly whole-site zip backup was never designed for. **Kiran** installed and configured the plugin itself, following a written checklist; Brad handled the parts needing server access or credentials.
