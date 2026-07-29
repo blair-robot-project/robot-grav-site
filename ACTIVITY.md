@@ -20,6 +20,86 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-07-29
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/01.home/06._about/text.md /srv/robot-grav-site/user/pages/01.home/06._about/text.md
+--- /srv/.activity-shadow/user/pages/01.home/06._about/text.md	2026-07-14 14:26:27.637527924 +0000
++++ /srv/robot-grav-site/user/pages/01.home/06._about/text.md	2026-07-28 16:29:21.513612133 +0000
+@@ -6,8 +6,12 @@
+ ---
+ 
+ ## **What’s new**
++**August 1:** Our annual [summer classes](https://robot.mbhs.edu/community/summer-classes) start, free to students in grades K-12. Signups close July 31.
++
+ **July 10-12:** We participated in Philly's [RoboJawn](https://www.thebluealliance.com/event/2026paphi1), organized by Teams [321](https://robolancers.com/) and [1218](https://www.sch.org/admissions/learn/robotics)! 
+ 
++**June 30:** Team 449 participated in the 2026 FDA Family Day.
++
+ **June 27:** Applications are open for the 2026-27 season of our FIRST LEGO League team! Apply by July 20 [here](https://forms.gle/c1Hs4XFMk3XrNnyG7)!
+ 
+ **June 6:** Teams 449 and [4821](https://cyberus4821.weebly.com/) hosted [FRC Team Development Conference](https://www.instagram.com/p/DYQmhUPsiaO/), welcoming members of 10 teams from around the DMV for a [day of speakers, workshops, and networking](https://www.instagram.com/p/DZSSViBDjnk/?img_index=10).
+Only in /srv/robot-grav-site/user/pages/02.about-us: data-science
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-06-27 21:02:33.177648728 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-07-28 19:14:53.106376650 +0000
+@@ -1,5 +1,5 @@
+ ---
+-title: 'Bunnybots: Text: 2025 Bunnybots'
++title: 'Bunnybots: Text: Registration'
+ media_order: 'BlairBunnybots2025GameManualv1.pdf,BlairBunnybotsTeamUpdate00.pdf'
+ published: true
+ class: small
+@@ -8,33 +8,16 @@
+ menu: 'Text: 2025 Bunnybots'
+ ---
+ 
+-## 2025 Bunnybots 
+-[plugin:youtube](https://youtu.be/8z1tBnxV6zw)
++[Game Manual v1.0 - Coming Soon](/bunnybots?classes=nounderline,disabled,button,btn-block)
+ 
+-For the 2025 season, 449 sought to design a game that would teach skills particularly desired by _FIRST_ Chesapeake teams, so we asked prospective participants to suggest skills to focus on. The game rules were released on September 1, and team registration closed on November 1.
+-
+-[Game Manual v1.2](https://drive.google.com/file/d/1D44qccFE0jz7-Ch-WYBXTt9G4z2JJTo3/view) (Updated 11/1/2025. See Revision History section for Team Update 02)
+-
+-[Bunnybots Shinyapp](https://mitchell-ghosty33.shinyapps.io/bunnybots_scouting_2025_shinyapp/): (Updated to Match 15. The data presented in the app should not be taken as true; quite a few inaccuracies skew results.)
++#2026 Registration
++---
++[Team Registration - Opening Soon](/bunnybots?classes=nounderline,disabled,button,btn-block) <br>
++[Volunteer Registration - Opening Soon](/bunnybots?classes=nounderline,disabled,button,btn-block)
+ 
+ ### Participants
+-**FRC 449 - The Blair Robot Project (2 robots)** <br>
+-[FRC 611](https://www.saxonrobotics.org/): Saxons (2 robots)<br>
+-[FRC 686](https://bovineintervention.org/): Bovine Intervention<br>
+-[FRC 1915](https://www.mckinleyfirebirds.com/): Firebird Robotics<br>
+-[FRC 2537](https://team2537.com/): Space RAIDers<br>
+-[FRC 2988](https://www.thebluealliance.com/team/2988): RoboRiot<br>
+-[FRC 4638](https://jagbots4638.com/): Jagbots<br>
+-[FRC 4821](https://cyberus4821.weebly.com/): CyberUs<br>
+-[FRC 5115](https://www.wheatonrobotics.com/): Knight Riders<br>
+-[FRC 5243](https://centrevillerobotics.com/aegis-robotics): AEGIS<br>
+-[FRC 5338](https://www.team5338.org/): RoboLoCo<br>
+-[FRC 5353](https://www.thebluealliance.com/team/5353): ACL Raptors<br>
+-[FRC 5549](https://www.frc5549.org/): Gryphon Robotics<br>
+-[FRC 5587](https://www.frc5587.org/): Titan Robotics<br>
+-[FRC 8230](https://www.thebluealliance.com/team/8230): KoiBots<br>
+-[FRC 8592](https://frc8592.novalabsrobotics.org/): Newton Squared<br>
+-[FRC 8726](https://www.cryptohawks8726.com/): CryptoHawks<br>
+-[FRC 9033](https://ocebots.com): Ocebots
++Paid & Confirmed Teams in **Bold** <br>
++
++**[FRC 449](/) - The Blair Robot Project (2 robots)** <br>
+ 
+ ---
+\ No newline at end of file
+Only in /srv/robot-grav-site/user/pages/05.sponsor-information/01.CURRENT-SPONSORS: 05._dowstem
+Only in /srv/.activity-shadow/user/pages/05.sponsor-information/01.CURRENT-SPONSORS: 05._google
+```
+
+
 ### 2026-07-28
 
 ```diff
