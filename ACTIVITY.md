@@ -20,6 +20,87 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-07-30
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/08._history-jump-index/text.md /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/08._history-jump-index/text.md
+--- /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/08._history-jump-index/text.md	2026-07-14 12:14:48.137735130 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/08._history-jump-index/text.md	2026-07-29 17:18:31.926975661 +0000
+@@ -5,4 +5,4 @@
+ class: year-index
+ ---
+ 
+-[1999](#history-1999) | [1999-00](#frc-2000) | [2000-01](#frc-2001) | [2001-02](#frc-2002) | [2002-03](#frc-2003) | [2003-04](#frc-2004) | [2005-06](#frc-2006) | [2006-07](#frc-2007) | [2007-08](#frc-2008) | [2008-09](#frc-2009) | [2009-10](#frc-2010) | [2010-11](#frc-2011) | [2011-12](#frc-2012) | [2012-13](#frc-2013) | [2013-14](#frc-2014) | [2014-15](#frc-2015) | [2015-16](#frc-2016) | [2016-17](#frc-2017) | [2017-18](#frc-2018) | [2018-19](#frc-2019) | [2019-20](#frc-2020) | [2021-22](#frc-2022) | [2022-23](#frc-2023) | [2023-24](#frc-2024) | [2024-25](#frc-2025) | [2025-26](#frc-2026)
+\ No newline at end of file
++[2025-26](#frc-2026) | [2024-25](#frc-2025) | [2023-24](#frc-2024) | [2022-23](#frc-2023) | [2021-22](#frc-2022) | [2019-20](#frc-2020) | [2018-19](#frc-2019) | [2017-18](#frc-2018) | [2016-17](#frc-2017) | [2015-16](#frc-2016) | [2014-15](#frc-2015) | [2013-14](#frc-2014) | [2012-13](#frc-2013) | [2011-12](#frc-2012) | [2010-11](#frc-2011) | [2009-10](#frc-2010) | [2008-09](#frc-2009) | [2007-08](#frc-2008) | [2006-07](#frc-2007) | [2005-06](#frc-2006) | [2003-04](#frc-2004) | [2002-03](#frc-2003) | [2001-02](#frc-2002) | [2000-01](#frc-2001) | [1999-00](#frc-2000) | [1999](#history-1999)
+\ No newline at end of file
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/10._frc-2026/text.md /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/10._frc-2026/text.md
+--- /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/10._frc-2026/text.md	2026-07-23 16:48:33.783743174 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/10._frc-2026/text.md	2026-07-29 16:38:24.152836751 +0000
+@@ -7,7 +7,7 @@
+ menu: frc-2026
+ year_bar: 2025-26
+ class: year-module
+-media_order: 'screenshot-2026-07-12-at-11-43-11-pm.png, img_7565.jpeg, 449-2026-group.jpg'
++media_order: 'tumbleweed_1.jpg, img_7565.jpeg, 449-2026-group.jpg'
+ image_height: 100
+ ---
+ 
+@@ -19,8 +19,6 @@
+ 
+ Tumbleweed has a horizontally extending hopper, a double shooter, and can drive under the trench.
+ 
+-[//]: # (NEEDS REVIEW: this page's only photo is a screenshot file, not a proper robot photo -- worth replacing with an actual photo when one is available)
+-
+ > **Record** 49-15-0 (W-L-T) in official play
+ 
+ > **CHS District - Alexandria VA** [Rank 7](https://www.thebluealliance.com/event/2026vaale), 11-5-0, [FIRST Leadership Award Semi-Finalist](https://www.thebluealliance.com/event/2026vaale#awards) (Allison Z)
+Only in /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/10._frc-2026: tumbleweed_1-hover-0.jpg
+Only in /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/10._frc-2026: tumbleweed_1-hover-1.jpg
+Only in /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/10._frc-2026: tumbleweed_1-hover-2.jpg
+Only in /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/10._frc-2026: tumbleweed_1-hover-3.jpg
+Only in /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/10._frc-2026: tumbleweed_1-hover-orig.jpg
+Only in /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/10._frc-2026: tumbleweed_1-hover.jpg
+Only in /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/10._frc-2026: tumbleweed_1.jpg
+Only in /srv/robot-grav-site/user/pages/04.bunnybots: 06.bunnybots-2025
+
+user/themes/mod-quark
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/templates/modular/text.html.twig /srv/robot-grav-site/user/themes/mod-quark/templates/modular/text.html.twig
+--- /srv/.activity-shadow/user/themes/mod-quark/templates/modular/text.html.twig	2026-07-23 23:51:12.179984913 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/templates/modular/text.html.twig	2026-07-29 16:59:18.045882862 +0000
+@@ -50,13 +50,23 @@
+             <div class="column col-6 col-md-12">
+                 {% if image %}
+                     {% set _alt = page.header.alt|default(page.header.title) %}
+-                    {% for image in page.media.images %}
+-                        {% set _ext = image.basename|split('.')|last %}
+-                        {% set _base = image.basename|slice(0, image.basename|length - _ext|length - 1) %}
++                    {% for image_name in page.header.media_order|split(',') %}
++                        {% set image_name = image_name|trim %}
++                        {% set image = page.media[image_name] %}
++                        {% set _ext = image.filename|split('.')|last %}
++                        {% set _base = image.basename %}
+                         {% set _orig = page.media[_base ~ '-original.' ~ _ext] %}
+                         {% set _full = _orig ?: image %}
+                         {% set _link = page.header.url ?: _full.url %}
+-                        <a href="{{ _link }}" class="gallery-thumb" target="_blank" rel="noopener" title="{{ _alt }}">{{ image.html(_alt, _alt)|raw }}</a>
++                        {% set _hover = page.media[_base ~ '-hover.' ~ _ext] %}
++                        <a href="{{ _link }}" class="gallery-thumb" target="_blank" rel="noopener" title="{{ _alt }}">
++                            <img src="{{ image.url|absolute_url }}"
++                                {% if _hover %}
++                                    onpointerenter = "this.src='{{ _hover.url|absolute_url }}';"
++                                    onpointerleave = "this.src='{{ image.url|absolute_url }}';"
++                                {% endif %}
++                                alt = "{{ _alt }}">
++                        </a>
+                     {% endfor %}
+                 {% endif %}
+             </div>
+```
+
+
 ### 2026-07-29
 
 ```diff
