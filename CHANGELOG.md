@@ -6,6 +6,17 @@ Reverse-chronological record of notable changes to the site — theme, templates
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-07-30 (later still) — 🚀 LIVE: `text.html.twig` hardened against missing/stale `media_order`
+
+Yesterday's `media_order`-based image lookup (see 2026-07-29 entry below) had two failure modes discovered today via a full sweep of all 86 pages using this template:
+
+- **Pages with no `media_order` set at all rendered no image.** True for any page nobody has ever manually reordered in the admin Page Media panel — never required under the old `page.media.images`-loop code. Fixed with a fallback: `{% set _names = page.header.media_order ? page.header.media_order|split(',') : page.media.images|keys %}`. Found and fixed on 3 pages: `41._history-1999`, `05.CURRENT-SPONSORS/15._intuitive`, `05.SPONSOR-BENEFITS/05._text-block-c`.
+- **A `media_order` entry naming a since-deleted file rendered a broken `<img src="">`** instead of just skipping it. Wrapped the per-item render in `{% if image %}` so a bad lookup degrades cleanly. Found live on `33._frc-2008` — its `media_order` still listed a file deleted that same morning; content fixed separately via `mcp__grav-live__update_page` (page content files are `644`, not the theme's `664` — SSH/scp can't write them; see RUNBOOK § Access & Ownership).
+- **✅ Verified:** all three previously-broken pages render real image paths; `33._frc-2008` shows exactly its two remaining images; full-page sweep of `/about-us/history` shows 0 broken `<img>` tags across 66 total.
+- **Not yet fixed, left open:** images on this template still render at full original resolution (the `.height(N)` size cap that used to live here was removed 2026-07-23 to fix Roman's "unequal-width Past Presidents photos" complaint — see RUNBOOK's new gotcha entry for the full chain). The correct fix is a width-anchored resize instead of no cap at all; deliberately left for Kiran to implement rather than handed over as a diff.
+- Full incident chain (Jun 15 origin through today) documented in RUNBOOK.md § Cautions & Gotchas.
+
+---
 ### 2026-07-30 (later) — 🚀 LIVE + 🟢 STAGING: commit messages now name the file and the editor — and a silent failure in yesterday's hook
 
 Commit messages in `robot-grav-site-sync` now read **`(GitSync) <file> by <who>: <summary>`** — e.g. `(GitSync) pages/hook-test-tmp/default.md by bradP: Add temporary hook-test-tmp page`. You can now see *which page* and *which editor* from the commit list alone, without opening each commit.
