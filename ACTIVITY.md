@@ -20,6 +20,270 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-07-31
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/01.home/03._home_top_text-2/text.md /srv/robot-grav-site/user/pages/01.home/03._home_top_text-2/text.md
+--- /srv/.activity-shadow/user/pages/01.home/03._home_top_text-2/text.md	2026-07-10 18:20:19.113659252 +0000
++++ /srv/robot-grav-site/user/pages/01.home/03._home_top_text-2/text.md	2026-07-30 23:23:23.885212557 +0000
+@@ -9,5 +9,5 @@
+ 
+ <p style="text-align: center;"><strong><a href="https://www.thebluealliance.com/team/449/history">Nine Worlds appearances</a> | <a href="https://www.thebluealliance.com/team/449/history">Eight District Event victories</a>
+     <br><a href="https://www.thebluealliance.com/team/449/history">23 District Awards</a></strong>, including two <strong><a href="https://www.firstinspires.org/resources/library/frc/fia-resources"><em>FIRST</em> Impact/Chairman's Awards</a></strong>
+-    <br>One <a href="https://www.woodieflowers.org/">Woodie Flowers Finalist</a> | Three <a href="https://www.firstinspires.org/resources/library/frc/submitted-awards#fla">Dean's List Finalists</a>
++    <br>One <a href="https://www.woodieflowers.org/">Woodie Flowers Finalist</a> | Three <a href="https://www.firstinspires.org/resources/library/frc/submitted-awards#fla">FIRST Leadership Award Finalists</a>
+     <br><br><strong>Host of the annual <a href="/bunnybots">Blair Bunnybots</a> | Mentors to <a href="/community/fll-team">FIRST LEGO League Team 57535</a></strong></p>
+\ No newline at end of file
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/26._frc-2015/text.md /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/26._frc-2015/text.md
+--- /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/26._frc-2015/text.md	2026-07-15 07:17:03.245087017 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/26._frc-2015/text.md	2026-07-30 03:23:05.487909156 +0000
+@@ -7,6 +7,7 @@
+ media_order: '2015-robot-screenshot-2026-07-15-at-3-12-52-am.png, 2015-outreach-cdio743wyaeoaoc.jpeg'
+ ---
+ 
++Read our 2015 FRC [build blog](https://blairrobotproject.wordpress.com/)!
+ > **2015 FRC Game** [Recycle Rush](https://firstfrc.blob.core.windows.net/frcarchive/2015/2015-game-manual.pdf)
+ 
+ ## Totedile
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/33._frc-2008/text.md /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/33._frc-2008/text.md
+--- /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/33._frc-2008/text.md	2026-07-15 06:32:10.690261188 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/33._frc-2008/text.md	2026-07-30 14:18:17.002216939 +0000
+@@ -4,7 +4,7 @@
+ menu: frc-2008
+ year_bar: 2007-08
+ class: year-module
+-media_order: 'scissorhands.jpg, 2008-1382289165_bf7c8083f4_m.jpg, 2008-robot-2210501159_cab84bc21d.jpg'
++media_order: 'scissorhands.jpg, 2008-robot-2210501159_cab84bc21d.jpg'
+ ---
+ 
+ > **2008 FRC Game** [FIRST Overdrive](https://firstfrc.blob.core.windows.net/frcarchive/2008-game-manual.pdf)
+Only in /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/33._frc-2008: text.md.bak-20260730-141653
+Only in /srv/.activity-shadow/user/pages/02.about-us/21.PROGRAMMING/02._gallery-programming: gallery-draggable.md.bak-20260702-222314
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/21.PROGRAMMING/03._programming/text.md /srv/robot-grav-site/user/pages/02.about-us/21.PROGRAMMING/03._programming/text.md
+--- /srv/.activity-shadow/user/pages/02.about-us/21.PROGRAMMING/03._programming/text.md	2026-06-27 21:18:48.771541462 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/21.PROGRAMMING/03._programming/text.md	2026-07-31 00:03:07.653421066 +0000
+@@ -5,7 +5,7 @@
+ menu: 'Text: Top'
+ ---
+ 
+-Team 449 is a **leader in FRC programming.** We have pioneered **drivetrain characterization**, writing a 2017 [white paper](https://www.chiefdelphi.com/t/paper-frc-drivetrain-characterization/160915) that has become the standard for robot feedforwards. We have developed **gyroscopically stabilized drive code** and **automatic shifting**. In recent years, we have optimized our robots' movement based on detected game pieces and its current position, and we have developed features such as **auto-alignment**, making driving smooth and efficient. All this has led to **Innovation in Controls awards **in [2012](https://www.thebluealliance.com/event/2012dc#awards), [2017](https://www.thebluealliance.com/event/2017mdbet#awards), [2018](https://www.thebluealliance.com/event/2018mdedg#awards), and [2024](https://www.thebluealliance.com/event/2024mdowi#awards). 
++Team 449 is a **leader in FRC programming.** We have pioneered **drivetrain characterization**, writing a 2017 [white paper](https://www.chiefdelphi.com/t/paper-frc-drivetrain-characterization/160915) that has become the standard for robot feedforwards. We have developed **gyroscopically stabilized drive code** and **automatic shifting**. In recent years, we have optimized our robots' movement based on detected game pieces and its current position, and we have developed features such as **auto-alignment**, making driving smooth and efficient. All this has led to **Innovation in Control** awards in [2012](https://www.thebluealliance.com/event/2012dc#awards), [2017](https://www.thebluealliance.com/event/2017mdbet#awards), [2018](https://www.thebluealliance.com/event/2018mdedg#awards), and [2024](https://www.thebluealliance.com/event/2024mdowi#awards). 
+ 
+ **Check out our code! **Here's our [Github](https://github.com/blair-robot-project). 
+ 
+@@ -13,4 +13,4 @@
+ 
+ During our off-season, **we teach our rookies** Kotlin and robot code through having them program our rookie [Bunnybot](/bunnybots), giving them slideshow lessons and projects that mirror a real FRC season. This allows them to be familiar with FRC code and our codebase before the season even starts. 
+ 
+-We have also **taught programming courses to other students** of all ages. This started with Pandemic Programming in 2020, and has evolved to BlairBytes, an in-person initiative that helps students learn Java, Python, and Scratch. 
+\ No newline at end of file
++We have also **[taught programming courses](/community/summer-classes) to other students** of all ages. This started with Pandemic Programming in 2020, and has evolved to BlairBytes, an in-person initiative that helps students learn Java, Python, and Scratch. 
+\ No newline at end of file
+Only in /srv/.activity-shadow/user/pages/03.community/04.fll-team/03._gallery-draggable-fll: gallery-draggable.md.bak-20260702-222314
+diff -ru /srv/.activity-shadow/user/pages/03.community/07.summer-classes/default.md /srv/robot-grav-site/user/pages/03.community/07.summer-classes/default.md
+--- /srv/.activity-shadow/user/pages/03.community/07.summer-classes/default.md	2026-07-28 02:39:04.004412302 +0000
++++ /srv/robot-grav-site/user/pages/03.community/07.summer-classes/default.md	2026-07-30 19:16:01.086164214 +0000
+@@ -26,8 +26,8 @@
+ [_Python PROgramming:_](https://canva.link/547xxkg3dhrrjin) Python: general programming for complete beginners
+ <br>August 1-22, Saturdays 2-3 p.m.
+ 
+-[_CAD Basics:_](https://canva.link/lp7iar9pjqf36ki) Computer-Aided Design (CAD) Onshape for beginners
++[_CAD Basics:_](https://canva.link/b3gfysayt4yo5ju) Computer-Aided Design (CAD) Onshape for beginners
+ <br>August 2-23, Sundays 11 a.m.-noon
+ 
+-[_Scratch Simplified:_](https://canva.link/b3gfysayt4yo5ju) Scratch: block-based visual programming for complete beginners
++[_Scratch Simplified:_](https://canva.link/lp7iar9pjqf36ki) Scratch: block-based visual programming for complete beginners
+ <br>August 2-23, Sundays 2-3 p.m.
+\ No newline at end of file
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/02._bunnybots-intro/text.md /srv/robot-grav-site/user/pages/04.bunnybots/02._bunnybots-intro/text.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/02._bunnybots-intro/text.md	2026-06-27 21:01:52.788074494 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/02._bunnybots-intro/text.md	2026-07-30 21:57:33.631484086 +0000
+@@ -7,4 +7,6 @@
+ 
+ **Blair Bunnybots**, our annual off-season FRC-style event, is designed to welcome new members of teams into the _FIRST_ community and to help them develop their skills. The 3-month build season ends with a day of competition that allows new members to show off their work and have fun at an event just for them. The 2025-26 event—our eighth—drew 18 teams from across the Chesapeake region. 
+ 
+-With Blair Bunnybots, we aim to exemplify a culture of healthy competition, kindness, and cooperation. The event embodies the spirit of [Gracious Professionalism](https://ftc-docs.firstinspires.org/en/latest/gracious_professionalism/gp.html) while recognizing the value in teamwork and community. Perhaps most importantly, in demonstrating first-hand the excitement of competition robotics, Blair Bunnybots lights and fuels a lasting passion in participating youth so they keep coming back for more robotics and STEM learning.
+\ No newline at end of file
++With Blair Bunnybots, we aim to exemplify a culture of healthy competition, kindness, and cooperation. The event embodies the spirit of [Gracious Professionalism](https://ftc-docs.firstinspires.org/en/latest/gracious_professionalism/gp.html) while recognizing the value in teamwork and community. Perhaps most importantly, in demonstrating first-hand the excitement of competition robotics, Blair Bunnybots lights and fuels a lasting passion in participating youth so they keep coming back for more robotics and STEM learning.
++
++See our 2025 Bunnybots page [here](/bunnybots/bunnybots-2025).
+\ No newline at end of file
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-07-28 19:14:53.106376650 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-07-30 06:11:45.489186437 +0000
+@@ -8,16 +8,20 @@
+ menu: 'Text: 2025 Bunnybots'
+ ---
+ 
+-[Game Manual v1.0 - Coming Soon](/bunnybots?classes=nounderline,disabled,button,btn-block)
++[2026 Game Manual v1.0 - Coming Soon](/bunnybots?classes=nounderline,disabled,button,btn-block)
+ 
+-#2026 Registration
+ ---
++
++##2026 Registration
++
+ [Team Registration - Opening Soon](/bunnybots?classes=nounderline,disabled,button,btn-block) <br>
+ [Volunteer Registration - Opening Soon](/bunnybots?classes=nounderline,disabled,button,btn-block)
+ 
++---
++
+ ### Participants
+ Paid & Confirmed Teams in **Bold** <br>
+ 
+-**[FRC 449](/) - The Blair Robot Project (2 robots)** <br>
++**[FRC 449](/): The Blair Robot Project (2 robots)** <br>
+ 
+ ---
+\ No newline at end of file
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/06.bunnybots-2025/01._top/hero.md /srv/robot-grav-site/user/pages/04.bunnybots/06.bunnybots-2025/01._top/hero.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/06.bunnybots-2025/01._top/hero.md	2026-07-30 02:51:30.621908761 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/06.bunnybots-2025/01._top/hero.md	2026-07-30 04:35:44.378488399 +0000
+@@ -6,7 +6,7 @@
+ published: true
+ ---
+ 
+-[//]: # (NEEDS REVIEW: no hero_image set. The only confirmed 2025-event photos on the server are the four 600px images in /bunnybots/_bunnybots_gallery -- too small for a hero background. The high-res photos in /bunnybots/_top are EXIF-dated 2024-12-07 and 2021-12-18, so they are NOT from this event. To finish: upload a full-resolution 2025 Bunnybots photo here and set hero_image, then add back the 'parallax text-light overlay-dark' hero classes.)
++[//]: # (NEEDS REVIEW: no hero_image set. Upload a full-resolution 2025 Bunnybots photo here and set hero_image, then add back the 'parallax text-light overlay-dark hero-large' hero classes.)
+ 
+ # **2025 Blair Bunnybots**
+ 
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/06.bunnybots-2025/02._text/text.md /srv/robot-grav-site/user/pages/04.bunnybots/06.bunnybots-2025/02._text/text.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/06.bunnybots-2025/02._text/text.md	2026-07-30 03:02:56.043246748 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/06.bunnybots-2025/02._text/text.md	2026-07-30 17:44:48.904919382 +0000
+@@ -6,7 +6,7 @@
+ published: true
+ ---
+ 
+-[//]: # (Restored verbatim 2026-07-29 from the pre-deletion version of /bunnybots/_register, EXCEPT for 5 participant links: FRC 5115, 5338, 5549, 8726 and 9033 originally pointed at team sites that are now dead -- wheatonrobotics.com, team5338.org, frc5549.org, cryptohawks8726.com all NXDOMAIN, ocebots.com fails TLS -- and were swapped for thebluealliance.com/team/NNNN on 2026-07-29, matching the pattern already used for 2988, 5353 and 8230. All 5 team numbers and nicknames were verified against the TBA API v3 first. See CHANGELOG.)
++[//]: # (Restored verbatim 2026-07-29 from the pre-deletion version of /bunnybots/_register. Some missing team websites updated; others replaced with TBA profiles.)
+ 
+ ## 2025 Bunnybots 
+ [plugin:youtube](https://youtu.be/8z1tBnxV6zw)
+@@ -28,13 +28,13 @@
+ [FRC 4821](https://cyberus4821.weebly.com/): CyberUs<br>
+ [FRC 5115](https://www.thebluealliance.com/team/5115): Knight Riders<br>
+ [FRC 5243](https://centrevillerobotics.com/aegis-robotics): AEGIS<br>
+-[FRC 5338](https://www.thebluealliance.com/team/5338): RoboLoCo<br>
+-[FRC 5353](https://www.thebluealliance.com/team/5353): ACL Raptors<br>
+-[FRC 5549](https://www.thebluealliance.com/team/5549): Gryphon Robotics<br>
++[FRC 5338](https://blogs.lcps.org/roboloco/): RoboLoCo<br>
++[FRC 5353](https://blogs.lcps.org/roboloco/): ACL Raptors<br>
++[FRC 5549](https://frc5549.squarespace.com/): Gryphon Robotics<br>
+ [FRC 5587](https://www.frc5587.org/): Titan Robotics<br>
+-[FRC 8230](https://www.thebluealliance.com/team/8230): KoiBots<br>
++[FRC 8230](https://koibots.com/): KoiBots<br>
+ [FRC 8592](https://frc8592.novalabsrobotics.org/): Newton Squared<br>
+-[FRC 8726](https://www.thebluealliance.com/team/8726): CryptoHawks<br>
++[FRC 8726](https://frc8726.org/index.html): CryptoHawks<br>
+ [FRC 9033](https://www.thebluealliance.com/team/9033): Ocebots
+ 
+ ---
+\ No newline at end of file
+diff -ru /srv/.activity-shadow/user/pages/05.resources/02._text-top/text.md /srv/robot-grav-site/user/pages/05.resources/02._text-top/text.md
+--- /srv/.activity-shadow/user/pages/05.resources/02._text-top/text.md	2026-07-23 22:54:26.238731005 +0000
++++ /srv/robot-grav-site/user/pages/05.resources/02._text-top/text.md	2026-07-31 00:25:02.421136471 +0000
+@@ -5,8 +5,20 @@
+ menu: 'Text: top'
+ ---
+ 
++##Code and tools
++
+ Explore Team 449's public [GitHub repositories](https://github.com/blair-robot-project) for our robot code and tools.
+ 
+-Read our [2026 Flywheel Calculations Whitepaper](/media/whitepapers/2026/flywheel-calculations-latest.pdf).
++##Whitepapers
+ 
+-Read the [whitepaper written by our Data Science team](https://www.chiefdelphi.com/t/introducing-prior-ridge-regularization-for-frc-rating/519531) on pRidge.
+\ No newline at end of file
++- [Flywheel Shot Analysis: Correction and
++Extension](https://www.chiefdelphi.com/t/flywheel-shot-analysis-correction-and-extension/520270), [PDF](/media/whitepapers/2026/flywheel-calculations-latest.pdf) (Rafi Pedersen, 2026)
++- [Introducing Prior Ridge: Regularization for FRC Rating](https://www.chiefdelphi.com/t/introducing-prior-ridge-regularization-for-frc-rating/519531) (Data Science Team, 2026)
++- [PSA: Your Motor Curves Are Still Wrong (A Correction To A Whitepaper About Current Limits)](https://www.chiefdelphi.com/t/psa-your-motor-curves-are-still-wrong-a-correction-to-a-whitepaper-about-current-limits/504706) (Rafi Pedersen, 2025)
++- [Trapezoidal-Exponential Motion Profiling](https://www.chiefdelphi.com/t/whitepaper-trapezoidal-exponential-motion-profiling/443468) (Rafi Pedersen, 2023)
++- [Two Jointed Arm Dynamics](https://www.chiefdelphi.com/t/whitepaper-two-jointed-arm-dynamics/423060) (Rafi Pedersen, 2023)
++- [Swerve Drive Skew and Second Order Kinematics](https://www.chiefdelphi.com/t/whitepaper-swerve-drive-skew-and-second-order-kinematics/416964) (Rafi Pedersen, 2022)
++- [Drivetrain Simulation using Characterization Constants](https://www.chiefdelphi.com/t/drivetrain-simulation-using-characterization-constants/369088) (Rafi Pedersen, 2020)
++- [Presenting the YamlBot Framework and Team 449’s Steamworks Code](https://www.chiefdelphi.com/t/presenting-the-yamlbot-framework-and-team-449s-steamworks-code/160276) (Programming Team, 2017)
++- [FRC Drivetrain Characterization](https://www.chiefdelphi.com/t/paper-frc-drivetrain-characterization/160915) (Noah Gleason and Eli Barnett, 2017).
++    - Cited in WPILib's [official FRC documentation](https://docs.wpilib.org/en/2020/docs/software/wpilib-tools/robot-characterization/introduction.html) as the reference for the motor feedforward equation behind the robot characterization toolsuite, the predecessor of today's [SysId](https://docs.wpilib.org/en/stable/docs/software/advanced-controls/system-identification/introduction.html) tool.
+\ No newline at end of file
+diff -ru /srv/.activity-shadow/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/08._genehaas/text.md /srv/robot-grav-site/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/08._genehaas/text.md
+--- /srv/.activity-shadow/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/08._genehaas/text.md	2026-07-19 13:04:31.000300708 +0000
++++ /srv/robot-grav-site/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/08._genehaas/text.md	2026-07-30 22:14:02.342136512 +0000
+@@ -2,11 +2,11 @@
+ url: 'https://ghf-inc.com/'
+ title: _haas
+ image_align: right
+-media_order: 'GHF.png?'
++media_order: GHF.png
+ published: true
+ image_height: 120
+ alt: 'Gene Haas Foundation logo'
+ ---
+ 
+-### [Gene Haas Foundation](https://ghf-inc.com/)
++### [Gene Haas Foundation](https://www.ghaasfoundation.org/)
+ [Gold Sponsor](/sponsor-information/sponsor-benefits#gold)
+\ No newline at end of file
+
+user/themes/mod-quark
+Only in /srv/.activity-shadow/user/themes/mod-quark/blueprints/modular: gallery-draggable.yaml.bak-20260702-222314
+Only in /srv/.activity-shadow/user/themes/mod-quark/templates/modular: gallery-draggable.html.twig.bak-20260702-222314
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/templates/modular/text.html.twig /srv/robot-grav-site/user/themes/mod-quark/templates/modular/text.html.twig
+--- /srv/.activity-shadow/user/themes/mod-quark/templates/modular/text.html.twig	2026-07-29 16:59:18.045882862 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/templates/modular/text.html.twig	2026-07-31 00:00:36.239535673 +0000
+@@ -50,23 +50,27 @@
+             <div class="column col-6 col-md-12">
+                 {% if image %}
+                     {% set _alt = page.header.alt|default(page.header.title) %}
+-                    {% for image_name in page.header.media_order|split(',') %}
++                    {% set _names = page.header.media_order ? page.header.media_order|split(',') : page.media.images|keys %}
++                    {% for image_name in _names %}
+                         {% set image_name = image_name|trim %}
+                         {% set image = page.media[image_name] %}
+-                        {% set _ext = image.filename|split('.')|last %}
+-                        {% set _base = image.basename %}
+-                        {% set _orig = page.media[_base ~ '-original.' ~ _ext] %}
+-                        {% set _full = _orig ?: image %}
+-                        {% set _link = page.header.url ?: _full.url %}
+-                        {% set _hover = page.media[_base ~ '-hover.' ~ _ext] %}
+-                        <a href="{{ _link }}" class="gallery-thumb" target="_blank" rel="noopener" title="{{ _alt }}">
+-                            <img src="{{ image.url|absolute_url }}"
+-                                {% if _hover %}
+-                                    onpointerenter = "this.src='{{ _hover.url|absolute_url }}';"
+-                                    onpointerleave = "this.src='{{ image.url|absolute_url }}';"
+-                                {% endif %}
+-                                alt = "{{ _alt }}">
+-                        </a>
++                        {% set _column_w = page.header.image_width|default(600) %}
++                        {% if image %}
++                            {% set _ext = image.filename|split('.')|last %}
++                            {% set _base = image.basename %}
++                            {% set _orig = page.media[_base ~ '-original.' ~ _ext] %}
++                            {% set _full = _orig ?: image %}
++                            {% set _link = page.header.url ?: _full.url %}
++                            {% set _hover = page.media[_base ~ '-hover.' ~ _ext] %}
++                            <a href="{{ _link }}" class="gallery-thumb" target="_blank" rel="noopener" title="{{ _alt }}">
++                                <img src="{{ image.url|absolute_url }}" }}
++                                    {% if _hover %}
++                                        onpointerenter = "this.src='{{ _hover.url|absolute_url }}';"
++                                        onpointerleave = "this.src='{{ image.url|absolute_url }}';"
++                                    {% endif %}
++                                    alt = "{{ _alt }}">
++                            </a>
++                        {% endif %}
+                     {% endfor %}
+                 {% endif %}
+             </div>
+Only in /srv/robot-grav-site/user/themes/mod-quark/templates/modular: text.html.twig.bak-20260730-141132
+Only in /srv/robot-grav-site/user/themes/mod-quark/templates/modular: text.html.twig.bak-20260730-141653
+Only in /srv/robot-grav-site/user/themes/mod-quark/templates/modular: text.html.twig.bak-20260730-214357
+```
+
+
 ### 2026-07-30
 
 ```diff
