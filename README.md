@@ -50,7 +50,10 @@ Three repos are in play. **One of them changes the live site.**
 | `blair-robot-project/robot-grav-site-sync` | Git Sync mirror of live's `user/pages` + `user/themes` | **YES — deploys to robot.mbhs.edu.** |
 | `bpeniston/449-website-staging-sync` | Same, for the 449.navybook.com staging site | Staging only. |
 
-- **⚠️ Committing to `robot-grav-site-sync` edits the live site.** Git Sync runs `direction: both` and a **`0 0 * * *` scheduler job**, so anything pushed there is pulled onto live at midnight — no review step, and nothing warns you at commit time. Push there only when you *intend* a live deploy. (Verify the job with `sudo -u grav php bin/grav scheduler -j`.)
+- **⚠️ Committing to `robot-grav-site-sync` edits the live site.** The `git-sync` scheduler job runs `0 0 * * *`, and its `sync()` does `git pull --ff -X theirs origin main`, so anything pushed there lands on live at the next midnight — no review step, and nothing warns you at commit time. Push there only when you *intend* a live deploy. (Verify: `sudo -u grav php bin/grav scheduler -d`.)
+  - **The disabled webhook does NOT prevent this.** `webhook_enabled: false` only removes the *instant* path; the cron is a second, independent inbound route. "Webhook is off, so the sync repo can't reach live" is a known-wrong conclusion — it has been drawn before.
+  - **`direction` does not gate the pull.** In `sync()` the pull is unconditional; `direction: both` only controls whether it *also* pushes. The off switch for inbound is `cron_enable: false`, not `direction`.
+  - **`-X theirs` means the remote wins.** A conflicting remote commit doesn't merely land, it overrides the live server's version of that file.
 - The theme is **not** in this repo any more — it moved under `archive/` when the docs were imported. Live's authoritative theme is on the server, mirrored to `robot-grav-site-sync`.
 - Deploying a theme/plugin change the manual way (rsync + `sudo -u grav`, no Git Sync involved) is in [RUNBOOK.md](RUNBOOK.md) § Git Sync and § How to make a change.
 
