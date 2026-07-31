@@ -1,5 +1,5 @@
 # FRC 449 Website — Teammate Instruction Manual
-*Last updated: 2026-07-28 · Version 2.7*
+*Last updated: 2026-07-31 · Version 2.8*
 
 The site gets a full automatic backup every night, and traffic is low enough that a mistake is easy to fix and low-stakes. Just be reasonably careful, and use the nightly backup as your safety net.
 
@@ -60,6 +60,19 @@ You can also use HTML for effects Markdown can't do easily.
 Every image you upload is automatically **resized** to a sensible max width for its context (gallery 1200px, hero 2560px, sponsor/mentor grids 1600px, else 2000px) and its **filename sanitized**. Drag in full-size photos with messy names — it just works.
 
 Resizing is handled by **Image Intake**, a plugin written for this site. To change a limit — or turn resizing off for one module type — go to **Plugins → Image Intake → Per-template maximum widths**: one field per module type, where blank = use the default and **`0` = never resize** (keeps the original at full size, with its EXIF photo-credit intact). ⚠️ Shrinking happens **on upload, and the original is discarded** — set the limit *before* you upload, not after.
+
+> **⚠️ Those width fields don't currently render (as of July 2026).** The "Template widths" box shows its heading with nothing underneath. This is an upstream Admin Next bug — the API drops dynamically-generated blueprint fields ([grav-plugin-api#21](https://github.com/getgrav/grav-plugin-api/issues/21)) — not something fixable in our plugin, so it will start working on its own once that's fixed. **Resizing and filename sanitizing are unaffected and work normally**; only the settings screen is. Until then the widths are set over SSH in `user/config/plugins/image-intake.yaml` (Power User task — Part 2), then clear the cache:
+>
+> ```yaml
+> default_max_width: 2000     # any template not listed below
+> caps:
+>   gallery-draggable: 1200
+>   gallery: 1200
+>   hero: 2560
+>   feature-images: 1600
+> ```
+>
+> A template listed with `0` is never resized; one that's absent gets `default_max_width`.
 
 ### a) Images next to a block of text
 In the module, drag one or more new images into the Page Media field to upload them. The images appear on the web page in the order they appear in the Page Media box. There's a button that toggles drag-to-reorder just above the box.
