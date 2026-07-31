@@ -35,11 +35,24 @@ photos, new pages) happen through the [admin panel](https://robot.mbhs.edu/admin
 Working facts for a Claude Code session.
 
 ### The site & stack
-- Grav **2.0.9** (admin2 **2.0.13**, confirmed 2026-07-10 — drifts via GPM, re-check with `bin/grav --version`), PHP **8.3.31**, nginx 1.18.0, Ubuntu 22.04, on a **dedicated** DigitalOcean droplet.
+- Grav **2.0.13** (admin2 **2.0.16**, api **1.0.13**, confirmed 2026-07-31 — drifts via GPM, re-check with `bin/grav --version`), PHP **8.3.31**, nginx 1.18.0, Ubuntu 22.04, on a **dedicated** DigitalOcean droplet.
 - Theme: **Mod Quark** (`user/themes/mod-quark/`) — a custom child of stock **Quark** (`user/themes/quark/` = parent, **don't edit it**). Hand-managed, not GPM-managed.
 - Custom modular templates: `feature-images`, `icon-menu`, `gallery-draggable`, `gallery-banners`, plus modified `text`/`hero` and helper `footer-col` — what each does is in [RUNBOOK.md](RUNBOOK.md) § Architecture reference (or the fuller table in `INSTRUCTIONS.md`'s appendix).
 - Images: PHP **gd** + ImageMagick **`convert`**; the **image-intake** plugin sanitizes filenames + shrinks uploads.
 - Full environment facts (config deviations, security status, disk): [RUNBOOK.md](RUNBOOK.md) § Environments.
+
+### Repos — and which one deploys to live
+Three repos are in play. **One of them changes the live site.**
+
+| Repo | What it is | Touching it deploys? |
+|---|---|---|
+| `blair-robot-project/robot-grav-site` | **This repo** — hand-curated docs + `archive/` of the pre-2.0 webroot | **No.** Safe to commit freely. |
+| `blair-robot-project/robot-grav-site-sync` | Git Sync mirror of live's `user/pages` + `user/themes` | **YES — deploys to robot.mbhs.edu.** |
+| `bpeniston/449-website-staging-sync` | Same, for the 449.navybook.com staging site | Staging only. |
+
+- **⚠️ Committing to `robot-grav-site-sync` edits the live site.** Git Sync runs `direction: both` and a **`0 0 * * *` scheduler job**, so anything pushed there is pulled onto live at midnight — no review step, and nothing warns you at commit time. Push there only when you *intend* a live deploy. (Verify the job with `sudo -u grav php bin/grav scheduler -j`.)
+- The theme is **not** in this repo any more — it moved under `archive/` when the docs were imported. Live's authoritative theme is on the server, mirrored to `robot-grav-site-sync`.
+- Deploying a theme/plugin change the manual way (rsync + `sudo -u grav`, no Git Sync involved) is in [RUNBOOK.md](RUNBOOK.md) § Git Sync and § How to make a change.
 
 ### Access & ownership
 - SSH `ssh USER@robot.mbhs.edu`; Grav root `/srv/robot-grav-site/`. Admin at `/admin`.
