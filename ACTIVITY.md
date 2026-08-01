@@ -20,6 +20,85 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-08-01
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/02._mission/text.md /srv/robot-grav-site/user/pages/02.about-us/02._mission/text.md
+--- /srv/.activity-shadow/user/pages/02.about-us/02._mission/text.md	2026-06-27 20:56:30.867525281 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/02._mission/text.md	2026-07-31 06:10:21.428095704 +0000
+@@ -12,7 +12,7 @@
+ 
+ By competing in FRC, we enable students to **tackle complex technical problems in a collaborative environment**. Our student-led, mentor-guided team keeps students at the forefront of decision-making, project leadership, and execution.  
+ 
+-We also **[work in the community](/community)** to encourage youth to pursue degrees and careers in STEM. 449 members teach practical courses, create and attend outreach events, teach practical courses, mentor teams, and share their knowledge and resources in person and online.
++We also **[work in the community](/community)** to encourage youth to pursue degrees and careers in STEM. 449 members create and attend outreach events, teach practical courses, mentor teams, and share their knowledge and resources in person and online.
+ 
+ ##About ![Logo%20Primary](Logo%20Primary.svg "Logo%20Primary")
+ > _[FIRST](https://www.firstinspires.org)_ (For Inspiration and Recognition of Science and Technology) was founded in 1989 to inspire young people to be science and technology leaders and innovators. It fosters mentor-based programs that build science, engineering, and technology skills; inspire innovation; and teach self-confidence, communication, and leadership.
+\ No newline at end of file
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/05._history-top/text.md /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/05._history-top/text.md
+--- /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/05._history-top/text.md	2026-07-14 12:15:01.230237719 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/05._history-top/text.md	2026-07-31 15:01:06.421496161 +0000
+@@ -14,4 +14,4 @@
+ 
+ FRC Team 449 first competed in **2000**, and went all the way to the National Championship. We notched our first  event win in **2004**. In **2018**, we hosted our first [Bunnybots](/bunnybots). When COVID-19 ended the **2020** season early, we started Pandemic Programming, offering a full coding curriculum taught by 449 members to K-12 students anywhere. We received a _FIRST_ Impact Award in **2021** (well, it was called Chairman’s Award back then; we’d win another in **2024**). In **2022**, we started our [_FIRST_ Lego League team](/community/fll-team) for elementary and middle schoolers. And in **2025** and **2026**, we became back-to-back winners of the _FIRST_ Chesapeake championship.
+ 
+-Scroll down for more. And find our **[full competition history](https://www.thebluealliance.com/team/449/history)** at The Blue Alliance.
++Scroll down for year-by-year details. And find our **[full competition history](https://www.thebluealliance.com/team/449/history)** at The Blue Alliance.
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/06._historygallery-top/gallery-draggable.md /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/06._historygallery-top/gallery-draggable.md
+--- /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/06._historygallery-top/gallery-draggable.md	2026-07-14 12:14:22.480750747 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/06._historygallery-top/gallery-draggable.md	2026-07-31 15:18:22.286013817 +0000
+@@ -16,4 +16,4 @@
+ [//]: # (Add photos in the Page Media box below — drag them in or click to upload. They are resized automatically. Click Save.)
+ [//]: # (* To set the display order, use the Page Media box's own Reorder toggle to drag photos into place. Click Save.)
+ [//]: # (* To remove a photo, delete it from the Page Media box by clicking its bottom-right "x" button. Click Save.)
+-2001's robot  |  Robot and crew, 2003  |  2004's robot at work  |  449's first blue banner
+\ No newline at end of file
++Robot, 2001&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Robot and crew, 2003&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Robot at work, 2004&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Our [first blue banner](https://www.thebluealliance.com/event/2004md), 2004
+\ No newline at end of file
+diff -ru /srv/.activity-shadow/user/pages/05.resources/02._text-top/text.md /srv/robot-grav-site/user/pages/05.resources/02._text-top/text.md
+--- /srv/.activity-shadow/user/pages/05.resources/02._text-top/text.md	2026-07-31 00:25:02.421136471 +0000
++++ /srv/robot-grav-site/user/pages/05.resources/02._text-top/text.md	2026-08-01 01:06:25.140596180 +0000
+@@ -9,6 +9,8 @@
+ 
+ Explore Team 449's public [GitHub repositories](https://github.com/blair-robot-project) for our robot code and tools.
+ 
++Explore our [Electronics Parts Reference](https://docs.google.com/spreadsheets/d/1IpaLFMFgdSNxcpry_hkP5m_wsyTGMwhZ-DhQY5H5RsU/edit?usp=drivesdk).
++
+ ##Whitepapers
+ 
+ - [Flywheel Shot Analysis: Correction and
+diff -ru /srv/.activity-shadow/user/pages/09.announcements-data/announcements-data.md /srv/robot-grav-site/user/pages/09.announcements-data/announcements-data.md
+--- /srv/.activity-shadow/user/pages/09.announcements-data/announcements-data.md	2026-07-24 16:02:55.543364247 +0000
++++ /srv/robot-grav-site/user/pages/09.announcements-data/announcements-data.md	2026-07-31 18:06:55.363884188 +0000
+@@ -11,19 +11,19 @@
+         start_date: '08-07-2026 12:00'
+         end_date: '02-08-2026 00:01'
+         level: blue
+-        published: 0
++        published: 1
+     -
+         title: 'watch the Worlds 2026 video (displays 8/2-8/28)'
+         level: blue
+         message: 'Have you seen the video about our trip to 2026 Worlds?'
+         link: 'https://www.youtube.com/watch?v=ckc5bD1HF1M'
+-        start_date: '02-08-2026 00:02'
++        start_date: '2026-08-02 01:00'
+         end_date: '28-08-2026 12:00'
+     -
+         title: 'Summer classes signup (7/23-7/31)'
+         message: 'Register for our FLL team and summer classes today!'
+         start_date: ''
+-        end_date: '2026-07-31 12:00'
++        end_date: '2026-07-31 12:59'
+         level: blue
+         link: /community
+ visible: false
+```
+
+
 ### 2026-07-31
 
 ```diff
