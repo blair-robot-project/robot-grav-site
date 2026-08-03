@@ -20,6 +20,61 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-08-03
+
+```diff
+
+user/pages
+Only in /srv/.activity-shadow/user/pages/02.about-us: 20.SCOUTING
+Only in /srv/robot-grav-site/user/pages/02.about-us: 20.data-science
+Only in /srv/robot-grav-site/user/pages/02.about-us: about-usignore-this
+Only in /srv/.activity-shadow/user/pages/02.about-us: data-science
+diff -ru /srv/.activity-shadow/user/pages/03.community/_registration/text.md /srv/robot-grav-site/user/pages/03.community/_registration/text.md
+--- /srv/.activity-shadow/user/pages/03.community/_registration/text.md	2026-07-23 21:31:51.229905929 +0000
++++ /srv/robot-grav-site/user/pages/03.community/_registration/text.md	2026-08-03 00:22:13.263823970 +0000
+@@ -5,7 +5,3 @@
+     lastmod: '23-07-2026 17:24'
+ ---
+ 
+-
+-## Register for our [FLL Team](/community/fll-team) and [summer classes](/community/summer-classes) today! 
+----
+-
+
+user/themes/mod-quark
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/templates/modular/gallery-banners.html.twig /srv/robot-grav-site/user/themes/mod-quark/templates/modular/gallery-banners.html.twig
+--- /srv/.activity-shadow/user/themes/mod-quark/templates/modular/gallery-banners.html.twig	2026-07-18 03:43:15.633235429 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/templates/modular/gallery-banners.html.twig	2026-08-03 02:53:35.392208378 +0000
+@@ -10,8 +10,11 @@
+                 {% if banner_link %}
+                     <a href="{{ banner_link.url }}"{{ banner_link.url starts with 'http' ? ' target="_blank" rel="noopener"' : '' }}>{{ image.height(400).html(alt_text, alt_text)|raw }}</a>
+                 {% else %}
+-                    {{ image.height(400).html(alt_text, alt_text)|raw }}
+-                {% endif %}
++		    {% if image %}
++		        {% set image = img.width > 1200 ? img.resize(1200).url : img.url %}
++	                {{ image.height(400).html(alt_text, alt_text)|raw }}
++		    {% endif %}
++	        {% endif %}
+             </div>
+         {% endfor %}
+     </div>
+Only in /srv/robot-grav-site/user/themes/mod-quark/templates/modular: gallery-banners.html.twig.bak-20260803-025220
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/templates/modular/text.html.twig /srv/robot-grav-site/user/themes/mod-quark/templates/modular/text.html.twig
+--- /srv/.activity-shadow/user/themes/mod-quark/templates/modular/text.html.twig	2026-07-31 00:00:36.239535673 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/templates/modular/text.html.twig	2026-08-03 02:50:45.535834334 +0000
+@@ -56,6 +56,7 @@
+                         {% set image = page.media[image_name] %}
+                         {% set _column_w = page.header.image_width|default(600) %}
+                         {% if image %}
++			    {% set image = img.width > 1200 ? img.resize(1200).url : img.url %}
+                             {% set _ext = image.filename|split('.')|last %}
+                             {% set _base = image.basename %}
+                             {% set _orig = page.media[_base ~ '-original.' ~ _ext] %}
+Only in /srv/robot-grav-site/user/themes/mod-quark/templates/modular: text.html.twig.bak-20260803-024205
+```
+
+
 ### 2026-08-01
 
 ```diff
