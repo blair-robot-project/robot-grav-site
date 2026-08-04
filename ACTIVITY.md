@@ -20,6 +20,170 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-08-04
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/01.home/06._about/text.md /srv/robot-grav-site/user/pages/01.home/06._about/text.md
+--- /srv/.activity-shadow/user/pages/01.home/06._about/text.md	2026-07-28 16:29:21.513612133 +0000
++++ /srv/robot-grav-site/user/pages/01.home/06._about/text.md	2026-08-03 15:34:29.811076241 +0000
+@@ -6,7 +6,7 @@
+ ---
+ 
+ ## **What’s new**
+-**August 1:** Our annual [summer classes](https://robot.mbhs.edu/community/summer-classes) start, free to students in grades K-12. Signups close July 31.
++**August 1:** Our annual [summer classes](https://robot.mbhs.edu/community/summer-classes) start, free to students in grades K-12. Signups closed July 31.
+ 
+ **July 10-12:** We participated in Philly's [RoboJawn](https://www.thebluealliance.com/event/2026paphi1), organized by Teams [321](https://robolancers.com/) and [1218](https://www.sch.org/admissions/learn/robotics)! 
+ 
+diff -ru /srv/.activity-shadow/user/pages/01.home/08._sponsors/feature-images.md /srv/robot-grav-site/user/pages/01.home/08._sponsors/feature-images.md
+--- /srv/.activity-shadow/user/pages/01.home/08._sponsors/feature-images.md	2026-07-23 17:14:22.824022183 +0000
++++ /srv/robot-grav-site/user/pages/01.home/08._sponsors/feature-images.md	2026-08-03 21:44:38.459982968 +0000
+@@ -8,7 +8,7 @@
+     -
+         image: logo-magnetFoundation.jpeg
+         header: 'Montgomery Blair High School Magnet Foundation'
+-        text: 'Diamond & Fiscal Sponsor '
++        text: 'Diamond & Fiscal Sponsor'
+         url: 'http://www.mbhsmagnet.org'
+     -
+         image: dodstem-logo.jpg
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/03._menu-about/icon-menu.md /srv/robot-grav-site/user/pages/02.about-us/03._menu-about/icon-menu.md
+--- /srv/.activity-shadow/user/pages/02.about-us/03._menu-about/icon-menu.md	2026-07-14 12:23:12.873206612 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/03._menu-about/icon-menu.md	2026-08-03 18:44:33.921600438 +0000
+@@ -1,5 +1,5 @@
+ ---
+-title: 'About Us: Icon-menu: Leaders/Mentors/Programming'
++title: 'About Us: Icon menu'
+ menu: 'Icon-menu: top'
+ class: standard
+ features:
+@@ -19,6 +19,11 @@
+         text: 'Learn about our programming team.'
+         url: /about-us/programming
+     -
++        icon: 'fa fa-bar-chart'
++        header: 'Data Science'
++        text: 'Learn about our data science team.'
++        url: /about-us/data-science
++    -
+         icon: 'fa fa-history'
+         header: History
+         text: "Explore our team's history."
+Only in /srv/robot-grav-site/user/pages/03.community/02._community-events: bobvolunteer.jpg
+Only in /srv/.activity-shadow/user/pages/03.community/02._community-events: makerFaire.png
+Only in /srv/.activity-shadow/user/pages/03.community/02._community-events: mkpcSciExpo2018-original.jpg
+diff -ru /srv/.activity-shadow/user/pages/03.community/02._community-events/text.md /srv/robot-grav-site/user/pages/03.community/02._community-events/text.md
+--- /srv/.activity-shadow/user/pages/03.community/02._community-events/text.md	2026-07-23 21:19:34.629289281 +0000
++++ /srv/robot-grav-site/user/pages/03.community/02._community-events/text.md	2026-08-03 12:35:37.563817406 +0000
+@@ -1,7 +1,7 @@
+ ---
+ title: 'Community: Text: Events, Advocacy'
+ image_align: right
+-media_order: 'makerFaire.png, mkpcSciExpo2018-original.jpg, stemfair.jpg, betterdemo.jpg, dumbo.jpg'
++media_order: 'stemfair.jpg, betterdemo.jpg, dumbo.jpg, tpff.jpeg, bobvolunteer.jpg'
+ menu: 'Text: Community Events'
+ alt: 'Team members engaging with young visitors at a community STEM outreach event'
+ ---
+Only in /srv/robot-grav-site/user/pages/03.community/02._community-events: tpff.jpeg
+diff -ru /srv/.activity-shadow/user/pages/03.community/07.summer-classes/default.md /srv/robot-grav-site/user/pages/03.community/07.summer-classes/default.md
+--- /srv/.activity-shadow/user/pages/03.community/07.summer-classes/default.md	2026-07-30 19:16:01.086164214 +0000
++++ /srv/robot-grav-site/user/pages/03.community/07.summer-classes/default.md	2026-08-03 18:34:43.342754430 +0000
+@@ -18,7 +18,7 @@
+ 
+ ### Sign up for summer classes! 
+ 
+-Team 449 is dedicated to giving back to our community through education. This summer, we’ll be teaching 4 **free and virtual** classes, running from **August 1 to 23**. Hosted on Google Meet, these classes are available for **all students in grades K-12**, and will be taught by our team’s members, with a dedicated curriculum for each class. More information on each class can be found at the links below. **Signups are due July 31**.
++Team 449 is dedicated to giving back to our community through education. This summer, we’ll be teaching 4 **free and virtual** classes, running from **August 1 to 23**. Hosted on Google Meet, these classes are available for **all students in grades K-12**, and will be taught by our team’s members, with a dedicated curriculum for each class. More information on each class can be found at the links below. **Signups closed July 31**.
+ 
+ [_Algebra 1 Bootcamp:_](https://canva.link/pt4iaq0o51jstny) Math: Introduction to Algebra 1 (generally recommended for students in grades 4-8)
+ <br>August 1-22, Saturdays 11 a.m.-noon 
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/06.bunnybots-2025/01._top/hero.md /srv/robot-grav-site/user/pages/04.bunnybots/06.bunnybots-2025/01._top/hero.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/06.bunnybots-2025/01._top/hero.md	2026-07-30 04:35:44.378488399 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/06.bunnybots-2025/01._top/hero.md	2026-08-03 21:18:39.738818575 +0000
+@@ -1,13 +1,12 @@
+ ---
+-arrow: noarrow
+ title: 'Bunnybots-2025: Hero'
+ menu: Hero
+-hero_classes: hero-medium
++hero_classes: 'parallax text-light hero-large overlay-dark'
++hero_image: img_5769.jpg
+ published: true
++arrow: noarrow
+ ---
+ 
+-[//]: # (NEEDS REVIEW: no hero_image set. Upload a full-resolution 2025 Bunnybots photo here and set hero_image, then add back the 'parallax text-light overlay-dark hero-large' hero classes.)
+-
+ # **2025 Blair Bunnybots**
+ 
+ 
+Only in /srv/robot-grav-site/user/pages/04.bunnybots/06.bunnybots-2025/01._top: img_5769.jpg
+Only in /srv/robot-grav-site/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/07._boeing: BoeingLogo_RGB-original.png
+Only in /srv/.activity-shadow/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/07._boeing: BoeingLogo_RGB.png
+Only in /srv/robot-grav-site/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/07._boeing: BoeingLogo_RGB.webp
+diff -ru /srv/.activity-shadow/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/07._boeing/text.md /srv/robot-grav-site/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/07._boeing/text.md
+--- /srv/.activity-shadow/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/07._boeing/text.md	2026-07-19 13:04:27.704172680 +0000
++++ /srv/robot-grav-site/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/07._boeing/text.md	2026-08-03 22:12:34.889369763 +0000
+@@ -2,10 +2,10 @@
+ url: 'https://www.boeing.com/'
+ title: _boeing
+ image_align: right
+-media_order: BoeingLogo_RGB.png
++media_order: BoeingLogo_RGB.webp
+ image_height: 120
+ alt: 'Boeing logo'
+ ---
+ 
+ ### [Boeing](https://www.boeing.com/)
+-[Gold Sponsor](/sponsor-information/sponsor-benefits#gold)
+\ No newline at end of file
++[Gold Sponsor](/sponsor-information/sponsor-benefits#gold)
+
+user/themes/mod-quark
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/templates/modular/gallery-banners.html.twig /srv/robot-grav-site/user/themes/mod-quark/templates/modular/gallery-banners.html.twig
+--- /srv/.activity-shadow/user/themes/mod-quark/templates/modular/gallery-banners.html.twig	2026-08-03 02:53:35.392208378 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/templates/modular/gallery-banners.html.twig	2026-08-03 21:37:32.023155720 +0000
+@@ -11,10 +11,11 @@
+                     <a href="{{ banner_link.url }}"{{ banner_link.url starts with 'http' ? ' target="_blank" rel="noopener"' : '' }}>{{ image.height(400).html(alt_text, alt_text)|raw }}</a>
+                 {% else %}
+ 		    {% if image %}
+-		        {% set image = img.width > 1200 ? img.resize(1200).url : img.url %}
+-	                {{ image.height(400).html(alt_text, alt_text)|raw }}
++			{% set image = img.width > 1200 ? img.resize(1200).url : img.url %}
++			{% set image = image.format("jpg") %}
++			{{ image.html(alt_text, alt_text)|raw }}
+ 		    {% endif %}
+-	        {% endif %}
++		{% endif %}
+             </div>
+         {% endfor %}
+     </div>
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/templates/modular/text.html.twig /srv/robot-grav-site/user/themes/mod-quark/templates/modular/text.html.twig
+--- /srv/.activity-shadow/user/themes/mod-quark/templates/modular/text.html.twig	2026-08-03 02:50:45.535834334 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/templates/modular/text.html.twig	2026-08-03 21:36:06.895785886 +0000
+@@ -56,15 +56,15 @@
+                         {% set image = page.media[image_name] %}
+                         {% set _column_w = page.header.image_width|default(600) %}
+                         {% if image %}
+-			    {% set image = img.width > 1200 ? img.resize(1200).url : img.url %}
+                             {% set _ext = image.filename|split('.')|last %}
+                             {% set _base = image.basename %}
+                             {% set _orig = page.media[_base ~ '-original.' ~ _ext] %}
+                             {% set _full = _orig ?: image %}
+                             {% set _link = page.header.url ?: _full.url %}
+                             {% set _hover = page.media[_base ~ '-hover.' ~ _ext] %}
++			    {% set image = image.width > 1200 ? image.resize(1200) : image %}
+                             <a href="{{ _link }}" class="gallery-thumb" target="_blank" rel="noopener" title="{{ _alt }}">
+-                                <img src="{{ image.url|absolute_url }}" }}
++                                <img src="{{ image.url|absolute_url }}"
+                                     {% if _hover %}
+                                         onpointerenter = "this.src='{{ _hover.url|absolute_url }}';"
+                                         onpointerleave = "this.src='{{ image.url|absolute_url }}';"
+```
+
+
 ### 2026-08-03
 
 ```diff
