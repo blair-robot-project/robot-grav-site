@@ -20,6 +20,26 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-08-06
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/03.community/04.fll-team/02._java-programming-class-body/text.md /srv/robot-grav-site/user/pages/03.community/04.fll-team/02._java-programming-class-body/text.md
+--- /srv/.activity-shadow/user/pages/03.community/04.fll-team/02._java-programming-class-body/text.md	2026-07-23 23:03:53.597078651 +0000
++++ /srv/robot-grav-site/user/pages/03.community/04.fll-team/02._java-programming-class-body/text.md	2026-08-05 18:50:07.629960749 +0000
+@@ -13,7 +13,7 @@
+ 
+ **Find our flyer [here](/media/flyers/fll-flyer-2026/flyer.pdf).**
+ 
+-**Find more details and the application [here](https://forms.gle/c1Hs4XFMk3XrNnyG7). Applications are open until August 1st!** 
++**Applications are now closed.** 
+ 
+ **About FLL:** [FIRST LEGO League](https://www.firstlegoleague.org) is a robotics competition for middle schoolers. Under the guidance of 449 team members, students learn to build and program a robot ([EV3 Mindstorms](https://education.lego.com/en-us/product-resources/mindstorms-ev3/downloads/building-instructions/)) to solve real-world problems. Through this experience, they develop leadership, collaboration, and technical skills!
+ 
+```
+
+
 ### 2026-08-04
 
 ```diff
