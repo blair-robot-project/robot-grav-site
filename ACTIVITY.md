@@ -20,6 +20,92 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-08-07
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/20.data-science/01._text/text.md /srv/robot-grav-site/user/pages/02.about-us/20.data-science/01._text/text.md
+--- /srv/.activity-shadow/user/pages/02.about-us/20.data-science/01._text/text.md	2026-08-03 02:22:59.902569474 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/20.data-science/01._text/text.md	2026-08-07 02:09:13.148532842 +0000
+@@ -5,11 +5,10 @@
+ body_classes: modular
+ ---
+ 
+-Founded in 2025, the Data Science subteam is the newest addition to 449. As a **modern adaptation of Scouting/Strategy**, we focus on applying data-driven facts to decisions during the official season and the offseason. Serving as a force multiplier, we extend the team’s analytical capabilities and expand what is possible through data.
++Founded in 2025, the Data Science subteam is the newest addition to 449.  We inform team decisions with data, both on (Scouting & Strategy) and off  (Operations & Outreach) the field.
++In our first season, we developed **pRidge**, a new FRC performance metric detailed in our 2026 [white paper](https://www.chiefdelphi.com/t/introducing-prior-ridge-regularization-for-frc-rating/519531). pRidge has been shown to **improve on EPA** by more than 6% in Mean Squared Error—and by 12% compared to OPR—since 2022. 
+ 
+-In our first season, we developed **pRidge**, a new FRC performance metric; read our 2026 [white paper](https://www.chiefdelphi.com/t/introducing-prior-ridge-regularization-for-frc-rating/519531) on it. Since 2022, pRidge has been shown to **improve on EPA** by more than 6% in Mean Squared Error, and by 12% compared to OPR. If you’re intrigued, read to the end to learn more about what your experience might be like!
+-
+-We work primarily in R, creating **interactive shinyapps** for data visualization and collecting data via custom **QRScout** jsons. Like all 449 members, we strongly believe in the cultivation of a positive scouting culture and open collaboration within FRC—accordingly, all of our software is open-source. At the 2026 Chesapeake District Championship, we released our complete scouting [shinyapp](google.com/url?q=https://blair-robot-scouting2026.share.connect.posit.cloud&sa=D&source=docs&ust=1785713485382396&usg=AOvVaw0CilbPBsol9YcR11fgIGcR)—and its [code](https://github.com/blair-robot-project/scouting2026)!
++We work primarily in R, creating **interactive shinyapps** for data visualization and collecting data via custom **QRScout** jsons. We strongly believe in the cultivation of a positive scouting culture and open collaboration within FRC—accordingly, all of our software is open-source. At the 2026 Chesapeake District Championship, we released our complete scouting [shinyapp](google.com/url?q=https://blair-robot-scouting2026.share.connect.posit.cloud&sa=D&source=docs&ust=1785713485382396&usg=AOvVaw0CilbPBsol9YcR11fgIGcR)—and its [code](https://github.com/blair-robot-project/scouting2026)!
+ During the off-season, Data Science works on data analysis projects such as continued pRidge research, an attendance application, and a potential custom Statbotics. [Bunnybots](https://robot.mbhs.edu/bunnybots)—our off-season event that enables rookie members to experience the robotics process before the official season—also provides the Data Science team with an excellent opportunity to refine our skills and deliver easily accessible data to everyone at the event.
+ 
+ Beyond software development, we have been frequent attendees at the [FRC Team Development Conference](https://www.instagram.com/p/DYQmhUPsiaO/), presenting on topics such as: 
+@@ -18,9 +17,8 @@
+ 
+ ###**And Here We Steal ALL The Rookies**
+ 
+-During competitions, Data Science fulfills the standard [Scouting/Strategy](https://www.firstinspires.org/hubfs/web/program/frc/resources/intro-scouting.pdf?hsLang=en) role: we collect match data, give strategy briefings, and create picklists. After **coding** that year’s scouting pipeline as data scientists, our members become strategists: we **communicate** match predictions and insights to provide a competitive edge. We operate largely outside the pits, spending most of our time in the stands waiting with bated breath (and thinking hard about strategy) as pit crew fixes the robot.
+-
+-As a new subteam, we are quite familiar with building people from any starting point. Members will learn basic programming, statistics, data visualization, and software development while working on projects with real competitive impact. Coding experience is not expected. By the end of the season, members will have had experience with Github, R, Shiny, and the aforementioned skills—tools applicable outside of the FRC world as well.
++During competitions, Data Science collects match data, provides strategy briefings, and creates our picklist. After **coding** that year’s scouting pipeline as *data scientists*, our members become *strategists* and **communicate** meaningful match predictions or strategic insights to provide a competitive edge. We operate largely outside the pits—instead spending most of our time in the stands—waiting with bated breath (and thinking hard about strategy) as pit crew fixes the robot.
++As a new subteam, we are quite familiar with building people from any starting point. Members learn basic programming, statistics, data visualization, and software development while working on projects with real competitive impact. Prior coding experience is not expected; by the end of the season, members will have experience with Github, R, Shiny, and the aforementioned skills—tools applicable outside of the FRC world as well.
+ 
+ If you would like to contact the 449 Data Science team, email us (<a href="mailto:449datascience@gmail.com?subject=Hello%20from%20the%20Data%20Science%20webpage">449datascience@gmail.com</a>) or show up to a 449 meeting on Tuesday or Saturday!
+ 
+diff -ru /srv/.activity-shadow/user/pages/03.community/04.fll-team/02._java-programming-class-body/text.md /srv/robot-grav-site/user/pages/03.community/04.fll-team/02._java-programming-class-body/text.md
+--- /srv/.activity-shadow/user/pages/03.community/04.fll-team/02._java-programming-class-body/text.md	2026-08-05 18:50:07.629960749 +0000
++++ /srv/robot-grav-site/user/pages/03.community/04.fll-team/02._java-programming-class-body/text.md	2026-08-06 16:31:45.763918294 +0000
+@@ -5,16 +5,20 @@
+ menu: 'Text: FLL Team'
+ ---
+ 
+-<h2> Join FLL Team 57535! </h2>
++<h2>Build robots...as a middle-schooler...with Lego!</h2>
+ 
+-The Blair Robot Project is excited to continue mentoring FLL Team 57535 in the 2026-27 season! 
++**[FIRST LEGO League](https://www.firstlegoleague.org)** is a robotics competition for middle schoolers. Watch this [video](https://www.youtube.com/watch?v=J5u-2q_K3O0) about the 2024-25 game!
+ 
+-All students in grades 5-8 are invited to apply. The season starts in September and runs into the new year. (Just how far into the year depends on the team's performance in early-2027 tournaments.)
++Since 2022, The Blair Robot Project has mentored **FLL Team 57535**. Under the guidance of 449 team members, students learn to build and program a robot (using [SPIKE Prime bricks](https://education.lego.com/en-us/first-lego-league/season-materials/#founders-edition-explore)) to solve real-world problems. Through this experience, they develop leadership, collaboration, and technical skills!
+ 
+-**Find our flyer [here](/media/flyers/fll-flyer-2026/flyer.pdf).**
++FLL Team 57535 meets at Montgomery Blair High School (51 University Blvd E, Silver Spring, MD). The season starts in September and runs into the new year. (Just how far into the year depends on the team's performance in tournaments.) 
+ 
+-**Applications are now closed.** 
++All students in grades 5-8 are invited to apply! Applications for each season open during summer break.
+ 
+-**About FLL:** [FIRST LEGO League](https://www.firstlegoleague.org) is a robotics competition for middle schoolers. Under the guidance of 449 team members, students learn to build and program a robot ([EV3 Mindstorms](https://education.lego.com/en-us/product-resources/mindstorms-ev3/downloads/building-instructions/)) to solve real-world problems. Through this experience, they develop leadership, collaboration, and technical skills!
++---
++
++Applications for the 2026-27 season are closed, but you can review the [promo flyer](/media/flyers/fll-flyer-2026/flyer.pdf) and [application form](https://docs.google.com/forms/d/e/1FAIpQLSduyR6KhKdMNhjrHjR7hdiU7aCputt113d9-1qW8qPyVxIaZw/viewform).
++
++---
+ 
+ Questions? Please [email us](mailto:blair.robot@gmail.com?subject=FLL%20Team%20Question)!
+\ No newline at end of file
+diff -ru /srv/.activity-shadow/user/pages/03.community/07.summer-classes/default.md /srv/robot-grav-site/user/pages/03.community/07.summer-classes/default.md
+--- /srv/.activity-shadow/user/pages/03.community/07.summer-classes/default.md	2026-08-03 18:34:43.342754430 +0000
++++ /srv/robot-grav-site/user/pages/03.community/07.summer-classes/default.md	2026-08-06 04:33:12.192059206 +0000
+@@ -16,9 +16,11 @@
+     description: 'Summer STEM and robotics classes from FRC Team 449, the Blair Robot Project, for students in the Montgomery Blair High School community.'
+ ---
+ 
+-### Sign up for summer classes! 
++### Free summer classes! 
+ 
+-Team 449 is dedicated to giving back to our community through education. This summer, we’ll be teaching 4 **free and virtual** classes, running from **August 1 to 23**. Hosted on Google Meet, these classes are available for **all students in grades K-12**, and will be taught by our team’s members, with a dedicated curriculum for each class. More information on each class can be found at the links below. **Signups closed July 31**.
++Team 449 is dedicated to giving back to our community through education. In the summertime, we offer **free weekly classes** on various STEM topics to **students in grades K-12** via Google Meet. In 2026, our team members are teaching four classes that run from August 1 to 23.
++
++**Signups closed July 31**; check back next summer!
+ 
+ [_Algebra 1 Bootcamp:_](https://canva.link/pt4iaq0o51jstny) Math: Introduction to Algebra 1 (generally recommended for students in grades 4-8)
+ <br>August 1-22, Saturdays 11 a.m.-noon 
+```
+
+
 ### 2026-08-06
 
 ```diff
