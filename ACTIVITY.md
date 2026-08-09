@@ -20,6 +20,410 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-08-07
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/20.data-science/01._text/text.md /srv/robot-grav-site/user/pages/02.about-us/20.data-science/01._text/text.md
+--- /srv/.activity-shadow/user/pages/02.about-us/20.data-science/01._text/text.md	2026-08-03 02:22:59.902569474 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/20.data-science/01._text/text.md	2026-08-07 02:09:13.148532842 +0000
+@@ -5,11 +5,10 @@
+ body_classes: modular
+ ---
+ 
+-Founded in 2025, the Data Science subteam is the newest addition to 449. As a **modern adaptation of Scouting/Strategy**, we focus on applying data-driven facts to decisions during the official season and the offseason. Serving as a force multiplier, we extend the team’s analytical capabilities and expand what is possible through data.
++Founded in 2025, the Data Science subteam is the newest addition to 449.  We inform team decisions with data, both on (Scouting & Strategy) and off  (Operations & Outreach) the field.
++In our first season, we developed **pRidge**, a new FRC performance metric detailed in our 2026 [white paper](https://www.chiefdelphi.com/t/introducing-prior-ridge-regularization-for-frc-rating/519531). pRidge has been shown to **improve on EPA** by more than 6% in Mean Squared Error—and by 12% compared to OPR—since 2022. 
+ 
+-In our first season, we developed **pRidge**, a new FRC performance metric; read our 2026 [white paper](https://www.chiefdelphi.com/t/introducing-prior-ridge-regularization-for-frc-rating/519531) on it. Since 2022, pRidge has been shown to **improve on EPA** by more than 6% in Mean Squared Error, and by 12% compared to OPR. If you’re intrigued, read to the end to learn more about what your experience might be like!
+-
+-We work primarily in R, creating **interactive shinyapps** for data visualization and collecting data via custom **QRScout** jsons. Like all 449 members, we strongly believe in the cultivation of a positive scouting culture and open collaboration within FRC—accordingly, all of our software is open-source. At the 2026 Chesapeake District Championship, we released our complete scouting [shinyapp](google.com/url?q=https://blair-robot-scouting2026.share.connect.posit.cloud&sa=D&source=docs&ust=1785713485382396&usg=AOvVaw0CilbPBsol9YcR11fgIGcR)—and its [code](https://github.com/blair-robot-project/scouting2026)!
++We work primarily in R, creating **interactive shinyapps** for data visualization and collecting data via custom **QRScout** jsons. We strongly believe in the cultivation of a positive scouting culture and open collaboration within FRC—accordingly, all of our software is open-source. At the 2026 Chesapeake District Championship, we released our complete scouting [shinyapp](google.com/url?q=https://blair-robot-scouting2026.share.connect.posit.cloud&sa=D&source=docs&ust=1785713485382396&usg=AOvVaw0CilbPBsol9YcR11fgIGcR)—and its [code](https://github.com/blair-robot-project/scouting2026)!
+ During the off-season, Data Science works on data analysis projects such as continued pRidge research, an attendance application, and a potential custom Statbotics. [Bunnybots](https://robot.mbhs.edu/bunnybots)—our off-season event that enables rookie members to experience the robotics process before the official season—also provides the Data Science team with an excellent opportunity to refine our skills and deliver easily accessible data to everyone at the event.
+ 
+ Beyond software development, we have been frequent attendees at the [FRC Team Development Conference](https://www.instagram.com/p/DYQmhUPsiaO/), presenting on topics such as: 
+@@ -18,9 +17,8 @@
+ 
+ ###**And Here We Steal ALL The Rookies**
+ 
+-During competitions, Data Science fulfills the standard [Scouting/Strategy](https://www.firstinspires.org/hubfs/web/program/frc/resources/intro-scouting.pdf?hsLang=en) role: we collect match data, give strategy briefings, and create picklists. After **coding** that year’s scouting pipeline as data scientists, our members become strategists: we **communicate** match predictions and insights to provide a competitive edge. We operate largely outside the pits, spending most of our time in the stands waiting with bated breath (and thinking hard about strategy) as pit crew fixes the robot.
+-
+-As a new subteam, we are quite familiar with building people from any starting point. Members will learn basic programming, statistics, data visualization, and software development while working on projects with real competitive impact. Coding experience is not expected. By the end of the season, members will have had experience with Github, R, Shiny, and the aforementioned skills—tools applicable outside of the FRC world as well.
++During competitions, Data Science collects match data, provides strategy briefings, and creates our picklist. After **coding** that year’s scouting pipeline as *data scientists*, our members become *strategists* and **communicate** meaningful match predictions or strategic insights to provide a competitive edge. We operate largely outside the pits—instead spending most of our time in the stands—waiting with bated breath (and thinking hard about strategy) as pit crew fixes the robot.
++As a new subteam, we are quite familiar with building people from any starting point. Members learn basic programming, statistics, data visualization, and software development while working on projects with real competitive impact. Prior coding experience is not expected; by the end of the season, members will have experience with Github, R, Shiny, and the aforementioned skills—tools applicable outside of the FRC world as well.
+ 
+ If you would like to contact the 449 Data Science team, email us (<a href="mailto:449datascience@gmail.com?subject=Hello%20from%20the%20Data%20Science%20webpage">449datascience@gmail.com</a>) or show up to a 449 meeting on Tuesday or Saturday!
+ 
+diff -ru /srv/.activity-shadow/user/pages/03.community/04.fll-team/02._java-programming-class-body/text.md /srv/robot-grav-site/user/pages/03.community/04.fll-team/02._java-programming-class-body/text.md
+--- /srv/.activity-shadow/user/pages/03.community/04.fll-team/02._java-programming-class-body/text.md	2026-08-05 18:50:07.629960749 +0000
++++ /srv/robot-grav-site/user/pages/03.community/04.fll-team/02._java-programming-class-body/text.md	2026-08-06 16:31:45.763918294 +0000
+@@ -5,16 +5,20 @@
+ menu: 'Text: FLL Team'
+ ---
+ 
+-<h2> Join FLL Team 57535! </h2>
++<h2>Build robots...as a middle-schooler...with Lego!</h2>
+ 
+-The Blair Robot Project is excited to continue mentoring FLL Team 57535 in the 2026-27 season! 
++**[FIRST LEGO League](https://www.firstlegoleague.org)** is a robotics competition for middle schoolers. Watch this [video](https://www.youtube.com/watch?v=J5u-2q_K3O0) about the 2024-25 game!
+ 
+-All students in grades 5-8 are invited to apply. The season starts in September and runs into the new year. (Just how far into the year depends on the team's performance in early-2027 tournaments.)
++Since 2022, The Blair Robot Project has mentored **FLL Team 57535**. Under the guidance of 449 team members, students learn to build and program a robot (using [SPIKE Prime bricks](https://education.lego.com/en-us/first-lego-league/season-materials/#founders-edition-explore)) to solve real-world problems. Through this experience, they develop leadership, collaboration, and technical skills!
+ 
+-**Find our flyer [here](/media/flyers/fll-flyer-2026/flyer.pdf).**
++FLL Team 57535 meets at Montgomery Blair High School (51 University Blvd E, Silver Spring, MD). The season starts in September and runs into the new year. (Just how far into the year depends on the team's performance in tournaments.) 
+ 
+-**Applications are now closed.** 
++All students in grades 5-8 are invited to apply! Applications for each season open during summer break.
+ 
+-**About FLL:** [FIRST LEGO League](https://www.firstlegoleague.org) is a robotics competition for middle schoolers. Under the guidance of 449 team members, students learn to build and program a robot ([EV3 Mindstorms](https://education.lego.com/en-us/product-resources/mindstorms-ev3/downloads/building-instructions/)) to solve real-world problems. Through this experience, they develop leadership, collaboration, and technical skills!
++---
++
++Applications for the 2026-27 season are closed, but you can review the [promo flyer](/media/flyers/fll-flyer-2026/flyer.pdf) and [application form](https://docs.google.com/forms/d/e/1FAIpQLSduyR6KhKdMNhjrHjR7hdiU7aCputt113d9-1qW8qPyVxIaZw/viewform).
++
++---
+ 
+ Questions? Please [email us](mailto:blair.robot@gmail.com?subject=FLL%20Team%20Question)!
+\ No newline at end of file
+diff -ru /srv/.activity-shadow/user/pages/03.community/07.summer-classes/default.md /srv/robot-grav-site/user/pages/03.community/07.summer-classes/default.md
+--- /srv/.activity-shadow/user/pages/03.community/07.summer-classes/default.md	2026-08-03 18:34:43.342754430 +0000
++++ /srv/robot-grav-site/user/pages/03.community/07.summer-classes/default.md	2026-08-06 04:33:12.192059206 +0000
+@@ -16,9 +16,11 @@
+     description: 'Summer STEM and robotics classes from FRC Team 449, the Blair Robot Project, for students in the Montgomery Blair High School community.'
+ ---
+ 
+-### Sign up for summer classes! 
++### Free summer classes! 
+ 
+-Team 449 is dedicated to giving back to our community through education. This summer, we’ll be teaching 4 **free and virtual** classes, running from **August 1 to 23**. Hosted on Google Meet, these classes are available for **all students in grades K-12**, and will be taught by our team’s members, with a dedicated curriculum for each class. More information on each class can be found at the links below. **Signups closed July 31**.
++Team 449 is dedicated to giving back to our community through education. In the summertime, we offer **free weekly classes** on various STEM topics to **students in grades K-12** via Google Meet. In 2026, our team members are teaching four classes that run from August 1 to 23.
++
++**Signups closed July 31**; check back next summer!
+ 
+ [_Algebra 1 Bootcamp:_](https://canva.link/pt4iaq0o51jstny) Math: Introduction to Algebra 1 (generally recommended for students in grades 4-8)
+ <br>August 1-22, Saturdays 11 a.m.-noon 
+```
+
+
+### 2026-08-06
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/03.community/04.fll-team/02._java-programming-class-body/text.md /srv/robot-grav-site/user/pages/03.community/04.fll-team/02._java-programming-class-body/text.md
+--- /srv/.activity-shadow/user/pages/03.community/04.fll-team/02._java-programming-class-body/text.md	2026-07-23 23:03:53.597078651 +0000
++++ /srv/robot-grav-site/user/pages/03.community/04.fll-team/02._java-programming-class-body/text.md	2026-08-05 18:50:07.629960749 +0000
+@@ -13,7 +13,7 @@
+ 
+ **Find our flyer [here](/media/flyers/fll-flyer-2026/flyer.pdf).**
+ 
+-**Find more details and the application [here](https://forms.gle/c1Hs4XFMk3XrNnyG7). Applications are open until August 1st!** 
++**Applications are now closed.** 
+ 
+ **About FLL:** [FIRST LEGO League](https://www.firstlegoleague.org) is a robotics competition for middle schoolers. Under the guidance of 449 team members, students learn to build and program a robot ([EV3 Mindstorms](https://education.lego.com/en-us/product-resources/mindstorms-ev3/downloads/building-instructions/)) to solve real-world problems. Through this experience, they develop leadership, collaboration, and technical skills!
+ 
+```
+
+
+### 2026-08-04
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/01.home/06._about/text.md /srv/robot-grav-site/user/pages/01.home/06._about/text.md
+--- /srv/.activity-shadow/user/pages/01.home/06._about/text.md	2026-07-28 16:29:21.513612133 +0000
++++ /srv/robot-grav-site/user/pages/01.home/06._about/text.md	2026-08-03 15:34:29.811076241 +0000
+@@ -6,7 +6,7 @@
+ ---
+ 
+ ## **What’s new**
+-**August 1:** Our annual [summer classes](https://robot.mbhs.edu/community/summer-classes) start, free to students in grades K-12. Signups close July 31.
++**August 1:** Our annual [summer classes](https://robot.mbhs.edu/community/summer-classes) start, free to students in grades K-12. Signups closed July 31.
+ 
+ **July 10-12:** We participated in Philly's [RoboJawn](https://www.thebluealliance.com/event/2026paphi1), organized by Teams [321](https://robolancers.com/) and [1218](https://www.sch.org/admissions/learn/robotics)! 
+ 
+diff -ru /srv/.activity-shadow/user/pages/01.home/08._sponsors/feature-images.md /srv/robot-grav-site/user/pages/01.home/08._sponsors/feature-images.md
+--- /srv/.activity-shadow/user/pages/01.home/08._sponsors/feature-images.md	2026-07-23 17:14:22.824022183 +0000
++++ /srv/robot-grav-site/user/pages/01.home/08._sponsors/feature-images.md	2026-08-03 21:44:38.459982968 +0000
+@@ -8,7 +8,7 @@
+     -
+         image: logo-magnetFoundation.jpeg
+         header: 'Montgomery Blair High School Magnet Foundation'
+-        text: 'Diamond & Fiscal Sponsor '
++        text: 'Diamond & Fiscal Sponsor'
+         url: 'http://www.mbhsmagnet.org'
+     -
+         image: dodstem-logo.jpg
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/03._menu-about/icon-menu.md /srv/robot-grav-site/user/pages/02.about-us/03._menu-about/icon-menu.md
+--- /srv/.activity-shadow/user/pages/02.about-us/03._menu-about/icon-menu.md	2026-07-14 12:23:12.873206612 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/03._menu-about/icon-menu.md	2026-08-03 18:44:33.921600438 +0000
+@@ -1,5 +1,5 @@
+ ---
+-title: 'About Us: Icon-menu: Leaders/Mentors/Programming'
++title: 'About Us: Icon menu'
+ menu: 'Icon-menu: top'
+ class: standard
+ features:
+@@ -19,6 +19,11 @@
+         text: 'Learn about our programming team.'
+         url: /about-us/programming
+     -
++        icon: 'fa fa-bar-chart'
++        header: 'Data Science'
++        text: 'Learn about our data science team.'
++        url: /about-us/data-science
++    -
+         icon: 'fa fa-history'
+         header: History
+         text: "Explore our team's history."
+Only in /srv/robot-grav-site/user/pages/03.community/02._community-events: bobvolunteer.jpg
+Only in /srv/.activity-shadow/user/pages/03.community/02._community-events: makerFaire.png
+Only in /srv/.activity-shadow/user/pages/03.community/02._community-events: mkpcSciExpo2018-original.jpg
+diff -ru /srv/.activity-shadow/user/pages/03.community/02._community-events/text.md /srv/robot-grav-site/user/pages/03.community/02._community-events/text.md
+--- /srv/.activity-shadow/user/pages/03.community/02._community-events/text.md	2026-07-23 21:19:34.629289281 +0000
++++ /srv/robot-grav-site/user/pages/03.community/02._community-events/text.md	2026-08-03 12:35:37.563817406 +0000
+@@ -1,7 +1,7 @@
+ ---
+ title: 'Community: Text: Events, Advocacy'
+ image_align: right
+-media_order: 'makerFaire.png, mkpcSciExpo2018-original.jpg, stemfair.jpg, betterdemo.jpg, dumbo.jpg'
++media_order: 'stemfair.jpg, betterdemo.jpg, dumbo.jpg, tpff.jpeg, bobvolunteer.jpg'
+ menu: 'Text: Community Events'
+ alt: 'Team members engaging with young visitors at a community STEM outreach event'
+ ---
+Only in /srv/robot-grav-site/user/pages/03.community/02._community-events: tpff.jpeg
+diff -ru /srv/.activity-shadow/user/pages/03.community/07.summer-classes/default.md /srv/robot-grav-site/user/pages/03.community/07.summer-classes/default.md
+--- /srv/.activity-shadow/user/pages/03.community/07.summer-classes/default.md	2026-07-30 19:16:01.086164214 +0000
++++ /srv/robot-grav-site/user/pages/03.community/07.summer-classes/default.md	2026-08-03 18:34:43.342754430 +0000
+@@ -18,7 +18,7 @@
+ 
+ ### Sign up for summer classes! 
+ 
+-Team 449 is dedicated to giving back to our community through education. This summer, we’ll be teaching 4 **free and virtual** classes, running from **August 1 to 23**. Hosted on Google Meet, these classes are available for **all students in grades K-12**, and will be taught by our team’s members, with a dedicated curriculum for each class. More information on each class can be found at the links below. **Signups are due July 31**.
++Team 449 is dedicated to giving back to our community through education. This summer, we’ll be teaching 4 **free and virtual** classes, running from **August 1 to 23**. Hosted on Google Meet, these classes are available for **all students in grades K-12**, and will be taught by our team’s members, with a dedicated curriculum for each class. More information on each class can be found at the links below. **Signups closed July 31**.
+ 
+ [_Algebra 1 Bootcamp:_](https://canva.link/pt4iaq0o51jstny) Math: Introduction to Algebra 1 (generally recommended for students in grades 4-8)
+ <br>August 1-22, Saturdays 11 a.m.-noon 
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/06.bunnybots-2025/01._top/hero.md /srv/robot-grav-site/user/pages/04.bunnybots/06.bunnybots-2025/01._top/hero.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/06.bunnybots-2025/01._top/hero.md	2026-07-30 04:35:44.378488399 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/06.bunnybots-2025/01._top/hero.md	2026-08-03 21:18:39.738818575 +0000
+@@ -1,13 +1,12 @@
+ ---
+-arrow: noarrow
+ title: 'Bunnybots-2025: Hero'
+ menu: Hero
+-hero_classes: hero-medium
++hero_classes: 'parallax text-light hero-large overlay-dark'
++hero_image: img_5769.jpg
+ published: true
++arrow: noarrow
+ ---
+ 
+-[//]: # (NEEDS REVIEW: no hero_image set. Upload a full-resolution 2025 Bunnybots photo here and set hero_image, then add back the 'parallax text-light overlay-dark hero-large' hero classes.)
+-
+ # **2025 Blair Bunnybots**
+ 
+ 
+Only in /srv/robot-grav-site/user/pages/04.bunnybots/06.bunnybots-2025/01._top: img_5769.jpg
+Only in /srv/robot-grav-site/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/07._boeing: BoeingLogo_RGB-original.png
+Only in /srv/.activity-shadow/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/07._boeing: BoeingLogo_RGB.png
+Only in /srv/robot-grav-site/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/07._boeing: BoeingLogo_RGB.webp
+diff -ru /srv/.activity-shadow/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/07._boeing/text.md /srv/robot-grav-site/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/07._boeing/text.md
+--- /srv/.activity-shadow/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/07._boeing/text.md	2026-07-19 13:04:27.704172680 +0000
++++ /srv/robot-grav-site/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/07._boeing/text.md	2026-08-03 22:12:34.889369763 +0000
+@@ -2,10 +2,10 @@
+ url: 'https://www.boeing.com/'
+ title: _boeing
+ image_align: right
+-media_order: BoeingLogo_RGB.png
++media_order: BoeingLogo_RGB.webp
+ image_height: 120
+ alt: 'Boeing logo'
+ ---
+ 
+ ### [Boeing](https://www.boeing.com/)
+-[Gold Sponsor](/sponsor-information/sponsor-benefits#gold)
+\ No newline at end of file
++[Gold Sponsor](/sponsor-information/sponsor-benefits#gold)
+
+user/themes/mod-quark
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/templates/modular/gallery-banners.html.twig /srv/robot-grav-site/user/themes/mod-quark/templates/modular/gallery-banners.html.twig
+--- /srv/.activity-shadow/user/themes/mod-quark/templates/modular/gallery-banners.html.twig	2026-08-03 02:53:35.392208378 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/templates/modular/gallery-banners.html.twig	2026-08-03 21:37:32.023155720 +0000
+@@ -11,10 +11,11 @@
+                     <a href="{{ banner_link.url }}"{{ banner_link.url starts with 'http' ? ' target="_blank" rel="noopener"' : '' }}>{{ image.height(400).html(alt_text, alt_text)|raw }}</a>
+                 {% else %}
+ 		    {% if image %}
+-		        {% set image = img.width > 1200 ? img.resize(1200).url : img.url %}
+-	                {{ image.height(400).html(alt_text, alt_text)|raw }}
++			{% set image = img.width > 1200 ? img.resize(1200).url : img.url %}
++			{% set image = image.format("jpg") %}
++			{{ image.html(alt_text, alt_text)|raw }}
+ 		    {% endif %}
+-	        {% endif %}
++		{% endif %}
+             </div>
+         {% endfor %}
+     </div>
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/templates/modular/text.html.twig /srv/robot-grav-site/user/themes/mod-quark/templates/modular/text.html.twig
+--- /srv/.activity-shadow/user/themes/mod-quark/templates/modular/text.html.twig	2026-08-03 02:50:45.535834334 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/templates/modular/text.html.twig	2026-08-03 21:36:06.895785886 +0000
+@@ -56,15 +56,15 @@
+                         {% set image = page.media[image_name] %}
+                         {% set _column_w = page.header.image_width|default(600) %}
+                         {% if image %}
+-			    {% set image = img.width > 1200 ? img.resize(1200).url : img.url %}
+                             {% set _ext = image.filename|split('.')|last %}
+                             {% set _base = image.basename %}
+                             {% set _orig = page.media[_base ~ '-original.' ~ _ext] %}
+                             {% set _full = _orig ?: image %}
+                             {% set _link = page.header.url ?: _full.url %}
+                             {% set _hover = page.media[_base ~ '-hover.' ~ _ext] %}
++			    {% set image = image.width > 1200 ? image.resize(1200) : image %}
+                             <a href="{{ _link }}" class="gallery-thumb" target="_blank" rel="noopener" title="{{ _alt }}">
+-                                <img src="{{ image.url|absolute_url }}" }}
++                                <img src="{{ image.url|absolute_url }}"
+                                     {% if _hover %}
+                                         onpointerenter = "this.src='{{ _hover.url|absolute_url }}';"
+                                         onpointerleave = "this.src='{{ image.url|absolute_url }}';"
+```
+
+
+### 2026-08-03
+
+```diff
+
+user/pages
+Only in /srv/.activity-shadow/user/pages/02.about-us: 20.SCOUTING
+Only in /srv/robot-grav-site/user/pages/02.about-us: 20.data-science
+Only in /srv/robot-grav-site/user/pages/02.about-us: about-usignore-this
+Only in /srv/.activity-shadow/user/pages/02.about-us: data-science
+diff -ru /srv/.activity-shadow/user/pages/03.community/_registration/text.md /srv/robot-grav-site/user/pages/03.community/_registration/text.md
+--- /srv/.activity-shadow/user/pages/03.community/_registration/text.md	2026-07-23 21:31:51.229905929 +0000
++++ /srv/robot-grav-site/user/pages/03.community/_registration/text.md	2026-08-03 00:22:13.263823970 +0000
+@@ -5,7 +5,3 @@
+     lastmod: '23-07-2026 17:24'
+ ---
+ 
+-
+-## Register for our [FLL Team](/community/fll-team) and [summer classes](/community/summer-classes) today! 
+----
+-
+
+user/themes/mod-quark
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/templates/modular/gallery-banners.html.twig /srv/robot-grav-site/user/themes/mod-quark/templates/modular/gallery-banners.html.twig
+--- /srv/.activity-shadow/user/themes/mod-quark/templates/modular/gallery-banners.html.twig	2026-07-18 03:43:15.633235429 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/templates/modular/gallery-banners.html.twig	2026-08-03 02:53:35.392208378 +0000
+@@ -10,8 +10,11 @@
+                 {% if banner_link %}
+                     <a href="{{ banner_link.url }}"{{ banner_link.url starts with 'http' ? ' target="_blank" rel="noopener"' : '' }}>{{ image.height(400).html(alt_text, alt_text)|raw }}</a>
+                 {% else %}
+-                    {{ image.height(400).html(alt_text, alt_text)|raw }}
+-                {% endif %}
++		    {% if image %}
++		        {% set image = img.width > 1200 ? img.resize(1200).url : img.url %}
++	                {{ image.height(400).html(alt_text, alt_text)|raw }}
++		    {% endif %}
++	        {% endif %}
+             </div>
+         {% endfor %}
+     </div>
+Only in /srv/robot-grav-site/user/themes/mod-quark/templates/modular: gallery-banners.html.twig.bak-20260803-025220
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/templates/modular/text.html.twig /srv/robot-grav-site/user/themes/mod-quark/templates/modular/text.html.twig
+--- /srv/.activity-shadow/user/themes/mod-quark/templates/modular/text.html.twig	2026-07-31 00:00:36.239535673 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/templates/modular/text.html.twig	2026-08-03 02:50:45.535834334 +0000
+@@ -56,6 +56,7 @@
+                         {% set image = page.media[image_name] %}
+                         {% set _column_w = page.header.image_width|default(600) %}
+                         {% if image %}
++			    {% set image = img.width > 1200 ? img.resize(1200).url : img.url %}
+                             {% set _ext = image.filename|split('.')|last %}
+                             {% set _base = image.basename %}
+                             {% set _orig = page.media[_base ~ '-original.' ~ _ext] %}
+Only in /srv/robot-grav-site/user/themes/mod-quark/templates/modular: text.html.twig.bak-20260803-024205
+```
+
+
+### 2026-08-01
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/02._mission/text.md /srv/robot-grav-site/user/pages/02.about-us/02._mission/text.md
+--- /srv/.activity-shadow/user/pages/02.about-us/02._mission/text.md	2026-06-27 20:56:30.867525281 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/02._mission/text.md	2026-07-31 06:10:21.428095704 +0000
+@@ -12,7 +12,7 @@
+ 
+ By competing in FRC, we enable students to **tackle complex technical problems in a collaborative environment**. Our student-led, mentor-guided team keeps students at the forefront of decision-making, project leadership, and execution.  
+ 
+-We also **[work in the community](/community)** to encourage youth to pursue degrees and careers in STEM. 449 members teach practical courses, create and attend outreach events, teach practical courses, mentor teams, and share their knowledge and resources in person and online.
++We also **[work in the community](/community)** to encourage youth to pursue degrees and careers in STEM. 449 members create and attend outreach events, teach practical courses, mentor teams, and share their knowledge and resources in person and online.
+ 
+ ##About ![Logo%20Primary](Logo%20Primary.svg "Logo%20Primary")
+ > _[FIRST](https://www.firstinspires.org)_ (For Inspiration and Recognition of Science and Technology) was founded in 1989 to inspire young people to be science and technology leaders and innovators. It fosters mentor-based programs that build science, engineering, and technology skills; inspire innovation; and teach self-confidence, communication, and leadership.
+\ No newline at end of file
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/05._history-top/text.md /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/05._history-top/text.md
+--- /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/05._history-top/text.md	2026-07-14 12:15:01.230237719 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/05._history-top/text.md	2026-07-31 15:01:06.421496161 +0000
+@@ -14,4 +14,4 @@
+ 
+ FRC Team 449 first competed in **2000**, and went all the way to the National Championship. We notched our first  event win in **2004**. In **2018**, we hosted our first [Bunnybots](/bunnybots). When COVID-19 ended the **2020** season early, we started Pandemic Programming, offering a full coding curriculum taught by 449 members to K-12 students anywhere. We received a _FIRST_ Impact Award in **2021** (well, it was called Chairman’s Award back then; we’d win another in **2024**). In **2022**, we started our [_FIRST_ Lego League team](/community/fll-team) for elementary and middle schoolers. And in **2025** and **2026**, we became back-to-back winners of the _FIRST_ Chesapeake championship.
+ 
+-Scroll down for more. And find our **[full competition history](https://www.thebluealliance.com/team/449/history)** at The Blue Alliance.
++Scroll down for year-by-year details. And find our **[full competition history](https://www.thebluealliance.com/team/449/history)** at The Blue Alliance.
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/06._historygallery-top/gallery-draggable.md /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/06._historygallery-top/gallery-draggable.md
+--- /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/06._historygallery-top/gallery-draggable.md	2026-07-14 12:14:22.480750747 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/06._historygallery-top/gallery-draggable.md	2026-07-31 15:18:22.286013817 +0000
+@@ -16,4 +16,4 @@
+ [//]: # (Add photos in the Page Media box below — drag them in or click to upload. They are resized automatically. Click Save.)
+ [//]: # (* To set the display order, use the Page Media box's own Reorder toggle to drag photos into place. Click Save.)
+ [//]: # (* To remove a photo, delete it from the Page Media box by clicking its bottom-right "x" button. Click Save.)
+-2001's robot  |  Robot and crew, 2003  |  2004's robot at work  |  449's first blue banner
+\ No newline at end of file
++Robot, 2001&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Robot and crew, 2003&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Robot at work, 2004&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Our [first blue banner](https://www.thebluealliance.com/event/2004md), 2004
+\ No newline at end of file
+diff -ru /srv/.activity-shadow/user/pages/05.resources/02._text-top/text.md /srv/robot-grav-site/user/pages/05.resources/02._text-top/text.md
+--- /srv/.activity-shadow/user/pages/05.resources/02._text-top/text.md	2026-07-31 00:25:02.421136471 +0000
++++ /srv/robot-grav-site/user/pages/05.resources/02._text-top/text.md	2026-08-01 01:06:25.140596180 +0000
+@@ -9,6 +9,8 @@
+ 
+ Explore Team 449's public [GitHub repositories](https://github.com/blair-robot-project) for our robot code and tools.
+ 
++Explore our [Electronics Parts Reference](https://docs.google.com/spreadsheets/d/1IpaLFMFgdSNxcpry_hkP5m_wsyTGMwhZ-DhQY5H5RsU/edit?usp=drivesdk).
++
+ ##Whitepapers
+ 
+ - [Flywheel Shot Analysis: Correction and
+diff -ru /srv/.activity-shadow/user/pages/09.announcements-data/announcements-data.md /srv/robot-grav-site/user/pages/09.announcements-data/announcements-data.md
+--- /srv/.activity-shadow/user/pages/09.announcements-data/announcements-data.md	2026-07-24 16:02:55.543364247 +0000
++++ /srv/robot-grav-site/user/pages/09.announcements-data/announcements-data.md	2026-07-31 18:06:55.363884188 +0000
+@@ -11,19 +11,19 @@
+         start_date: '08-07-2026 12:00'
+         end_date: '02-08-2026 00:01'
+         level: blue
+-        published: 0
++        published: 1
+     -
+         title: 'watch the Worlds 2026 video (displays 8/2-8/28)'
+         level: blue
+         message: 'Have you seen the video about our trip to 2026 Worlds?'
+         link: 'https://www.youtube.com/watch?v=ckc5bD1HF1M'
+-        start_date: '02-08-2026 00:02'
++        start_date: '2026-08-02 01:00'
+         end_date: '28-08-2026 12:00'
+     -
+         title: 'Summer classes signup (7/23-7/31)'
+         message: 'Register for our FLL team and summer classes today!'
+         start_date: ''
+-        end_date: '2026-07-31 12:00'
++        end_date: '2026-07-31 12:59'
+         level: blue
+         link: /community
+ visible: false
+```
+
+
 ### 2026-07-31
 
 ```diff
