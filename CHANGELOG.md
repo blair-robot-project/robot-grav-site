@@ -1,9 +1,21 @@
 # FRC Team 449 Website — LIVE (robot.mbhs.edu) — Changelog
-*Last updated: 2026-07-30*
+*Last updated: 2026-08-01*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu) or 🟢 **STAGING** (449.navybook.com) — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
+
+---
+### 2026-08-01 — 🚀 LIVE: Quark 2 migration — systematic CSS audit built and run, sixteenth regression found and fixed (Phase 3 still not done)
+
+The systematic audit queued since 2026-07-23 (compare every selector in live's `mod-quark/custom.css` against Quark 1's stock `theme.min.css`/`spectre.min.css`, flag anything Quark 2's side has no equivalent for) finally ran, via a Python + `tinycss2` script built this session. 109 selectors checked; 12 flagged against Quark 1 stock, 10 against Spectre. Most were false positives on manual triage (already covered via a differently-shaped selector, or a media-query value the script's flattening approach can't resolve) — full triage table in RUNBOOK.md.
+
+- **Fixed: icon-menu/Sponsors icons had completely wrong colors** — 449 red / near-black instead of live's pale gray (`#e7e9ed` wrapper, `#acb3c2` glyph) — and the feature heading (`h6`) was missing `background:#fff`, `color:#667189`, `text-transform:uppercase`. Bumped `mod-quark-2/custom.css?v=22` → `?v=23`.
+- **This specific gap was invisible to the audit itself** — `.feature-icon`/`.feature-icon i` (unprefixed) are never referenced in live's `custom.css` at all, so they were outside the audit's own selector scope by construction. Found only by direct live-vs-test-copy screenshot comparison (`mcp__claude-in-chrome__*` — the in-app Browser pane had a real bug this session, blank screenshots after a JS-driven scroll, reproduced on live itself so it's a tool quirk not a site bug; see RUNBOOK's new tool note).
+- **✅ Verified two ways:** computed styles after the fix are byte-exact matches to Quark 1's stock values, and a fresh screenshot shows pale-gray icons with blue-gray uppercase headings matching live, all three columns still sharing one row.
+- **Still open, not fixed this session:** `#header`'s own font-size/font-weight/width/height (real gap, plausible contributor to the still-unexplained icon-menu/Sponsors section-height residual from 2026-07-23), the 10 Tier-2 (Spectre) findings never triaged, and every module/page other than the homepage's icon-menu/Sponsors — footer, galleries, text/year-modules — still completely unchecked. **Phase 3 is still not done.**
+- Two environment gotchas hit and fixed along the way: the test copy's `backup/` folder was missing again (Grav's Problems plugin blocking the whole site with a 500), needed `sudo -u grav mkdir` since the parent directory now carries a restrictive POSIX ACL that `ls -l` displays misleadingly (see RUNBOOK); and the Air's `compare.js` comparison tool is currently broken (`ENOSPC`, disk nearly full, unrelated to this tool — Brad investigating separately).
+- Full technical detail, the complete audit findings/triage, and the tool notes are in RUNBOOK.md's Quark 2 migration section — not duplicated here.
 
 ---
 ### 2026-07-30 (later still) — 🚀 LIVE: `text.html.twig` hardened against missing/stale `media_order`
