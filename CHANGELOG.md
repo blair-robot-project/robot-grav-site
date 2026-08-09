@@ -6,6 +6,13 @@ Reverse-chronological record of notable changes to the site — theme, templates
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-08-09 — 🟢 STAGING pointer: Press page + `gallery-press` module in flight on 449.navybook.com
+
+Pointer entry only — not a live-site change, nothing here is deployed to robot.mbhs.edu. A press/media-kit page (`/press`) is being built on staging using a `gallery-press` modular template that does not exist on live. It touches `mod-quark`'s templates/blueprints/`custom.css` and the `image-intake` plugin config on the staging side only. Relevant to live because it's a candidate to port later, and because it turned up one correction to a documented assumption: **`image-intake`'s upload-time resize protects only the admin/API upload path** (`onAdminAfterAddMedia` / `onApiBeforePageCreate`) — it does not cover files placed by `scp`, nor Grav's own in-template `.resize()`/`.cropZoom()` derivative calls, which run in-process and can exhaust a 128M `memory_limit` on a large enough source image. Worth knowing before anyone concludes live is immune on the strength of the plugin alone.
+
+Full detail: private staging repo `bpeniston/449-website`, CHANGELOG entry of the same date.
+
+---
 ### 2026-08-01 — 🚀 LIVE: Quark 2 migration — systematic CSS audit built and run, sixteenth regression found and fixed (Phase 3 still not done)
 
 The systematic audit queued since 2026-07-23 (compare every selector in live's `mod-quark/custom.css` against Quark 1's stock `theme.min.css`/`spectre.min.css`, flag anything Quark 2's side has no equivalent for) finally ran, via a Python + `tinycss2` script built this session. 109 selectors checked; 12 flagged against Quark 1 stock, 10 against Spectre. Most were false positives on manual triage (already covered via a differently-shaped selector, or a media-query value the script's flattening approach can't resolve) — full triage table in RUNBOOK.md.
