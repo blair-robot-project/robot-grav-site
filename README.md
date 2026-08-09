@@ -56,6 +56,7 @@ Three repos are in play. **One of them changes the live site.**
   - **`-X theirs` means the remote wins.** A conflicting remote commit doesn't merely land, it overrides the live server's version of that file.
 - The theme is **not** in this repo any more — it moved under `archive/` when the docs were imported. Live's authoritative theme is on the server, mirrored to `robot-grav-site-sync`.
 - Deploying a theme/plugin change the manual way (rsync + `sudo -u grav`, no Git Sync involved) is in [RUNBOOK.md](RUNBOOK.md) § Git Sync and § How to make a change.
+- **A fourth repo, not in the table above, documents staging:** `bpeniston/449-website` (private) is Brad's day-to-day record for 449.navybook.com — its own `CLAUDE.md`/`RUNBOOK.md`/`CHANGELOG.md`, same filenames as this repo's, different content and a different repo. Staging is deliberately kept out of the team-facing workflow here (see the 2026-07-05 → 2026-07-10 CHANGELOG entries below) — it's real, active, and used heavily, just not something INSTRUCTIONS.md should tell a teammate to "try." **Before treating a decision documented in this repo as current, check this repo's own CHANGELOG for a recent one-line pointer** — staging work that bears on live gets flagged here as it happens. No pointer doesn't mean nothing's in flight; it means nothing's been flagged yet.
 
 ### Access & ownership
 - SSH `ssh USER@robot.mbhs.edu`; Grav root `/srv/robot-grav-site/`. Admin at `/admin`.

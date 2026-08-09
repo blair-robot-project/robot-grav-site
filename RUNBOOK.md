@@ -1,4 +1,4 @@
-# FRC Team 449 Website — Runbook
+# FRC Team 449 Website — LIVE (robot.mbhs.edu) — Runbook
 *Last updated: 2026-07-30*
 
 Operational reference for the FRC 449 Grav site: environment facts, server housekeeping + security status, cautions/gotchas, and key file paths. For dated history of changes, see [CHANGELOG.md](CHANGELOG.md). For orientation, who's involved, and the doc to start a Claude Code session with, see [README.md](README.md).
