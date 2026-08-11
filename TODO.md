@@ -1,5 +1,5 @@
 # 449 Website — To-Do and Maybe To-Do
-*Last updated: 2026-08-10 · Version 1.1*
+*Last updated: 2026-08-10 · Version 1.2*
 
 This document tracks what's currently outstanding on the live site. It's meant to be short-lived — once the immediate item is fixed and any "maybe" items are done or dismissed, this doc should be rewritten fresh for whatever's next, not endlessly appended to.
 
@@ -20,7 +20,6 @@ Found via a 2026-08-10 staging/live theme diff (full detail: private staging rep
 *Real, verified gaps — worth doing if/when someone has time, not urgent.*
 
 - **A hardcoded `<link>` to `sponsorship-levels.css` in `text.html.twig` loads on every page using the text module, sitewide** — not scoped to whichever page actually needs it. Small file, so no real performance cost, but architecturally messy (normal CSS additions go through the theme's asset pipeline, not a raw tag inside a content template). Brad: fix eventually, not now. Note: staging has its own separate, still-dormant Google-Sheets-driven sponsor display (`sponsor-grid`) — these are two independent, unconnected efforts; Brad wants to keep both possibilities open for now.
-- **`image-intake.yaml` is missing its `gallery_sync` block on live** (present on staging). This is the feature that auto-keeps a gallery's `gallery:` alt-text list in sync when photos are added/reordered/removed via Page Media. Nothing is broken without it — the 5 live pages that use it currently have correct, hand-set alt text — but new/changed photos on those pages won't get their alt text auto-maintained until this is restored. Low-risk, config-only fix (confirmed it's outside Git Sync's watched folders, so it won't trigger a live deploy) — just needs a go-ahead.
 - **List the site on Team 449's official FIRST profile.** frc-events.firstinspires.org/team/449 has no website URL listed (Blue Alliance already correctly links robot.mbhs.edu) — a free, high-authority backlink sitting empty. Needs someone with FIRST Dashboard access — **flagged for Rafi or James**, not a Brad/Claude task.
 - **Serve WebP + lazy-loading images.** Confirmed via a July 2026 SEO audit: no page ships `srcset=`, `loading="lazy"`, or any `.webp`/`.avif` image anywhere — every visitor downloads full-size JPEG/PNG, loaded eagerly regardless of scroll position. Natural next feature for the **Image Intake** plugin (`bpeniston/grav-plugin-image-intake`) since it already resizes on upload — would need a WebP output alongside the original plus a `loading="lazy"` attribute in the theme's image partials. Real feature work (plugin code + template changes), not a quick config fix — deserves its own session.
 - **Mentors** — 6 confirmed "Joined 20??" placeholders (`/about-us/mentors`). Ask each mentor their join year directly.
