@@ -20,6 +20,72 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-08-11
+
+```diff
+
+user/themes/mod-quark
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/blueprints/modular/gallery-banners.yaml /srv/robot-grav-site/user/themes/mod-quark/blueprints/modular/gallery-banners.yaml
+--- /srv/.activity-shadow/user/themes/mod-quark/blueprints/modular/gallery-banners.yaml	2026-07-11 03:51:45.127251830 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/blueprints/modular/gallery-banners.yaml	2026-08-11 02:32:00.281232505 +0000
+@@ -19,8 +19,8 @@
+               default: "View full award history on The Blue Alliance"
+             header.banner_links:
+               type: list
+-              label: "Per-banner links"
+-              help: "Optional: make an individual banner clickable, linking to a page about that event. Leave a row's Link URL blank to leave that banner non-clickable."
++              label: "Per-banner links & alt text"
++              help: "Optional per banner, matched by filename (order-independent). Leave Link URL blank to leave that banner non-clickable. Leave Alt text blank to fall back to '<page title> award banner'."
+               collapsed: true
+               fields:
+                 .image:
+@@ -29,3 +29,6 @@
+                 .url:
+                   type: text
+                   label: "Link URL"
++                .alt:
++                  type: text
++                  label: "Alt text"
+Only in /srv/robot-grav-site/user/themes/mod-quark/blueprints/modular: gallery-banners.yaml.bak-20260810-223145
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/templates/modular/gallery-banners.html.twig /srv/robot-grav-site/user/themes/mod-quark/templates/modular/gallery-banners.html.twig
+--- /srv/.activity-shadow/user/themes/mod-quark/templates/modular/gallery-banners.html.twig	2026-08-03 21:37:32.023155720 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/templates/modular/gallery-banners.html.twig	2026-08-11 02:31:59.717210631 +0000
+@@ -1,21 +1,23 @@
+ {# Photo order = the admin Page Media panel's own drag order (native admin2 reorder, admin2 v2.0.7+ — getgrav/grav-plugin-admin2#74). Same mechanism as gallery-draggable; no separate Gallery tab needed. #}
+-{# Per-banner links (page.header.banner_links) are optional and independent of order/reorder — matched to each image by filename. #}
++{# Per-banner links AND alt text (page.header.banner_links) are optional and independent of order/reorder — both matched to each image by filename, so a blank value on one banner never affects another. #}
+ <div class="module gallery-banners">
+     <div class="banner-row">
+         {% for filename, image in page.media.images %}
+             {% set banner_link = (page.header.banner_links|default([]))|filter(l => l.image == filename and l.url)|first %}
+             {% set banner_alt = (page.header.banner_links|default([]))|filter(l => l.image == filename and l.alt)|first %}
+             {% set alt_text = banner_alt.alt|default(page.title ~ ' award banner') %}
++            {# .height() is not a real Grav resize action - it silently falls through to a cosmetic
++               HTML height="" attribute, so the browser was downloading the full original regardless.
++               .resize(null, 400) actually shrinks the file, scaling proportionally to a 400px height
++               (Grav auto-derives width when the first arg is null). Only downscale banners taller
++               than 400 so resize() doesn't upscale/pad the smaller ones. #}
++            {% set _thumb = image.height > 400 ? image.resize(null, 400) : image %}
+             <div class="banner-row__item">
+                 {% if banner_link %}
+-                    <a href="{{ banner_link.url }}"{{ banner_link.url starts with 'http' ? ' target="_blank" rel="noopener"' : '' }}>{{ image.height(400).html(alt_text, alt_text)|raw }}</a>
++                    <a href="{{ banner_link.url }}"{{ banner_link.url starts with 'http' ? ' target="_blank" rel="noopener"' : '' }}>{{ _thumb.html(alt_text, alt_text)|raw }}</a>
+                 {% else %}
+-		    {% if image %}
+-			{% set image = img.width > 1200 ? img.resize(1200).url : img.url %}
+-			{% set image = image.format("jpg") %}
+-			{{ image.html(alt_text, alt_text)|raw }}
+-		    {% endif %}
+-		{% endif %}
++                    {{ _thumb.html(alt_text, alt_text)|raw }}
++                {% endif %}
+             </div>
+         {% endfor %}
+     </div>
+Only in /srv/robot-grav-site/user/themes/mod-quark/templates/modular: gallery-banners.html.twig.bak-20260810-223145
+```
+
+
 ### 2026-08-07
 
 ```diff
