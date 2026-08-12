@@ -20,6 +20,19 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-08-12
+
+```diff
+
+user/pages
+Only in /srv/robot-grav-site/user/pages/03.community/07.summer-classes: _gallery-draggable-summer
+Only in /srv/robot-grav-site/user/pages/03.community/07.summer-classes: _summer-classes-body
+Only in /srv/robot-grav-site/user/pages/03.community/07.summer-classes: _summer-hero
+Only in /srv/.activity-shadow/user/pages/03.community/07.summer-classes: default.md
+Only in /srv/robot-grav-site/user/pages/03.community/07.summer-classes: modular.md
+```
+
+
 ### 2026-08-11
 
 ```diff
