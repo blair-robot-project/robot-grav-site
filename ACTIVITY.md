@@ -20,6 +20,152 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-08-13
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/02.449-members-of-note/03._features2/feature-images.md /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/02.449-members-of-note/03._features2/feature-images.md
+--- /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/02.449-members-of-note/03._features2/feature-images.md	2026-07-14 12:15:00.442207466 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/02.449-members-of-note/03._features2/feature-images.md	2026-08-12 04:03:56.156619998 +0000
+@@ -8,28 +8,23 @@
+     -
+         image: PXL_20240404_135006029.PORTRAIT.jpg
+         header: 'Oliver W'
+-        text: 2023-present
+-        url: null
++        text: 2023-2026
+     -
+         image: alex.jpg
+         header: 'Alex H'
+         text: 2021-2023
+-        url: null
+     -
+         image: nate.jpg
+         header: 'Nate K'
+         text: 2017-2020
+-        url: null
+     -
+         image: naveen.JPG
+         header: 'Naveen D'
+         text: 2016-2017
+-        url: null
+     -
+         image: joshua.jpeg
+         header: 'Joshua Y'
+         text: 2015-2016
+-        url: null
+ ---
+ 
+ ## Drivers
+\ No newline at end of file
+diff -ru /srv/.activity-shadow/user/pages/03.community/07.summer-classes/_gallery-draggable-summer/gallery-draggable.md /srv/robot-grav-site/user/pages/03.community/07.summer-classes/_gallery-draggable-summer/gallery-draggable.md
+--- /srv/.activity-shadow/user/pages/03.community/07.summer-classes/_gallery-draggable-summer/gallery-draggable.md	2026-08-11 16:24:58.900333168 +0000
++++ /srv/robot-grav-site/user/pages/03.community/07.summer-classes/_gallery-draggable-summer/gallery-draggable.md	2026-08-13 02:15:03.468622547 +0000
+@@ -4,6 +4,7 @@
+ visible: false
+ sitemap:
+     lastmod: '11-08-2026 11:53'
++published: false
+ ---
+ 
+ [//]: # (CommentsGoHere)
+\ No newline at end of file
+Only in /srv/robot-grav-site/user/pages/03.community/07.summer-classes: _gallery-press-summer
+diff -ru /srv/.activity-shadow/user/pages/03.community/07.summer-classes/_summer-classes-body/text.md /srv/robot-grav-site/user/pages/03.community/07.summer-classes/_summer-classes-body/text.md
+--- /srv/.activity-shadow/user/pages/03.community/07.summer-classes/_summer-classes-body/text.md	2026-08-11 20:15:21.291280270 +0000
++++ /srv/robot-grav-site/user/pages/03.community/07.summer-classes/_summer-classes-body/text.md	2026-08-13 02:12:25.350554928 +0000
+@@ -5,18 +5,17 @@
+     lastmod: '11-08-2026 11:50'
+ ---
+ 
+-Team 449 is dedicated to giving back to our community through education. In the summertime, we offer **free weekly classes** on various STEM topics to **students in grades K-12** via Google Meet. In 2026, our team members are teaching four virtual classes that run from August 1 to 23.
++Team 449 is dedicated to giving back to our community through education. In the summertime, we offer **free weekly classes** on various STEM topics to **students in grades K-12** via Google Meet. 
+ 
+-**Signups closed July 31**; check back next summer!
++---
+ 
+-[_Algebra 1 Bootcamp:_](https://canva.link/pt4iaq0o51jstny) Math: Introduction to Algebra 1 (generally recommended for students in grades 4-8)
+-<br>August 1-22, Saturdays 11 a.m.-noon 
++In 2026, our team members are teaching **four virtual classes** that run from August 1 to 23. Signups are closed, but please add yourself to our [mailing list](https://docs.google.com/forms/d/e/1FAIpQLSd_BS75odJ5SJta1uEctSGeh1FI3e-gpZXZFwKha2JXqffh-Q/viewform)!
+ 
+-[_Python PROgramming:_](https://canva.link/547xxkg3dhrrjin) Python: general programming for complete beginners
++- [_Algebra 1 Bootcamp:_](https://canva.link/pt4iaq0o51jstny) Math: Introduction to Algebra 1 (generally recommended for students in grades 4-8)
++<br>August 1-22, Saturdays 11 a.m.-noon 
++- [_Python PROgramming:_](https://canva.link/547xxkg3dhrrjin) Python: general programming for complete beginners
+ <br>August 1-22, Saturdays 2-3 p.m.
+-
+-[_CAD Basics:_](https://canva.link/b3gfysayt4yo5ju) Computer-Aided Design (CAD) Onshape for beginners
++- [_CAD Basics:_](https://canva.link/b3gfysayt4yo5ju) Computer-Aided Design (CAD) Onshape for beginners
+ <br>August 2-23, Sundays 11 a.m.-noon
+-
+-[_Scratch Simplified:_](https://canva.link/lp7iar9pjqf36ki) Scratch: block-based visual programming for complete beginners
+-<br>August 2-23, Sundays 2-3 p.m.
++- [_Scratch Simplified:_](https://canva.link/lp7iar9pjqf36ki) Scratch: block-based visual programming for complete beginners
++<br>August 2-23, Sundays 2-3 p.m.
+\ No newline at end of file
+
+user/themes/mod-quark
+Only in /srv/robot-grav-site/user/themes/mod-quark/blueprints/modular: gallery-press.yaml
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/css/custom.css /srv/robot-grav-site/user/themes/mod-quark/css/custom.css
+--- /srv/.activity-shadow/user/themes/mod-quark/css/custom.css	2026-07-23 19:08:20.614767436 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/css/custom.css	2026-08-13 02:56:29.864521998 +0000
+@@ -498,3 +498,36 @@
+ .year-index p a:hover {
+     text-decoration: underline;
+ }
++
++/* ---- gallery-press: press-kit photo grid --------------------------------
++   Deliberately NOT styled like .lightbox-gallery (gallery-draggable), which
++   crops every thumb to a uniform 600x450 landscape tile via cropZoom. A press
++   kit ships both horizontal and vertical shots and must show each photo in its
++   true orientation, so these thumbs keep their natural aspect ratio and the
++   grid auto-fills — portraits and landscapes sit side by side at equal width
++   and differing height. .is-portrait is emitted for styling hooks only.
++   ------------------------------------------------------------------------ */
++.gallery-press__heading { font-size: 1.15rem; font-weight: 700; margin: 0 0 0.75rem; }
++.gallery-press__usage { font-style: italic; margin-bottom: 1.25rem; }
++.gallery-press__grid {
++    display: grid;
++    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
++    gap: 1.75rem 1.25rem;
++    align-items: start;
++}
++.gallery-press__item { margin: 0; }
++.gallery-press__link { display: block; }
++.gallery-press__link img { display: block; width: 100%; height: auto; }
++.gallery-press__meta { font-size: 0.85rem; line-height: 1.4; margin-top: 0.45rem; }
++.gallery-press__caption { display: block; }
++.gallery-press__credit { display: block; color: #666; }
++.gallery-press__dl { display: inline-block; margin-top: 0.3rem; font-weight: normal; font-style: italic; }
++.gallery-press__note { margin-top: 1.5rem; }
++/* Same container idiom as .lightbox-gallery / .gallery-banners above: without this the
++   grid bleeds to the viewport edge instead of lining up with the page text column. */
++.gallery-press {
++    max-width: 1200px;
++    margin: 20px auto 0;
++    padding: 0 20px;
++    box-sizing: border-box;
++}
+Only in /srv/robot-grav-site/user/themes/mod-quark/css: custom.css.bak-20260812-211033
+Only in /srv/robot-grav-site/user/themes/mod-quark/css: custom.css.bak-20260812-225624
+Only in /srv/robot-grav-site/user/themes/mod-quark/templates/modular: gallery-press.html.twig
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/templates/partials/base.html.twig /srv/robot-grav-site/user/themes/mod-quark/templates/partials/base.html.twig
+--- /srv/.activity-shadow/user/themes/mod-quark/templates/partials/base.html.twig	2026-07-19 14:14:27.315620048 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/templates/partials/base.html.twig	2026-08-13 02:56:34.668707093 +0000
+@@ -65,7 +65,7 @@
+         {% if theme_var('spectre.exp') %}{% do assets.addCss('theme://css-compiled/spectre-exp'~compress)  %}{% endif %}
+         {% if theme_var('spectre.icons') %}{%  do assets.addCss('theme://css-compiled/spectre-icons'~compress) %}{% endif %}
+         {% do assets.addCss('theme://css-compiled/theme'~compress) %}
+-        {% do assets.addCss('theme://css/custom.css?v=63') %}
++        {% do assets.addCss('theme://css/custom.css?v=65') %}
+         {% do assets.addCss('theme://css/line-awesome.min.css') %}
+     {% endblock %}
+     {{ assets.css()|raw }}
+Only in /srv/robot-grav-site/user/themes/mod-quark/templates/partials: base.html.twig.bak-20260812-211033
+```
+
+
 ### 2026-08-12
 
 ```diff
