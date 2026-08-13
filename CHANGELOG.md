@@ -1,9 +1,26 @@
 # FRC Team 449 Website — LIVE (robot.mbhs.edu) — Changelog
-*Last updated: 2026-08-01*
+*Last updated: 2026-08-12*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu) or 🟢 **STAGING** (449.navybook.com) — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
+
+---
+### 2026-08-12 — 🚀 LIVE: `gallery-press` ported from staging — first live instance on `/community/summer-classes`
+
+Brad requested a `gallery-press` module (press-kit photo grid — see 2026-08-09 staging entries) on the existing `/community/summer-classes` page. This is the module's first appearance on live; previously staging-only.
+
+**Ported, not rebuilt** — `templates/modular/gallery-press.html.twig` and `blueprints/modular/gallery-press.yaml` copied verbatim from staging (already proven there), plus the `.gallery-press__*` CSS block appended to `custom.css` (`?v=63` → `?v=64`) and `caps.gallery-press: 4000` added to live's `image-intake.yaml` (via the `api` plugin's `update_config` — this file is `644`, not group-writable, same permission gap as the `gallery_sync` restore on 2026-08-10). Theme files landed owned by `USER:editor` rather than `grav:editor` (scp creates as the connecting user; the directory's setgid bit still assigned the right group) — chmod'd to `664` to match sibling files; harmless, noted for the record.
+
+**New module created via the `api` plugin (`create_page`), not SSH** — page content is `644` here too (per the established live-content rule). Folder `_gallery-press-summer/`, matching the page's existing no-numeric-prefix convention (sibling `_gallery-draggable-summer`, `_summer-hero`, `_summer-classes-body`). This page orders modules by `date` descending, not folder position (`content.items` + `order: {by: date, dir: desc}` in `modular.md`) — gave the new module an explicit `date: '2022-06-01 00:00'` (predating everything else on the page) so it sorts reliably last, after the existing photo gallery, regardless of the other modules' mtimes (which move around — see below).
+
+**Shipped empty on purpose.** No photos, no heading, no usage/credit text — `photo_meta: []`, scaffold only. Two open questions, neither resolved here: (1) whether to carry over the 2 "Summer Classes" photos already captioned on staging (a named minor, consented for the staging press-kit context specifically — publishing the same named caption on this general, already-public live page is a distinct consent question, not assumed to be automatically covered) and (2) what heading/usage text to use, if any — content decisions, left for Brad. First pass actually included the blueprint's standard `usage: 'Free for editorial use with credit.'` boilerplate, which rendered as a single orphaned sentence with no photos above it (caught via a live screenshot, not assumed fine from the code); cleared both `usage` and `credit_default` back to empty strings so the module renders as fully invisible until real content goes in — confirmed via curl that the live HTML output is just an empty `.gallery-press__grid` now.
+
+**Two tool quirks worth remembering for next time:** `update_page`'s header merge isn't a pure overlay — updating two unrelated keys silently dropped the previously-set `photo_meta: []` from the saved file (harmless here, since the template already treats a missing `photo_meta` the same as an empty one, but not obviously predictable behavior). And per-page module `date` here is apparently touched to "now" by something running against this page regularly (all 3 existing sibling modules had mtimes within minutes of each other, hours before this session, despite presumably being created weeks apart) — not chased down, but explicit `date:` values are the reliable way to control order on this specific page rather than relying on file mtime.
+
+**Docs updated:** README.md, RUNBOOK.md (Architecture reference), and INSTRUCTIONS.md — module-type counts/lists, the image-intake caps YAML example, a new §3c how-to section, and the Appendix template table. Also corrected an adjacent, previously-undocumented INSTRUCTIONS.md inaccuracy found while editing that same section: the "set widths over SSH" Power User guidance doesn't actually work for `image-intake.yaml` specifically (same `644` permission gap as above) — added a note to ask Rafi instead.
+
+Verified: `/community/summer-classes` 200s, sitewide spot-check of 4 other pages using the templates whose shared config changed all 200, `grav.log` has no new criticals (checked the log's most recent 3 pre-existing criticals too, to be sure — all from Aug 2-3, unrelated).
 
 ---
 ### 2026-08-10 — 🚀 LIVE: staging/live theme+config drift audit — 2 fixes deployed

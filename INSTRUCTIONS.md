@@ -57,22 +57,23 @@ You can also use HTML for effects Markdown can't do easily.
 
 ## 3. Images
 
-Every image you upload is automatically **resized** to a sensible max width for its context (gallery 1200px, hero 2560px, sponsor/mentor grids 1600px, else 2000px) and its **filename sanitized**. Drag in full-size photos with messy names — it just works.
+Every image you upload is automatically **resized** to a sensible max width for its context (gallery 1200px, hero 2560px, sponsor/mentor grids 1600px, press-kit photos 4000px, else 2000px) and its **filename sanitized**. Drag in full-size photos with messy names — it just works.
 
-Resizing is handled by **Image Intake**, a plugin written for this site. To change a limit — or turn resizing off for one module type — go to **Plugins → Image Intake → Per-template maximum widths**: one field per module type, where blank = use the default and **`0` = never resize** (keeps the original at full size, with its EXIF photo-credit intact). ⚠️ Shrinking happens **on upload, and the original is discarded** — set the limit *before* you upload, not after.
+Resizing is handled by **Image Intake**, a plugin written for this site. To change a limit — or turn resizing off for one module type — go to **Plugins → Image Intake → Per-template maximum widths**: one field per module type, where blank = use the default and **`0` = never resize** (keeps the original at full size). ⚠️ Shrinking happens **on upload, and the original is discarded** — set the limit *before* you upload, not after. ⚠️ **`0` also skips metadata stripping, not just the resize** — the resize and the strip of embedded EXIF/GPS/IPTC/XMP data run as one step, so a `0` template silently publishes uploaders' original file metadata (including GPS location, if the camera recorded one). Don't set any template to `0` without a real reason.
 
-> **⚠️ Those width fields don't currently render (as of July 2026).** The "Template widths" box shows its heading with nothing underneath. This is an upstream Admin Next bug — the API drops dynamically-generated blueprint fields ([grav-plugin-api#21](https://github.com/getgrav/grav-plugin-api/issues/21)) — not something fixable in our plugin, so it will start working on its own once that's fixed. **Resizing and filename sanitizing are unaffected and work normally**; only the settings screen is. Until then the widths are set over SSH in `user/config/plugins/image-intake.yaml` (Power User task — Part 2), then clear the cache:
+> **⚠️ Those width fields don't currently render (as of July 2026).** The "Template widths" box shows its heading with nothing underneath. This is an upstream Admin Next bug — the API drops dynamically-generated blueprint fields ([grav-plugin-api#21](https://github.com/getgrav/grav-plugin-api/issues/21)) — not something fixable in our plugin, so it will start working on its own once that's fixed. **Resizing and filename sanitizing are unaffected and work normally**; only the settings screen is. Until then the widths are set in `user/config/plugins/image-intake.yaml`, then clear the cache:
 >
 > ```yaml
 > default_max_width: 2000     # any template not listed below
 > caps:
+>   gallery-press: 4000
 >   gallery-draggable: 1200
 >   gallery: 1200
 >   hero: 2560
 >   feature-images: 1600
 > ```
 >
-> A template listed with `0` is never resized; one that's absent gets `default_max_width`.
+> A template listed with `0` is never resized; one that's absent gets `default_max_width`. ⚠️ **This file is `644`, not group-writable** (unlike most theme files, which are `664`) — a Power User's own SSH login typically can't save it directly, even though they can edit everything else in this section over SSH. Ask Rafi (root/sudo access) to make the edit, or make it through the admin once the upstream field bug above is fixed.
 
 ### a) Images next to a block of text
 In the module, drag one or more new images into the Page Media field to upload them. The images appear on the web page in the order they appear in the Page Media box. There's a button that toggles drag-to-reorder just above the box.
@@ -81,10 +82,15 @@ In the module, drag one or more new images into the Page Media field to upload t
 To create one or more rows of four images on a page, create a module with type _gallery-draggable_. Then drag images onto the Page Media field. You can reorder them by dragging the faint icon on the top right of each image. 
 - **Caption:** any text you type in the gallery's **Content** box appears centered below the photos.
 
+### c) Press-kit photos (downloadable originals)
+For photos meant for reporters or outside use — not general page content — create a module with type _gallery-press_ instead. It's deliberately different from _gallery-draggable_: no cropping (each photo keeps its true shape, portrait or landscape), and clicking a photo opens the full-resolution original in a new tab, with a separate "Download original" link underneath. Display order is still the Page Media drag order.
+
+Each photo can have its own **caption** and **photo credit**, set per-image in the module's **Press photos** tab (not the Content box) — matched to the photo **by filename**, so reordering photos never mixes up captions. There's also a **Row heading** field if you want a label like "Team Photos" above the grid, and a **Usage line** shown once above the whole grid (e.g. "Free for editorial use with credit."). Live so far: one example at `/community/summer-classes` (a scaffold — no photos in it yet as of 2026-08-12).
+
 ## 4. Creating a page or module
 
 1. On the **[Pages](https://robot.mbhs.edu/admin/pages)** page, click **Add** and choose **Page**, **Folder**, or **Module**.
-2. Give it a title and pick a **template** from the dropdown — for a module, this list shows every module type our theme already supports (Text, Hero, Icon-menu, Feature-images, Gallery-draggable, Gallery-banners, Footer-col, and a few unused stock ones).
+2. Give it a title and pick a **template** from the dropdown — for a module, this list shows every module type our theme already supports (Text, Hero, Icon-menu, Feature-images, Gallery-draggable, Gallery-banners, Gallery-press, Footer-col, and a few unused stock ones).
 3. Set its position under **Order** (or drag it into place in the Pages list).
 4. Click **Continue**, then add your Content, Save.
 
@@ -255,7 +261,7 @@ Any path that hardcodes the **domain** or a **folder number** can break if a fol
 Our theme **Mod Quark** (`user/themes/mod-quark/`) is a **custom child of Quark** (`user/themes/quark/`). Key differences:
 
 - **It is hand-managed, NOT installed through Grav's package manager.** **Do not run `bin/gpm update` on it** — manage it manually via SSH / the team GitHub repo.
-- **Five custom module types: `icon-menu`, `feature-images`, `gallery-draggable`, `gallery-banners`, `footer-col`** — see the Appendix for what each does. Quark's stock `features` (a grid of Font-Awesome icons) is customized and **renamed `icon-menu`** in our theme (its links were patched to be base-path-safe). `feature-images` is the same idea but with **photos** (Sponsors, Mentors, Robots, etc.); its image resolution uses Grav page media so it survives folder renumbering.
+- **Six custom module types: `icon-menu`, `feature-images`, `gallery-draggable`, `gallery-banners`, `gallery-press`, `footer-col`** — see the Appendix for what each does. Quark's stock `features` (a grid of Font-Awesome icons) is customized and **renamed `icon-menu`** in our theme (its links were patched to be base-path-safe). `feature-images` is the same idea but with **photos** (Sponsors, Mentors, Robots, etc.); its image resolution uses Grav page media so it survives folder renumbering.
 - **Custom `base.html.twig`.** Our base template is a full override of Quark's, with our own header markup, our `custom.css` include (with the `?v=` cache-bust), and our own asset handling.
 - **The footer is a custom partial + an editable page.** Stock Quark's footer is a throwaway credit line. Ours is `partials/footer.html.twig` (structure + logo) that pulls its content from a hidden, admin-editable `/footer` page.
 - **The site-wide announcement bar is a partial, not a module.** `partials/announcements.html.twig` is included once from `base.html.twig` and reads from a hidden `announcements-data` page — see §5 and §10.
@@ -302,6 +308,7 @@ The module's `.md` filename selects its template. These are what you assemble mo
 | `feature-images` | Grid of **photo** links — Sponsors, Mentor headshots, Robots, T-shirts. `separate_links: true` makes the image link to a full-size `-original` companion file (if one exists in the page folder) while the header/caption link elsewhere instead. | custom | ✅ |
 | `gallery-draggable` | Photo grid in **Page-Media drag order** (no list to edit), click-to-zoom via the no-JS lightbox partial. | custom | ✅ |
 | `gallery-banners` | Single shrink-to-fit row of images, no lightbox, no titles — the homepage's Blue Alliance trophy history. Same Page-Media drag order as `gallery-draggable`. Optional per-image links via `banner_links` (matched by filename). | custom | ✅ |
+| `gallery-press` | Press-kit photo grid: no crop (true aspect ratio), full-resolution downloads. Per-photo caption + credit via a `photo_meta` list (matched by filename, in the module's **Press photos** tab). See §3c. | custom | ✅ |
 | `gallery` | Lightbox photo grid from a hand-listed `items:` list in frontmatter. | stock Quark | ⚠️ no blueprint |
 | `footer-col` | Internal helper: outputs only its content (used for the footer's columns). | custom | — |
 
