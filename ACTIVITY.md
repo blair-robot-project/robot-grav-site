@@ -20,6 +20,38 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-08-14
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/03.community/07.summer-classes/_gallery-draggable-summer/gallery-draggable.md /srv/robot-grav-site/user/pages/03.community/07.summer-classes/_gallery-draggable-summer/gallery-draggable.md
+--- /srv/.activity-shadow/user/pages/03.community/07.summer-classes/_gallery-draggable-summer/gallery-draggable.md	2026-08-13 02:15:03.468622547 +0000
++++ /srv/robot-grav-site/user/pages/03.community/07.summer-classes/_gallery-draggable-summer/gallery-draggable.md	2026-08-13 14:41:53.280459088 +0000
+@@ -4,7 +4,7 @@
+ visible: false
+ sitemap:
+     lastmod: '11-08-2026 11:53'
+-published: false
++published: true
+ ---
+ 
+ [//]: # (CommentsGoHere)
+\ No newline at end of file
+diff -ru /srv/.activity-shadow/user/pages/03.community/07.summer-classes/_gallery-press-summer/gallery-press.md /srv/robot-grav-site/user/pages/03.community/07.summer-classes/_gallery-press-summer/gallery-press.md
+--- /srv/.activity-shadow/user/pages/03.community/07.summer-classes/_gallery-press-summer/gallery-press.md	2026-08-13 02:14:17.630863207 +0000
++++ /srv/robot-grav-site/user/pages/03.community/07.summer-classes/_gallery-press-summer/gallery-press.md	2026-08-13 14:42:18.793496429 +0000
+@@ -15,6 +15,7 @@
+         caption: 'Rosy Y., a rising sophomore, teaches a virtual Python programming class on Aug. 8, 2026—one of the free summer courses offered to K-12 students by the Blair Robot Project, a robotics team based at Montgomery Blair High School in Silver Spring, Md.'
+         credit: 'Bradley Peniston'
+ media_order: 'summer-classes.jpeg, cad-basics.jpeg, algebra.jpeg, python.jpeg, rosy-hands-original.jpg, rosy-quizzical-original.jpg'
++published: false
+ ---
+ 
+ [//]: # (PRESS PHOTO GALLERY — none of these notes appear on the website.)
+```
+
+
 ### 2026-08-13
 
 ```diff
