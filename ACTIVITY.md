@@ -20,6 +20,15 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-08-20
+
+```diff
+
+user/pages
+Only in /srv/robot-grav-site/user/pages/03.community/07.summer-classes: 449-summer-classes-poster.jpg
+```
+
+
 ### 2026-08-14
 
 ```diff
