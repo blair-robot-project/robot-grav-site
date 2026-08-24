@@ -20,6 +20,28 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-08-24
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/01.home/06._about/text.md /srv/robot-grav-site/user/pages/01.home/06._about/text.md
+--- /srv/.activity-shadow/user/pages/01.home/06._about/text.md	2026-08-03 15:34:29.811076241 +0000
++++ /srv/robot-grav-site/user/pages/01.home/06._about/text.md	2026-08-23 03:16:16.344932110 +0000
+@@ -6,7 +6,9 @@
+ ---
+ 
+ ## **What’s new**
+-**August 1:** Our annual [summer classes](https://robot.mbhs.edu/community/summer-classes) start, free to students in grades K-12. Signups closed July 31.
++**August 21**: "[Free STEM Classes Return for Sixth Year at Blair High School](https://www.sourceofthespring.com/silver-spring-news/2919547/free-stem-classes-return-for-sixth-year-at-blair-high-school/)" (Source of the Spring)
++
++<!-- **August 1:** Our annual [summer classes](https://robot.mbhs.edu/community/summer-classes) start, free to students in grades K-12. Signups closed July 31. -->
+ 
+ **July 10-12:** We participated in Philly's [RoboJawn](https://www.thebluealliance.com/event/2026paphi1), organized by Teams [321](https://robolancers.com/) and [1218](https://www.sch.org/admissions/learn/robotics)! 
+ 
+```
+
+
 ### 2026-08-20
 
 ```diff
