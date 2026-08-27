@@ -20,6 +20,33 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-08-27
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/09.announcements-data/announcements-data.md /srv/robot-grav-site/user/pages/09.announcements-data/announcements-data.md
+--- /srv/.activity-shadow/user/pages/09.announcements-data/announcements-data.md	2026-07-31 18:06:55.363884188 +0000
++++ /srv/robot-grav-site/user/pages/09.announcements-data/announcements-data.md	2026-08-26 17:33:21.399108128 +0000
+@@ -26,6 +26,15 @@
+         end_date: '2026-07-31 12:59'
+         level: blue
+         link: /community
++    -
++        level: green
++        pages: /
++        published: true
++        title: classes-article
++        link: 'https://www.sourceofthespring.com/silver-spring-news/2919547/free-stem-classes-return-for-sixth-year-at-blair-high-school/'
++        message: 'Read the news coverage of our Summer Classes!'
++        start_date: '2026-08-25 12:00'
++        end_date: '2026-09-02 12:00'
+ visible: false
+ ---
+ 
+```
+
+
 ### 2026-08-24
 
 ```diff
