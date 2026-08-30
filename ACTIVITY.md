@@ -20,6 +20,45 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-08-30
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-08-28 03:52:19.071745864 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-08-29 17:08:53.681067053 +0000
+@@ -20,9 +20,25 @@
+ 
+ ---
+ 
+-### Participants
++### Participants (13/24 filled)
+ Paid & Confirmed Teams in **Bold** <br>
++Last Updated 8/29/2026 1:05 PM
+ 
++[FRC 321](https://robolancers.com/): RoboLancers <br> 
+ **[FRC 449](/): The Blair Robot Project (2 robots)** <br>
++[FRC 526](https://www.saxonrobotics.org/): Saxon Sparks <br>
++[FRC 611](https://www.saxonrobotics.org/): Saxons <br>
++[FRC 614](https://team614.org/): Night Hawks <br>
++[FRC 686](https://sites.google.com/bovineintervention.org/first-team-686): Bovine Intervention <br>
++[FRC 2106](https://www.team2106.org/): The Junkyard Dogs <br>
++[FRC 2537](https://team2537.com/): Space RAIDers <br>
++[FRC 4821](https://cyberus4821.weebly.com/): cyberUS <br>
++[FRC 8230](https://koibots.com/): KoiBots <br>
++[FRC 8726](https://frc8726.org/): CryptoHawks <br>
++[FRC 9033](https://www.instagram.com/ocebots9033/): Ocebots <br>
++
++Waitlist: <br>
++[FRC 2537b](https://team2537.com/): Space RAIDers B <br>
++
+ 
+ ---
+\ No newline at end of file
+```
+
+
 ### 2026-08-29
 
 ```diff
