@@ -20,6 +20,26 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-08-31
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/20.data-science/01._text/text.md /srv/robot-grav-site/user/pages/02.about-us/20.data-science/01._text/text.md
+--- /srv/.activity-shadow/user/pages/02.about-us/20.data-science/01._text/text.md	2026-08-07 02:09:13.148532842 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/20.data-science/01._text/text.md	2026-08-30 19:50:20.758412401 +0000
+@@ -8,7 +8,7 @@
+ Founded in 2025, the Data Science subteam is the newest addition to 449.  We inform team decisions with data, both on (Scouting & Strategy) and off  (Operations & Outreach) the field.
+ In our first season, we developed **pRidge**, a new FRC performance metric detailed in our 2026 [white paper](https://www.chiefdelphi.com/t/introducing-prior-ridge-regularization-for-frc-rating/519531). pRidge has been shown to **improve on EPA** by more than 6% in Mean Squared Error—and by 12% compared to OPR—since 2022. 
+ 
+-We work primarily in R, creating **interactive shinyapps** for data visualization and collecting data via custom **QRScout** jsons. We strongly believe in the cultivation of a positive scouting culture and open collaboration within FRC—accordingly, all of our software is open-source. At the 2026 Chesapeake District Championship, we released our complete scouting [shinyapp](google.com/url?q=https://blair-robot-scouting2026.share.connect.posit.cloud&sa=D&source=docs&ust=1785713485382396&usg=AOvVaw0CilbPBsol9YcR11fgIGcR)—and its [code](https://github.com/blair-robot-project/scouting2026)!
++We work primarily in R, creating **interactive shinyapps** for data visualization and collecting data via custom **QRScout** jsons. We strongly believe in the cultivation of a positive scouting culture and open collaboration within FRC—accordingly, all of our software is open-source. At the 2026 Chesapeake District Championship, we released our complete scouting [shinyapp](https://blair-robot-scouting2026.share.connect.posit.cloud)—and its [code](https://github.com/blair-robot-project/scouting2026)!
+ During the off-season, Data Science works on data analysis projects such as continued pRidge research, an attendance application, and a potential custom Statbotics. [Bunnybots](https://robot.mbhs.edu/bunnybots)—our off-season event that enables rookie members to experience the robotics process before the official season—also provides the Data Science team with an excellent opportunity to refine our skills and deliver easily accessible data to everyone at the event.
+ 
+ Beyond software development, we have been frequent attendees at the [FRC Team Development Conference](https://www.instagram.com/p/DYQmhUPsiaO/), presenting on topics such as: 
+```
+
+
 ### 2026-08-30
 
 ```diff
