@@ -20,6 +20,104 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-09-01
+
+```diff
+
+user/pages
+Only in /srv/.activity-shadow/user/pages/04.bunnybots/04._register: BlairBunnybotsTeamUpdate00.pdf
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-08-29 17:08:53.681067053 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-01 02:13:34.308630412 +0000
+@@ -8,37 +8,46 @@
+ menu: 'Text: 2025 Bunnybots'
+ ---
+ 
+-[2026 Game Manual v1.0 - Coming Soon](/bunnybots?classes=nounderline,disabled,button,btn-block)
++[2026 Game Manual v1.0](https://drive.google.com/file/d/1ecKHHbeJrfMThmzKpLZpavXXxBM3W5o4/view?classes=nounderline,button,btn-block)
++<br>
++[2026 Team Update 00](https://drive.google.com/file/d/1xIbvDgGHQ1-G7tzQGh4k4sFWWG9es5hN/view?classes=nounderline,button,btn-block)
++<br>
++[Game Piece Order Form](https://forms.gle/4miZoLy79CAwimwt6?classes=nounderline,button,btn-block)
+ 
+ ---
+ 
+ ##2026 Registration
+-[Team Registration](https://docs.google.com/forms/d/e/1FAIpQLSfkgk8-OqHCn0Kkb3PWuOTbVPSwU9n-Bti1f_DsnDsV7jy93A/viewform?classes=button,btn-block)
++[Team Registration - Closes Oct. 11](https://docs.google.com/forms/d/e/1FAIpQLSfkgk8-OqHCn0Kkb3PWuOTbVPSwU9n-Bti1f_DsnDsV7jy93A/viewform?classes=button,btn-block)
+ <br>
+-[Volunteer Registration](https://docs.google.com/forms/d/e/1FAIpQLSc9mQ0GFSbUhTMtBpsPRvvS9Qa4n27NeFBgUxbOhKa6B4DoEw/viewform?classes=button,btn-block)
++[Volunteer Registration - Closes Nov. 15](https://docs.google.com/forms/d/e/1FAIpQLSc9mQ0GFSbUhTMtBpsPRvvS9Qa4n27NeFBgUxbOhKa6B4DoEw/viewform?classes=button,btn-block)
+ 
+ 
+ ---
+ 
+-### Participants (13/24 filled)
++### Participants (14/24 filled)
+ Paid & Confirmed Teams in **Bold** <br>
+-Last Updated 8/29/2026 1:05 PM
++Last Updated 8/31/2026 12:06 AM
+ 
+ [FRC 321](https://robolancers.com/): RoboLancers <br> 
+-**[FRC 449](/): The Blair Robot Project (2 robots)** <br>
+-[FRC 526](https://www.saxonrobotics.org/): Saxon Sparks <br>
++**[FRC 449](/): The Blair Robot Project** <br>
+ [FRC 611](https://www.saxonrobotics.org/): Saxons <br>
+ [FRC 614](https://team614.org/): Night Hawks <br>
+ [FRC 686](https://sites.google.com/bovineintervention.org/first-team-686): Bovine Intervention <br>
+ [FRC 2106](https://www.team2106.org/): The Junkyard Dogs <br>
+ [FRC 2537](https://team2537.com/): Space RAIDers <br>
++[FRC 3504](https://girlsofsteelrobotics.org/): Girls of Steel <br>
++[FRC 4575](https://tinmints.net/frc-4575/): Gemini <br> 
+ [FRC 4821](https://cyberus4821.weebly.com/): cyberUS <br>
++[FRC 5338](https://blogs.lcps.org/roboloco/): RoboLoCo <br>
+ [FRC 8230](https://koibots.com/): KoiBots <br>
+ [FRC 8726](https://frc8726.org/): CryptoHawks <br>
+ [FRC 9033](https://www.instagram.com/ocebots9033/): Ocebots <br>
+ 
+ Waitlist: <br>
+ [FRC 2537b](https://team2537.com/): Space RAIDers B <br>
++[FRC 526](https://www.saxonrobotics.org/): Saxon Sparks <br>
++[FRC 5338b](https://blogs.lcps.org/roboloco/): RoboLoCo B <br>
++[FRC 449b](/): The Blair Robot Project B <br>
+ 
+ 
+ ---
+\ No newline at end of file
+diff -ru /srv/.activity-shadow/user/pages/08.join-us/02._potential-sponsors/text.md /srv/robot-grav-site/user/pages/08.join-us/02._potential-sponsors/text.md
+--- /srv/.activity-shadow/user/pages/08.join-us/02._potential-sponsors/text.md	2026-07-17 20:19:33.901280136 +0000
++++ /srv/robot-grav-site/user/pages/08.join-us/02._potential-sponsors/text.md	2026-08-31 17:34:38.673189009 +0000
+@@ -11,7 +11,7 @@
+ 
+ **What students can do:** Students can contribute through mechanical design, CAD, fabrication, programming, electronics, strategy, scouting, media, outreach, writing, awards, fundraising, and event planning. Students do not need to know which subteam they want before joining.
+ 
+-**How to join?** We meet at [Montgomery Blair High School](https://www.google.com/maps/place/51+University+Blvd+E,+Silver+Spring,+MD+20901). Come up to Room 361 on Thursdays from 3:30 to 6:30 to meet the team and get involved. Or email us at [blair.robot@gmail.com](mailto:blair.robot@gmail.com?subject=Interested%20in%20Joining) with your name, grade, school, and areas of interest.
++**How to join?** Email us at [blair.robot@gmail.com](mailto:blair.robot@gmail.com?subject=Interested%20in%20Joining) with your name, grade, school, and areas of interest.
+ 
+ **FOR PARENTS AND GUARDIANS:** Team meetings are held at Montgomery Blair High School. At least one adult is present at every team meeting; this may be a teacher, mentor, or team parent. Students work under the guidance of student leaders and adult mentors. New members receive training before using tools or working on technical systems, and tool use is allowed only when a safety-trained adult is present. Families should expect the time commitment to increase during the winter build season and spring competition season.
+ 
+diff -ru /srv/.activity-shadow/user/pages/09.announcements-data/announcements-data.md /srv/robot-grav-site/user/pages/09.announcements-data/announcements-data.md
+--- /srv/.activity-shadow/user/pages/09.announcements-data/announcements-data.md	2026-08-26 17:33:21.399108128 +0000
++++ /srv/robot-grav-site/user/pages/09.announcements-data/announcements-data.md	2026-08-31 17:22:07.267894090 +0000
+@@ -35,6 +35,15 @@
+         message: 'Read the news coverage of our Summer Classes!'
+         start_date: '2026-08-25 12:00'
+         end_date: '2026-09-02 12:00'
++    -
++        level: blue
++        pages: /
++        published: true
++        title: 'Bunnybots team registration & volunteer registration now open!'
++        message: 'Bunnybots team registration & volunteer registration now open!'
++        link: bunnybots
++        end_date: ''
++        start_date: '2026-08-30 12:00'
+ visible: false
+ ---
+ 
+```
+
+
 ### 2026-08-31
 
 ```diff
