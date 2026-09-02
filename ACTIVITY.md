@@ -20,6 +20,26 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-09-02
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-01 02:13:34.308630412 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-01 07:19:25.245098992 +0000
+@@ -8,6 +8,8 @@
+ menu: 'Text: 2025 Bunnybots'
+ ---
+ 
++[plugin:youtube](https://youtu.be/PjTV9dQmzv0)
++
+ [2026 Game Manual v1.0](https://drive.google.com/file/d/1ecKHHbeJrfMThmzKpLZpavXXxBM3W5o4/view?classes=nounderline,button,btn-block)
+ <br>
+ [2026 Team Update 00](https://drive.google.com/file/d/1xIbvDgGHQ1-G7tzQGh4k4sFWWG9es5hN/view?classes=nounderline,button,btn-block)
+```
+
+
 ### 2026-09-01
 
 ```diff
