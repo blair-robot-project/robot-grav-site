@@ -20,6 +20,40 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-09-03
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-01 07:19:25.245098992 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-03 01:04:32.382616994 +0000
+@@ -8,7 +8,7 @@
+ menu: 'Text: 2025 Bunnybots'
+ ---
+ 
+-[plugin:youtube](https://youtu.be/PjTV9dQmzv0)
++[plugin:youtube](https://youtu.be/tCpTTH4NrhY)
+ 
+ [2026 Game Manual v1.0](https://drive.google.com/file/d/1ecKHHbeJrfMThmzKpLZpavXXxBM3W5o4/view?classes=nounderline,button,btn-block)
+ <br>
+@@ -37,10 +37,11 @@
+ [FRC 686](https://sites.google.com/bovineintervention.org/first-team-686): Bovine Intervention <br>
+ [FRC 2106](https://www.team2106.org/): The Junkyard Dogs <br>
+ [FRC 2537](https://team2537.com/): Space RAIDers <br>
+-[FRC 3504](https://girlsofsteelrobotics.org/): Girls of Steel <br>
+-[FRC 4575](https://tinmints.net/frc-4575/): Gemini <br> 
++**[FRC 3504](https://girlsofsteelrobotics.org/): Girls of Steel** <br>
++**[FRC 4575](https://tinmints.net/frc-4575/): Gemini** <br> 
+ [FRC 4821](https://cyberus4821.weebly.com/): cyberUS <br>
+ [FRC 5338](https://blogs.lcps.org/roboloco/): RoboLoCo <br>
++[FRC 5549](https://www.instagram.com/team5549/): Gryphon Robotics <br>
+ [FRC 8230](https://koibots.com/): KoiBots <br>
+ [FRC 8726](https://frc8726.org/): CryptoHawks <br>
+ [FRC 9033](https://www.instagram.com/ocebots9033/): Ocebots <br>
+```
+
+
 ### 2026-09-02
 
 ```diff
