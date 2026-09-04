@@ -1,9 +1,14 @@
 # FRC Team 449 Website — LIVE (robot.mbhs.edu) — Changelog
-*Last updated: 2026-08-29*
+*Last updated: 2026-09-04*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu) or 🟢 **STAGING** (449.navybook.com) — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
+
+---
+### 2026-09-04 — 🚀 LIVE: Inter + Science Gothic fonts applied site-wide
+
+All body text is now **Inter** (Google Fonts variable font); `<h1>` elements are now **Science Gothic** (Google Fonts variable font); both degrade to `sans-serif`. Full implementation detail and root-cause notes (broken `@import` in Grav's concatenated CSS pipeline, Quark parent theme's explicit `h1–h6` system-ui override): private staging-sync repo CHANGELOG, same date.
 
 ---
 ### 2026-08-29 — Staging note: homepage "What's New" rebuilt as a data-driven system with a new archive page and a working nightly archiver script, staging-only so far. Full detail: private staging repo CHANGELOG, same date.
