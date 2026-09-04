@@ -20,6 +20,113 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-09-04
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/01.home/06._about/text.md /srv/robot-grav-site/user/pages/01.home/06._about/text.md
+--- /srv/.activity-shadow/user/pages/01.home/06._about/text.md	2026-08-23 03:16:16.344932110 +0000
++++ /srv/robot-grav-site/user/pages/01.home/06._about/text.md	2026-09-03 19:48:36.346245821 +0000
+@@ -6,10 +6,16 @@
+ ---
+ 
+ ## **What’s new**
++
++**September 1:** Blair [Bunnybots](/bunnybots) 2026 [team](https://forms.gle/ZgA6n3mb3cDuFtPa7) and [volunteer registration](https://forms.gle/uoWRHr38MeXxNMQEA) are now open! 
++
+ **August 21**: "[Free STEM Classes Return for Sixth Year at Blair High School](https://www.sourceofthespring.com/silver-spring-news/2919547/free-stem-classes-return-for-sixth-year-at-blair-high-school/)" (Source of the Spring)
+ 
++
++
+ <!-- **August 1:** Our annual [summer classes](https://robot.mbhs.edu/community/summer-classes) start, free to students in grades K-12. Signups closed July 31. -->
+ 
++
+ **July 10-12:** We participated in Philly's [RoboJawn](https://www.thebluealliance.com/event/2026paphi1), organized by Teams [321](https://robolancers.com/) and [1218](https://www.sch.org/admissions/learn/robotics)! 
+ 
+ **June 30:** Team 449 participated in the 2026 FDA Family Day.
+Only in /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/02.449-members-of-note/03._features2: brennan-2.jpg
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/02.449-members-of-note/03._features2/feature-images.md /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/02.449-members-of-note/03._features2/feature-images.md
+--- /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/02.449-members-of-note/03._features2/feature-images.md	2026-08-12 04:03:56.156619998 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/02.449-members-of-note/03._features2/feature-images.md	2026-09-03 20:59:39.819678633 +0000
+@@ -6,6 +6,10 @@
+ class: small
+ features:
+     -
++        image: brennan-2.jpg
++        header: 'Brennan H'
++        text: 2026-present
++    -
+         image: PXL_20240404_135006029.PORTRAIT.jpg
+         header: 'Oliver W'
+         text: 2023-2026
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/18.LEADERSHIP/09._past-presidents/text.md /srv/robot-grav-site/user/pages/02.about-us/18.LEADERSHIP/09._past-presidents/text.md
+--- /srv/.activity-shadow/user/pages/02.about-us/18.LEADERSHIP/09._past-presidents/text.md	2026-07-23 22:56:24.935348541 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/18.LEADERSHIP/09._past-presidents/text.md	2026-09-03 20:26:04.509637412 +0000
+@@ -5,7 +5,7 @@
+ arrow: noarrow
+ image_align: right
+ media_order: 'Team picture 2022.jpg, _MG_7947 (2).jpg, 2026-2027-leadership.png'
+-published: true
++published: false
+ alt: 'Team members in masks on the school stairwell'
+ ---
+ 
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-03 01:04:32.382616994 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-03 13:46:38.147275142 +0000
+@@ -26,9 +26,9 @@
+ 
+ ---
+ 
+-### Participants (14/24 filled)
++### Participants (15/24 filled)
+ Paid & Confirmed Teams in **Bold** <br>
+-Last Updated 8/31/2026 12:06 AM
++Last Updated 9/3/2026 9:45 AM
+ 
+ [FRC 321](https://robolancers.com/): RoboLancers <br> 
+ **[FRC 449](/): The Blair Robot Project** <br>
+diff -ru /srv/.activity-shadow/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/12._msbr/text.md /srv/robot-grav-site/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/12._msbr/text.md
+--- /srv/.activity-shadow/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/12._msbr/text.md	2026-07-19 13:04:37.640558632 +0000
++++ /srv/robot-grav-site/user/pages/05.sponsor-information/01.CURRENT-SPONSORS/12._msbr/text.md	2026-09-03 03:47:09.067153920 +0000
+@@ -5,6 +5,7 @@
+ image_align: right
+ image_height: 120
+ alt: 'The Maryland Space Business Roundtable logo'
++published: true
+ ---
+ 
+ ### [The Maryland Space Business Roundtable](https://mdspace.org/)
+
+user/themes/mod-quark
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/css/custom.css /srv/robot-grav-site/user/themes/mod-quark/css/custom.css
+--- /srv/.activity-shadow/user/themes/mod-quark/css/custom.css	2026-08-13 02:56:29.864521998 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/css/custom.css	2026-09-03 20:44:11.208856705 +0000
+@@ -1,3 +1,5 @@
++@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Science+Gothic:wght@100..900&display=swap');
++
+ /* Header colors — red, brightens to solid on scroll.
+    header-transparent/header-dark below are set PER-PAGE via the frontmatter
+    field header.body_classes (see blueprints/default.yaml), not a global
+@@ -147,8 +149,14 @@
+ }
+ */
+ 
++h2,h3,h4,p,span,div,li {
++	font-family: "Inter", sans-serif;
++}
++
++
+ /* H1 styling */
+ h1 {
++    font-family: "Science Gothic", sans-serif;
+     /* font-family: 'BlairMdITC', sans-serif;   <-- re-enable ONLY with a webfont license */
+     font-size: 50px !important;
+     text-transform: uppercase;
+```
+
+
 ### 2026-09-03
 
 ```diff
