@@ -20,6 +20,167 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-09-05
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/01.home/06._about/text.md /srv/robot-grav-site/user/pages/01.home/06._about/text.md
+--- /srv/.activity-shadow/user/pages/01.home/06._about/text.md	2026-09-03 19:48:36.346245821 +0000
++++ /srv/robot-grav-site/user/pages/01.home/06._about/text.md	2026-09-04 15:20:22.014727104 +0000
+@@ -9,8 +9,9 @@
+ 
+ **September 1:** Blair [Bunnybots](/bunnybots) 2026 [team](https://forms.gle/ZgA6n3mb3cDuFtPa7) and [volunteer registration](https://forms.gle/uoWRHr38MeXxNMQEA) are now open! 
+ 
+-**August 21**: "[Free STEM Classes Return for Sixth Year at Blair High School](https://www.sourceofthespring.com/silver-spring-news/2919547/free-stem-classes-return-for-sixth-year-at-blair-high-school/)" (Source of the Spring)
++**August 27**: "[Blair Students Spent August Weekends Teaching Free STEM Classes](https://mocoshow.com/2026/08/27/blair-students-spent-august-weekends-teaching-free-stem-classes/)" (The MoCo Show) 
+ 
++**August 21**: "[Free STEM Classes Return for Sixth Year at Blair High School](https://www.sourceofthespring.com/silver-spring-news/2919547/free-stem-classes-return-for-sixth-year-at-blair-high-school/)" (Source of the Spring)
+ 
+ 
+ <!-- **August 1:** Our annual [summer classes](https://robot.mbhs.edu/community/summer-classes) start, free to students in grades K-12. Signups closed July 31. -->
+@@ -20,7 +21,7 @@
+ 
+ **June 30:** Team 449 participated in the 2026 FDA Family Day.
+ 
+-**June 27:** Applications are open for the 2026-27 season of our FIRST LEGO League team! Apply by July 20 [here](https://forms.gle/c1Hs4XFMk3XrNnyG7)!
++<!--  **June 27:** Applications are open for the 2026-27 season of our FIRST LEGO League team! Apply by July 20 [here](https://forms.gle/c1Hs4XFMk3XrNnyG7)! -->
+ 
+ **June 6:** Teams 449 and [4821](https://cyberus4821.weebly.com/) hosted [FRC Team Development Conference](https://www.instagram.com/p/DYQmhUPsiaO/), welcoming members of 10 teams from around the DMV for a [day of speakers, workshops, and networking](https://www.instagram.com/p/DZSSViBDjnk/?img_index=10).
+ 
+
+user/themes/mod-quark
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/css/custom.css /srv/robot-grav-site/user/themes/mod-quark/css/custom.css
+--- /srv/.activity-shadow/user/themes/mod-quark/css/custom.css	2026-09-03 20:44:11.208856705 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/css/custom.css	2026-09-04 19:10:21.961297353 +0000
+@@ -1,13 +1,17 @@
+-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Science+Gothic:wght@100..900&display=swap');
+ 
+-/* Header colors — red, brightens to solid on scroll.
+-   header-transparent/header-dark below are set PER-PAGE via the frontmatter
+-   field header.body_classes (see blueprints/default.yaml), not a global
+-   theme toggle — e.g. the homepage sets both so the header starts nearly
+-   invisible over the hero image and solidifies once you scroll past it.
+-   Scroll detection is Quark's own site.js, which toggles a .scrolled class
+-   on #header itself (not on <body> — matters if this ever gets ported to a
+-   different theme whose JS toggles .scrolled somewhere else). */
++
++/* Body font — sets Inter as the inherited default for all elements.
++   Form elements (button, input, select, textarea) ignore CSS inheritance
++   in most browsers due to UA stylesheet overrides, so they need explicit
++   font-family: inherit to pick this up. */
++body {
++    font-family: "Inter", sans-serif;
++}
++
++button, input, select, textarea {
++    font-family: inherit;
++}
++
+ #header {
+   background: rgba(168, 0, 7, 0.84);
+   color: #f0f0f0;
+@@ -149,17 +153,19 @@
+ }
+ */
+ 
+-h2,h3,h4,p,span,div,li {
+-	font-family: "Inter", sans-serif;
++/* H2–H6: override Quark parent theme.css which sets system-ui explicitly on all headings */
++h2, h3, h4, h5, h6 {
++    font-family: "Inter", sans-serif;
+ }
+ 
+-
+ /* H1 styling */
+ h1 {
+     font-family: "Science Gothic", sans-serif;
+     /* font-family: 'BlairMdITC', sans-serif;   <-- re-enable ONLY with a webfont license */
+     font-size: 50px !important;
+     text-transform: uppercase;
++    -webkit-text-stroke: 1.5px rgba(0,0,0,0.55);
++    text-shadow: 0 2px 16px rgba(0,0,0,0.85), 0 1px 4px rgba(0,0,0,0.9);
+ }
+ 
+ /* Ragged-right body text — no justification */
+@@ -539,3 +545,50 @@
+     padding: 0 20px;
+     box-sizing: border-box;
+ }
++
++/* ---- press-coverage: "Recent coverage" article list ---------------------
++   Headline is the link (what a reader scans for); outlet/date/paywall sit
++   beneath as smaller supporting metadata. Same 1200px container idiom as the
++   galleries above so the module lines up with the rest of the press page.
++   ------------------------------------------------------------------------ */
++.press-coverage {
++    max-width: 1200px;
++    margin: 20px auto 0;
++    padding: 0 20px;
++    box-sizing: border-box;
++}
++.press-coverage__list { list-style: none; margin: 0; padding: 0; }
++.press-coverage__item { padding: 0.7rem 0; border-bottom: 1px solid #e5e5e5; }
++.press-coverage__item:last-child { border-bottom: 0; }
++.press-coverage__headline { display: block; font-weight: bold; }
++.press-coverage__meta { display: block; font-size: 0.85rem; color: #666; margin-top: 0.15rem; }
++.press-coverage__outlet { font-style: italic; }
++.press-coverage__date::before { content: "\00b7\00a0"; }
++/* Muted pill, not a warning colour: paywalled is useful context, not a problem. */
++.press-coverage__paywall {
++    display: inline-block;
++    margin-left: 0.4rem;
++    padding: 0 0.4em;
++    border: 1px solid #bbb;
++    border-radius: 3px;
++    font-size: 0.75rem;
++    text-transform: uppercase;
++    letter-spacing: 0.03em;
++    color: #777;
++}
++.press-coverage__note { margin-top: 1.25rem; }
++
++/* ---- no-hero: pages that skip the hero module entirely ---------------------
++   modular.html.twig's own {% block body %} never renders #body-wrapper, so
++   the stock theme's #header-fixed compensation (#body-wrapper { .header-fixed
++   & { padding-top: $header-height-large } }, in _framework.scss) never
++   reaches a modular-template page — on every OTHER page this is invisible
++   because the hero is taller than the fixed header anyway. A hero-less page
++   has nothing to push #start's content below the fixed header, so it needs
++   this restated directly. 4rem (not a fixed px value) matches the header's
++   own $header-height-large unit, which is itself fluid with the site's
++   responsive root font-size — a hardcoded px here would be wrong at some
++   viewport width. #header is 64–80px depending on viewport; 4rem tracks it. */
++body.no-hero #start { padding-top: 4rem; }
++
++.whats-new .news-archive-link { margin-top: 1rem; }
+Only in /srv/robot-grav-site/user/themes/mod-quark/css: custom.css.bak-20260904-041023
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/templates/partials/base.html.twig /srv/robot-grav-site/user/themes/mod-quark/templates/partials/base.html.twig
+--- /srv/.activity-shadow/user/themes/mod-quark/templates/partials/base.html.twig	2026-08-13 02:56:34.668707093 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/templates/partials/base.html.twig	2026-09-04 19:10:22.553320838 +0000
+@@ -23,6 +23,9 @@
+     </script>
+     {% endif %}
+ 
++    <link rel="preconnect" href="https://fonts.googleapis.com" />
++    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
++    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Science+Gothic:wght@100..900&display=swap" />
+     <link rel="icon" type="image/png" href="{{ url('theme://images/favicon.png') }}" />
+     <link rel="canonical" href="{{ page.url(true, true) }}" />
+     {# --- Social preview: Open Graph + Twitter Card (auto from page, og-default fallback) --- #}
+@@ -65,7 +68,7 @@
+         {% if theme_var('spectre.exp') %}{% do assets.addCss('theme://css-compiled/spectre-exp'~compress)  %}{% endif %}
+         {% if theme_var('spectre.icons') %}{%  do assets.addCss('theme://css-compiled/spectre-icons'~compress) %}{% endif %}
+         {% do assets.addCss('theme://css-compiled/theme'~compress) %}
+-        {% do assets.addCss('theme://css/custom.css?v=65') %}
++        {% do assets.addCss('theme://css/custom.css?v=67') %}
+         {% do assets.addCss('theme://css/line-awesome.min.css') %}
+     {% endblock %}
+     {{ assets.css()|raw }}
+Only in /srv/robot-grav-site/user/themes/mod-quark/templates/partials: base.html.twig.bak-20260904-041023
+```
+
+
 ### 2026-09-04
 
 ```diff
