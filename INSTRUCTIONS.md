@@ -1,5 +1,5 @@
 # FRC 449 Website — Teammate Instruction Manual
-*Last updated: 2026-07-31 · Version 2.8*
+*Last updated: 2026-09-07 · Version 2.9*
 
 The site gets a full automatic backup every night, and traffic is low enough that a mistake is easy to fix and low-stakes. Just be reasonably careful, and use the nightly backup as your safety net.
 
@@ -122,6 +122,8 @@ All of these are suggestions to keep the site useful and not stale; the site can
 
 ### Year-round: "What's new"
 - Keep the homepage ["What's new"](https://robot.mbhs.edu/admin/pages/edit/home/_about) module current with match results, community outreach, and other notable events.
+  - Add news information in reverse-chronological order to the [past news](https://robot.mbhs.edu/admin/pages/edit/about-us/history/past-news/_news) page.
+- Remove old/stale items from the homepage "What's new" section. Aim to keep the number of items in this section between 5 and 10. Items of longer-term interest may stay on the homepage for a longer amount of time.
 
 ### End of FRC season
 - Update the [homepage top text](https://robot.mbhs.edu/admin/pages/edit/home/_home_top_text).
