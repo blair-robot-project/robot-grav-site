@@ -20,6 +20,37 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-09-07
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-03 13:46:38.147275142 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-06 22:06:56.010153375 +0000
+@@ -26,9 +26,9 @@
+ 
+ ---
+ 
+-### Participants (15/24 filled)
++### Participants (16/24 filled)
+ Paid & Confirmed Teams in **Bold** <br>
+-Last Updated 9/3/2026 9:45 AM
++Last Updated 9/6/2026 6:00 PM
+ 
+ [FRC 321](https://robolancers.com/): RoboLancers <br> 
+ **[FRC 449](/): The Blair Robot Project** <br>
+@@ -40,6 +40,7 @@
+ **[FRC 3504](https://girlsofsteelrobotics.org/): Girls of Steel** <br>
+ **[FRC 4575](https://tinmints.net/frc-4575/): Gemini** <br> 
+ [FRC 4821](https://cyberus4821.weebly.com/): cyberUS <br>
++[FRC 5115](https://www.instagram.com/wheaton_knightriders5115): Knight Riders <br>
+ [FRC 5338](https://blogs.lcps.org/roboloco/): RoboLoCo <br>
+ [FRC 5549](https://www.instagram.com/team5549/): Gryphon Robotics <br>
+ [FRC 8230](https://koibots.com/): KoiBots <br>
+```
+
+
 ### 2026-09-05
 
 ```diff
