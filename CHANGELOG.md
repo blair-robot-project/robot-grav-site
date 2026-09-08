@@ -1,9 +1,21 @@
 # FRC Team 449 Website — LIVE (robot.mbhs.edu) — Changelog
-*Last updated: 2026-09-04*
+*Last updated: 2026-09-08*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu) or 🟢 **STAGING** (449.navybook.com) — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
+
+---
+### 2026-09-08 — 🚀 LIVE: Quark 2 migration — test copy re-synced to live after 5 weeks of drift (Phase 3 still not done)
+
+No Quark 2 work happened between 2026-08-01 and today, but live kept being developed — so the isolated test copy had fallen five weeks behind the site it's supposed to reproduce. Found and closed that gap before doing any further pixel work, since every earlier measurement was taken against a live site that has since changed.
+
+- **Drift found:** live's `custom.css` was at `?v=67` (modified Sept 4) against the test copy's `?v=23` (Aug 1). Live had gained the Inter/Science Gothic typography with h1 stroke + drop shadow, the whole `gallery-press` module (Aug 13), `sponsorship-levels.css` (Jul 23), a rewritten `text.html.twig` image loop (Jul 30–Aug 3), a real-resize fix + alt-text field for `gallery-banners` (Aug 3/11), and the `press-coverage` / What's-New CSS. None of it was in the port.
+- **Typography ported as a mapping, not a copy** — the two themes split fonts differently (Quark 2 drives h2–h6 from `--pico-font-family-display` and leaves `h1` inheriting from body), so both Pico variables go to Inter and h1's Science Gothic is set directly, reproducing live's end state exactly. The port's old font block had been *asserting something false* since Sept 4 ("current site never overrides Spectre's default font-family"), so it was rewritten rather than appended to.
+- **✅ Verified, not assumed:** computed styles for body/h1/h2 now byte-match live. `document.fonts.check('16px Inter')` reports false on the test copy and true on live — a red herring caused by Quark 2 also registering Cal Sans and Font Awesome faces; proved Inter genuinely renders by canvas text measurement instead. `<img>` counts match live exactly on three image-heavy pages (66/66, 37/37, 28/28) with zero empty `src`. `gallery-press` was verified by temporarily publishing it on the **test copy only** (it's an unpublished draft on live, so "both render nothing" proved nothing), confirming a correct 4-across grid with siblings sharing rows, then reverting. 17-page sweep: 15×200 plus a 404 and a 301 that **both match live exactly**; no new `grav.log` entries.
+- **Deliberately not ported:** live's `body.no-hero #start { padding-top: 4rem }` — a Quark 1-specific compensation for a mechanism Quark 2 doesn't share (its header is `position: sticky` and reserves its own space). Porting it would likely add 4rem of dead space. Flagged for verification rather than copied.
+- **Needs Brad (not Claude):** four files on the test copy are now `brad:editor` rather than `grav:editor` (all `664`/group `editor`, so nothing is broken today) and want a `sudo chown`. Separately, the test copy's *content* is July-vintage — 48 of live's 252 pages have changed since the fork — which adds noise to visual comparison but doesn't affect the theme port itself.
+- **Phase 3 remains open**, and the earlier calibration work now needs re-baselining: the section-height residual and the `#header` sizing gap were both measured against live's old typefaces and must be re-measured before being chased further. Full detail, triage tables and the open decisions are in RUNBOOK.md § Phase 3a.
 
 ---
 ### 2026-09-04 — 🚀 LIVE + 🟢 STAGING: h1 text stroke + drop shadow for hero legibility
