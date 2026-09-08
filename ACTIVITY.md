@@ -20,6 +20,96 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-09-08
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/01.home/06._about/text.md /srv/robot-grav-site/user/pages/01.home/06._about/text.md
+--- /srv/.activity-shadow/user/pages/01.home/06._about/text.md	2026-09-04 15:20:22.014727104 +0000
++++ /srv/robot-grav-site/user/pages/01.home/06._about/text.md	2026-09-07 23:27:30.654264132 +0000
+@@ -7,26 +7,16 @@
+ 
+ ## **What’s new**
+ 
++*Visit our [News page](/about-us/history/news) to view all news.*
++
+ **September 1:** Blair [Bunnybots](/bunnybots) 2026 [team](https://forms.gle/ZgA6n3mb3cDuFtPa7) and [volunteer registration](https://forms.gle/uoWRHr38MeXxNMQEA) are now open! 
+ 
+-**August 27**: "[Blair Students Spent August Weekends Teaching Free STEM Classes](https://mocoshow.com/2026/08/27/blair-students-spent-august-weekends-teaching-free-stem-classes/)" (The MoCo Show) 
++**August 27**: "[Blair Students Spent August Weekends Teaching Free STEM Classes](https://mocoshow.com/2026/08/27/blair-students-spent-august-weekends-teaching-free-stem-classes/)" (The MoCo Show)
+ 
+ **August 21**: "[Free STEM Classes Return for Sixth Year at Blair High School](https://www.sourceofthespring.com/silver-spring-news/2919547/free-stem-classes-return-for-sixth-year-at-blair-high-school/)" (Source of the Spring)
+ 
+-
+-<!-- **August 1:** Our annual [summer classes](https://robot.mbhs.edu/community/summer-classes) start, free to students in grades K-12. Signups closed July 31. -->
+-
+-
+ **July 10-12:** We participated in Philly's [RoboJawn](https://www.thebluealliance.com/event/2026paphi1), organized by Teams [321](https://robolancers.com/) and [1218](https://www.sch.org/admissions/learn/robotics)! 
+ 
+-**June 30:** Team 449 participated in the 2026 FDA Family Day.
+-
+-<!--  **June 27:** Applications are open for the 2026-27 season of our FIRST LEGO League team! Apply by July 20 [here](https://forms.gle/c1Hs4XFMk3XrNnyG7)! -->
+-
+-**June 6:** Teams 449 and [4821](https://cyberus4821.weebly.com/) hosted [FRC Team Development Conference](https://www.instagram.com/p/DYQmhUPsiaO/), welcoming members of 10 teams from around the DMV for a [day of speakers, workshops, and networking](https://www.instagram.com/p/DZSSViBDjnk/?img_index=10).
+-
+-**May 31:** Team 449 participated in the KID Museum's "[Invent the Future Expo](https://kid-museum.org/programs/invent-the-future-expo/)."
+-
+ **May 25:** "[Blair Robotics Team Delivers Best-Ever Finish at World Championship](https://mocoshow.com/2026/05/25/blair-robotics-team-delivers-best-ever-finish-at-world-championship/)" (The MoCo Show)
+ 
+ **April 28:** "[The Blair Robot Project Heads to FIRST Championship Again After DMV Win](https://www.sourceofthespring.com/silver-spring-news/2912014/the-blair-robot-project-heads-to-first-championship-again-after-dmv-win/)" (Source of the Spring)
+Only in /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY: news
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/02._bunnybots-intro/text.md /srv/robot-grav-site/user/pages/04.bunnybots/02._bunnybots-intro/text.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/02._bunnybots-intro/text.md	2026-07-30 21:57:33.631484086 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/02._bunnybots-intro/text.md	2026-09-07 16:30:43.286362679 +0000
+@@ -5,7 +5,7 @@
+ menu: 'Text: top'
+ ---
+ 
+-**Blair Bunnybots**, our annual off-season FRC-style event, is designed to welcome new members of teams into the _FIRST_ community and to help them develop their skills. The 3-month build season ends with a day of competition that allows new members to show off their work and have fun at an event just for them. The 2025-26 event—our eighth—drew 18 teams from across the Chesapeake region. 
++**Blair Bunnybots**, our annual off-season FRC-style event, is designed to welcome new members of teams into the _FIRST_ community and to help them develop their skills. The 3-month build season ends with a day of competition that allows new members to show off their work and have fun at an event just for them. The 2025-26 event — our seventh — drew 18 teams from across the Chesapeake region. 
+ 
+ With Blair Bunnybots, we aim to exemplify a culture of healthy competition, kindness, and cooperation. The event embodies the spirit of [Gracious Professionalism](https://ftc-docs.firstinspires.org/en/latest/gracious_professionalism/gp.html) while recognizing the value in teamwork and community. Perhaps most importantly, in demonstrating first-hand the excitement of competition robotics, Blair Bunnybots lights and fuels a lasting passion in participating youth so they keep coming back for more robotics and STEM learning.
+ 
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-06 22:06:56.010153375 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-07 19:54:10.822720352 +0000
+@@ -10,18 +10,18 @@
+ 
+ [plugin:youtube](https://youtu.be/tCpTTH4NrhY)
+ 
+-[2026 Game Manual v1.0](https://drive.google.com/file/d/1ecKHHbeJrfMThmzKpLZpavXXxBM3W5o4/view?classes=nounderline,button,btn-block)
++[2026 Game Manual v1.1](https://drive.google.com/file/d/15q4vn-B7nUbsGcicQmGl1pQX0NZekTT8/view?classes=nounderline,button,btn-block&target=_blank)
+ <br>
+-[2026 Team Update 00](https://drive.google.com/file/d/1xIbvDgGHQ1-G7tzQGh4k4sFWWG9es5hN/view?classes=nounderline,button,btn-block)
++[2026 Team Update 01](https://drive.google.com/file/d/1ehQOWog34TMopRYW9_5zHkFlGpqpm1Ol/view?classes=nounderline,button,btn-block&target=_blank)
+ <br>
+-[Game Piece Order Form](https://forms.gle/4miZoLy79CAwimwt6?classes=nounderline,button,btn-block)
++[Game Piece Order Form](https://forms.gle/4miZoLy79CAwimwt6?classes=nounderline,button,btn-block&target=_blank)
+ 
+ ---
+ 
+ ##2026 Registration
+-[Team Registration - Closes Oct. 11](https://docs.google.com/forms/d/e/1FAIpQLSfkgk8-OqHCn0Kkb3PWuOTbVPSwU9n-Bti1f_DsnDsV7jy93A/viewform?classes=button,btn-block)
++[Team Registration - Closes Oct. 11](https://docs.google.com/forms/d/e/1FAIpQLSfkgk8-OqHCn0Kkb3PWuOTbVPSwU9n-Bti1f_DsnDsV7jy93A/viewform?classes=button,btn-block&target=_blank)
+ <br>
+-[Volunteer Registration - Closes Nov. 15](https://docs.google.com/forms/d/e/1FAIpQLSc9mQ0GFSbUhTMtBpsPRvvS9Qa4n27NeFBgUxbOhKa6B4DoEw/viewform?classes=button,btn-block)
++[Volunteer Registration - Closes Nov. 15](https://docs.google.com/forms/d/e/1FAIpQLSc9mQ0GFSbUhTMtBpsPRvvS9Qa4n27NeFBgUxbOhKa6B4DoEw/viewform?classes=button,btn-block&target=_blank)
+ 
+ 
+ ---
+@@ -33,7 +33,7 @@
+ [FRC 321](https://robolancers.com/): RoboLancers <br> 
+ **[FRC 449](/): The Blair Robot Project** <br>
+ [FRC 611](https://www.saxonrobotics.org/): Saxons <br>
+-[FRC 614](https://team614.org/): Night Hawks <br>
++**[FRC 614](https://team614.org/): Night Hawks** <br>
+ [FRC 686](https://sites.google.com/bovineintervention.org/first-team-686): Bovine Intervention <br>
+ [FRC 2106](https://www.team2106.org/): The Junkyard Dogs <br>
+ [FRC 2537](https://team2537.com/): Space RAIDers <br>
+```
+
+
 ### 2026-09-07
 
 ```diff
