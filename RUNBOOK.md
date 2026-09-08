@@ -170,14 +170,51 @@ The 1.7 to 2.0 migration (completed 2026-06-27) is done and its environment-spec
 
 ---
 
-## Draft — Mod Quark -> Quark 2 migration plan (not started, come back to this)
+## Mod Quark -> Quark 2 migration — IN PROGRESS, and gated on an open decision (see below)
 
-**Status: filed 2026-07-21, Phases 0-2 done 2026-07-22, Phase 3 (verify) fully complete 2026-07-23** - admin2 pass, gallery drag-reorder retest, full `curl` sweep (70/70 pages), image eyeball pass (301 images checked, 0 real breakage), and desktop **and** mobile live-vs-copy screenshot comparisons all done. 4 real regressions found, all fixed and verified: header-dark whitelist, header position (sticky→fixed), nav link typography (font-size/weight/spacing), and hero content centering (which also fixed the mobile banner/title overlap). 2 pre-existing bugs confirmed unrelated to the migration (gallery-banners admin drag, admin2 thumbnail previews) - left alone, out of scope. **Nothing left in Phase 3. Ready for Phase 4** whenever the team schedules the cutover window.
+**Status: filed 2026-07-21. Phases 0-2 done 2026-07-22. Phase 3 (verify) is STILL NOT COMPLETE as of 2026-09-08** - it was reported "fully complete" on 2026-07-23 and twice more after that, each time prematurely; 28 numbered regressions have been found since. Nav/hero/typography and the icon-menu module are now genuinely exact against live, and headings h2-h6 are verified across three pages, but body typography beyond headings has not been checked at all and neither has most of the site. **Do not treat this section's later "done" claims as load-bearing without re-measuring.**
+
+---
+
+### ⚠️ OPEN DECISION (raised by Brad 2026-09-08): should we ship mod-quark2 at all?
+
+**Nothing below this line should be treated as settled until this is answered.** The remaining Phase 3 work is pixel-mirroring, and if the answer here is "stop mirroring," most of it is moot.
+
+**The question Brad asked:** we can clearly *build* a Quark 2-based theme that mirrors today's Mod Quark closely — that is what has been happening. But should we ship it? Specifically: does insisting on mirroring create traps or extra work **on the other side**, for the high schoolers who maintain this site, who are not web experts and are more interested in their robots? Brad was explicit that build cost is not a factor in this decision; only downstream maintenance cost is.
+
+**The evidence, measured rather than asserted:**
+
+| | Lines | `clamp()` formulas |
+|---|---|---|
+| live `mod-quark/custom.css` | 594 | 0 |
+| ported `mod-quark-2/custom.css` (v33) | **889** | **29** |
+
+To make Quark 2 *look like* Quark 1 we have written half again as much CSS as Quark 1's entire custom layer, and essentially all of the excess exists to undo Quark 2's own design decisions:
+- `.section.modular-features { padding-block: 0 }` — cancels Quark 2's section rhythm (item 21)
+- `:is(p,ul,ol,…) + :is(h2,h3,h4) { margin-top: … }` — cancels Quark 2's contextual heading rhythm, restated at matching specificity purely so it wins (item 26)
+- `--pico-line-height: 1.5` **plus** `p,li {1.5}` **plus** `.feature-content p {1.5}` — three separate places to undo one typographic choice (item 24)
+- Full restatements of the `h2`/`h3`/`h4`/`h5` type scale and weight (items 24-27)
+
+**Why that is a maintenance trap specifically.** A formula like `clamp(22.4px, 19.04px + 0.7vw, 28px)` means "1.4rem of Spectre's fluid root font-size." Nothing in the file makes that legible to a student: to change a heading size safely they must know Spectre's root formula, re-derive three numbers, and understand why a plain `1.4rem` will not work. They would also need to hold **two** design systems in their head — Spectre's, to understand why an override exists, and Pico's, to understand what it is overriding. That cost is permanent and recurring, and it is created by the mirroring requirement, not by Quark 2.
+
+**Why it is also fragile.** Every override is a bet that Quark 2's internals stay put, and Quark 2 is actively maintained via GPM. A changed selector shape upstream means a matching-specificity override silently stops matching. *Silently* is the operative word — the same failure mode as the `*/`-in-a-comment bug (item 5, dead rule for weeks) and the `h2` fix that looked exact on the homepage while being wrong on 25 headings elsewhere (item 26). Both were caught only by measuring obsessively across multiple pages. A student maintainer will not do that.
+
+**The three options:**
+
+1. **Ship the pixel-perfect mirror** (current trajectory). Maximum visual continuity; highest ongoing maintenance cost, most fragile under upstream updates, hardest for a non-expert to reason about.
+2. **Ship Quark 2 but drop the mirroring requirement.** Keep the module ports (`icon-menu`, `feature-images`, `gallery-draggable`, `gallery-banners`, `gallery-press`, `footer-col`, the `text`/`hero` modifications and blueprints — 449-specific functionality that must exist under any theme, and the bulk of the real engineering) and keep 449's identity (the red, logo, nav structure, hero-behind-transparent-header, Inter/Science Gothic). **Throw away** the typography/rhythm/type-scale mirroring — most of the 2026-09-08 work. The site visibly changes; someone must sign that off.
+3. **Stay on Quark 1.** The site works. Spectre is dormant rather than broken. Best maintenance profile of all, right up until something forces the issue (a PHP/Grav change, or an upstream fix that never comes).
+
+**Claude's recommendation (2026-09-08), for the team to accept or reject:** option 2. The strongest supporting evidence is in this repo's own CHANGELOG — **live's typography changed on 2026-09-04, mid-migration.** The team is evidently willing to change how the site looks, which suggests the real requirement is "looks like us," not "matches the old CSS pixel-for-pixel." Mirroring a target that moved twice in seven weeks is a treadmill with no finish line. Option 1 optimises for a constraint the team has already demonstrated it does not hold.
+
+**If option 2 is chosen, write the rule down**, because "mostly defaults with a few exceptions" degrades back into option 1 without one: *overrides are allowed for identity (color, logo, custom modules) and forbidden for type scale, spacing, and rhythm.*
+
+**What is NOT in dispute either way:** the module/template/blueprint ports are worth keeping under options 1 and 2 alike, and the verification lessons below (totals are a worthless parity metric; one page is not enough; a CSS-variable change may not propagate; scan before measuring) apply to any future theme work here.
 
 **Read this before touching Phase 3+:**
-- **The test copy's ownership is `brad:editor`, not `grav:editor`.** Deliberate, for Phase 1/2 iteration speed (no sudo per file edit) - but admin2 (PHP-FPM, running as `grav`) needs write access for Phase 3's save-test pass. Flip back with `sudo chown -R grav:editor /srv/robot-grav-site-quark2` before starting Phase 3, and re-apply the `chmod -R g+w` on `cache/logs/tmp/images/assets/user/{accounts,data,config,pages}` afterward if ownership ever moves again - Grav's Problems plugin will show a "not writeable" diagnostic page instead of the site if this is missed (cost real time twice this session).
-- **`javascript_exec`-based `getComputedStyle()`/`getBoundingClientRect()` reads were unreliable all session** in the Browser tool - they returned stale/cached values after a DOM mutation, confirmed by testing with an inline `!important` style that provably worked (visible in a screenshot, invisible to a JS read moments later, on a brand-new tab). **Screenshots are the only visual verification trusted this session.** Don't waste time chasing a "bug" that only shows up via a JS style read - check with a screenshot first.
-- **`custom.css` needs its cache-bust version bumped by hand on every edit** (`theme://css/custom.css?v=N` in `base.html.twig`) - it's served `Cache-Control: immutable, max-age=1yr`, so without a version bump, browsers (including whoever is checking the tunnel) silently keep serving the pre-edit copy. Currently at `v=11`.
+- **Ownership: the test copy is `grav:editor` as of 2026-09-08** (it was deliberately `brad:editor` during Phases 1-2 for iteration speed, then flipped). The live trap now is the reverse: **any `scp`/`cp`/`sed -i` you run as `brad` recreates a file under your own ownership**, so check `stat -c '%U:%G'` after editing and `sudo chown grav:editor` back. Re-apply `chmod -R g+w` on `cache/logs/tmp/images/assets/user/{accounts,data,config,pages}` if ownership ever moves wholesale - Grav's Problems plugin shows a "not writeable" diagnostic page instead of the site if this is missed (cost real time twice in Phase 1).
+- **Verification tooling - this advice was REVERSED on 2026-09-08, read the current version.** The original 2026-07-22 note said JS `getComputedStyle()` reads were unreliable and screenshots were the only trustworthy check. That was true of the **in-app Browser pane** (`mcp__Claude_Browser__*`), which also returns blank screenshots after a JS-driven scroll. It is **not** true of **Claude in Chrome** (`mcp__claude-in-chrome__*`), where computed-style reads were accurate and load-bearing throughout the 2026-09-08 session - essentially every fix in items 21-28 was verified that way, and screenshots served only as a sanity check. **Use Claude in Chrome, and trust per-element computed styles; but see the four verification lessons in the Phase 3a/24/26/27 entries - measure per element (never totals), on more than one page.**
+- **`custom.css` needs its cache-bust version bumped by hand on every edit** (`theme://css/custom.css?v=N` in `base.html.twig`) - it's served `Cache-Control: immutable, max-age=1yr`, so without a version bump, browsers (including whoever is checking the tunnel) silently keep serving the pre-edit copy. **Currently at `v=33`** (2026-09-08). Note a `sed -i` or `scp` as `brad` recreates the file and leaves it `brad:editor` rather than `grav:editor` - check and `chown` after, see the Phase 1 ownership note.
 - **The Phase 0 backup (`default_site_backup--20260722071456.zip`) still hasn't been copied off-server** - Brad's doing this manually next time he's on non-cellular wifi, not blocking anything.
 
 **Read this before touching `custom.css` or any Blades-based template again:**
