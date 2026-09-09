@@ -170,15 +170,37 @@ The 1.7 to 2.0 migration (completed 2026-06-27) is done and its environment-spec
 
 ---
 
-## Mod Quark -> Quark 2 migration — IN PROGRESS, and gated on an open decision (see below)
+## Mod Quark -> Quark 2 migration — PAUSED 2026-09-08 by Brad's decision (staying on Mod Quark)
 
-**Status: filed 2026-07-21. Phases 0-2 done 2026-07-22. Phase 3 (verify) is STILL NOT COMPLETE as of 2026-09-08** - it was reported "fully complete" on 2026-07-23 and twice more after that, each time prematurely; 28 numbered regressions have been found since. Nav/hero/typography and the icon-menu module are now genuinely exact against live, and headings h2-h6 are verified across three pages, but body typography beyond headings has not been checked at all and neither has most of the site. **Do not treat this section's later "done" claims as load-bearing without re-measuring.**
+**PAUSED 2026-09-08 — see the decision block immediately below before reading any of the task lists in this section.** The history that follows is kept because it is useful if this is ever reopened, and because its verification lessons and operational gotchas apply to the live site regardless.
+
+**Status when paused: filed 2026-07-21. Phases 0-2 done 2026-07-22. Phase 3 (verify) was NOT complete** - it was reported "fully complete" on 2026-07-23 and twice more after that, each time prematurely; 28 numbered regressions have been found since. Nav/hero/typography and the icon-menu module are now genuinely exact against live, and headings h2-h6 are verified across three pages, but body typography beyond headings has not been checked at all and neither has most of the site. **Do not treat this section's later "done" claims as load-bearing without re-measuring.**
 
 ---
 
-### ⚠️ OPEN DECISION (raised by Brad 2026-09-08): should we ship mod-quark2 at all?
+### ✅ DECIDED 2026-09-08: stay on Mod Quark. This migration is PAUSED, not cancelled.
 
-**Nothing below this line should be treated as settled until this is answered.** The remaining Phase 3 work is pixel-mirroring, and if the answer here is "stop mirroring," most of it is moot.
+**Brad's call, in his words: "let's just stick with mod-quark (the current one) for now. If something changes to make us want to switch to a Quark 2-based style, we'll do it when the time comes."** That is **option 3** in the analysis below, and it is a deliberate choice rather than a stall - the site works, Spectre is dormant rather than broken, and "do nothing" has the best maintenance profile of all for a site maintained by students. **Nothing further should be spent on Quark 2 parity work until a trigger below fires.** Do not treat the Phase 3 task lists further down as live work.
+
+**Live is untouched and always was** - every bit of this happened on the isolated test copy at `/srv/robot-grav-site-quark2`. There is nothing to roll back.
+
+**Triggers that should reopen this** (any one of them):
+- A PHP or Grav core upgrade breaks Quark 1 / Spectre, or an upgrade is blocked by them.
+- A security issue surfaces in the Quark 1 or Spectre dependency chain (Spectre is effectively dormant upstream - no fix would be coming).
+- The team wants a visual redesign anyway - at which point the "must mirror the old look" constraint disappears and **option 2 becomes clearly correct**, since the mirroring is the entire source of the maintenance objection.
+- Someone needs to make a substantial theme change and finds Mod Quark's Spectre-era CSS the obstacle.
+
+**What survives and is worth keeping even if this never resumes:**
+- The **module/template/blueprint ports** in `mod-quark-2` - `icon-menu`, `feature-images`, `gallery-draggable`, `gallery-banners`, `gallery-press`, `footer-col`, the `text`/`hero` modifications. That is the bulk of the real engineering and it is theme-agnostic in shape. **⚠️ It currently exists ONLY on the droplet's test copy, which is disposable** - if that directory is ever cleaned up for disk, the work is gone. Preserve it in git before deleting anything.
+- The **four verification lessons** (totals are a worthless parity metric; one page is not enough to verify a CSS fix; a CSS-variable change may not propagate; scan before measuring) - these apply to *any* future theme or CSS work on this site, Quark 2 or not.
+- The **operational gotchas** in the list above (`mv`/mtime and Twig's compiled cache, the two `chown` forms, the `backup/` folder and its ACL) - all still true of the live site and the droplet generally.
+- The **option-2 preview** (`custom-option2.css` on the test copy) and its measured findings below - if this is ever reopened, that analysis does not need redoing.
+
+**State the test copy was left in:** mirror at `custom.css?v=33`, ownership clean (`grav:editor` throughout), all pages 200. Headings h2-h6 and the icon-menu module are exact against live; body typography beyond headings was never checked. Its `user/pages` content is July-vintage and drifts further from live every week, so **any resumption starts with a fresh drift check, not with the task list below** - see Phase 3a for how much had changed in five weeks.
+
+---
+
+### The analysis that led to that decision (kept for whoever reopens it)
 
 **The question Brad asked:** we can clearly *build* a Quark 2-based theme that mirrors today's Mod Quark closely — that is what has been happening. But should we ship it? Specifically: does insisting on mirroring create traps or extra work **on the other side**, for the high schoolers who maintain this site, who are not web experts and are more interested in their robots? Brad was explicit that build cost is not a factor in this decision; only downstream maintenance cost is.
 

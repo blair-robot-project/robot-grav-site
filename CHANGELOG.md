@@ -6,6 +6,16 @@ Reverse-chronological record of notable changes to the site — theme, templates
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-09-08 (decision) — Quark 2 migration PAUSED: the site stays on Mod Quark
+
+**Brad's call after reviewing the maintainability analysis: stick with the current Mod Quark theme for now, and revisit a Quark 2-based style if something changes to make us want it.** Live was never touched at any point — all of this happened on the isolated test copy — so there is nothing to roll back and no user-visible change.
+
+- **Why:** the site works, Spectre is dormant rather than broken, and for a site maintained by high schoolers "do nothing" has the best maintenance profile of the three options considered. The alternative that was seriously on the table (ship Quark 2 but drop the pixel-mirroring) remains the right answer *if* a redesign is ever wanted anyway — mirroring the old look is what generated the maintenance objection, not Quark 2 itself.
+- **Triggers that should reopen it:** a PHP/Grav upgrade broken or blocked by Quark 1/Spectre; a security issue in that dependency chain; the team wanting a visual redesign anyway; or someone hitting Mod Quark's Spectre-era CSS as an obstacle to a change they need.
+- **⚠️ Worth knowing:** the ported custom modules (`icon-menu`, `feature-images`, `gallery-draggable`, `gallery-banners`, `gallery-press`, `footer-col`, `text`/`hero`) exist **only** on the droplet's disposable test copy at `/srv/robot-grav-site-quark2`. That is the bulk of the real engineering — preserve it in git before that directory is ever cleaned up for disk.
+- **What survives regardless:** the four verification lessons (totals are a worthless parity metric; one page is not enough to verify a CSS fix; a CSS-variable change may not propagate; scan before measuring) and the operational gotchas (`mv`/mtime vs Twig's compiled cache, the two `chown` forms, the `backup/` folder ACL) all apply to the live site and this droplet generally. Full detail and the option-2 preview findings are in RUNBOOK.md.
+
+---
 ### 2026-09-08 (later) — 🚀 LIVE: Quark 2 migration — the section-height residual finally root-caused, and paragraph sizing fixed
 
 The icon-menu/Sponsors "section is taller than live" residual had been open and unexplained since 2026-07-23. Re-baselined it against the re-synced copy first — and it turned out **not to be typography-related at all**.
