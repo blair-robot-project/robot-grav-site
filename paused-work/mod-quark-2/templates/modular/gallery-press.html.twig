@@ -1,0 +1,64 @@
+{# Press-kit photo grid. Each photo offers TWO distinct actions, deliberately split:
+   clicking the thumbnail OPENS the full-resolution original in a new tab (look at it), while the
+   labeled "Download original" link below it SAVES the file (the `download` attribute). A single
+   click that silently downloads with no visual feedback is the one genuinely confusing
+   interaction a reporter can hit here — a thumbnail click should show you the photo. #}
+{# Photo order = the admin Page Media drag order, same as gallery-draggable / gallery-banners. #}
+{# Per-photo caption + credit come from page.header.photo_meta, matched to each image BY FILENAME
+   (the gallery-banners banner_links pattern). Deliberately not an ordered list: because order is
+   read only from page.media.images, reordering photos can never desync them from their captions. #}
+{# Image Intake auto-shrinks uploads per `caps.gallery-press` in user/config/plugins/image-intake.yaml.
+   Current value: 4000 (resolution policy, 2026-08-09) — plenty of resolution for print while keeping
+   files reasonably sized. Do NOT set this to 0: Image Intake's shrink() gates the resize AND its
+   `-strip` behind the same `cap > 0` check, so cap:0 also silently stops GPS/EXIF stripping — this
+   leaked a photo's GPS coordinates via a real admin upload before it was caught (CHANGELOG 2026-08-09).
+   Photo credit is handled by this module's own header.photo_meta.credit field below, not by preserving
+   EXIF. #}
+{# header.heading is optional (blank by default) so the Press page can stack several gallery-press
+   instances as labeled rows ("Team Photos", "Summer Classes", ...) without affecting any module
+   that leaves it unset. #}
+{% set meta_list = page.header.photo_meta|default([]) %}
+{% set credit_default = page.header.credit_default|default('') %}
+<div class="module gallery-press">
+  {% if page.header.heading %}
+    <h3 class="gallery-press__heading">{{ page.header.heading }}</h3>
+  {% endif %}
+  {% if page.header.usage %}
+    <p class="gallery-press__usage">{{ page.header.usage }}</p>
+  {% endif %}
+
+  <div class="gallery-press__grid">
+    {% for filename, image in page.media.images %}
+      {% set meta = meta_list|filter(m => m.image == filename)|first %}
+      {% set caption = meta.caption|default('') %}
+      {% set credit = meta.credit|default('')|trim ?: credit_default %}
+      {# Capture the original's url and dimensions BEFORE any derivative call. Applying an
+         operation such as .resize() mutates the medium object, after which `image.url`
+         returns the generated derivative — which would silently turn "Download original"
+         into a download of the 600px thumbnail. Read once, reuse below. #}
+      {% set orig_url = image.url %}
+      {% set orig_w = image.width %}
+      {% set orig_h = image.height %}
+      {% set alt_text = caption ?: page.title %}
+      <figure class="gallery-press__item{{ orig_h > orig_w ? ' is-portrait' : '' }}">
+        {# Thumbnail preserves the source aspect ratio — press photos must show their true
+           orientation, so this must NOT use cropZoom the way gallery-draggable does.
+           html() takes ($title, $alt) in that order — pass both, or the caption lands in
+           the tooltip and the image ships with an empty alt.
+           `|raw` is required: Grav 2.0.3+ autoescapes a derivative medium's .html(). #}
+        {# Opens, does NOT download — same behavior as partials/lightbox.html.twig's thumbnail
+           anchor. Do not re-add `download` here; that's the "Download original" link's job. #}
+        <a class="gallery-press__link" href="{{ orig_url }}" target="_blank" rel="noopener">
+          {{ image.resize(600).html(alt_text, alt_text)|raw }}
+        </a>
+        <figcaption class="gallery-press__meta">
+          {% if caption %}<span class="gallery-press__caption">{{ caption }}</span>{% endif %}
+          {% if credit %}<span class="gallery-press__credit">Credit: {{ credit }}</span>{% endif %}
+          <a class="gallery-press__dl" href="{{ orig_url }}" download>Download original — {{ orig_w }}&times;{{ orig_h }}</a>
+        </figcaption>
+      </figure>
+    {% endfor %}
+  </div>
+
+  {% if content|trim %}<div class="gallery-press__note">{{ content|raw }}</div>{% endif %}
+</div>

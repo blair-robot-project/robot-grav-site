@@ -1,0 +1,23 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+      fields:
+        advanced:
+          fields:
+            header.notclickable:
+              type: bool
+            header.underconstruction:
+              type: bool
+            columns:
+              fields:
+                column1:
+                   fields:
+                     header.body_classes:
+                       markdown: true
+                       description: 'Available classes in Quark 2 (space separated):<br />`header-fixed`, `header-animated`, `header-transparent`, `sticky-footer`'
+        content:
+          fields:
+            content:
+              default: "[//]: # (CommentsGoHere)"

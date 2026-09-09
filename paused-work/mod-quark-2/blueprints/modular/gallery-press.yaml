@@ -1,0 +1,49 @@
+title: "Gallery: Press (downloadable originals)"
+'@extends': default
+
+form:
+  fields:
+    tabs:
+      fields:
+        content:
+          fields:
+            content:
+              default: |
+                [//]: # (PRESS PHOTO GALLERY — none of these notes appear on the website.)
+                [//]: # (Add photos in the Page Media box below. Uploads are auto-capped at 4000px wide and GPS/EXIF-stripped — plenty of resolution for print, safe to publish.)
+                [//]: # (* Set the display order with the Page Media box's Reorder toggle. Click Save.)
+                [//]: # (* Add a caption and photo credit for each photo in the "Press photos" tab above. Photos are matched by filename, so reordering never scrambles the captions.)
+                [//]: # (* Anything typed here appears as a note under the grid.)
+        press_tab:
+          type: tab
+          title: "Press photos"
+          fields:
+            header.heading:
+              type: text
+              label: "Row heading (optional)"
+              help: "Shown above this photo grid — e.g. \"Team Photos\" or \"Summer Classes.\" Leave blank for no heading. Lets the Press page stack several gallery-press instances as labeled rows."
+            header.usage:
+              type: text
+              label: "Usage line"
+              help: "Shown above the grid. Tells journalists what they may do with these photos."
+              default: "Free for editorial use with credit."
+            header.credit_default:
+              type: text
+              label: "Default photo credit"
+              help: "Used for any photo without its own credit below."
+              default: "FRC Team 449"
+            header.photo_meta:
+              type: list
+              label: "Captions & credits"
+              help: "One row per photo. Matched by filename, so this list's order does not matter — display order comes from the Page Media box. A photo with no row here still appears, just without a caption."
+              collapsed: true
+              fields:
+                .image:
+                  type: pagemediaselect
+                  label: Photo
+                .caption:
+                  type: text
+                  label: Caption
+                .credit:
+                  type: text
+                  label: "Credit (blank = use default)"

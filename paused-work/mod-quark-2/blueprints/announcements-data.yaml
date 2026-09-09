@@ -1,0 +1,61 @@
+'@extends': 'default'
+title: Announcements Data
+form:
+  fields:
+    tabs:
+      fields:
+        announcements_tab:
+          type: tab
+          title: Announcements
+          fields:
+            header.announcements:
+              type: list
+              style: vertical
+              collapsed: true
+              fields:
+                .title:
+                  type: text
+                  label: Internal Title
+                  help: For reference only — not shown on the site
+                  validate:
+                    required: true
+                .message:
+                  type: text
+                  label: Message
+                  description: Supports basic markdown (bold, links)
+                  validate:
+                    required: true
+                .link:
+                  type: text
+                  label: Link (optional)
+                  help: Where the announcement goes when clicked, e.g. "/community/fll-team" or a full https:// URL. Leave blank for no link.
+                .level:
+                  type: select
+                  label: Color / Urgency
+                  default: yellow
+                  options:
+                    yellow: Yellow (info)
+                    red: Red (urgent)
+                    blue: Blue (neutral)
+                    green: Green (positive)
+                .pages:
+                  type: text
+                  label: Show on Pages
+                  help: Comma-separated page routes this announcement appears on (e.g. "/, /community"). Leave blank to show on the homepage only.
+                  default: '/'
+                .start_date:
+                  type: datetime
+                  label: Start showing
+                .end_date:
+                  type: datetime
+                  label: Stop showing
+                  validate:
+                    required: true
+                .published:
+                  type: toggle
+                  label: Enabled
+                  default: true
+                  highlight: 1
+                  options:
+                    1: Yes
+                    0: No

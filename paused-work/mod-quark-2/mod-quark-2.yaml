@@ -1,0 +1,20 @@
+streams:
+ schemes:
+   theme:
+     type: ReadOnlyStream
+     prefixes:
+       '':
+         - 'user://themes/mod-quark-2'
+         - 'user://themes/quark2'
+
+enabled: true
+header-fixed: true
+header-animated: true
+header-transparent: false
+sticky-footer: true
+theme-mode: light
+accent-color: '#a80007'
+blog-page: '/blog'
+fontawesome:
+  enabled: true
+  local: false

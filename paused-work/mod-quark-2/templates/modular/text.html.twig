@@ -1,0 +1,99 @@
+{% set image = page.media.images|first %}
+{% set content_parts = content|split("<blockquote", 2) %}
+{% if content_parts|length > 1 %}
+    {% set summary_html = content_parts[0] %}
+    {% set with_blockquote = "<blockquote" ~ content_parts[1] %}
+    {% set post_parts = with_blockquote|split("<h3", 2) %}
+    {% if post_parts|length > 1 %}
+        {% set card_html = post_parts[0] %}
+        {% set post_html = "<h3" ~ post_parts[1] %}
+    {% else %}
+        {% set card_html = post_parts[0] %}
+        {% set post_html = "" %}
+    {% endif %}
+{% else %}
+    {% set summary_html = "" %}
+    {% set card_html = "" %}
+    {% set post_html = content_parts[0] %}
+{% endif %}
+
+{# Sponsorship-tier styling, loaded per-module the same way live does it. The stylesheet
+   itself was added to live 2026-07-23 and missed by the original port. #}
+<link rel="stylesheet" href="{{ url('theme://css/sponsorship-levels.css') }}">
+
+<section class="section modular-text {{ page.header.class}} bg-gray">
+    <div class="container" style="text-align: {{ page.header.text_align|default("left") }}">
+        {% if page.header.year_bar %}
+        <div class="year-bar">
+            <span class="year-bar-label">{{ page.header.year_bar }}</span>
+            <a href="#history:_jump_to_year" class="year-bar-top">Back to top &uarr;</a>
+        </div>
+        <hr class="year-rule">
+        {% endif %}
+        <div class="columns {{ page.header.image_align|default("align-right") }}">
+            {% if image %}
+            {% if page.header.image_align == "left" %}
+            <div class="column col-6 col-md-12" style="padding-left: 40px">
+            {% else %}
+            <div class="column col-6 col-md-12" style="padding-left: 10px">
+            {% endif %}
+                {{ summary_html|raw }}
+                {% if card_html|trim != "" %}
+                <div class="year-summary">{{ card_html|raw }}</div>
+                {% endif %}
+                {{ post_html|raw }}
+            </div>
+            <div class="column col-6 col-md-12">
+                {% if image %}
+                    {% set _alt = page.header.alt|default(page.header.title) %}
+                    {# Image loop re-synced from live 2026-09-08 (live changed Jul 30 - Aug 3,
+                       after this file was ported). Four changes came over:
+                       1. Names come from media_order (the admin's drag order) with a fallback to
+                          page.media.images|keys - a page nobody ever reordered has no media_order
+                          and used to render no image at all.
+                       2. {% if image %} null-check: a media_order entry naming a since-deleted
+                          file used to emit a broken <img src="">.
+                       3. -hover.<ext> companion swaps on pointer enter/leave, if present.
+                       4. .resize(1200) replaces the old .height(...) call. .height() was never a
+                          real resize - it only set a cosmetic HTML height attribute, so browsers
+                          downloaded the full original. Note live hardcodes 1200 here while
+                          _column_w below reads an image_width config field that nothing uses;
+                          that mismatch is a known open item on live (Kiran's to fix), carried
+                          over verbatim rather than silently "improved" during the port. #}
+                    {% set _names = page.header.media_order ? page.header.media_order|split(',') : page.media.images|keys %}
+                    {% for image_name in _names %}
+                        {% set image_name = image_name|trim %}
+                        {% set image = page.media[image_name] %}
+                        {% set _column_w = page.header.image_width|default(600) %}
+                        {% if image %}
+                            {% set _ext = image.filename|split('.')|last %}
+                            {% set _base = image.basename %}
+                            {% set _orig = page.media[_base ~ '-original.' ~ _ext] %}
+                            {% set _full = _orig ?: image %}
+                            {% set _link = page.header.url ?: _full.url %}
+                            {% set _hover = page.media[_base ~ '-hover.' ~ _ext] %}
+                            {% set image = image.width > 1200 ? image.resize(1200) : image %}
+                            <a href="{{ _link }}" class="gallery-thumb" target="_blank" rel="noopener" title="{{ _alt }}">
+                                <img src="{{ image.url|absolute_url }}"
+                                    {% if _hover %}
+                                        onpointerenter = "this.src='{{ _hover.url|absolute_url }}';"
+                                        onpointerleave = "this.src='{{ image.url|absolute_url }}';"
+                                    {% endif %}
+                                    alt = "{{ _alt }}">
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            {% else %}
+            <div class="column col-12">
+                {{ summary_html|raw }}
+                {% if card_html|trim != "" %}
+                <div class="year-summary">{{ card_html|raw }}</div>
+                {% endif %}
+                {{ post_html|raw }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

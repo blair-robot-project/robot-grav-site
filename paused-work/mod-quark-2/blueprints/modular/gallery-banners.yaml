@@ -1,0 +1,34 @@
+title: "Gallery: Banners (single row)"
+'@extends': default
+
+form:
+  fields:
+    tabs:
+      fields:
+        banners_tab:
+          type: tab
+          title: Banners
+          fields:
+            header.link_url:
+              type: text
+              label: "View-all link (optional)"
+              help: "e.g. https://www.thebluealliance.com/team/449/history. Leave blank to hide the link."
+            header.link_text:
+              type: text
+              label: "Link text"
+              default: "View full award history on The Blue Alliance"
+            header.banner_links:
+              type: list
+              label: "Per-banner links & alt text"
+              help: "Optional per banner, matched by filename (order-independent). Leave Link URL blank to leave that banner non-clickable. Leave Alt text blank to fall back to '<page title> award banner'."
+              collapsed: true
+              fields:
+                .image:
+                  type: pagemediaselect
+                  label: Image
+                .url:
+                  type: text
+                  label: "Link URL"
+                .alt:
+                  type: text
+                  label: "Alt text"

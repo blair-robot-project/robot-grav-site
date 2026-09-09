@@ -1,0 +1,10 @@
+.tiers{display:flex;flex-direction:column;gap:12px;margin:1.25rem 0;}
+.tier{background:#fff;border:1px solid #e6e6e6;border-left-width:4px;border-radius:10px;padding:.95rem 1.2rem;}
+.tier-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;}
+.tier-name{font-size:18px;font-weight:700;}
+.tier-price{font-size:22px;font-weight:700;white-space:nowrap;}
+.tier-sub{font-size:13px;color:#6b6b6b;margin-top:3px;}
+.tier-benes{list-style:none;margin:10px 0 0;padding:0;}
+.tier-benes li{display:flex;align-items:flex-start;gap:9px;font-size:15px;line-height:1.5;margin:6px 0;}
+.tier-benes .fa{margin-top:3px;}
+.tier-flag{display:inline-block;font-size:11px;font-weight:700;color:#fff;background:#a7000a;padding:1px 9px;border-radius:999px;margin-left:9px;letter-spacing:.03em;vertical-align:middle;}

@@ -1,0 +1,889 @@
+/* ===== icon-menu / feature-images grid =====
+   Blades's base .columns is CSS multi-column text layout (column-width: 25ch),
+   not a flex row, so it does not reproduce Mod Quark's original Spectre-grid
+   look on its own. These rules give the restored col-*, col-md-*, col-sm-*
+   classes their original Spectre meaning (same 12-col math, same 840px/600px
+   breakpoints, same 0.4rem gutter), scoped to .modular-features only so
+   Quark 2's own stock multi-column usage elsewhere is untouched. */
+.modular-features .columns {
+    columns: unset;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: 0;
+    margin-left: -0.4rem;
+    margin-right: -0.4rem;
+}
+/* Quark 1's stock theme.css sizes AND colors .feature-icon/.feature-icon i
+   explicitly (130px/100px wrapper, 70px centered icon glyph, pale gray
+   #e7e9ed/#acb3c2) - Quark 2 has no equivalent at all, so icons rendered at
+   browser-default 16px in whatever ancestor text color applied (449 red).
+   Same fluid-root pattern as everything else in this file for sizing; color
+   is a flat value in the stock theme too, so ported as-is. */
+.modular-features .feature-icon {
+    font-size: clamp(104px, 88.4px + 3.25vw, 130px);
+    height: clamp(80px, 68px + 2.5vw, 100px);
+    margin: clamp(16px, 13.6px + 0.5vw, 20px) 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #e7e9ed;
+}
+.modular-features .feature-icon i {
+    font-size: clamp(56px, 47.6px + 1.75vw, 70px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #acb3c2;
+}
+.modular-features .column {
+    box-sizing: border-box;
+    padding: clamp(16px, 13.6px + 0.5vw, 20px);
+    box-shadow: none;
+    background: transparent;
+}
+/* Live wraps icon-menu/Sponsors in <section class="container grid-lg">
+   (max-width:976px, Spectre); the ported markup uses plain <div class="container">
+   (max-width:1200px, Blades), so nothing constrains it at most viewport widths -
+   columns render ~14-23% wider than live. Restore the grid-lg cap, scoped. */
+.modular-features > .container {
+    max-width: 976px;
+    padding-left: clamp(6.4px, 5.44px + 0.2vw, 8px);
+    padding-right: clamp(6.4px, 5.44px + 0.2vw, 8px);
+}
+/* Quark 1's stock theme.css gives every .section 1rem horizontal padding
+   universally (fluid root, same mechanism as elsewhere in this file) - Quark 2
+   has no equivalent at all, so every modular section sits flush to the
+   viewport edge on mobile instead of matching live's inset. Not scoped to
+   modular-features - .section is used by every module type. */
+.section {
+    padding-left: clamp(16px, 13.6px + 0.5vw, 20px);
+    padding-right: clamp(16px, 13.6px + 0.5vw, 20px);
+}
+/* ROOT CAUSE of the icon-menu/Sponsors "section is taller than live" residual that
+   went unexplained from 2026-07-23 to 2026-09-08. Quark 2's stock .section carries
+   `padding-block: clamp(3rem, 8vw, 6rem)` (96px at the 6rem ceiling, top AND bottom
+   = 192px per section); live's modular-features sections have 0 vertical padding.
+   The rule above only ever set padding-left/right, so the vertical padding survived
+   untouched - which is why measuring one column's own width/padding never found it
+   and the section stayed ~150px (icon-menu) / ~100px (Sponsors) too tall.
+   Scoped to .modular-features deliberately: .section is shared by every module type
+   and the other two are NOT the same - live's hero is 120/140 and its text modules
+   are 15/15, so a blanket padding-block:0 would flatten those too. Measured on live
+   at 1445px: modular-features 0/0, exactly what this reproduces. `padding-block` is
+   the right property here - it leaves the inline padding above intact. */
+.section.modular-features {
+    padding-block: 0;
+}
+.modular-features .col-3 { width: 25%; }
+.modular-features .col-4 { width: 33.333%; }
+@media (max-width: 840px) {
+    .modular-features .col-md-4 { width: 33.333%; }
+    .modular-features .col-md-6 { width: 50%; }
+}
+@media (max-width: 600px) {
+    .modular-features .col-sm-6 { width: 50%; }
+    .modular-features .col-sm-12 { width: 100%; }
+}
+
+/* ===== gallery-draggable ===== (verbatim from Mod Quark — fully custom BEM
+   classes, no Spectre/Blades framework dependency, ports unchanged) */
+.lightbox-gallery { max-width: 1200px; margin: 20px auto 0; padding: 0 20px; }
+.lightbox-gallery__columns { display: flex; flex-wrap: wrap; margin: 0 -10px; }
+.lightbox-gallery__column { width: 25%; padding: 0 10px; margin-bottom: 20px; }
+.lightbox-gallery img { display: block; width: 100%; height: auto; border-radius: 5px; }
+@media (max-width: 1000px) { .lightbox-gallery__column { width: 33.333%; } }
+@media (max-width: 600px)  { .lightbox-gallery__column { width: 50%; } }
+
+.lightbox-gallery__caption {
+    max-width: 1200px;
+    margin: 0.75rem auto 0;
+    padding: 0 20px;
+    text-align: center;
+    font-style: italic;
+    color: #667189;
+}
+.lightbox-gallery__caption p {
+    text-align: center;
+    margin: 0;
+}
+
+/* ===== gallery-banners ===== (verbatim from Mod Quark) */
+.gallery-banners {
+    max-width: 1200px;
+    margin: 20px auto 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.gallery-banners .banner-row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+.gallery-banners .banner-row__item {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 110px;
+}
+.gallery-banners .banner-row__item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* ===== Site footer ===== (verbatim from Mod Quark; checked against Blades'
+   own footer{} rules — all scoped to article>footer/dialog/blockquote, so no
+   collision with our page-level footer.site-footer) */
+footer.site-footer {
+    background-color: #a80007;
+    color: #fff;
+    font-size: 14px;
+    padding: 0.75rem 0;
+}
+footer.site-footer h2 {
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+}
+footer.site-footer a {
+    color: #fff;
+}
+footer.site-footer a:hover {
+    text-decoration: underline;
+}
+.footer-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.footer-title-cell {
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+    padding-bottom: 0.75rem;
+}
+.footer-cell {
+    width: 33.33%;
+    vertical-align: top;
+    padding-right: 16px;
+    font-size: 14px;
+    color: #fff;
+}
+.footer-cell h2 {
+    font-size: 14px;
+    color: #fff;
+    margin: 0 0 0.4rem 0;
+}
+.footer-cell-logo {
+    text-align: center;
+}
+.footer-logo {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
+/* ===== Announcements bar ===== (verbatim from Mod Quark) */
+.site-announcement-wrap {
+  position: absolute;
+  top: 4.75rem;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.site-announcement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  padding: 0.65em 1.4em;
+  font-size: clamp(12.8px, 10.88px + 0.4vw, 16px);
+  font-weight: 700;
+  text-align: center;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.site-announcement-link,
+.site-announcement-link:link,
+.site-announcement-link:visited {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  color: inherit;
+  text-decoration: underline;
+}
+.site-announcement-dismiss {
+  background: none;
+  border: none;
+  font-size: 1.3em;
+  line-height: 1;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.7;
+}
+.site-announcement-dismiss:hover { opacity: 1; }
+.site-announcement.level-yellow { background: #ffcc00; color: #1a1a1a; }
+.site-announcement.level-red { background: #e0263f; color: #fff; }
+.site-announcement.level-blue { background: #1c6dd0; color: #fff; }
+.site-announcement.level-green { background: #2f9e44; color: #fff; }
+
+/* ===== Fonts — match the current site =====
+   REWRITTEN 2026-09-08. This block used to pin both families to a system stack,
+   on the (then-correct) grounds that live never overrode Spectre's default
+   font-family. Live's 2026-09-04 deploy changed that: body and h2-h6 are now
+   Inter, h1 is Science Gothic, both loaded from Google Fonts in base.html.twig.
+
+   Mapping to Quark 2, which splits fonts differently than Mod Quark does:
+   quark2/css/theme.css applies --pico-font-family-display to "h2,h3,h4,h5,h6,
+   .display,.h-display" and --pico-font-family-sans-serif to body. h1 is in
+   NEITHER list - it has its own rule that sets no font-family at all, so it
+   inherits body's. So: both variables go to Inter (covering body + h2-h6, which
+   is exactly what live wants), and h1's Science Gothic is set in the h1 rule
+   further down, same as live does it.
+
+   Monospace is untouched by the Sept 4 work and stays the Spectre-matching stack.
+
+   Must match quark2/css/theme.css's own selector specificity (":root,
+   :root[data-theme=light]" / ":root[data-theme=dark]"), not plain ":root" - the
+   pre-paint script sets data-theme before first render, so the attribute-selector
+   rule is what's actually active and a bare :root loses. */
+:root,
+:root[data-theme="light"],
+:root[data-theme="dark"] {
+  --pico-font-family-display: "Inter", sans-serif;
+  --pico-font-family-sans-serif: "Inter", sans-serif;
+  --pico-font-family-monospace: "SF Mono", "Segoe UI Mono", "Roboto Mono", Menlo, Courier, monospace;
+  /* Live's body text is a uniform 1.5 line-height (verified across body, p, li and
+     td); Quark 2 ships 1.6. Left at 1.6 this cost ~0.8px per line everywhere, which
+     is what kept the icon-menu column 2px tall (item 22) and contributed ~38px of
+     the Sponsors overshoot (item 23). Headings are unaffected - Quark 2 sets their
+     line-heights explicitly (h1 1.05, h2 1.15, ...), so they don't read this. */
+  --pico-line-height: 1.5;
+}
+
+/* Form elements ignore font inheritance in most browsers (UA stylesheet), so they
+   need this explicitly to pick up Inter - verbatim from Mod Quark. */
+button, input, select, textarea {
+    font-family: inherit;
+}
+
+/* ===== Paragraph size + spacing (2026-09-08) =====
+   Live gets both from Spectre off its own fluid root font-size (16px at 480px
+   viewport rising to 20px at 1280px): `body { font-size: .8rem }` and
+   `p { margin: 0 0 1.2rem }`, which compute to 16px text and a 24px bottom
+   margin at desktop. `p { margin: 0 0 1.2rem }` was flagged as a Tier 2 finding
+   by the 2026-08-01 audit and never triaged - it is 24 of the 26px by which each
+   icon-menu column was still short of live (see item 21).
+
+   Quark 2 differs in two separate places, so this needs two rules:
+     - its general `p` bottom margin is 16px, not live's 24px;
+     - `.modular-features .feature-content p` additionally sets `font-size:
+       0.9375rem` (15px) and `margin: 0`, which a bare `p` rule cannot beat -
+       hence the second, equally-specific rule below (later source order wins).
+   Same fluid-root clamp() technique as items 10-12: 1.2rem and 0.8rem of
+   clamp(16px, 13.6px + 0.5vw, 20px) are the two formulas below. Verified against
+   live at 1445px (24px margin, 16px text) - measured, not derived on paper.
+   NOT changed here: line-height. Live is a uniform 1.5 everywhere and Quark 2 a
+   uniform 1.6 (`--pico-line-height`), which is a separate, global, one-line
+   decision rather than part of a paragraph-sizing fix. */
+p {
+    margin-bottom: clamp(19.2px, 16.32px + 0.6vw, 24px);
+}
+/* Setting --pico-line-height above is necessary but NOT sufficient: Quark 2 also
+   ships an explicit `p, li { font-size: 1rem; line-height: 1.7 }` that overrides the
+   variable, and `.modular-features .feature-content p` carries its own 1.55. Both
+   have to be restated to reach live's uniform 1.5, which is exactly why this was
+   verified per-element rather than by trusting the variable change to propagate.
+   Only line-height is set here - li's font-size also differs from live (16px here
+   against live's 14px) but that is a separate finding, not part of this change. */
+p,
+li {
+    line-height: 1.5;
+}
+.modular-features .feature-content p {
+    font-size: clamp(12.8px, 10.88px + 0.4vw, 16px);
+    line-height: 1.5;
+    margin-bottom: clamp(19.2px, 16.32px + 0.6vw, 24px);
+}
+
+/* ===== Error page (branded 404) ===== verbatim from Mod Quark. Note: #error h1
+   and #error img are currently dead code (the actual error.html.twig has no h1
+   or img — just page.content, a plain translated message) but kept for parity
+   in case content changes later. margin-top:0 was overriding a Spectre-only
+   default that Blades does not have, so it is now a no-op, also kept as-is. */
+#error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 25vh;
+  margin-top: 0;
+}
+#error > div {
+  text-align: center;
+}
+#error h1 {
+  margin-top: 0.5rem;
+}
+#error img {
+  display: block;
+  margin: 0 auto;
+  max-height: 55vh;
+  width: auto;
+}
+
+/* ===== modular-text grid ===== same Blades-collision fix as modular-features
+   (.columns is CSS multi-column layout under Blades, not a flex row) */
+.modular-text .columns {
+    columns: unset;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-left: -0.4rem;
+    margin-right: -0.4rem;
+}
+.modular-text .column {
+    box-sizing: border-box;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+}
+.modular-text .col-6 { width: 50%; }
+.modular-text .col-12 { width: 100%; }
+@media (max-width: 840px) {
+    .modular-text .col-md-12 { width: 100%; }
+}
+
+/* Tighter spacing for sponsor modules */
+.modular-text {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+/* Top-align a text module's content with its image */
+.modular-text .column > :first-child {
+    margin-top: 0;
+}
+
+/* Year module (Team History) */
+.year-bar {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0 0 0.4rem 0;
+}
+.year-bar-label {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #a80007;
+}
+.year-bar-top {
+    font-weight: normal;
+    font-size: 0.85rem;
+    color: #8a8a8a;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.year-bar-top:hover {
+    text-decoration: underline;
+    color: #a80007;
+}
+.year-rule {
+    border: none;
+    border-top: 3px solid #a80007;
+    margin: 0 0 1.5rem 0;
+}
+.year-summary {
+    background: #f2f2f2;
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    margin: 0 0 1.25rem 0;
+}
+.year-summary p {
+    margin: 0;
+}
+.year-summary p + p {
+    margin-top: 0.75rem;
+}
+.year-module blockquote {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-style: normal;
+}
+.year-module .columns > div:nth-child(1) blockquote:first-of-type {
+    border-top: none;
+    border-bottom: 3px solid #a80007;
+    padding-top: 0;
+    padding-bottom: 0.5rem;
+    margin: 0 0 1.25rem 0;
+}
+
+/* ===== Header colors (449 red, incl. header-dark/header-transparent states) =====
+   verbatim from Mod Quark. #header is the same ID-selector specificity Quark 2
+   itself uses (theme.css #header { background: var(--q2-nav-bg) }), and this
+   loads after theme.css, so it wins on source order without needing !important
+   (except where the original already used it for header-dark link colors). */
+#header {
+  background: rgba(168, 0, 7, 0.84);
+  color: #f0f0f0;
+}
+#header a {
+  color: #f0f0f0;
+}
+body.header-dark:not(.scrolled) #header { background: rgba(168, 0, 7, 0.84); color: #fff; }
+body.header-dark:not(.scrolled) #header a { color: rgba(240, 240, 240, 1) !important; }
+body.header-dark:not(.scrolled) #header a.active { color: #fff !important; }
+body.header-dark:not(.scrolled) #header .dropmenu ul ul a { color: #f0f0f0 !important; }
+body.header-dark:not(.scrolled) #header .logo svg path { fill: #fff; }
+body.header-dark.header-transparent:not(.scrolled) #header { background: rgba(168, 0, 7, 0.05); }
+body.header-transparent:not(.scrolled) #header { background: rgba(168, 0, 7, 0.05); }
+
+/* Quark 2's own #header uses position:sticky (reserves flow space) instead of
+   Mod Quark's position:fixed - fine for normal pages (no manual offset needed),
+   but it breaks the hero-fullscreen full-bleed-behind-transparent-header effect,
+   since the hero no longer starts at y=0. Restore fixed positioning, scoped to
+   header-transparent pages only, so every other page keeps Quark 2's sticky
+   default untouched. */
+body.header-transparent #header {
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+
+.dropmenu ul ul { background: #161314e6; box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); }
+.dropmenu ul li a.active,.dropmenu ul li a:focus,.dropmenu ul li a:hover{color:#fff!important}
+
+.button {
+    border: none;
+    font-weight: bold;
+    background: #a7000a;
+    color: #ffffff;
+}
+.button:visited {
+    color: #ffffff;
+}
+.button:focus, .button:hover {
+    background: #8c4b4f;
+    color: #ffffff;
+}
+.nounderline {
+    text-decoration: none;
+}
+.nounderline:hover {
+    text-decoration: none;
+}
+
+.navbar .navbar-section:not(:first-child):last-child {
+    justify-content: center;
+}
+.logo {
+    max-width: max-content;
+}
+.navbar-brand {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Blair ITC Medium font — DISABLED pending webfont license.
+   BlairMdITC is a commercial ITC/Monotype desktop font ("(c) 1995-1997 International
+   Typeface Corporation. All rights reserved.") — a desktop license does NOT cover web
+   @font-face serving. To ENABLE: uncomment the @font-face block and the h1 font-family
+   line below, and ship user/themes/mod-quark-2/fonts/BlairMdITC-Medium.{woff2,woff,ttf}. */
+/*
+@font-face {
+    font-family: 'BlairMdITC';
+    src: url('../fonts/BlairMdITC-Medium.woff2') format('woff2'),
+         url('../fonts/BlairMdITC-Medium.woff') format('woff'),
+         url('../fonts/BlairMdITC-Medium-1551.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+
+/* H2 parity with live (2026-09-08). Live's h2 is 1.8rem/2rem/0.9rem off its own
+   fluid root (36px / 40px top / 18px bottom at desktop) with a 1.2 line-height;
+   Quark 2 ships 34px, 1.15, and `margin-top: 0` on every heading.
+
+   The margin-top is safe to set globally even though live only *shows* it on the
+   Sponsors h2: live's base h2 does carry 2rem, and it is suppressed in text modules
+   by `.modular-text .column > :first-child { margin-top: 0 }` (present in this file)
+   and in the footer by `.footer-cell h2 { margin: 0 ... }` (also present). Checked
+   every h2 on the homepage against live before setting this - modular-text 0=0,
+   footer 0=0, modular-features 40=40 - rather than assuming the base value applies
+   uniformly, because on live it does not.
+
+   CORRECTION 2026-09-08, found by measuring a SECOND page: the margin-top below is
+   necessary but was not sufficient. Quark 2 ships a contextual heading-rhythm system
+   that live has no equivalent for -
+       :is(p,ul,ol,dl,blockquote,pre,table,figure,hr,iframe,.card) + h2 {1.65em}
+       :is(h1,h2,h3) + :is(h1,h2,h3) {0.25em}   (and h1/h3/h4/h5/h6 variants)
+   - all at specificity (0,0,2), which beats a bare `h2` (0,0,1). So this rule only
+   ever won where a heading had no preceding sibling: on the homepage the Sponsors h2
+   is a first child and read 40px = live, while on /about-us/history 25 h2s follow a
+   paragraph and read 59.4px (1.65 x 36px) against live's flat 40px. Live applies a
+   flat 2rem to every heading regardless of what precedes it, so the sibling rules are
+   restated below at matching specificity rather than left to lose silently.
+   Font-weight is matched here too: live is 500, Quark 2 ships 700 for h2 / 600 for h3. */
+h2 {
+    font-size: clamp(28.8px, 24.48px + 0.9vw, 36px);
+    line-height: 1.2;
+    font-weight: 500;
+    margin-top: clamp(32px, 27.2px + 1vw, 40px);
+    margin-bottom: clamp(14.4px, 12.24px + 0.45vw, 18px);
+}
+/* H3 parity: live is 1.4rem / 2rem-top / 0.7rem-bottom off its fluid root
+   (28px / 40px / 14px at desktop), weight 500, line-height 1.2 - uniform across all
+   20 instances on /about-us/history, no context variation. Quark 2 ships 24px / 1.25
+   / weight 600 / margin-top 0. */
+h3 {
+    font-size: clamp(22.4px, 19.04px + 0.7vw, 28px);
+    line-height: 1.2;
+    font-weight: 500;
+    margin-top: clamp(32px, 27.2px + 1vw, 40px);
+    margin-bottom: clamp(11.2px, 9.52px + 0.35vw, 14px);
+}
+/* H4 parity: live is 1.2rem / 2rem-top / 0.6rem-bottom off its fluid root
+   (24px / 40px / 12px at desktop), weight 500, line-height 1.2. Quark 2 shipped
+   19px / 1.3 / weight 600, with margin-top coming out at 27.55px (1.45em x 19px)
+   from the contextual rhythm rule rather than its own 0.
+   h4 appears on exactly ONE page site-wide - /bunnybots, four instances - which is
+   why it went unmeasured until a scan of all 76 sitemap pages went looking for it. */
+h4 {
+    font-size: clamp(19.2px, 16.32px + 0.6vw, 24px);
+    line-height: 1.2;
+    font-weight: 500;
+    margin-top: clamp(32px, 27.2px + 1vw, 40px);
+    margin-bottom: clamp(9.6px, 8.16px + 0.3vw, 12px);
+}
+/* Neutralise Quark 2's contextual rhythm for h2/h3 by restating its own selectors at
+   equal specificity (later source order wins). Deliberately NOT extended to h1 - the
+   hero h1's position is already verified against live (Phase 3 item 3) and h1 spacing
+   is entangled with that, so it is left untouched rather than risked for tidiness.
+   `.modular-text .column > :first-child { margin-top: 0 }` still overrides all of this
+   at (0,2,0), so live's suppression in text modules is preserved. */
+:is(h1, h2, h3) + :is(h2, h3),
+:is(p, ul, ol, dl, blockquote, pre, table, figure, hr, iframe, .card) + :is(h2, h3, h4) {
+    margin-top: clamp(32px, 27.2px + 1vw, 40px);
+}
+/* Live's headings all sit at a 1.2 line-height; Quark 2's base h5 is 1.3 (its own
+   `h5 { font-size: 1.0625rem; font-weight: 600; line-height: 1.3 }`). Set globally
+   rather than scoped to the Sponsors captions, because live's base is 1.2 too -
+   verified in two separate contexts, a modular-text probe and the Sponsors h5.
+   h5's font-size is handled scoped further down, where the only h5s on the site
+   currently live. NOTE: h3 has the same problem and is far more widespread (20 of
+   them on /about-us/history alone, live 28px/1.20 against 24px/1.25 here) - left
+   alone deliberately, since correcting it changes font-size and not just spacing. */
+h5 {
+    line-height: 1.2;
+}
+
+/* H1 styling. Science Gothic + the stroke/shadow pair came from live's 2026-09-04
+   deploy (stroke and shadow are for legibility over busy hero photos); font-size and
+   text-transform predate it. Quark 2's own h1 rule sets no font-family, so this wins
+   without needing !important on the family - the existing !important on font-size is
+   inherited verbatim from Mod Quark and left alone. */
+h1 {
+    font-family: "Science Gothic", sans-serif;
+    /* font-family: 'BlairMdITC', sans-serif;   <-- re-enable ONLY with a webfont license */
+    font-size: 50px !important;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1.5px rgba(0,0,0,0.55);
+    text-shadow: 0 2px 16px rgba(0,0,0,0.85), 0 1px 4px rgba(0,0,0,0.9);
+}
+
+/* Ragged-right body text — no justification */
+body, p, li, td, th, blockquote {
+    text-align: left;
+}
+
+/* Center text in highlights/features module headings */
+.modular-features p,
+.modular-features h1,
+.modular-features h2,
+.modular-features h3,
+.modular-features h4,
+.modular-features h5,
+.modular-features h6 {
+  text-align: center;
+}
+/* Sponsors (feature-images) parity, 2026-09-08 - three of the four causes of that
+   section measuring 86px shorter than live. All scoped to .modular-features.
+
+   1. frame-box padding was ported as a literal `1.5rem` from Mod Quark's custom.css,
+      but rem resolves against different roots: live's fluid root reaches 20px, so
+      1.5rem = 30px there, while Quark 2's 16px root makes it 24px. Same fluid-root
+      trap as items 9-12; restated as the equivalent clamp. (-12px)
+   2. `.frame-box > p { max-width: 600px; margin: auto }` is a **stock Quark 1 rule**
+      (quark/css-compiled/theme.min.css) that Mod Quark's custom.css never restates,
+      so the port never saw it - the same blind spot as items 11/14/15/21. Without it
+      the sponsors intro paragraph runs the full 960px instead of a centred 600px
+      column, which is not just -18px of height (2 wrapped lines instead of 3) but a
+      visibly wider block of text than live.
+   3. The per-sponsor h5 caption is 1rem off live's fluid root (20px) and was
+      rendering at Quark 2's own 17px. (-26px, via both column rows)
+
+   NOT fixed here, the fourth cause: live's h2 carries a 40px top margin where Quark 2
+   zeroes margin-top on all headings (-40px, the single largest contributor). That one
+   is site-wide, not scoped to this module, so it is a separate decision. */
+.modular-features .frame-box {
+    padding-block: clamp(24px, 20.4px + 0.75vw, 30px);
+}
+.modular-features .frame-box > p {
+    max-width: 600px;
+    margin-inline: auto;
+}
+.modular-features .column h5 {
+    font-size: clamp(16px, 13.6px + 0.5vw, 20px);
+}
+.modular-features .feature-icon h6 {
+    font-size: 18px;
+    line-height: 1;
+    padding: 2px;
+    text-transform: uppercase;
+    color: #667189;
+    background: #fff;
+}
+
+/* Transparent white roundrect behind hero H1 titles */
+.hero h1 {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0);
+    padding: 0.15em 0.45em;
+    border-radius: 14px;
+}
+
+.btn-sponsor,.btn-donate{display:inline-block;padding:13px 28px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;line-height:1;border:2px solid #a7000a;transition:background .15s,color .15s}
+.btn-sponsor{background:#a7000a;color:#fff}
+.btn-sponsor:hover{background:#8a0008;border-color:#8a0008}
+.btn-sponsor .fa{margin-right:.5em}
+.btn-donate{background:#fff;color:#a7000a;margin-left:.5rem}
+.btn-donate:hover{background:#a7000a;color:#fff}
+
+/* Markdown content images floated via ?classes=float-left / float-right */
+.float-left { margin: 0 1.5rem 1rem 0; }
+.float-right { margin: 0 0 1rem 1.5rem; }
+
+/* Year-module blockquote table layout + image/text side placement via flex order
+   (this, not any align-left/align-right class, is what actually puts the image
+   on one side and text on the other for Team History year pages specifically) */
+.year-module .columns > div:nth-child(1) blockquote:first-of-type p {
+    text-align: right;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.year-module .columns > div:nth-child(1) blockquote:first-of-type p strong:first-child {
+    float: left;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #a80007;
+    padding-right: 1rem;
+}
+.year-module .columns > div:nth-child(1) blockquote:first-of-type p a {
+    font-weight: 400;
+}
+.year-module .columns > div:nth-child(1) blockquote:not(:first-of-type) p {
+    text-align: right;
+    overflow: hidden;
+    margin: 0;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.year-module .columns > div:nth-child(1) blockquote:not(:first-of-type) p + p {
+    margin-top: 0;
+}
+.year-module .columns > div:nth-child(1) blockquote:not(:first-of-type) p > strong:first-child {
+    float: left;
+    text-align: left;
+    padding-right: 1rem;
+}
+.year-module blockquote + p,
+.year-module p + blockquote,
+.year-module h2 + blockquote,
+.year-module h3 + blockquote {
+    margin-top: 1rem;
+}
+.year-module .columns > div:nth-child(1) {
+    order: 2;
+}
+.year-module .columns > div:nth-child(2) {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+}
+.year-module .columns > div:nth-child(2) img {
+    width: 100% !important;
+    height: auto !important;
+}
+@media (min-width: 841px) {
+    .year-module .columns {
+        flex-wrap: nowrap;
+    }
+    .year-module .columns > div:nth-child(1) {
+        flex: none !important;
+        width: 60% !important;
+        max-width: 60% !important;
+        padding-left: 0.8rem !important;
+        padding-right: 0 !important;
+    }
+    .year-module .columns > div:nth-child(2) {
+        flex: none !important;
+        width: 40% !important;
+        max-width: 40% !important;
+        padding-right: 0.8rem !important;
+        padding-left: 0 !important;
+    }
+}
+
+.year-index p {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin: 0;
+}
+.year-index p a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #a80007;
+    white-space: nowrap;
+}
+.year-index p a:hover {
+    text-decoration: underline;
+}
+
+/* Explicit scrolled-state override — Quark 2 has body.scrolled #header rules
+   of its own (body+class+id specificity) that beat the plain #header base
+   rule above once .scrolled lands on body, so this needs matching specificity
+   to keep the header red (not Quark 2 own --q2-nav-bg) once scrolled. */
+body.scrolled #header,
+body.header-transparent.scrolled #header,
+body.header-dark.scrolled #header {
+  background: rgba(168, 0, 7, 0.84);
+  color: #f0f0f0;
+}
+
+/* ===== Nav link typography — match live's Spectre values exactly =====
+   Quark 2's own .dropmenu a is 15px/500 with gap-based spacing (test copy
+   measured); live is 13.6px/700 with padding-only spacing (50px combined via
+   padding, no gap). Root font-size differs too (16px here vs live's ~20px),
+   so these are absolute px, not rem, to sidestep that entirely. */
+.dropmenu a {
+  font-size: clamp(11.2px, 9.52px + 0.35vw, 14px);
+  font-weight: 700;
+  padding: 7px 30px 7px 20px;
+}
+.dropmenu > ul,
+.dropmenu ul.navigation {
+  gap: 0;
+}
+/* Quark 2's own .dropmenu a.active sets font-weight:600 (lighter) for the
+   current page's nav item - live only changes color/background for active,
+   never weight, so this makes active links look different from live. */
+.dropmenu a.active {
+  font-weight: 700;
+}
+
+/* ===== Hero vertical centering — Quark 2's own .hero rule has no flex/
+   centering at all, just padding-block (confirmed: no display/align-items/
+   justify-content anywhere in its ruleset). Live's Spectre hero is a flex
+   column, centered both axes, within its min-height box - that's why H1
+   sits mid-viewport there but hugs the top here, and why the mobile
+   announcement banner (fixed at top:4.75rem) collides with it. Restore
+   live's actual mechanism rather than guessing a magic padding number. */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ====================================================================
+   RE-SYNCED FROM LIVE 2026-09-08. The three blocks below were added to
+   live's custom.css after this theme was ported (gallery-press module
+   2026-08-13, press-coverage + What's New archive link since). Copied
+   verbatim - none of them depend on Spectre or Quark 1 mechanisms.
+   Deliberately NOT copied: live's 'body.no-hero #start { padding-top:
+   4rem }'. That one compensates for Quark 1's #body-wrapper padding
+   never reaching a modular page; Quark 2's header is position:sticky
+   and reserves its own flow space, so porting it would add 4rem of
+   dead space. Verify against a hero-less page before revisiting.
+   ==================================================================== */
+
+/* ---- gallery-press: press-kit photo grid --------------------------------
+   Deliberately NOT styled like .lightbox-gallery (gallery-draggable), which
+   crops every thumb to a uniform 600x450 landscape tile via cropZoom. A press
+   kit ships both horizontal and vertical shots and must show each photo in its
+   true orientation, so these thumbs keep their natural aspect ratio and the
+   grid auto-fills — portraits and landscapes sit side by side at equal width
+   and differing height. .is-portrait is emitted for styling hooks only.
+   ------------------------------------------------------------------------ */
+.gallery-press__heading { font-size: 1.15rem; font-weight: 700; margin: 0 0 0.75rem; }
+.gallery-press__usage { font-style: italic; margin-bottom: 1.25rem; }
+.gallery-press__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.75rem 1.25rem;
+    align-items: start;
+}
+.gallery-press__item { margin: 0; }
+.gallery-press__link { display: block; }
+.gallery-press__link img { display: block; width: 100%; height: auto; }
+.gallery-press__meta { font-size: 0.85rem; line-height: 1.4; margin-top: 0.45rem; }
+.gallery-press__caption { display: block; }
+.gallery-press__credit { display: block; color: #666; }
+.gallery-press__dl { display: inline-block; margin-top: 0.3rem; font-weight: normal; font-style: italic; }
+.gallery-press__note { margin-top: 1.5rem; }
+/* Same container idiom as .lightbox-gallery / .gallery-banners above: without this the
+   grid bleeds to the viewport edge instead of lining up with the page text column. */
+.gallery-press {
+    max-width: 1200px;
+    margin: 20px auto 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* ---- press-coverage: "Recent coverage" article list ---------------------
+   Headline is the link (what a reader scans for); outlet/date/paywall sit
+   beneath as smaller supporting metadata. Same 1200px container idiom as the
+   galleries above so the module lines up with the rest of the press page.
+   ------------------------------------------------------------------------ */
+.press-coverage {
+    max-width: 1200px;
+    margin: 20px auto 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.press-coverage__list { list-style: none; margin: 0; padding: 0; }
+.press-coverage__item { padding: 0.7rem 0; border-bottom: 1px solid #e5e5e5; }
+.press-coverage__item:last-child { border-bottom: 0; }
+.press-coverage__headline { display: block; font-weight: bold; }
+.press-coverage__meta { display: block; font-size: 0.85rem; color: #666; margin-top: 0.15rem; }
+.press-coverage__outlet { font-style: italic; }
+.press-coverage__date::before { content: "\00b7\00a0"; }
+/* Muted pill, not a warning colour: paywalled is useful context, not a problem. */
+.press-coverage__paywall {
+    display: inline-block;
+    margin-left: 0.4rem;
+    padding: 0 0.4em;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #777;
+}
+.press-coverage__note { margin-top: 1.25rem; }
+
+.whats-new .news-archive-link { margin-top: 1rem; }

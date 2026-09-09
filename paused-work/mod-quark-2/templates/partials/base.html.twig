@@ -1,0 +1,209 @@
+{% set body_classes = body_class(['header-fixed', 'header-animated', 'header-dark', 'header-transparent', 'sticky-footer']) %}
+{% set theme_default = theme_var('theme-mode') ?: 'auto' %}
+{% set accent = theme_var('accent-color') %}
+{% set accent_is_hex = accent and accent matches '/^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/' %}
+{% set fa_enabled = theme_var('fontawesome.enabled') %}
+{% set fa_local   = theme_var('fontawesome.local') %}
+{% use 'blocks/base.html.twig' %}
+<!DOCTYPE html>
+<html lang="{{ grav.language.getActive ?: grav.config.site.default_lang }}"
+      data-theme-default="{{ theme_default }}">
+<head>
+{% block head deferred %}
+    <meta charset="utf-8" />
+    <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+
+    {# --- Google Fonts: Inter (body, h2-h6) + Science Gothic (h1) --- verbatim from
+         Mod Quark's base.html.twig. Loaded as a <link>, not an @import in custom.css:
+         Grav's concatenated CSS pipeline breaks @import (it ends up mid-file, where
+         @import is invalid and silently dropped). --- #}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Science+Gothic:wght@100..900&display=swap" />
+
+    {% include 'partials/metadata.html.twig' %}
+
+    {# --- Google Analytics 4 (gtag.js) — emits only when site.google_analytics is set --- #}
+    {% if site.google_analytics %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics|e('html_attr') }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ site.google_analytics|e('js') }}');
+    </script>
+    {% endif %}
+
+    <link rel="icon" type="image/png" href="{{ url('theme://images/favicon.png') }}" />
+    <link rel="canonical" href="{{ page.url(true, true) }}" />
+
+    {# --- Social preview: Open Graph + Twitter Card (auto from page, og-default fallback) --- #}
+    {% set seo_title = header.title ? header.title ~ ' | ' ~ site.title : site.title %}
+    {% set seo_desc = page.header.metadata.description ?: site.metadata.description %}
+    {% set seo_img_medium = page.media.images|first %}
+    {% set seo_image = seo_img_medium ? url(seo_img_medium.url, true) : url('theme://images/og-default.png', true) %}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{ site.title|e('html') }}" />
+    <meta property="og:title" content="{{ seo_title|e('html') }}" />
+    <meta property="og:description" content="{{ seo_desc|e('html') }}" />
+    <meta property="og:url" content="{{ page.url(true, true) }}" />
+    <meta property="og:image" content="{{ seo_image }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ seo_title|e('html') }}" />
+    <meta name="twitter:description" content="{{ seo_desc|e('html') }}" />
+    <meta name="twitter:image" content="{{ seo_image }}" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsTeam",
+      "name": "The Blair Robot Project — FRC Team 449",
+      "alternateName": "FRC Team 449",
+      "sport": "FIRST Robotics Competition",
+      "url": "{{ base_url_absolute }}",
+      "logo": "{{ url('theme://images/og-default.png', true) }}",
+      "memberOf": { "@type": "Organization", "name": "FIRST Robotics Competition" },
+      "parentOrganization": { "@type": "HighSchool", "name": "Montgomery Blair High School" },
+      "sameAs": [
+        "https://www.facebook.com/FRCTeam449",
+        "https://www.instagram.com/frcteam449",
+        "https://github.com/blair-robot-project"
+      ]
+    }
+    </script>
+
+    {# Preload the critical latin subsets so headings + body text render in-font on first paint #}
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ url('theme://fonts/cal-sans/cal-sans-latin.woff2') }}" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ url('theme://fonts/inter/inter-latin.woff2') }}" />
+
+    {% if accent_is_hex %}
+    {# User-configured accent: tint links, focus ring, and filled UI accents with the chosen hex #}
+    <style>
+      :root {
+        --q2-accent: {{ accent }};
+        --q2-accent-contrast: #ffffff;
+        --q2-link: {{ accent }};
+        --q2-focus-ring: color-mix(in oklab, {{ accent }} 45%, transparent);
+      }
+      :root[data-theme='dark'] {
+        --q2-accent: color-mix(in oklab, {{ accent }} 80%, white 20%);
+        --q2-accent-contrast: #ffffff;
+        --q2-link: color-mix(in oklab, {{ accent }} 75%, white 25%);
+        --q2-focus-ring: color-mix(in oklab, {{ accent }} 45%, transparent);
+      }
+    </style>
+    {% endif %}
+
+    {# Pinned to light mode only (2026-07-22) - no dark/auto toggle exposed.
+       The team can revisit this later; Quark 2 dark mode support is otherwise
+       intact (theme-mode config, --q2-* dark variables) if re-enabled. #}
+    <script>
+    document.documentElement.setAttribute('data-theme', 'light');
+    </script>
+{% endblock head %}
+
+{% block stylesheets %}
+    {% do assets.addCss('theme://css/fonts.css', 100) %}
+    {% do assets.addCss('theme://css/blades.min.css', 95) %}
+    {% do assets.addCss('theme://css/theme.css', 90) %}
+    {% if fa_enabled %}
+        {% if fa_local %}
+            {% do assets.addCss('theme://css/fontawesome/all.min.css', 85) %}
+        {% else %}
+            {% do assets.addCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css', 85) %}
+        {% endif %}
+    {% endif %}
+    {% do assets.addCss('theme://css/custom.css?v=33', 80) %}
+{% endblock %}
+
+{% block javascripts %}
+    {% do assets.addJs('theme://js/theme-toggle.js', {group:'head', priority: 100}) %}
+    {% do assets.addJs('theme://js/site.js', {group:'bottom', priority: 100}) %}
+{% endblock %}
+
+{% block assets deferred %}
+    {{ assets.css()|raw }}
+    {{ assets.js()|raw }}
+{% endblock %}
+</head>
+<body id="top" class="{% block body_classes %}{{ body_classes }}{% endblock %}">
+    <div id="page-wrapper">
+    {% block header %}
+        <header id="header" class="section">
+            <div class="container">
+                <nav class="navbar" aria-label="Primary">
+                    <div class="navbar-section logo">
+                        {% include 'partials/logo.html.twig' %}
+                    </div>
+                    <div class="navbar-section desktop-menu">
+                        <div class="dropmenu">
+                        {% block header_navigation %}
+                            {% include 'partials/navigation.html.twig' %}
+                        {% endblock %}
+                        </div>
+                    </div>
+                    <div class="navbar-section actions">
+                        {% if config.plugins.login.enabled and grav.user.username %}
+                            <span class="login-status-wrapper"><i class="fa-solid fa-user" aria-hidden="true"></i> {% include 'partials/login-status.html.twig' ignore missing %}</span>
+                        {% endif %}
+                    </div>
+                </nav>
+                {% if page.header.underconstruction %}
+                    <div style="background-color:#FFF602">
+                        <center style="color:black"> This page is under construction </center>
+                    </div>
+                {% endif %}
+            </div>
+        </header>
+        <div class="mobile-menu">
+            <button type="button" class="button_container" id="toggle" aria-label="Open menu">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </button>
+        </div>
+    {% endblock %}
+
+    {% include 'partials/announcements.html.twig' ignore missing %}
+
+    {% block hero %}{% endblock %}
+
+        <main id="start">
+        {% block body %}
+            <section id="body-wrapper" class="section">
+                <div class="container">
+                    {% block messages %}
+                        {% include 'partials/messages.html.twig' ignore missing %}
+                    {% endblock %}
+                    {{ block('content_surround') }}
+                </div>
+            </section>
+        {% endblock %}
+        </main>
+
+    </div>
+
+    {% block footer %}
+        {% include 'partials/footer.html.twig' %}
+    {% endblock %}
+
+    {% block mobile %}
+    <div class="mobile-container">
+        <div class="overlay" id="overlay" role="dialog" aria-label="Menu">
+            <div class="mobile-logo">
+                {% include 'partials/logo.html.twig' with {mobile: true} %}
+            </div>
+            <nav class="overlay-menu" aria-label="Mobile">
+                {% include 'partials/navigation.html.twig' with {tree: true} %}
+            </nav>
+        </div>
+    </div>
+    {% endblock %}
+
+{% block bottom %}
+    {{ assets.js('bottom')|raw }}
+{% endblock %}
+</body>
+</html>

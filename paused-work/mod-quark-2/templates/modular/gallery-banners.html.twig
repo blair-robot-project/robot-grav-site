@@ -1,0 +1,30 @@
+{# Photo order = the admin Page Media panel's own drag order (native admin2 reorder, admin2 v2.0.7+ — getgrav/grav-plugin-admin2#74). Same mechanism as gallery-draggable; no separate Gallery tab needed. #}
+{# Per-banner links AND alt text (page.header.banner_links) are optional and independent of order/reorder — both matched to each image by filename, so a blank value on one banner never affects another. #}
+<div class="module gallery-banners">
+    <div class="banner-row">
+        {% for filename, image in page.media.images %}
+            {% set banner_link = (page.header.banner_links|default([]))|filter(l => l.image == filename and l.url)|first %}
+            {% set banner_alt = (page.header.banner_links|default([]))|filter(l => l.image == filename and l.alt)|first %}
+            {% set alt_text = banner_alt.alt|default(page.title ~ ' award banner') %}
+            {# .height() is not a real Grav resize action - it silently falls through to a cosmetic
+               HTML height="" attribute, so the browser was downloading the full original regardless.
+               .resize(null, 400) actually shrinks the file, scaling proportionally to a 400px height
+               (Grav auto-derives width when the first arg is null). Only downscale banners taller
+               than 400 so resize() doesn't upscale/pad the smaller ones. #}
+            {% set _thumb = image.height > 400 ? image.resize(null, 400) : image %}
+            <div class="banner-row__item">
+                {% if banner_link %}
+                    <a href="{{ banner_link.url }}"{{ banner_link.url starts with 'http' ? ' target="_blank" rel="noopener"' : '' }}>{{ _thumb.html(alt_text, alt_text)|raw }}</a>
+                {% else %}
+                    {{ _thumb.html(alt_text, alt_text)|raw }}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if page.header.link_url %}
+        <p class="banner-row__link">
+            <a href="{{ page.header.link_url }}"{{ page.header.link_url starts with 'http' ? ' target="_blank" rel="noopener"' : '' }}>{{ page.header.link_text|default('View full history') }}</a>
+        </p>
+    {% endif %}
+</div>

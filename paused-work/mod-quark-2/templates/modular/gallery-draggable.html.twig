@@ -1,0 +1,22 @@
+{# Photo order = the admin Page Media panel's own drag order (native admin2 reorder, fixed in admin2 v2.0.7/2.0.8 — getgrav/grav-plugin-admin2#74). No separate ordering UI needed. #}
+{# Body text (if any) shows as a single caption below. Grid CSS in custom.css. #}
+{% set caption = content|default('') %}
+{% set thumb_w = page.header.thumb.width|default(600) %}
+{% set thumb_h = page.header.thumb.height|default(450) %}
+<div class="lightbox-gallery">
+  <div class="lightbox-gallery__columns">
+    {% for filename, img in page.media.images %}
+      {# Only downscale photos wider than 1200; serve smaller images as-is so resize() doesn't pad them with white. #}
+      <div class="lightbox-gallery__column">
+        {% set gallery_item = (page.header.gallery|default([]))|filter(g => g.image == filename and g.alt)|first %}
+        {% set title = gallery_item.alt|default(page.title) %}
+        {% set content = img.cropZoom(thumb_w, thumb_h).html(title, title) %}
+        {% set image = img.width > 1200 ? img.resize(1200).url : img.url %}
+        {% include "partials/lightbox.html.twig" %}
+      </div>
+    {% endfor %}
+  </div>
+  {% if caption|trim %}
+    <div class="lightbox-gallery__caption">{{ caption|raw }}</div>
+  {% endif %}
+</div>

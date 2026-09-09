@@ -1,0 +1,44 @@
+{% set now = "now"|date("U") %}
+{% set data_page = page.find("/announcements-data", true) %}
+{% set all_announcements = data_page ? (data_page.header.announcements|default([])) : [] %}
+{% set current_route = page.route %}
+
+{% for item in all_announcements %}
+  {% set start = item.start_date ? item.start_date|date("U") : 0 %}
+  {% set end = item.end_date ? item.end_date|date("U") : 0 %}
+  {% set announcement_pages = item.pages ? item.pages|split(",")|map(p => p|trim) : ["/"] %}
+  {% if (item.published ?? true) and now >= start and (end == 0 or now <= end) and current_route in announcement_pages %}
+    {% set link = item.link ? (item.link starts with "http" or item.link starts with "#" ? item.link : base_url ~ item.link) : null %}
+    <div class="site-announcement-wrap">
+      <div class="container">
+        <div class="site-announcement level-{{ item.level|default("yellow") }}" data-announcement-id="{{ loop.index0 }}">
+          {% if link %}
+          <a class="site-announcement-link" href="{{ link }}">
+            <span class="site-announcement-icon">📣</span>
+            <span class="site-announcement-text">{{ item.message }}</span>
+          </a>
+          {% else %}
+          <span class="site-announcement-icon">📣</span>
+          <span class="site-announcement-text">{{ item.message }}</span>
+          {% endif %}
+          <button class="site-announcement-dismiss" aria-label="Dismiss">&times;</button>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}
+
+<script>
+document.querySelectorAll(".site-announcement").forEach(function (announcement) {
+  var id = announcement.dataset.announcementId;
+  if (id && sessionStorage.getItem("dismissed-announcement-" + id)) {
+    announcement.style.display = "none";
+    return;
+  }
+  var btn = announcement.querySelector(".site-announcement-dismiss");
+  btn.addEventListener("click", function () {
+    announcement.style.display = "none";
+    if (id) sessionStorage.setItem("dismissed-announcement-" + id, "1");
+  });
+});
+</script>

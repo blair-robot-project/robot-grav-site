@@ -1,0 +1,16 @@
+name: Mod Quark 2
+slug: mod-quark-2
+type: theme
+version: 0.1.0
+description: Modified Quark 2 (draft child theme for the Quark 2 migration, ported from Mod Quark)
+icon: rebel
+author:
+  name: Blair Robot Project
+  email: blair.robot@gmail.com
+homepage: https://github.com/blair-robot-project/grav-theme-mod-quark
+keywords: grav, theme, quark2
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.7.0' }
+  - { name: quark2, version: '>=1.1.6' }

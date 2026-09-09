@@ -1,0 +1,54 @@
+{% set columns = page.header.class == "small" ? "col-3 col-md-4 col-sm-6" : "col-4 col-md-6 col-sm-12" %}
+{% set thumb_w = 600 %}
+<section class="section modular-features {{ page.header.class}}">
+        <div class="container">
+            <div class="frame-box">
+
+                {{ content|raw }}
+
+                <div class="columns" style="margin-top: 30px">
+                {% for feature in page.header.features %}
+                   <div class="column {{ columns }}">
+                      {% set _m = page.media[feature.image] %}
+                      {# Lightweight display thumbnail; only downscale images wider than thumb_w so resize() does not white-pad smaller ones. #}
+                      {% set _disp = _m ? (_m.width > thumb_w ? _m.resize(thumb_w).url : _m.url) : (base_url ~ header.imglocation ~ feature.image) %}
+                      {% set _img %}<img src="{{ _disp }}" alt="{{ feature.header }}">{% endset %}
+                      {% if page.header.separate_links %}
+                         {# Image opens the largest available version in a new tab: a "-original" companion file if the folder has one, else the referenced file itself. Header/subfield link to feature.url instead, when set. #}
+                         {% set _ext = feature.image|split(".")|last %}
+                         {% set _base = feature.image|slice(0, feature.image|length - _ext|length - 1) %}
+                         {% set _orig = page.media[_base ~ "-original." ~ _ext] %}
+                         {% set _full = _orig ?: _m %}
+                         {% if _full %}
+                            <a href="{{ _full.url }}" class="gallery-thumb" target="_blank" rel="noopener" title="{{ feature.header }}">{{ _img|raw }}</a>
+                         {% else %}
+                            {{ _img|raw }}
+                         {% endif %}
+                         {% if feature.header %}
+                            <h5 style="margin-top: 10px">{% if feature.url %}<a href="{{ feature.url }}">{{ feature.header }}</a>{% else %}{{ feature.header }}{% endif %}</h5>
+                         {% endif %}
+                         {% if feature.text %}
+                            <i style="font-size:14px; color:rgb(160,160,160)"> {% if feature.url %}<a href="{{ feature.url }}">{{ feature.text }}</a>{% else %}{{ feature.text }}{% endif %} </i>
+                         {% endif %}
+                      {% else %}
+                         {% if feature.url %}
+                            <a href="{{ feature.url }}">{{ _img|raw }}</a>
+                         {% elseif _m %}
+                            {# No link set: pop up the full-size (Image-Intake-capped) image in a new tab. #}
+                            <a href="{{ _m.url }}" class="gallery-thumb" target="_blank" rel="noopener" title="{{ feature.header }}">{{ _img|raw }}</a>
+                         {% else %}
+                            {{ _img|raw }}
+                         {% endif %}
+                         {% if feature.header %}
+                            <h5 style="margin-top: 10px">{{ feature.header }}</h5>
+                         {% endif %}
+                         {% if feature.text %}
+                            <i style="font-size:14px; color:rgb(160,160,160)"> {{ feature.text}} </i>
+                         {% endif %}
+                      {% endif %}
+                   </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+</section>
