@@ -20,6 +20,45 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-09-11
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-07 19:54:10.822720352 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-10 17:11:03.063404059 +0000
+@@ -26,9 +26,9 @@
+ 
+ ---
+ 
+-### Participants (16/24 filled)
++### Participants (17/24 filled)
+ Paid & Confirmed Teams in **Bold** <br>
+-Last Updated 9/6/2026 6:00 PM
++Last Updated 9/10/2026 1:10 PM
+ 
+ [FRC 321](https://robolancers.com/): RoboLancers <br> 
+ **[FRC 449](/): The Blair Robot Project** <br>
+@@ -38,6 +38,7 @@
+ [FRC 2106](https://www.team2106.org/): The Junkyard Dogs <br>
+ [FRC 2537](https://team2537.com/): Space RAIDers <br>
+ **[FRC 3504](https://girlsofsteelrobotics.org/): Girls of Steel** <br>
++[FRC 4472](https://4472supernova.org/): SuperNOVA <br>
+ **[FRC 4575](https://tinmints.net/frc-4575/): Gemini** <br> 
+ [FRC 4821](https://cyberus4821.weebly.com/): cyberUS <br>
+ [FRC 5115](https://www.instagram.com/wheaton_knightriders5115): Knight Riders <br>
+@@ -51,6 +52,7 @@
+ [FRC 2537b](https://team2537.com/): Space RAIDers B <br>
+ [FRC 526](https://www.saxonrobotics.org/): Saxon Sparks <br>
+ [FRC 5338b](https://blogs.lcps.org/roboloco/): RoboLoCo B <br>
++[FRC 4472b](https://4472supernova.org/): SuperNOVA B <br>
+ [FRC 449b](/): The Blair Robot Project B <br>
+ 
+ 
+```
+
+
 ### 2026-09-08
 
 ```diff
