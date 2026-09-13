@@ -20,6 +20,32 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-09-13
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-10 17:11:03.063404059 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-13 00:23:19.677612554 +0000
+@@ -36,12 +36,12 @@
+ **[FRC 614](https://team614.org/): Night Hawks** <br>
+ [FRC 686](https://sites.google.com/bovineintervention.org/first-team-686): Bovine Intervention <br>
+ [FRC 2106](https://www.team2106.org/): The Junkyard Dogs <br>
+-[FRC 2537](https://team2537.com/): Space RAIDers <br>
++**[FRC 2537](https://team2537.com/): Space RAIDers** <br>
+ **[FRC 3504](https://girlsofsteelrobotics.org/): Girls of Steel** <br>
+ [FRC 4472](https://4472supernova.org/): SuperNOVA <br>
+ **[FRC 4575](https://tinmints.net/frc-4575/): Gemini** <br> 
+ [FRC 4821](https://cyberus4821.weebly.com/): cyberUS <br>
+-[FRC 5115](https://www.instagram.com/wheaton_knightriders5115): Knight Riders <br>
++**[FRC 5115](https://www.instagram.com/wheaton_knightriders5115): Knight Riders** <br>
+ [FRC 5338](https://blogs.lcps.org/roboloco/): RoboLoCo <br>
+ [FRC 5549](https://www.instagram.com/team5549/): Gryphon Robotics <br>
+ [FRC 8230](https://koibots.com/): KoiBots <br>
+```
+
+
 ### 2026-09-11
 
 ```diff
