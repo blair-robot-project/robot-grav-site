@@ -20,6 +20,56 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-09-14
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/03.community/04.fll-team/modular.md /srv/robot-grav-site/user/pages/03.community/04.fll-team/modular.md
+--- /srv/.activity-shadow/user/pages/03.community/04.fll-team/modular.md	2026-07-04 04:17:49.138184917 +0000
++++ /srv/robot-grav-site/user/pages/03.community/04.fll-team/modular.md	2026-09-13 17:41:46.754879997 +0000
+@@ -2,7 +2,7 @@
+ title: 'FLL Team: The Blair LEGO Project'
+ content:
+     items: '@self.modular'
+-body_classes: 'modular title-h1h2 header-dark header-transparent'
++body_classes: 'modular title-h1h2 header-dark'
+ menu: 'FLL Team: The Blair LEGO Project'
+ underconstruction: false
+ onpage_menu: '0'
+Only in /srv/robot-grav-site/user/pages/03.community: 13.stem-nights
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-13 00:23:19.677612554 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-14 02:55:22.331484620 +0000
+@@ -10,9 +10,9 @@
+ 
+ [plugin:youtube](https://youtu.be/tCpTTH4NrhY)
+ 
+-[2026 Game Manual v1.1](https://drive.google.com/file/d/15q4vn-B7nUbsGcicQmGl1pQX0NZekTT8/view?classes=nounderline,button,btn-block&target=_blank)
++[2026 Game Manual v1.2](https://drive.google.com/file/d/1w2p4d9wPdnyVc9RJOUVJ8n-mPg6ncIQl/view?classes=nounderline,button,btn-block&target=_blank)
+ <br>
+-[2026 Team Update 01](https://drive.google.com/file/d/1ehQOWog34TMopRYW9_5zHkFlGpqpm1Ol/view?classes=nounderline,button,btn-block&target=_blank)
++[2026 Team Update 02](https://drive.google.com/file/d/1BWHVYLMuc-QbnEUXXpTdJDy_-1bWvrld/view?classes=nounderline,button,btn-block&target=_blank)
+ <br>
+ [Game Piece Order Form](https://forms.gle/4miZoLy79CAwimwt6?classes=nounderline,button,btn-block&target=_blank)
+ 
+
+user/themes/mod-quark
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/css/custom.css /srv/robot-grav-site/user/themes/mod-quark/css/custom.css
+--- /srv/.activity-shadow/user/themes/mod-quark/css/custom.css	2026-09-04 19:10:21.961297353 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/css/custom.css	2026-09-13 18:09:44.119907546 +0000
+@@ -592,3 +592,8 @@
+ body.no-hero #start { padding-top: 4rem; }
+ 
+ .whats-new .news-archive-link { margin-top: 1rem; }
++
++.form-narrow {
++    max-width: 1200px;
++    margin: 0 auto;
++}
+```
+
+
 ### 2026-09-13
 
 ```diff
