@@ -1,9 +1,26 @@
 # FRC Team 449 Website — LIVE (robot.mbhs.edu) — Changelog
-*Last updated: 2026-09-08*
+*Last updated: 2026-09-15*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu) or 🟢 **STAGING** (449.navybook.com) — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
+
+---
+### 2026-09-15 — 🚀 LIVE: STEM Nights form submissions now reach a Google Sheet (`form-to-sheets` ported from staging)
+
+Ported the `form-to-sheets` plugin from staging so submissions to the STEM Nights webform at `/community/stem-nights` land in a Google Sheet the team can read, plus a notification email. Until now the form's only destination was a text file under `user/data/`, which is web-blocked and has no admin file browser — readable only over SSH, which the people who actually need to see STEM Night requests do not have.
+
+**Why a Sheet rather than mail from the site:** live cannot send email at all — DigitalOcean blocks every outbound SMTP port and the droplet has no MTA. The Apps Script at the far end sends the notification from the team's own Google account, so there is no SMTP, no API key and no DNS record to maintain.
+
+**Installed:** `user/plugins/form-to-sheets/` (3 files, v0.1.0, `grav:editor` 644 / dir 755), byte-identical to staging's copy — SHA-256 verified at all three hops (staging → laptop → live). Config written to `user/config/plugins/form-to-sheets.yaml` via the api plugin, so it landed `grav:editor` without a second `sudo` round. `sheets: true` added to the form's `process:` block immediately **after** `save:`; `save:` stays and runs first, being the only leg that does not depend on the network.
+
+**Both sites post to the same endpoint with the same secret — by design.** The plugin sends the originating `site` in its payload, so a notification says whether a request came from staging or live. Do not "fix" this by minting a separate live token: that rule belongs to the *sponsor-sync* webhook, which is an **inbound** endpoint on the site itself and is a different threat model. Here the site only makes an outbound call.
+
+**Ownership gotcha worth recording:** `user/plugins`, `user/config/plugins` and the page tree are all `grav:editor` mode **755** — group `editor` has no write bit and there is no ACL — so placing a plugin needs `sudo` even as `brad`. Config and page edits do **not**: routed through the api plugin they are written by the web user with correct ownership. Used `install -o grav -g editor` rather than `cp` + `chown` so the files were never briefly root-owned.
+
+**Verified:** plugin registered and enabled in the package list; config readback masks the secret; `sheets: true` confirmed **on disk** as its own process entry (not fused into a neighbour by the header deep-merge, which was the risk with a YAML list); a deliberate **bad-secret** POST from live returned `{"ok":false,"message":"bad secret"}` — proving live reaches the endpoint, follows the Apps Script 302 correctly, and that the secret really does gate writes, without putting a junk row in the team's sheet. Three routes checked 200, no new `grav.log` entries, cache cleared via the api (not the CLI, which would have written cache files as the wrong user).
+
+**Deliberately still broken, and left that way:** the form carries three bugs a student is to fix himself — the captcha field is keyed `captcha` where `BasicCaptchaProvider` reads a hard-coded `basic-captcha`; `extension: yaml` is rejected by `Utils::checkFilename()` (`.yaml`/`.json`/`.md` are in `security.uploads_dangerous_extensions`, and that check runs for `operation: create` too, not just `add`); and `display: thankyou` resolves to a page that does not exist. While the captcha bug stands a failed captcha halts every later process action, so `sheets:` never fires and **end-to-end confirmation is still outstanding**. The page is unpublished meanwhile.
 
 ---
 ### 2026-09-08 (decision) — Quark 2 migration PAUSED: the site stays on Mod Quark
