@@ -20,6 +20,26 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-09-15
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/03.community/13.stem-nights/03._form/form.md /srv/robot-grav-site/user/pages/03.community/13.stem-nights/03._form/form.md
+--- /srv/.activity-shadow/user/pages/03.community/13.stem-nights/03._form/form.md	2026-09-13 18:25:29.568414444 +0000
++++ /srv/robot-grav-site/user/pages/03.community/13.stem-nights/03._form/form.md	2026-09-15 02:14:45.474181773 +0000
+@@ -77,6 +77,8 @@
+                 extension: yaml
+         -
+             message: "Thank you for submitting this form! We'll contact you via email about your event soon."
++        -
++            display: thankyou
+ visible: false
+ never_cache_twig: true
+ ---
+```
+
+
 ### 2026-09-14
 
 ```diff
