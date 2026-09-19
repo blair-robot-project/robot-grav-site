@@ -1,11 +1,37 @@
 # FRC Team 449 Website — LIVE (robot.mbhs.edu) — Changelog
-*Last updated: 2026-09-15*
+*Last updated: 2026-09-19*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu) or 🟢 **STAGING** (449.navybook.com) — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-09-19 — 🚀 LIVE: nginx blocklist drift left `tmp/`, root dotfiles and `.json` downloadable — fixed, and now guarded by a daily automated check
+
+Updated live to **Grav 2.1.8**, and its admin console reported that files in `tmp/` could be downloaded. Confirmed real before touching anything: Grav's own probe files (`tmp/grav-security-probe.{dat,json,txt,zip}`) returned **200** with their contents, while `cache/`, `logs/`, `backup/` and `user/config/` correctly returned 403.
+
+**Root cause is drift, not the update.** `/etc/nginx/sites-available/grav` is a hand-made copy of the deny list Grav ships at `webserver-configs/nginx.conf`. Grav rewrites `.htaccess` in place on update, so Apache sites self-heal — its shipped `.htaccess` already had `tmp` at line 60. It can never touch an nginx config. The update created the *detector*, not the defect; `tmp/` was equally readable the day before.
+
+**Three separate gaps had accumulated, with three different causes:**
+
+1. **`tmp` — not a misconfiguration.** Grav only added it to the recommended list in 2.1.7. The config was correct for its era.
+2. **`json` — a transcription error dating to the config's creation.** Grav's shipped sample as of **2022-02-12** carried `json` in both script-deny lists; this config was written **2022-02-18** without it, and it is absent from all seven surviving `grav.bak-*` copies. Dated by diffing Grav's own history out of the retired `.git` directory. This is what exposed `/vendor/composer/installed.json` — the exact version of every dependency, i.e. a shopping list for known CVEs. The most consequential of the three.
+3. **Hidden files — upstream lag that a local rename turned into a 361 MB hole.** Grav's nginx sample carried no hidden-file rule until 2.1.x, so its absence wasn't our error. But `\.git/` is a *literal* match, so renaming `.git` → `.git.retired-20260727` on 2026-07-27 stepped straight outside it. **Assessed before acting: not a credential leak** — 0 unpushed commits, remote is SSH with no embedded token, `user/accounts/` only ever held `.gitkeep`, no `security.yaml`, no `.env`, and `blair-robot-project/robot-grav-site` is public anyway. The two stashes are 2022 Grav core files.
+
+**Not behind a CDN** (`Server: nginx`, no `cf-*`/`via`/`age` headers), so the cache-purge step in Grav's warning did not apply.
+
+**Applied** (backup at `grav.bak-20260919-prehardening`): added Grav's hidden-file rule with its `.well-known` exemption; added `tmp` and `webserver-configs` to the folder deny; restored `json` and added Grav 2.1.8's other script extensions (`htm|shtml|shtm|phar|phtml|php2-5`) to both lists; commented the load-bearing `try_files` line. **Deliberately kept our stricter `user/accounts` deny** — Grav 2.1.8 added an avatar carve-out that would have loosened the 2026-06-28 hardening.
+
+**Verified from outside, not by reading the config back.** All 25 candidate paths were first run through the proposed regexes offline (confirming `/.well-known/acme-challenge/...` stays open, so certbot renewal is unaffected). After the reload, GitHub's runners — a different network entirely — reported **19/19 blocked**. Independently confirmed the extras now 403: the retired git directory including its packfiles, the `._*` AppleDouble files, and the `webserver-configs/` samples. **No regressions:** all 25 homepage nav links and every `/images/...` cached derivative return 200, admin login 200, ACME path 404 (not 403). `/community/stem-nights` 404s because it is `published: false`, which predates this work.
+
+**The guard, because a runbook step someone has to remember is the same failure mode.** Added `.github/workflows/private-files-check.yml` to this repo: daily at 11:00 UTC it fetches every path in `.github/private-files-check-urls.txt` and **fails if any returns 200**. It carries no credentials by design — it tests whether a stranger can fetch these files, so it has to run as a stranger. A 404 passes; only a served file is a finding. It checks the homepage first and refuses to report a pass when the site isn't serving, so an outage cannot look clean. First run was red with all ten real leaks; green after the fix. **Grav's own warning cannot be the safeguard** — it sits behind an admin API route and only fires when a human opens that page, which is why the `json` gap survived four years.
+
+**Worth recording for next time:** a student's initial reading was that Grav had already updated `webserver-configs/nginx.conf` and that `sudo nginx -t && sudo systemctl reload nginx` would apply it. Reloading alone changes nothing — that file is Grav's reference *sample*; nginx never reads it. Had we stopped there, the report would still have failed and everyone would have believed it was fixed.
+
+**Found in passing, not addressed:** Grav's security report flags 2 potential XSS issues (`dangerous_tags`) in the 2019 blog pages `2019-02-05-meeting-report` and `2019-02-07-meeting-report`. GitHub reports 8 Dependabot alerts (1 high, 7 moderate, all `guzzlehttp/*`) but every one is in `archive/grav/composer.lock` — archived, not running code. `php-yaml` is recommended and not installed.
+
+**Still outstanding:** `.git.retired-20260727` is blocked over HTTP but still 361 MB sitting inside the document root, and the `._*` Mac AppleDouble litter is still in the pages tree. Both are now unreachable; neither is cleaned up.
+
 ### 2026-09-15 — 🚀 LIVE: STEM Nights form submissions now reach a Google Sheet (`form-to-sheets` ported from staging)
 
 Ported the `form-to-sheets` plugin from staging so submissions to the STEM Nights webform at `/community/stem-nights` land in a Google Sheet the team can read, plus a notification email. Until now the form's only destination was a text file under `user/data/`, which is web-blocked and has no admin file browser — readable only over SSH, which the people who actually need to see STEM Night requests do not have.

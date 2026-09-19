@@ -33,7 +33,7 @@ This repo (`blair-robot-project/robot-grav-site`) is the source of truth for sit
 **Required config deviations from Grav defaults** (reapply if the site is ever rebuilt or re-migrated):
 - `pages.markdown.gfm.tagfilter: false` in `system.yaml` — Grav's default GFM tagfilter escapes raw `<iframe>` tags, breaking every YouTube/video embed.
 - ~~`text.html.twig` uses `image.height(N).html|raw`~~ — **stale as of 2026-07-29/30, superseded below.** The template no longer calls Grav's `.html()` helper at all (rewritten to build the `<img>` tag directly), so the `|raw`-autoescape concern this bullet described no longer applies. Left struck through rather than deleted so a rebuild doesn't reintroduce dead advice. See the `media_order` gotcha in Cautions & Gotchas for the current mechanism.
-- An `/api/v1/sync` → 403 block in the nginx config — the `api` plugin doesn't implement these routes, and without the 403 they 404-flood and degrade the page editor.
+- ~~An `/api/v1/sync` → 403 block in the nginx config~~ — **stale as of 2026-07-30.** The block is gone from `/etc/nginx/sites-available/grav`; found by diffing `grav.bak-20260723-063147` against the live file on 2026-09-19. That same undocumented edit also *added* the `try_files` line in the static-asset caching block, which is load-bearing — Grav serves cached image derivatives through `index.php`, so without it every `/images/...` URL 404s. That was almost certainly the real fix for the 2026-07-29/30 history-page image trouble. The rule now carries a comment saying so. Both halves of that edit were deliberate, not an accident. Whether admin2 still needs the 403 is **unverified** — if the page editor starts degrading, reinstating this is the first thing to try. Left struck through rather than deleted so a rebuild doesn't reintroduce dead advice.
 - `image-intake` plugin must be **v0.5.0+** — earlier versions' gallery auto-sync silently stops working once the `api` plugin reaches ~1.0.3 (it now saves the page before firing its update event; v0.5.0 added a hook that handles this correctly).
 
 ---
@@ -57,7 +57,30 @@ This repo (`blair-robot-project/robot-grav-site`) is the source of truth for sit
 - [ ] **(Optional) Restrict `/admin` reachability** — IP-allowlist or HTTP basic-auth in front of it, for defense-in-depth beyond account-level 2FA.
 - [ ] **Rotate/remove the old root SSH deploy key** (`/root/.ssh/id_ed25519`, still the default `Host github.com` identity in `/root/.ssh/config`) — leftover from the now-retired `backup.sh` mechanism (see Git Sync section), still has push access to this public repo. Rafi's action — needs root.
 
-**Already done, no longer open (see CHANGELOG for dates):** nginx TLS/headers/server_tokens hardening; stale-account pruning; nginx blocklist gap that let `user/data/` runtime files leak (fixed); root-level `.md` file disclosure (fixed); ImageMagick MVG/MSL policy hardening; journal size is healthy (56 MB, no vacuum needed); the 1.7 archive, the loopback-only test vhost, and the unused PHP 8.0/8.2-FPM pools have all been retired (2026-07-05).
+**Already done, no longer open (see CHANGELOG for dates):** nginx blocklist drift that left `tmp/`, root dotfiles (`.user.ini`, `.env.example`, `.migration-complete`), `.json` under `system`/`vendor`/`user`, the `webserver-configs/` samples and the renamed `.git.retired-20260727` directory all downloadable — fixed 2026-09-19 and now guarded by the automated check below; nginx TLS/headers/server_tokens hardening; stale-account pruning; nginx blocklist gap that let `user/data/` runtime files leak (fixed); root-level `.md` file disclosure (fixed); ImageMagick MVG/MSL policy hardening; journal size is healthy (56 MB, no vacuum needed); the 1.7 archive, the loopback-only test vhost, and the unused PHP 8.0/8.2-FPM pools have all been retired (2026-07-05).
+
+### The nginx blocklist drifts, so a robot checks it daily
+
+`/etc/nginx/sites-available/grav` is a **hand-made copy** of the deny list Grav ships at
+`/srv/robot-grav-site/webserver-configs/nginx.conf`. Grav rewrites `.htaccess` in place on
+update, so Apache sites self-heal; it can never touch an nginx config. Our copy therefore
+drifts, and drift is silent — on 2026-09-19 three separate gaps surfaced at once, the oldest
+dating to the config's creation in Feb 2022.
+
+**Do not rely on remembering to diff them.** That is what failed for four years. The guard is
+`.github/workflows/private-files-check.yml` in this repo: daily at 11:00 UTC it fetches every
+path in `.github/private-files-check-urls.txt` and **fails if any returns 200**. It uses no
+credentials on purpose — it tests whether a stranger can fetch these files, so it runs as one.
+A 404 passes (nothing there to leak); only a served file is a finding. It checks the homepage
+first and refuses to report a pass if the site isn't serving, so an outage can't look clean.
+
+- **To add a path:** edit the `.txt` file, one path per line. No YAML.
+- **When it fails:** a 200 means that file is public *right now*. Fix the deny rules in
+  `/etc/nginx/sites-available/grav`, then `sudo nginx -t && sudo systemctl reload nginx`.
+- **Grav's own admin warning is not a substitute** — it sits behind an admin API route
+  (`/dashboard/security/exposure-probe`) and only fires when a human opens that page.
+- Grav's probe plants bait files (`grav-security-probe.*` in `tmp/` and `backup/`) and leaves
+  them there. That's expected; they're blocked, and the check watches them as canaries.
 
 ### Live large-photo upload limits (4-layer config — not in the Grav backup)
 Smallest layer wins; all four are raised on live so 9-12 MB phone photos upload successfully:
@@ -69,7 +92,7 @@ Smallest layer wins; all four are raised on live so 9-12 MB phone photos upload 
 | PHP `upload_max_filesize` | 25M | same `.user.ini` |
 | Grav `system.media.upload_limit` | 25M (26214400) | `user/config/system.yaml` |
 
-`memory_limit` is deliberately left at 128M — `image-intake` resizes via a `convert` subprocess, so this is safe. **`.user.ini` and the nginx setting live outside `user/`, so neither is in the Grav backup** — reapply both if the droplet is ever rebuilt (and clear compiled config after).
+`memory_limit` is deliberately left at 128M — `image-intake` resizes via a `convert` subprocess, so this is safe. **`.user.ini` and the nginx setting live outside `user/`, so neither is in the Grav backup** — reapply both if the droplet is ever rebuilt (and clear compiled config after). The nginx config is also **not in version control anywhere**, which is why reconstructing the Feb 2022 `json` mistake on 2026-09-19 meant digging through `/etc/nginx/sites-available/grav.bak-*` files and a retired `.git` directory. The only record of its history is those `.bak-*` copies on the droplet — keep making them.
 
 ---
 
