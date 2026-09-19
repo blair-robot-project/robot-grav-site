@@ -74,6 +74,7 @@ credentials on purpose — it tests whether a stranger can fetch these files, so
 A 404 passes (nothing there to leak); only a served file is a finding. It checks the homepage
 first and refuses to report a pass if the site isn't serving, so an outage can't look clean.
 
+- **A byte-identical copy of the live config now lives in [`server-config/nginx/`](server-config/nginx/)** (added 2026-09-19). Compare server against repo with the one-liner in that folder's README. The copies are kept byte-identical on purpose — adding a header comment there breaks the diff and the check stops being trusted.
 - **To add a path:** edit the `.txt` file, one path per line. No YAML.
 - **When it fails:** a 200 means that file is public *right now*. Fix the deny rules in
   `/etc/nginx/sites-available/grav`, then `sudo nginx -t && sudo systemctl reload nginx`.
@@ -92,7 +93,7 @@ Smallest layer wins; all four are raised on live so 9-12 MB phone photos upload 
 | PHP `upload_max_filesize` | 25M | same `.user.ini` |
 | Grav `system.media.upload_limit` | 25M (26214400) | `user/config/system.yaml` |
 
-`memory_limit` is deliberately left at 128M — `image-intake` resizes via a `convert` subprocess, so this is safe. **`.user.ini` and the nginx setting live outside `user/`, so neither is in the Grav backup** — reapply both if the droplet is ever rebuilt (and clear compiled config after). The nginx config is also **not in version control anywhere**, which is why reconstructing the Feb 2022 `json` mistake on 2026-09-19 meant digging through `/etc/nginx/sites-available/grav.bak-*` files and a retired `.git` directory. The only record of its history is those `.bak-*` copies on the droplet — keep making them.
+`memory_limit` is deliberately left at 128M — `image-intake` resizes via a `convert` subprocess, so this is safe. **`.user.ini` and the nginx setting live outside `user/`, so neither is in the Grav backup** — reapply both if the droplet is ever rebuilt (and clear compiled config after). The nginx config **is now versioned** — byte-identical copies live in [`server-config/nginx/`](server-config/nginx/) as of 2026-09-19, with a README covering the drift check and the push-to-server procedure. Before that it was in no repo at all, which is why reconstructing the Feb 2022 `json` mistake meant digging through `/etc/nginx/sites-available/grav.bak-*` files and a retired `.git` directory that happened to survive. **Keep making those `.bak-*` copies anyway** — they are still the only record of *when* a change happened on the server rather than in git, which is how the undocumented 2026-07-30 edit was dated. `.user.ini` is still unversioned; it belongs in that folder too whenever someone gets to it.
 
 ---
 

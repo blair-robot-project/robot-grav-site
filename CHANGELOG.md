@@ -1,11 +1,27 @@
 # FRC Team 449 Website — LIVE (robot.mbhs.edu) — Changelog
 *Last updated: 2026-09-19*
 
-Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu) or 🟢 **STAGING** (449.navybook.com) — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
+Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu), 🟢 **STAGING** (449.navybook.com), or 📁 **REPO** for a change to this repository itself rather than to either server — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-09-19 — 📁 REPO: nginx config now versioned in `server-config/nginx/` — the last unbacked-up, unversioned piece of the site
+
+**Closes the root cause of the morning's incident rather than another symptom.** `/etc/nginx/sites-available/grav` is a hand-made copy of the deny list Grav ships at `webserver-configs/nginx.conf`, and Grav can never update an nginx config the way it rewrites `.htaccess` for Apache sites — so it drifts silently. It also sits outside `user/`, so Grav's nightly backup never included it, and until today no copy existed in any repo. Dating the February 2022 `json` transcription error required `grav.bak-*` files and a retired `.git` directory that happened to survive; both were luck, and the `.git` was deleted the same day.
+
+**Added:** `server-config/nginx/robot.mbhs.edu.conf` (copy of `/etc/nginx/sites-available/grav`) and `server-config/nginx/99-security.conf` (copy of `/etc/nginx/conf.d/99-security.conf`), plus a README.
+
+**The copies are byte-identical to live, deliberately.** No header comments, no reformatting — a single added line would make the drift check report a false difference, and a check nobody trusts is worse than none. Verified identical at commit time by piping the live files through `diff`.
+
+**Filenames intentionally differ from the live paths.** The live vhost is called `grav`, which says nothing about which site it serves; the copy is named for its domain. The README carries the mapping table, and leads with the point that matters most: **these are copies and nginx does not read them** — editing a file in that folder changes nothing on the server. That misunderstanding was the main risk of doing this at all.
+
+**Both documented commands were run before being written down**, not assumed: the server-vs-repo drift check (reported `IN SYNC`, exit 0) and the config-vs-Grav-sample comparison (shows the expected `root`/`server_name` differences). The README also carries the push-to-server procedure with its `nginx -t`-gated reload and `.bak-*` rollback, and the permission facts — `sudo` needed for `/etc/nginx`, no passwordless sudo so it cannot run unattended, and the ACL mask that makes `editor` group membership insufficient inside the webroot.
+
+**Deliberately public.** This repo is public, and the config discloses the deny list, document root and PHP-FPM socket. Weighed and accepted: no credentials are in either file (checked), the repo's RUNBOOK and CHANGELOG already disclose the stack, config path, socket and `/srv` paths in dozens of places, and anyone can probe the live site for the same information — which is exactly what the daily check does. Keeping the config beside the docs that explain it beats a private copy that goes stale, which is how the `/api/v1/sync` entry rotted.
+
+**What this does not do.** CI still cannot compare repo against server — that needs SSH access from Actions, a credential and a separate decision. The drift check is run by a person for now. The daily `private-files-check` remains the automatic guard, and it catches a bad edit to this config regardless of whether anyone updated the repo copy, because it tests the server's real behaviour from outside. **`.user.ini` is still unversioned** and belongs in the same folder.
+
 ### 2026-09-19 — 🚀 LIVE: GFM tagfilter restored to Grav's default — raw `<script>`/`<iframe>` in page content is now escaped, not executed
 
 **A deviation that had outlived its reason.** `pages.markdown.gfm.tagfilter: false` was set because two 2019 blog pages held raw `<iframe>` YouTube embeds and Grav's default would have escaped them. Those were converted to the `youtube` plugin earlier the same day, which removed the last raw iframe on the site — so the deviation was now buying nothing while leaving raw HTML in page content live.
