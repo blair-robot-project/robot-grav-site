@@ -6,6 +6,24 @@ Reverse-chronological record of notable changes to the site — theme, templates
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
 
 ---
+### 2026-09-19 — 🚀 LIVE: the two flagged XSS findings were YouTube iframes — converted to the site's own plugin; 37 macOS AppleDouble files cleared from the pages tree
+
+**The XSS findings were true positives in the narrow sense, and both were YouTube embeds.** Grav's security scan flagged `dangerous_tags` on `/about-us/history/history-2019-blog/2019-02-05-meeting-report` and `2019-02-07-meeting-report`. Both turned out to be raw `<iframe width="560" height="315" src="https://www.youtube.com/embed/…">`. Not harmless-by-definition, either: this site runs `pages.markdown.gfm.tagfilter: false` (needed precisely so raw iframes work), which means raw HTML in page content really does execute. It just happened to be YouTube in both cases.
+
+**Fixed by using the plugin the site already had, not by suppressing the rule.** `youtube` v4.4.1 is installed and enabled, and three other pages already use its `[plugin:youtube](url)` syntax. These two were **the only raw iframes anywhere in the site**; now there are none. Three things improved rather than merely silenced:
+
+- **Responsive.** The old embeds were hardcoded 560×315, which overflows on a phone. The plugin emits a `grav-youtube-wrapper` that scales.
+- **`youtube-nocookie.com`.** The plugin's output sets no tracking cookies until a visitor presses play — worth having on a site whose audience is minors.
+- **Consistent** with the rest of the site, so the next person copying an embed copies the right pattern.
+
+**Rejected alternative:** adding `iframe` to an exclusion in `security.yaml` (`xss_dangerous_tags` is configurable). That would have suppressed the warning **sitewide** — losing a real signal for every future page — and left the non-responsive embeds in place.
+
+Both pages edited through the **api plugin**, so the files landed `grav:editor` with no ownership fixup needed. Verified: security scan now reports *"No issues found."*, both pages 200, both embeds rendering the same video IDs (`C9ND6cSGJ20`, `ABnpBGw_6X8`).
+
+**37 macOS AppleDouble files (`._*`) removed from `user/pages`.** All under `02.about-us/17.HISTORY` — 19 sidecars for year-module directories, 18 for `text.md` files. Every one exactly 163 bytes with magic bytes `00051607` (verified individually), nothing referenced them, and Grav resolved **zero** phantom pages or modules from them — it ignores dotfiles entirely, so all 40 HISTORY children resolved to real templates. Purely cosmetic litter, and already web-blocked by the hidden-file rule added earlier the same day.
+
+**Traced to a single copy event:** all 37 carry mtimes of **2026-07-14 12:14–12:15**, the same minute as the `item.md` files in the 2019 blog — i.e. they rode in with the *"Team History rebuild ported from staging"* port, not the 07-29/30 history-image work. macOS writes these sidecars and a plain copy carries them along. **Prevention for the next port:** `rsync -av --exclude '._*' --exclude '.DS_Store'`, or `dot_clean <folder>` on the Mac first. Verified afterwards: 0 remaining anywhere outside `cache/`/`backup/`, 25 year-module directories and 28 `text.md` files intact, history page and both blog pages 200.
+
 ### 2026-09-19 — 🚀 LIVE: nginx blocklist drift left `tmp/`, root dotfiles and `.json` downloadable — fixed, and now guarded by a daily automated check
 
 Updated live to **Grav 2.1.8**, and its admin console reported that files in `tmp/` could be downloaded. Confirmed real before touching anything: Grav's own probe files (`tmp/grav-security-probe.{dat,json,txt,zip}`) returned **200** with their contents, while `cache/`, `logs/`, `backup/` and `user/config/` correctly returned 403.
