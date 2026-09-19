@@ -20,6 +20,26 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-09-19
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-14 02:55:22.331484620 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-19 02:13:41.256472919 +0000
+@@ -46,7 +46,7 @@
+ [FRC 5549](https://www.instagram.com/team5549/): Gryphon Robotics <br>
+ [FRC 8230](https://koibots.com/): KoiBots <br>
+ [FRC 8726](https://frc8726.org/): CryptoHawks <br>
+-[FRC 9033](https://www.instagram.com/ocebots9033/): Ocebots <br>
++**[FRC 9033](https://www.instagram.com/ocebots9033/): Ocebots** <br>
+ 
+ Waitlist: <br>
+ [FRC 2537b](https://team2537.com/): Space RAIDers B <br>
+```
+
+
 ### 2026-09-17
 
 ```diff
