@@ -1,0 +1,46 @@
+# Paths that must NOT be downloadable from the live site.
+#
+# The check fails if any of these returns HTTP 200. A 403 (blocked) is what we
+# want. A 404 also passes, because there is nothing there to leak.
+#
+# To add a path: put it on its own line, starting with a slash. That's it --
+# no YAML, no quoting. Lines starting with # are comments. Trailing comments on
+# the same line as a path are NOT supported; put the comment on its own line.
+
+# --- Grav's own bait files. It plants these to test itself, and leaves them ---
+/tmp/grav-security-probe.txt
+/tmp/grav-security-probe.dat
+/tmp/grav-security-probe.zip
+/tmp/grav-security-probe.json
+/backup/grav-security-probe.zip
+
+# --- Site config and credentials ---
+/user/config/system.yaml
+/user/config/security.yaml
+
+# --- Logs ---
+/logs/grav.log
+
+# --- Hidden files at the web root. .htaccess is always present, so it is a ---
+# --- reliable canary for the hidden-file and root-file rules ---
+/.htaccess
+/.user.ini
+/.env.example
+/.migration-complete
+
+# --- Dependency inventory. Exposing these hands over the exact version of ---
+# --- every library we run, which is how someone shops for a known CVE ---
+/vendor/composer/installed.json
+/composer.lock
+/user/themes/quark/package.json
+
+# --- Sample server configs Grav ships. Harmless alone, but they reveal the ---
+# --- stack and they are not ours to serve ---
+/webserver-configs/Caddyfile
+/webserver-configs/nginx.conf
+
+# --- Page source. Visitors get the rendered page, never the raw markdown ---
+/user/pages/02.about-us/17.HISTORY/21._frc-2019/text.md
+
+# --- Version disclosure: names the exact Grav release and its patched CVEs ---
+/CHANGELOG.md

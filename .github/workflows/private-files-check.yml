@@ -1,0 +1,104 @@
+name: private-files-check
+
+# Fails if anything that should be private can be downloaded from the live site.
+#
+# WHY THIS EXISTS
+# The deny rules on the server live in /etc/nginx/sites-available/grav, which is a
+# hand-made copy of a list Grav ships and keeps improving. Grav can update that list
+# for Apache sites automatically; it can never touch our nginx config. So our copy
+# drifts, and drift is silent. In 2026 three separate gaps went unnoticed for years
+# (see CHANGELOG 2026-09-19). This check notices them from the outside, the same way
+# a stranger would see them.
+#
+# It deliberately uses NO credentials. What it tests is "can someone with no account
+# fetch this?", so it has to run as someone with no account. Nothing to store, nothing
+# to leak, nothing to rotate.
+#
+# TO ADD A PATH: edit .github/private-files-check-urls.txt. No YAML editing needed.
+
+on:
+  schedule:
+    - cron: '0 11 * * *'   # 11:00 UTC daily (~7am Eastern, ~6am during winter)
+  workflow_dispatch:        # lets anyone run it by hand from the Actions tab
+  push:
+    branches: [master]
+    paths:                  # re-test immediately when the check itself changes
+      - '.github/workflows/private-files-check.yml'
+      - '.github/private-files-check-urls.txt'
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Probe paths that must not be public
+        shell: bash
+        env:
+          BASE_URL: https://robot.mbhs.edu
+          LIST: .github/private-files-check-urls.txt
+        run: |
+          set -uo pipefail
+
+          # Sanity check first. If the site is not serving, every path below would
+          # 404 and the run would "pass" while proving nothing. Refuse to do that.
+          home="$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 \
+                    --retry 2 --retry-delay 3 "$BASE_URL/" || true)"
+          if [ "${home:-000}" != "200" ]; then
+            echo "ERROR: $BASE_URL/ returned ${home:-000}, not 200."
+            echo "The site is not serving normally, so these results would be meaningless."
+            echo "Check the site is up, then re-run. This is not itself a security finding."
+            exit 1
+          fi
+          echo "Site is up ($BASE_URL/ -> 200). Probing paths that must not be public."
+          echo
+
+          fail=0
+          checked=0
+          printf '%-7s %-12s %s\n' 'STATUS' 'RESULT' 'PATH'
+          printf '%.0s-' {1..72}; echo
+
+          while IFS= read -r raw || [ -n "$raw" ]; do
+            path="$(printf '%s' "$raw" | tr -d '\r' \
+                     | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+            [ -z "$path" ] && continue
+            case "$path" in \#*) continue ;; esac
+
+            code="$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 \
+                      --retry 2 --retry-delay 3 "$BASE_URL$path" || true)"
+            code="${code:-000}"
+            checked=$((checked + 1))
+
+            case "$code" in
+              200) printf '%-7s %-12s %s\n' "$code" 'LEAK'        "$path"; fail=1 ;;
+              000) printf '%-7s %-12s %s\n' "$code" 'UNREACHABLE' "$path"; fail=1 ;;
+              *)   printf '%-7s %-12s %s\n' "$code" 'ok'          "$path" ;;
+            esac
+          done < "$LIST"
+
+          echo
+          if [ "$checked" -eq 0 ]; then
+            echo "ERROR: no paths were checked. Is $LIST missing or all comments?"
+            exit 1
+          fi
+
+          if [ "$fail" -ne 0 ]; then
+            echo "FAILED after checking $checked path(s)."
+            echo
+            echo "A 200 means a stranger can download that file right now."
+            echo "Fix it in the deny rules in /etc/nginx/sites-available/grav on the droplet,"
+            echo "then reload nginx:  sudo nginx -t && sudo systemctl reload nginx"
+            echo
+            echo "Grav's own recommended list is on the droplet for comparison:"
+            echo "  diff -u /etc/nginx/sites-available/grav \\"
+            echo "          /srv/robot-grav-site/webserver-configs/nginx.conf"
+            echo
+            echo "Differences are expected -- we add hardening Grav does not ship. The point"
+            echo "is to spot where Grav has learned something our copy has not."
+            exit 1
+          fi
+
+          echo "PASS: $checked path(s) checked, none downloadable."
