@@ -20,6 +20,76 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-09-20
+
+```diff
+
+user/pages
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY: ._.
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY: ._10._frc-2026
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY: ._11._frc-2025
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY: ._13._frc-2024
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY: ._14._frc-2023
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY: ._17._frc-2022
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY: ._19._frc-2020
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY: ._21._frc-2019
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY: ._23._frc-2018
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY: ._24._frc-2017
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY: ._25._frc-2016
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY: ._27._frc-2014
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY: ._28._frc-2013
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY: ._29._frc-2012
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY: ._30._frc-2011
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY: ._31._frc-2010
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY: ._36._frc-2004
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY: ._37._frc-2003
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY: ._40._frc-2000
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/10._frc-2026: ._text.md
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/11._frc-2025: ._text.md
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/13._frc-2024: ._text.md
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/14._frc-2023: ._text.md
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/17._frc-2022: ._text.md
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/19._frc-2020: ._text.md
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/21._frc-2019: ._text.md
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/22.history-2019-blog/2019-02-05-meeting-report/item.md /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/22.history-2019-blog/2019-02-05-meeting-report/item.md
+--- /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/22.history-2019-blog/2019-02-05-meeting-report/item.md	2026-07-14 12:14:31.617101201 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/22.history-2019-blog/2019-02-05-meeting-report/item.md	2026-09-19 18:59:25.838506562 +0000
+@@ -13,8 +13,7 @@
+ 
+ Since the center of mass of the robot was not half way between the two legs, one leg has to lift more of the robot's weight than the other leg. This means that the legs can't be characterized empirically, since we can't characterize both legs at once, and when we run the characterization on one leg at a time the results aren't representative of the real loads since the robot tilts. However, the legs can be characterized theoretically by calculating what the weight ratio on each one has to be. 
+ 
+-<iframe width="560" height="315" src="https://www.youtube.com/embed/C9ND6cSGJ20" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
++[plugin:youtube](https://www.youtube.com/watch?v=C9ND6cSGJ20)
+ 
+ ![](2015-02-05-04.JPG)
+ 
+-
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/22.history-2019-blog/2019-02-07-meeting-report/item.md /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/22.history-2019-blog/2019-02-07-meeting-report/item.md
+--- /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/22.history-2019-blog/2019-02-07-meeting-report/item.md	2026-07-14 12:14:26.024886682 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/22.history-2019-blog/2019-02-07-meeting-report/item.md	2026-09-19 18:59:48.611381449 +0000
+@@ -17,7 +17,7 @@
+ 
+ When we were using velocity PID control, we were essentially trying to tell the legs to move at the same speeds despite them having vastly different loads, which is more difficult than giving each leg a list of positions to be in at different times, which is what a motion profile is. We hope that the motion profiles will help the legs stay more synchronized as they move.
+ 
+-<iframe width="560" height="315" src="https://www.youtube.com/embed/ABnpBGw_6X8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
++[plugin:youtube](https://www.youtube.com/watch?v=ABnpBGw_6X8)
+ 
+ **Cargo**
+ 
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/23._frc-2018: ._text.md
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/24._frc-2017: ._text.md
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/25._frc-2016: ._text.md
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/27._frc-2014: ._text.md
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/28._frc-2013: ._text.md
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/29._frc-2012: ._text.md
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/30._frc-2011: ._text.md
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/31._frc-2010: ._text.md
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/36._frc-2004: ._text.md
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/37._frc-2003: ._text.md
+Only in /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/40._frc-2000: ._text.md
+```
+
+
 ### 2026-09-19
 
 ```diff
