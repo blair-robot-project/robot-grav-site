@@ -1,9 +1,26 @@
 # FRC Team 449 Website — LIVE (robot.mbhs.edu) — Changelog
-*Last updated: 2026-09-19*
+*Last updated: 2026-09-21*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu), 🟢 **STAGING** (449.navybook.com), or 📁 **REPO** for a change to this repository itself rather than to either server — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
+
+---
+### 2026-09-21 — 🚀 LIVE: STEM Nights Google Form iframe border removed — the CSS was already right, the cache-bust version was not
+
+**The fix that worked was one character: `?v=67` → `?v=68` in `base.html.twig`.** `custom.css` already contained `iframe { border: 0; }` and had for some time. The rule was correct, present in the file the server returns, and doing nothing — because the `?v=` cache-bust was never bumped when it was added, so every returning browser kept its cached copy of `custom.css?v=67` from *before* the rule existed. Proved rather than assumed: fetching the same URL from the page showed **17,042 bytes without the rule** (what browsers had) against **17,130 bytes with it** (what the server was serving). Same URL, two different files.
+
+**Why this took three previous attempts.** The sync log shows this iframe was worked on repeatedly — "Replace frameborder attribute with style border", "Add !important flag to iframe border style", "Remove inline border style from iframe". Every one of those was a reasonable fix for a border that would not go away, and none could ever have worked, because the stylesheet being edited was not the stylesheet the browser was reading. **The diagnostic that settles it in seconds is `document.styleSheets`, not the source file:** the rule was absent from the parsed CSSOM (121 rules, no `iframe` among them) while plainly present in the served text. Reading the file on the server — or even curling it, which bypasses the cache — confirms nothing about what a browser is actually applying. This is the second failure mode in this file's history where a CSS rule that reads correctly is silently not applied; see also the `*/`-inside-a-comment entry.
+
+**Checked and ruled out before touching anything:** comment markers balanced (30 opens, 30 closes), braces balanced (132/132), and the surrounding CSS valid. The computed style on the live iframe was `2px inset rgb(80, 89, 108)` — the browser's UA default, i.e. no author rule was reaching it at all.
+
+**Verified after:** page requests `?v=68`, that URL carries the rule, the rule appears in the parsed CSSOM, and the iframe's computed `border-width` is `0px`.
+
+**The bump released exactly one rule and nothing else** — confirmed by diffing the uncommitted `custom.css` against its last committed state. No other pending CSS rode along.
+
+⚠️ **Both changed files are uncommitted in the Git Sync tree** (`themes/mod-quark/css/custom.css` and `themes/mod-quark/templates/partials/base.html.twig`). Edits made over SSH fire no Grav event, so Git Sync never notices them — they need a manual **Sync** from the admin dashboard, or they sit dirty and the next admin save runs against a dirty tree.
+
+Note for whoever picks this up: the page still carries an unpublished native-Grav-form module at `03._form/` (`published: false`) alongside the `04._google-form-iframe/` embed now in use. Harmless, but it is a second implementation of the same page sitting one flag away from rendering.
 
 ---
 ### 2026-09-19 — 📁 REPO: nginx config now versioned in `server-config/nginx/` — the last unbacked-up, unversioned piece of the site
