@@ -20,6 +20,124 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-09-22
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/03.community/02._community-events/text.md /srv/robot-grav-site/user/pages/03.community/02._community-events/text.md
+--- /srv/.activity-shadow/user/pages/03.community/02._community-events/text.md	2026-08-03 12:35:37.563817406 +0000
++++ /srv/robot-grav-site/user/pages/03.community/02._community-events/text.md	2026-09-21 17:10:07.515461770 +0000
+@@ -16,13 +16,13 @@
+ * GBTLA Learning Academy
+ * FDA Family Day
+ 
+-## STEM Fairs
++### STEM Fairs
+ We visit underserved schools throughout our community to provide students with unique, hands-on STEM experiences and education. Here are some of the schools we've visited: 
+ * Rolling Terrace ES
+ * Bethesda ES
+ * Charles Drew ES
+ 
+-## STEM Nights
++### STEM Nights
+ STEM Nights are our schoolwide, one-night demos where we let kids drive our outreach robot, Dumbo, which was made specifically for these events! This year, we've visited these schools: 
+ * Silver Creek MS
+ * Tilden MS
+@@ -31,8 +31,11 @@
+ * Viers Mill ES
+ * Montgomery Blair HS
+ 
++## Volunteering at FRC events
++We love helping out at FIRST events! For example, we sent 10 team members to volunteer at the 2025 Battle of Baltimore, where they helped for a total of 119 hours.
++
+ ## FLL Tournament
+-This year, our second year hosting our FLL Tournament (The Blazers Beltway Blast), we saw 25 teams attending and had over 60 volunteers participate, which is almost double the amount of volunteers since last year! 
++This year, our second year hosting our FIRST Lego League (FLL) Tournament (The Blazers Beltway Blast), we saw 25 teams attending and had over 60 volunteers participate, which is almost double the amount of volunteers since last year!
+ 
+-## Volunteering
+-We love helping out at FIRST events! This past year, 10 team members volunteered at the Battle of Baltimore, totalling 119 hours. 
+\ No newline at end of file
++## FLL Teams
++We mentor FLL Teams 57535 and 76712, FIRST LEGO League teams for middle-schoolers. [Find out more](/community/fll-team)!
+\ No newline at end of file
+diff -ru /srv/.activity-shadow/user/pages/03.community/04.fll-team/02._java-programming-class-body/text.md /srv/robot-grav-site/user/pages/03.community/04.fll-team/02._java-programming-class-body/text.md
+--- /srv/.activity-shadow/user/pages/03.community/04.fll-team/02._java-programming-class-body/text.md	2026-08-06 16:31:45.763918294 +0000
++++ /srv/robot-grav-site/user/pages/03.community/04.fll-team/02._java-programming-class-body/text.md	2026-09-21 17:10:00.835202461 +0000
+@@ -7,11 +7,15 @@
+ 
+ <h2>Build robots...as a middle-schooler...with Lego!</h2>
+ 
+-**[FIRST LEGO League](https://www.firstlegoleague.org)** is a robotics competition for middle schoolers. Watch this [video](https://www.youtube.com/watch?v=J5u-2q_K3O0) about the 2024-25 game!
++**[FIRST LEGO League](https://www.firstlegoleague.org)** is a robotics competition for middle schoolers. Under the guidance of 449 team members, students learn to build and program a robot (using [SPIKE Prime bricks](https://education.lego.com/en-us/first-lego-league/season-materials/#founders-edition-explore)) to solve real-world problems. (Watch this [video](https://youtu.be/uhZZ8O1StiQ) about the 2026-27 game.) Through this experience, they develop leadership, collaboration, and technical skills! 
+ 
+-Since 2022, The Blair Robot Project has mentored **FLL Team 57535**. Under the guidance of 449 team members, students learn to build and program a robot (using [SPIKE Prime bricks](https://education.lego.com/en-us/first-lego-league/season-materials/#founders-edition-explore)) to solve real-world problems. Through this experience, they develop leadership, collaboration, and technical skills!
++Since 2022, we have mentored **FLL Team 57535**, “The Blair Lego Project". In 2026, we received a large number of sign-ups, so we launched a second team: **FLL Team 76712**, "The Blair Lego JV Project." This expansion allows us to welcome even more students into our program.
+ 
+-FLL Team 57535 meets at Montgomery Blair High School (51 University Blvd E, Silver Spring, MD). The season starts in September and runs into the new year. (Just how far into the year depends on the team's performance in tournaments.) 
++Our program is now structured by grade level:
++- FLL Team 76712: Grades 5–6
++- FLL Team 57535: Grades 7–8
++
++Both teams meet at Montgomery Blair High School (51 University Blvd E, Silver Spring, MD). The FLL season starts in September and runs into the new year. (Just how far into the year depends on the team's performance in tournaments.)
+ 
+ All students in grades 5-8 are invited to apply! Applications for each season open during summer break.
+ 
+Only in /srv/.activity-shadow/user/pages/03.community: 06._fll
+diff -ru /srv/.activity-shadow/user/pages/03.community/13.stem-nights/03._form/form.md /srv/robot-grav-site/user/pages/03.community/13.stem-nights/03._form/form.md
+--- /srv/.activity-shadow/user/pages/03.community/13.stem-nights/03._form/form.md	2026-09-16 03:49:30.836290172 +0000
++++ /srv/robot-grav-site/user/pages/03.community/13.stem-nights/03._form/form.md	2026-09-21 16:54:39.071436456 +0000
+@@ -1,6 +1,6 @@
+ ---
+-title: 'STEM Nights: Form'
+-published: true
++title: 'STEM Nights: Grav Form'
++published: false
+ class: form-narrow
+ form:
+     name: stem-nights-form
+Only in /srv/robot-grav-site/user/pages/03.community/13.stem-nights: 04._google-form-iframe
+diff -ru /srv/.activity-shadow/user/pages/03.community/13.stem-nights/modular.md /srv/robot-grav-site/user/pages/03.community/13.stem-nights/modular.md
+--- /srv/.activity-shadow/user/pages/03.community/13.stem-nights/modular.md	2026-09-16 03:51:32.740917662 +0000
++++ /srv/robot-grav-site/user/pages/03.community/13.stem-nights/modular.md	2026-09-21 16:56:59.172872328 +0000
+@@ -4,7 +4,7 @@
+ body_classes: 'modular title-h1h2 header-dark'
+ menu: 'STEM Nights'
+ underconstruction: false
+-published: false
++published: true
+ onpage_menu: '0'
+ content:
+     items: '@self.modular'
+
+user/themes/mod-quark
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/css/custom.css /srv/robot-grav-site/user/themes/mod-quark/css/custom.css
+--- /srv/.activity-shadow/user/themes/mod-quark/css/custom.css	2026-09-13 18:09:44.119907546 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/css/custom.css	2026-09-21 17:30:31.815035739 +0000
+@@ -597,3 +597,7 @@
+     max-width: 1200px;
+     margin: 0 auto;
+ }
++
++iframe {
++    border: 0;
++}
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/templates/partials/base.html.twig /srv/robot-grav-site/user/themes/mod-quark/templates/partials/base.html.twig
+--- /srv/.activity-shadow/user/themes/mod-quark/templates/partials/base.html.twig	2026-09-04 19:10:22.553320838 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/templates/partials/base.html.twig	2026-09-21 18:37:45.840923885 +0000
+@@ -68,7 +68,7 @@
+         {% if theme_var('spectre.exp') %}{% do assets.addCss('theme://css-compiled/spectre-exp'~compress)  %}{% endif %}
+         {% if theme_var('spectre.icons') %}{%  do assets.addCss('theme://css-compiled/spectre-icons'~compress) %}{% endif %}
+         {% do assets.addCss('theme://css-compiled/theme'~compress) %}
+-        {% do assets.addCss('theme://css/custom.css?v=67') %}
++        {% do assets.addCss('theme://css/custom.css?v=68') %}
+         {% do assets.addCss('theme://css/line-awesome.min.css') %}
+     {% endblock %}
+     {{ assets.css()|raw }}
+Only in /srv/robot-grav-site/user/themes/mod-quark/templates/partials: base.html.twig.bak-20260921-183735
+```
+
+
 ### 2026-09-21
 
 ```diff
