@@ -1,9 +1,27 @@
 # FRC Team 449 Website — LIVE (robot.mbhs.edu) — Changelog
-*Last updated: 2026-09-21*
+*Last updated: 2026-09-22*
 
 Reverse-chronological record of notable changes to the site — theme, templates, content, and server/ops. Entries are tagged 🚀 **LIVE** (robot.mbhs.edu), 🟢 **STAGING** (449.navybook.com), or 📁 **REPO** for a change to this repository itself rather than to either server — both now run Grav 2.0.x; earlier entries reflect whatever version was current at the time. All edits via SSH unless noted; numbered `.bak-*` copies and tarballs are kept on the servers as rollback points. *(Older entries are tagged 🧪 **SUBDOMAIN** for the 449.navybook.com Grav 2.0 trial and 🧹 **STAGING** for the now-retired navybook.com/449 Grav 1.7 clone — kept verbatim as the historical record.)*
 
 For procedures, environment facts, and the upgrade playbooks, see **[RUNBOOK.md](RUNBOOK.md)**. For a plain-language summary for team leadership, see **[Changes.md](Changes.md)**.
+
+---
+### 2026-09-22 — 🚀 LIVE: STEM Nights iframe height 800 → 2100, killing the nested scrollbar (desktop/tablet)
+
+A cross-origin iframe cannot size itself — Google Forms does not report its height to the parent — so the only fix is a height tall enough to contain the form. **Measured rather than guessed**, by loading the `?embedded=true` form directly and reading its document height at two widths:
+
+| viewport | form card | content height |
+|---|---|---|
+| 1314px | 640px (its max) | **1941px** |
+| 375px | 338px | **2257px** |
+
+The form card is capped at **640px**, so 1941px holds at *any* width above roughly 700px — including the iframe's rendered 960px on the page. Set to **2100px**, leaving 159px of slack as headroom for the taller error state when required fields are missed (that slack is an estimate; the error state was not measured, because triggering it means interacting with a live form the team actually collects on).
+
+**Mobile still scrolls** — 2257px of content in a 2100px frame. Fixing it needs a media query, which needs a selector, which means a class on the element. Note the `[iframe]` shortcode **does** support a `class` parameter (see the shortcode gotcha added 2026-09-21) — that is the supported hook, unlike `style`. Pending a name.
+
+**Edited through the Grav API rather than over SSH, and that mattered:** the edit fired Grav's `on_save`, so Git Sync committed and pushed it automatically (`4d690a1`, "Increase iframe height from 800 to 2100") with no manual Sync needed. The previous day's SSH edits fired no event and sat uncommitted until synced by hand. Same file, same site, different plumbing.
+
+**Observed while verifying, not acted on:** the embedded form is set to collect the respondent's Google account — it renders "Switch account" and a signed-in address rather than a plain email question. The imported spec flagged exactly this as a thing to avoid for an embed: a respondent without a Google session, or with third-party cookies restricted (Safari's default, and increasingly Chrome's), can hit a sign-in wall inside the frame. Worth a decision separately from the layout work — it is a question for whoever owns the form.
 
 ---
 ### 2026-09-21 — 🚀 LIVE: STEM Nights Google Form iframe border removed — the CSS was already right, the cache-bust version was not
