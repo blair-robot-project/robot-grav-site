@@ -20,6 +20,119 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-09-23
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/03.community/02._community-events/text.md /srv/robot-grav-site/user/pages/03.community/02._community-events/text.md
+--- /srv/.activity-shadow/user/pages/03.community/02._community-events/text.md	2026-09-21 17:10:07.515461770 +0000
++++ /srv/robot-grav-site/user/pages/03.community/02._community-events/text.md	2026-09-22 14:41:36.694998646 +0000
+@@ -31,11 +31,13 @@
+ * Viers Mill ES
+ * Montgomery Blair HS
+ 
+-## Volunteering at FRC events
+-We love helping out at FIRST events! For example, we sent 10 team members to volunteer at the 2025 Battle of Baltimore, where they helped for a total of 119 hours.
++## First Lego League
++
++### FLL Teams
++We mentor FLL Teams 57535 and 76712 for middle-schoolers. [Find out more](/community/fll-team)!
+ 
+-## FLL Tournament
+-This year, our second year hosting our FIRST Lego League (FLL) Tournament (The Blazers Beltway Blast), we saw 25 teams attending and had over 60 volunteers participate, which is almost double the amount of volunteers since last year!
++### FLL Tournament
++For two years running, we have hosted an FLL tournament called The Blazers Beltway Blast. The 2025 tournament drew 25 teams. And more than 60 volunteers participated, almost double last year's amount!
+ 
+-## FLL Teams
+-We mentor FLL Teams 57535 and 76712, FIRST LEGO League teams for middle-schoolers. [Find out more](/community/fll-team)!
+\ No newline at end of file
++## Volunteering at FRC events
++We love helping out at FIRST events! For example, we sent 10 team members to volunteer at the 2025 Battle of Baltimore, where they helped for a total of 119 hours.
+\ No newline at end of file
+diff -ru /srv/.activity-shadow/user/pages/03.community/07.summer-classes/_summer-hero/hero.md /srv/robot-grav-site/user/pages/03.community/07.summer-classes/_summer-hero/hero.md
+--- /srv/.activity-shadow/user/pages/03.community/07.summer-classes/_summer-hero/hero.md	2026-08-11 20:12:28.048489177 +0000
++++ /srv/robot-grav-site/user/pages/03.community/07.summer-classes/_summer-hero/hero.md	2026-09-22 14:43:00.474480898 +0000
+@@ -2,7 +2,7 @@
+ title: 'Summer Classes Hero'
+ menu: Hero
+ hero_image: rosy-teaching-cropped.jpg
+-hero_classes: 'parallax text-light overlay-dark hero-tiny'
++hero_classes: 'parallax text-light overlay-dark hero-small'
+ arrow: arrow
+ ---
+ 
+diff -ru /srv/.activity-shadow/user/pages/03.community/13.stem-nights/04._google-form-iframe/text.md /srv/robot-grav-site/user/pages/03.community/13.stem-nights/04._google-form-iframe/text.md
+--- /srv/.activity-shadow/user/pages/03.community/13.stem-nights/04._google-form-iframe/text.md	2026-09-21 17:29:53.177533644 +0000
++++ /srv/robot-grav-site/user/pages/03.community/13.stem-nights/04._google-form-iframe/text.md	2026-09-22 15:17:29.512424551 +0000
+@@ -2,4 +2,4 @@
+ title: 'STEM Nights: Google Form iframe'
+ ---
+ 
+-[iframe url="https://docs.google.com/forms/d/e/1FAIpQLSfrtwiVrz217fACR5mJBWUY5VRwjNRb7SdTAvuUwNvvBY-_WQ/viewform?embedded=true" width="100%" height="800" /]
+\ No newline at end of file
++[iframe url="https://docs.google.com/forms/d/e/1FAIpQLSfrtwiVrz217fACR5mJBWUY5VRwjNRb7SdTAvuUwNvvBY-_WQ/viewform?embedded=true" width="100%" height="2100" class="form-embed" /]
+\ No newline at end of file
+
+user/themes/mod-quark
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/css/custom.css /srv/robot-grav-site/user/themes/mod-quark/css/custom.css
+--- /srv/.activity-shadow/user/themes/mod-quark/css/custom.css	2026-09-21 17:30:31.815035739 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/css/custom.css	2026-09-22 15:19:17.184570994 +0000
+@@ -601,3 +601,38 @@
+ iframe {
+     border: 0;
+ }
++
++/* ---- form-embed: a full-height embedded form (Google Forms iframe) ---------
++   A cross-origin iframe cannot size itself — Google Forms does not report its
++   height to the parent — so the height is pinned tall enough to hold the whole
++   form. The point is that the PAGE scrolls, not the frame: a nested scrollbar
++   is the thing that looks unprofessional on an otherwise clean page.
++
++   Google's form card is capped at 640px wide, so the content height is flat
++   above roughly 700px and climbs below it as the card narrows and text wraps.
++   Measured 2026-09-22 (content height @ card width): 1941 @640, 1933 @630,
++   2041 @540, 2109 @432, 2257 @338. Each tier adds headroom on top, because the
++   form grows taller in its error state when a required field is missed.
++
++   Two things to know before editing:
++   - The [iframe] shortcode puts `class` on the WRAPPER div, not the iframe —
++     hence `.form-embed iframe`. It also silently drops any parameter it does
++     not know (`style`, `frameborder`), so `class` is the supported hook.
++   - Re-measure if the form gains or loses questions. Load the form's own
++     ?embedded=true URL directly and read document.scrollHeight at each width.
++   --------------------------------------------------------------------------- */
++
++.form-embed iframe {
++    display: block;   /* kills the inline-baseline gap under the frame */
++    width: 100%;
++    height: 2100px;
++    border: 0;
++}
++
++@media (max-width: 767px) {
++    .form-embed iframe { height: 2350px; }
++}
++
++@media (max-width: 480px) {
++    .form-embed iframe { height: 2700px; }
++}
+Only in /srv/robot-grav-site/user/themes/mod-quark/css: custom.css.bak-20260922-151711
+diff -ru /srv/.activity-shadow/user/themes/mod-quark/templates/partials/base.html.twig /srv/robot-grav-site/user/themes/mod-quark/templates/partials/base.html.twig
+--- /srv/.activity-shadow/user/themes/mod-quark/templates/partials/base.html.twig	2026-09-21 18:37:45.840923885 +0000
++++ /srv/robot-grav-site/user/themes/mod-quark/templates/partials/base.html.twig	2026-09-22 15:19:17.192571302 +0000
+@@ -68,7 +68,7 @@
+         {% if theme_var('spectre.exp') %}{% do assets.addCss('theme://css-compiled/spectre-exp'~compress)  %}{% endif %}
+         {% if theme_var('spectre.icons') %}{%  do assets.addCss('theme://css-compiled/spectre-icons'~compress) %}{% endif %}
+         {% do assets.addCss('theme://css-compiled/theme'~compress) %}
+-        {% do assets.addCss('theme://css/custom.css?v=68') %}
++        {% do assets.addCss('theme://css/custom.css?v=70') %}
+         {% do assets.addCss('theme://css/line-awesome.min.css') %}
+     {% endblock %}
+     {{ assets.css()|raw }}
+```
+
+
 ### 2026-09-22
 
 ```diff
