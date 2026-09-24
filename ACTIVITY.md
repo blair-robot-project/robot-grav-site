@@ -20,6 +20,34 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-09-24
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-21 01:14:31.933266301 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-23 23:05:27.939021858 +0000
+@@ -26,7 +26,7 @@
+ 
+ ---
+ 
+-### Participants (17/24 filled)
++### Participants (18/24 filled)
+ Paid & Confirmed Teams in **Bold** <br>
+ Last Updated 9/10/2026 1:10 PM
+ 
+@@ -36,6 +36,7 @@
+ **[FRC 614](https://team614.org/): Night Hawks** <br>
+ [FRC 686](https://sites.google.com/bovineintervention.org/first-team-686): Bovine Intervention <br>
+ [FRC 2106](https://www.team2106.org/): The Junkyard Dogs <br>
++[FRC 2377](https://www.instagram.com/frc2377/): C Company <br>
+ **[FRC 2537](https://team2537.com/): Space RAIDers** <br>
+ **[FRC 3504](https://girlsofsteelrobotics.org/): Girls of Steel** <br>
+ [FRC 4472](https://4472supernova.org/): SuperNOVA <br>
+```
+
+
 ### 2026-09-23
 
 ```diff
