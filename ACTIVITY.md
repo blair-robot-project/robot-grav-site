@@ -20,6 +20,29 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-09-28
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-24 13:22:50.325959525 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-09-28 01:19:51.783004849 +0000
+@@ -10,9 +10,9 @@
+ 
+ [plugin:youtube](https://youtu.be/tCpTTH4NrhY)
+ 
+-[2026 Game Manual v1.3](https://drive.google.com/file/d/1zcgao9zO6U8OaSgmtmim-9kInFoDudd2/view?classes=nounderline,button,btn-block&target=_blank)
++[2026 Game Manual v1.4](https://drive.google.com/file/d/1hOgQtb6eBL7MQhM-CfTBUpiKeeILoKEd/view?classes=nounderline,button,btn-block&target=_blank)
+ <br>
+-[2026 Team Update 03](https://drive.google.com/file/d/1f_cqa_lO5aWPDILaCv_jhjnQMbv8MfY9/view?classes=nounderline,button,btn-block&target=_blank)
++[2026 Team Update 04](https://drive.google.com/file/d/1hrjptgM_3UVSQ8_eJNKNEyREQfyjGfsP/view?classes=nounderline,button,btn-block&target=_blank)
+ <br>
+ [Game Piece Order Form](https://forms.gle/4miZoLy79CAwimwt6?classes=nounderline,button,btn-block&target=_blank)
+ 
+```
+
+
 ### 2026-09-25
 
 ```diff
