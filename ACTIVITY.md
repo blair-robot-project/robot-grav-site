@@ -20,6 +20,36 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-10-10
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-10-05 02:05:31.105933114 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-10-09 18:56:34.232117428 +0000
+@@ -26,15 +26,16 @@
+ 
+ ---
+ 
+-### Participants (20/24 filled)
++### Participants (21/27 filled)
+ Paid & Confirmed Teams in **Bold** <br>
+-Last Updated 10/4/2026 3:45 PM
++Last Updated 10/9/2026 3:00 PM
+ 
+ **[FRC 321](https://robolancers.com/): RoboLancers** <br> 
+ **[FRC 449](/): The Blair Robot Project** <br>
+ [FRC 611](https://www.saxonrobotics.org/): Saxons <br>
+ **[FRC 614](https://team614.org/): Night Hawks** <br>
+ [FRC 686](https://sites.google.com/bovineintervention.org/first-team-686): Bovine Intervention <br>
++[FRC 1599](https://atleecircuitree.weebly.com/): CircuiTree <br>
+ **[FRC 2106](https://www.team2106.org/): The Junkyard Dogs** <br>
+ **[FRC 2377](https://www.instagram.com/frc2377/): C Company** <br>
+ **[FRC 2537](https://team2537.com/): Space RAIDers** <br>
+```
+
+
 ### 2026-10-05
 
 ```diff
