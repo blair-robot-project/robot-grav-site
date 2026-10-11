@@ -20,6 +20,73 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-10-11
+
+```diff
+
+user/pages
+Only in /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/news/01._top: dsc_0724.jpg
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/news/01._top/hero.md /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/news/01._top/hero.md
+--- /srv/.activity-shadow/user/pages/02.about-us/17.HISTORY/news/01._top/hero.md	2026-09-07 23:16:10.064089076 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/17.HISTORY/news/01._top/hero.md	2026-10-10 15:02:07.672947360 +0000
+@@ -3,8 +3,8 @@
+ menu: Hero
+ arrow: noarrow
+ hero_classes: 'parallax text-light overlay-dark hero-medium'
+-hero_image: a.png
+-media_order: a.png
++hero_image: dsc_0724.jpg
++media_order: dsc_0724.jpg
+ published: true
+ ---
+ 
+diff -ru /srv/.activity-shadow/user/pages/03.community/01._top/hero.md /srv/robot-grav-site/user/pages/03.community/01._top/hero.md
+--- /srv/.activity-shadow/user/pages/03.community/01._top/hero.md	2026-07-11 02:56:58.587470138 +0000
++++ /srv/robot-grav-site/user/pages/03.community/01._top/hero.md	2026-10-10 14:53:08.255947672 +0000
+@@ -1,9 +1,9 @@
+ ---
+ title: 'Community: Hero'
+ arrow: arrow
+-media_order: 'PXL_20230421_232545154.jpg, img_2949.jpg, pxl_20240208_001142072.jpg, pxl_20240208_001142072-2.jpg'
++media_order: 'image-1.jpg, PXL_20230421_232545154.jpg, img_2949.jpg, pxl_20240208_001142072.jpg, pxl_20240208_001142072-2.jpg'
+ hero_classes: 'parallax text-light hero-medium'
+-hero_image: pxl_20240208_001142072-2.jpg
++hero_image: image-1.jpg
+ menu: Hero
+ ---
+ 
+Only in /srv/robot-grav-site/user/pages/03.community/01._top: image-1.jpg
+diff -ru /srv/.activity-shadow/user/pages/03.community/02._community-events/text.md /srv/robot-grav-site/user/pages/03.community/02._community-events/text.md
+--- /srv/.activity-shadow/user/pages/03.community/02._community-events/text.md	2026-09-22 14:41:36.694998646 +0000
++++ /srv/robot-grav-site/user/pages/03.community/02._community-events/text.md	2026-10-10 14:55:13.888837656 +0000
+@@ -31,6 +31,8 @@
+ * Viers Mill ES
+ * Montgomery Blair HS
+ 
++Click [here](/community/stem-nights) if you're interested in having our team at your STEM night or demonstration.
++
+ ## First Lego League
+ 
+ ### FLL Teams
+diff -ru /srv/.activity-shadow/user/pages/03.community/13.stem-nights/01._top/hero.md /srv/robot-grav-site/user/pages/03.community/13.stem-nights/01._top/hero.md
+--- /srv/.activity-shadow/user/pages/03.community/13.stem-nights/01._top/hero.md	2026-09-13 17:50:53.791965365 +0000
++++ /srv/robot-grav-site/user/pages/03.community/13.stem-nights/01._top/hero.md	2026-10-10 14:53:50.961610032 +0000
+@@ -1,7 +1,9 @@
+ ---
+ title: 'STEM Nights: Top'
+ arrow: noarrow
++media_order: 'pxl_20240208_001142072-2.jpg, image.jpg'
+ hero_classes: 'parallax text-light overlay-dark hero-fullscreen'
++hero_image: pxl_20240208_001142072-2.jpg
+ ---
+ 
+ # **STEM Nights and Demos**
+\ No newline at end of file
+Only in /srv/robot-grav-site/user/pages/03.community/13.stem-nights/01._top: image.jpg
+Only in /srv/robot-grav-site/user/pages/03.community/13.stem-nights/01._top: pxl_20240208_001142072-2.jpg
+```
+
+
 ### 2026-10-10
 
 ```diff
