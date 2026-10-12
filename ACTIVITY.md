@@ -20,6 +20,49 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-10-12
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/05.sponsor-information/02.SPONSOR-BENEFITS/02._text-block-a/text.md /srv/robot-grav-site/user/pages/05.sponsor-information/02.SPONSOR-BENEFITS/02._text-block-a/text.md
+--- /srv/.activity-shadow/user/pages/05.sponsor-information/02.SPONSOR-BENEFITS/02._text-block-a/text.md	2026-07-17 19:45:40.441158959 +0000
++++ /srv/robot-grav-site/user/pages/05.sponsor-information/02.SPONSOR-BENEFITS/02._text-block-a/text.md	2026-10-11 18:27:28.561831557 +0000
+@@ -4,6 +4,8 @@
+ image_align: right
+ ---
+ 
+-**Team 449 appreciates the many ways our sponsors back us**: monetary gifts, in-kind donations, services, technical expertise, and mentorship. These make it possible to build our robots, travel to competitions, keep membership open to any high-school student, and perform outreach in our community. Scroll down to see sponsorship packages — or reach out about building a custom partnership that meets your goals.
++**Team 449 appreciates the many ways our sponsors back us**: monetary gifts, in-kind donations, services, technical expertise, and mentorship. These make it possible to build our robots, travel to competitions, keep membership open to any high-school student, and perform outreach in our community. [Scroll down](#sponsor-us) to see sponsorship packages — or reach out about building a custom partnership that meets your goals.
++
++**Team 449 also appreciates donations**. If you'd be interested, please [jump](#donate) to the bottom of the page.
+ 
+ <p><a class="btn-sponsor" href="mailto:blair.robot@gmail.com?subject=Interested%20in%20Sponsorship">Become a sponsor</a> <a class="btn-donate" href="https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=WPMD8G4P572UJ">Donate</a></p>
+\ No newline at end of file
+diff -ru /srv/.activity-shadow/user/pages/05.sponsor-information/02.SPONSOR-BENEFITS/08._sponsorship-levels/text.md /srv/robot-grav-site/user/pages/05.sponsor-information/02.SPONSOR-BENEFITS/08._sponsorship-levels/text.md
+--- /srv/.activity-shadow/user/pages/05.sponsor-information/02.SPONSOR-BENEFITS/08._sponsorship-levels/text.md	2026-07-23 23:57:22.430419888 +0000
++++ /srv/robot-grav-site/user/pages/05.sponsor-information/02.SPONSOR-BENEFITS/08._sponsorship-levels/text.md	2026-10-11 18:27:44.902470692 +0000
+@@ -6,6 +6,8 @@
+ menu: 'Text: Benefits levels'
+ ---
+ 
++<span id="sponsor-us"></span>
++
+ ### **Sponsorship levels**
+ 
+ **Your name and logo will travel** with one of the region's most visible robotics programs. We can display it on our robot and team apparel at multi-day district competitions, on our Bunnybots livestream, and across the schools and community events we reach throughout the year. 
+@@ -65,7 +67,7 @@
+ 
+ ### Donations and tax information
+ 
+-Team 449 accepts donations through the [Montgomery Blair High School Magnet Foundation, Inc.](https://www.mbhsmagnet.org/welcome-to-the-magnet-foundation), our fiscal sponsor. The Foundation is a Maryland public charity exempt from federal income tax under section 501(c)(3) of the Internal Revenue Code. Contributions to the Foundation are deductible under section 170 of the Code. The Foundation’s Employer Identification Number is 26-2790557.
++<span id="donate"></span>Team 449 accepts donations through the [Montgomery Blair High School Magnet Foundation, Inc.](https://www.mbhsmagnet.org/welcome-to-the-magnet-foundation), our fiscal sponsor. The Foundation is a Maryland public charity exempt from federal income tax under section 501(c)(3) of the Internal Revenue Code. Contributions to the Foundation are deductible under section 170 of the Code. The Foundation’s Employer Identification Number is 26-2790557.
+ 
+ To donate online, use this [PayPal](https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=WPMD8G4P572UJ) link.
+ 
+```
+
+
 ### 2026-10-11
 
 ```diff
