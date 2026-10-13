@@ -20,6 +20,49 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-10-13
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/01.home/06._about/text.md /srv/robot-grav-site/user/pages/01.home/06._about/text.md
+--- /srv/.activity-shadow/user/pages/01.home/06._about/text.md	2026-09-07 23:27:30.654264132 +0000
++++ /srv/robot-grav-site/user/pages/01.home/06._about/text.md	2026-10-12 15:44:52.285429637 +0000
+@@ -9,7 +9,9 @@
+ 
+ *Visit our [News page](/about-us/history/news) to view all news.*
+ 
+-**September 1:** Blair [Bunnybots](/bunnybots) 2026 [team](https://forms.gle/ZgA6n3mb3cDuFtPa7) and [volunteer registration](https://forms.gle/uoWRHr38MeXxNMQEA) are now open! 
++**October 11:** [Blair Bunnybots](/bunnybots) 2026 team registration closed with a record high number of signups. 
++
++**September 1:** [Blair Bunnybots](/bunnybots) 2026 [team](https://forms.gle/ZgA6n3mb3cDuFtPa7) and [volunteer registration](https://forms.gle/uoWRHr38MeXxNMQEA) are now open! 
+ 
+ **August 27**: "[Blair Students Spent August Weekends Teaching Free STEM Classes](https://mocoshow.com/2026/08/27/blair-students-spent-august-weekends-teaching-free-stem-classes/)" (The MoCo Show)
+ 
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-10-09 18:56:34.232117428 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-10-12 15:35:28.155780333 +0000
+@@ -19,7 +19,7 @@
+ ---
+ 
+ ##2026 Registration
+-[Team Registration - Closes Oct. 11](https://docs.google.com/forms/d/e/1FAIpQLSfkgk8-OqHCn0Kkb3PWuOTbVPSwU9n-Bti1f_DsnDsV7jy93A/viewform?classes=button,btn-block&target=_blank)
++[Team Registration - Closed Oct. 11](/bunnybots?classes=button,btn-block,disabled&target=_blank)
+ <br>
+ [Volunteer Registration - Closes Nov. 15](https://docs.google.com/forms/d/e/1FAIpQLSc9mQ0GFSbUhTMtBpsPRvvS9Qa4n27NeFBgUxbOhKa6B4DoEw/viewform?classes=button,btn-block&target=_blank)
+ 
+@@ -28,7 +28,7 @@
+ 
+ ### Participants (21/27 filled)
+ Paid & Confirmed Teams in **Bold** <br>
+-Last Updated 10/9/2026 3:00 PM
++Last Updated 10/12/2026 11:30 AM
+ 
+ **[FRC 321](https://robolancers.com/): RoboLancers** <br> 
+ **[FRC 449](/): The Blair Robot Project** <br>
+```
+
+
 ### 2026-10-12
 
 ```diff
