@@ -20,6 +20,62 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-10-15
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-10-12 15:35:28.155780333 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-10-15 02:17:10.180274490 +0000
+@@ -26,13 +26,15 @@
+ 
+ ---
+ 
+-### Participants (21/27 filled)
++### Participants (23/27 filled)
+ Paid & Confirmed Teams in **Bold** <br>
+-Last Updated 10/12/2026 11:30 AM
++Last Updated 10/14/2026 10:00 PM
+ 
+ **[FRC 321](https://robolancers.com/): RoboLancers** <br> 
+ **[FRC 449](/): The Blair Robot Project** <br>
+-[FRC 611](https://www.saxonrobotics.org/): Saxons <br>
++**[FRC 449b](/): The Blair Robot Project B** <br>
++**[FRC 526](https://www.saxonrobotics.org/): Saxon Sparks** <br>
++**[FRC 611](https://www.saxonrobotics.org/): Saxons** <br>
+ **[FRC 614](https://team614.org/): Night Hawks** <br>
+ [FRC 686](https://sites.google.com/bovineintervention.org/first-team-686): Bovine Intervention <br>
+ [FRC 1599](https://atleecircuitree.weebly.com/): CircuiTree <br>
+@@ -44,21 +46,19 @@
+ **[FRC 4575](https://tinmints.net/frc-4575/): Gemini** <br> 
+ **[FRC 4821](https://cyberus4821.weebly.com/): cyberUS** <br>
+ **[FRC 5115](https://www.instagram.com/wheaton_knightriders5115): Knight Riders** <br>
+-[FRC 5243](https://www.centrevillerobotics.org/): Aegis <br>
++**[FRC 5243](https://www.centrevillerobotics.org/): Aegis** <br>
+ [FRC 5338](https://blogs.lcps.org/roboloco/): RoboLoCo <br>
+ [FRC 5549](https://www.instagram.com/team5549/): Gryphon Robotics <br>
+ [FRC 5587](https://www.frc5587.org/): Titan Robotics <br>
+-[FRC 8230](https://koibots.com/): KoiBots <br>
+-[FRC 8726](https://frc8726.org/): CryptoHawks <br>
++**[FRC 8230](https://koibots.com/): KoiBots** <br>
++**[FRC 8726](https://frc8726.org/): CryptoHawks** <br>
+ **[FRC 9033](https://www.instagram.com/ocebots9033/): Ocebots** <br>
+ 
+ Waitlist: <br>
+ [FRC 2537b](https://team2537.com/): Space RAIDers B <br>
+-[FRC 526](https://www.saxonrobotics.org/): Saxon Sparks <br>
+ [FRC 5338b](https://blogs.lcps.org/roboloco/): RoboLoCo B <br>
+ [FRC 4472b](https://4472supernova.org/): SuperNOVA B <br>
+ [FRC 5243b](https://www.centrevillerobotics.org/): Aegis B <br>
+-[FRC 449b](/): The Blair Robot Project B <br>
+ 
+ 
+ ---
+\ No newline at end of file
+```
+
+
 ### 2026-10-13
 
 ```diff
