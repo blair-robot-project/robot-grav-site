@@ -20,6 +20,47 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-10-20
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-10-15 02:17:10.180274490 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-10-19 16:39:20.988310489 +0000
+@@ -41,24 +41,21 @@
+ **[FRC 2106](https://www.team2106.org/): The Junkyard Dogs** <br>
+ **[FRC 2377](https://www.instagram.com/frc2377/): C Company** <br>
+ **[FRC 2537](https://team2537.com/): Space RAIDers** <br>
++[FRC 2537b](https://team2537.com/): Space RAIDers B <br>
+ **[FRC 3504](https://girlsofsteelrobotics.org/): Girls of Steel** <br>
+ [FRC 4472](https://4472supernova.org/): SuperNOVA <br>
++[FRC 4472b](https://4472supernova.org/): SuperNOVA B <br>
+ **[FRC 4575](https://tinmints.net/frc-4575/): Gemini** <br> 
+ **[FRC 4821](https://cyberus4821.weebly.com/): cyberUS** <br>
+ **[FRC 5115](https://www.instagram.com/wheaton_knightriders5115): Knight Riders** <br>
+ **[FRC 5243](https://www.centrevillerobotics.org/): Aegis** <br>
++[FRC 5243b](https://www.centrevillerobotics.org/): Aegis B <br>
+ [FRC 5338](https://blogs.lcps.org/roboloco/): RoboLoCo <br>
++[FRC 5338b](https://blogs.lcps.org/roboloco/): RoboLoCo B <br>
+ [FRC 5549](https://www.instagram.com/team5549/): Gryphon Robotics <br>
+ [FRC 5587](https://www.frc5587.org/): Titan Robotics <br>
+ **[FRC 8230](https://koibots.com/): KoiBots** <br>
+ **[FRC 8726](https://frc8726.org/): CryptoHawks** <br>
+ **[FRC 9033](https://www.instagram.com/ocebots9033/): Ocebots** <br>
+ 
+-Waitlist: <br>
+-[FRC 2537b](https://team2537.com/): Space RAIDers B <br>
+-[FRC 5338b](https://blogs.lcps.org/roboloco/): RoboLoCo B <br>
+-[FRC 4472b](https://4472supernova.org/): SuperNOVA B <br>
+-[FRC 5243b](https://www.centrevillerobotics.org/): Aegis B <br>
+-
+-
+ ---
+\ No newline at end of file
+```
+
+
 ### 2026-10-15
 
 ```diff
