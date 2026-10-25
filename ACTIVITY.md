@@ -20,6 +20,44 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-10-25
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-10-23 22:29:10.577479982 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-10-25 03:08:40.301379679 +0000
+@@ -21,7 +21,7 @@
+ ##2026 Registration
+ [Team Registration - Closed Oct. 11](/bunnybots?classes=button,btn-block,disabled&target=_blank)
+ <br>
+-[Volunteer Registration - Closes Nov. 15](https://docs.google.com/forms/d/e/1FAIpQLSc9mQ0GFSbUhTMtBpsPRvvS9Qa4n27NeFBgUxbOhKa6B4DoEw/viewform?classes=button,btn-block&target=_blank)
++[Volunteer Registration - Closes Nov. 7](https://docs.google.com/forms/d/e/1FAIpQLSc9mQ0GFSbUhTMtBpsPRvvS9Qa4n27NeFBgUxbOhKa6B4DoEw/viewform?classes=button,btn-block&target=_blank)
+ 
+ 
+ ---
+diff -ru /srv/.activity-shadow/user/pages/09.announcements-data/announcements-data.md /srv/robot-grav-site/user/pages/09.announcements-data/announcements-data.md
+--- /srv/.activity-shadow/user/pages/09.announcements-data/announcements-data.md	2026-10-23 12:49:19.088604171 +0000
++++ /srv/robot-grav-site/user/pages/09.announcements-data/announcements-data.md	2026-10-24 14:58:42.404566399 +0000
+@@ -47,10 +47,11 @@
+     -
+         level: blue
+         pages: /
+-        published: false
+-        title: 'Bunnybots is on 12/6/2026!'
++        published: true
++        title: 'Bunnybots is on December 12th, 2026!'
++        message: 'Bunnybots is on December 12th, 2026!'
+         link: bunnybots
+-        end_date: '2026-12-05 11:59'
++        end_date: '2026-12-13 11:59'
+         start_date: '2026-10-23 12:00'
+ visible: false
+ ---
+```
+
+
 ### 2026-10-24
 
 ```diff
