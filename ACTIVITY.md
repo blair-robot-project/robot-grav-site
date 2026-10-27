@@ -20,6 +20,37 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-10-27
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-10-25 03:08:40.301379679 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-10-26 21:26:28.528370513 +0000
+@@ -28,7 +28,7 @@
+ 
+ ### Participants (25/27 filled)
+ Paid & Confirmed Teams in **Bold** <br>
+-Last Updated 10/23/2026 6:30 PM
++Last Updated 10/26/2026 5:30 PM
+ 
+ **[FRC 321](https://robolancers.com/): RoboLancers** <br> 
+ **[FRC 449](/): The Blair Robot Project** <br>
+@@ -48,8 +48,8 @@
+ **[FRC 4821](https://cyberus4821.weebly.com/): cyberUS** <br>
+ **[FRC 5115](https://www.instagram.com/wheaton_knightriders5115): Knight Riders** <br>
+ **[FRC 5243](https://www.centrevillerobotics.org/): Aegis** <br>
+-[FRC 5338](https://blogs.lcps.org/roboloco/): RoboLoCo <br>
+-[FRC 5338b](https://blogs.lcps.org/roboloco/): RoboLoCo B <br>
++**[FRC 5338](https://blogs.lcps.org/roboloco/): RoboLoCo <br>**
++**[FRC 5353](https://blogs.lcps.org/roboloco/): LoCo Raptors <br>**
+ [FRC 5549](https://www.instagram.com/team5549/): Gryphon Robotics <br>
+ [FRC 5587](https://www.frc5587.org/): Titan Robotics <br>
+ **[FRC 8230](https://koibots.com/): KoiBots** <br>
+```
+
+
 ### 2026-10-25
 
 ```diff
