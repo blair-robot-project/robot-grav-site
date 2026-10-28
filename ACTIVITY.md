@@ -20,6 +20,15 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-10-28
+
+```diff
+
+user/pages
+Only in /srv/robot-grav-site/user/pages/02.about-us: 22.socials
+```
+
+
 ### 2026-10-27
 
 ```diff
