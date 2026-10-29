@@ -20,6 +20,37 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-10-29
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-10-26 21:26:28.528370513 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-10-28 15:33:59.938745306 +0000
+@@ -26,9 +26,9 @@
+ 
+ ---
+ 
+-### Participants (25/27 filled)
++### Participants (24/27 filled)
+ Paid & Confirmed Teams in **Bold** <br>
+-Last Updated 10/26/2026 5:30 PM
++Last Updated 10/28/2026 11:30 AM
+ 
+ **[FRC 321](https://robolancers.com/): RoboLancers** <br> 
+ **[FRC 449](/): The Blair Robot Project** <br>
+@@ -41,7 +41,6 @@
+ **[FRC 2106](https://www.team2106.org/): The Junkyard Dogs** <br>
+ **[FRC 2377](https://www.instagram.com/frc2377/): C Company** <br>
+ **[FRC 2537](https://team2537.com/): Space RAIDers** <br>
+-[FRC 2537b](https://team2537.com/): Space RAIDers B <br>
+ **[FRC 3504](https://girlsofsteelrobotics.org/): Girls of Steel** <br>
+ [FRC 4472](https://4472supernova.org/): SuperNOVA <br>
+ **[FRC 4575](https://tinmints.net/frc-4575/): Gemini** <br> 
+```
+
+
 ### 2026-10-28
 
 ```diff
