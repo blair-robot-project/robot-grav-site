@@ -20,6 +20,32 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-11-01
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/09.announcements-data/announcements-data.md /srv/robot-grav-site/user/pages/09.announcements-data/announcements-data.md
+--- /srv/.activity-shadow/user/pages/09.announcements-data/announcements-data.md	2026-10-30 21:43:55.020242936 +0000
++++ /srv/robot-grav-site/user/pages/09.announcements-data/announcements-data.md	2026-10-31 05:17:58.251535939 +0000
+@@ -55,11 +55,11 @@
+         start_date: '2026-10-23 12:00'
+     -
+         level: green
+-        pages: /
++        pages: '/,/bunnybots'
+         published: true
+         link: 'https://frc-449.square.site/'
+-        message: 'Bunnybots T-shirts available for preorder!'
+-        title: 'Bunnybots T-shirts available for preorder!'
++        message: 'Bunnybots T-shirts available for preorder until November 9!'
++        title: 'Bunnybots T-shirts available for preorder until November 9!'
+         start_date: '2026-10-30 12:00'
+         end_date: '2026-11-09 12:00'
+ visible: false
+```
+
+
 ### 2026-10-31
 
 ```diff
