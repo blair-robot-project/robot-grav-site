@@ -20,6 +20,70 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-11-06
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/03._menu-about/icon-menu.md /srv/robot-grav-site/user/pages/02.about-us/03._menu-about/icon-menu.md
+--- /srv/.activity-shadow/user/pages/02.about-us/03._menu-about/icon-menu.md	2026-10-27 20:13:58.959216480 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/03._menu-about/icon-menu.md	2026-11-06 00:02:40.630015985 +0000
+@@ -14,15 +14,10 @@
+         text: 'Meet our mentors.'
+         url: /about-us/mentors
+     -
+-        icon: 'fa fa-code'
+-        header: Programming
+-        text: 'Learn about our programming team.'
+-        url: /about-us/programming
+-    -
+-        icon: 'fa fa-bar-chart'
+-        header: 'Data Science'
+-        text: 'Learn about our data science team.'
+-        url: /about-us/data-science
++        icon: 'fa fa-gears'
++        header: Subteams
++        text: 'Learn about our subteams.'
++        url: /about-us/subteams
+     -
+         icon: 'fa fa-history'
+         header: History
+Only in /srv/.activity-shadow/user/pages/02.about-us: 20.data-science
+Only in /srv/.activity-shadow/user/pages/02.about-us: 21.PROGRAMMING
+Only in /srv/robot-grav-site/user/pages/02.about-us: subteams
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-10-28 15:33:59.938745306 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-11-06 00:17:20.852518618 +0000
+@@ -28,7 +28,7 @@
+ 
+ ### Participants (24/27 filled)
+ Paid & Confirmed Teams in **Bold** <br>
+-Last Updated 10/28/2026 11:30 AM
++Last Updated 11/05/2026 7:00 PM
+ 
+ **[FRC 321](https://robolancers.com/): RoboLancers** <br> 
+ **[FRC 449](/): The Blair Robot Project** <br>
+@@ -42,7 +42,7 @@
+ **[FRC 2377](https://www.instagram.com/frc2377/): C Company** <br>
+ **[FRC 2537](https://team2537.com/): Space RAIDers** <br>
+ **[FRC 3504](https://girlsofsteelrobotics.org/): Girls of Steel** <br>
+-[FRC 4472](https://4472supernova.org/): SuperNOVA <br>
++**[FRC 4472](https://4472supernova.org/): SuperNOVA** <br>
+ **[FRC 4575](https://tinmints.net/frc-4575/): Gemini** <br> 
+ **[FRC 4821](https://cyberus4821.weebly.com/): cyberUS** <br>
+ **[FRC 5115](https://www.instagram.com/wheaton_knightriders5115): Knight Riders** <br>
+@@ -50,7 +50,7 @@
+ **[FRC 5338](https://blogs.lcps.org/roboloco/): RoboLoCo <br>**
+ **[FRC 5353](https://blogs.lcps.org/roboloco/): LoCo Raptors <br>**
+ [FRC 5549](https://www.instagram.com/team5549/): Gryphon Robotics <br>
+-[FRC 5587](https://www.frc5587.org/): Titan Robotics <br>
++**[FRC 5587](https://www.frc5587.org/): Titan Robotics** <br>
+ **[FRC 8230](https://koibots.com/): KoiBots** <br>
+ **[FRC 8726](https://frc8726.org/): CryptoHawks** <br>
+ **[FRC 9033](https://www.instagram.com/ocebots9033/): Ocebots** <br>
+```
+
+
 ### 2026-11-01
 
 ```diff
