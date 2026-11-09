@@ -20,6 +20,26 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-11-09
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-11-06 00:17:20.852518618 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-11-09 03:10:54.299566568 +0000
+@@ -21,7 +21,7 @@
+ ##2026 Registration
+ [Team Registration - Closed Oct. 11](/bunnybots?classes=button,btn-block,disabled&target=_blank)
+ <br>
+-[Volunteer Registration - Closes Nov. 7](https://docs.google.com/forms/d/e/1FAIpQLSc9mQ0GFSbUhTMtBpsPRvvS9Qa4n27NeFBgUxbOhKa6B4DoEw/viewform?classes=button,btn-block&target=_blank)
++[Volunteer Registration - Closes Nov. 9](https://docs.google.com/forms/d/e/1FAIpQLSc9mQ0GFSbUhTMtBpsPRvvS9Qa4n27NeFBgUxbOhKa6B4DoEw/viewform?classes=button,btn-block&target=_blank)
+ 
+ 
+ ---
+```
+
+
 ### 2026-11-06
 
 ```diff
