@@ -20,6 +20,70 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-11-12
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/02.about-us/subteams/22._subteams-icon-menu/icon-menu.md /srv/robot-grav-site/user/pages/02.about-us/subteams/22._subteams-icon-menu/icon-menu.md
+--- /srv/.activity-shadow/user/pages/02.about-us/subteams/22._subteams-icon-menu/icon-menu.md	2026-11-05 21:22:57.547349138 +0000
++++ /srv/robot-grav-site/user/pages/02.about-us/subteams/22._subteams-icon-menu/icon-menu.md	2026-11-12 03:07:00.446792414 +0000
+@@ -6,18 +6,23 @@
+     -
+         icon: 'fa fa-bar-chart'
+         header: 'Data Science'
+-        text: 'Learn about our data science team.'
+         url: /about-us/subteams/data-science
+     -
+         icon: 'fa fa-code'
+         header: Programming
+-        text: 'Learn about our programming team.'
+         url: /about-us/subteams/programming
+     -
+         icon: 'fa fa-wrench'
+         header: Mechanics
+-        text: 'Learn about our mechanics team.'
+         url: /about-us/subteams/mechanics
++    -
++        icon: 'fa fa-microchip'
++        header: Electronics
++        text: 'Coming soon!'
++    -
++        icon: 'fa fa-briefcase'
++        header: Business
++        text: 'Coming soon!'
+ image_align: center
+ text_align: center
+ published: true
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-11-09 03:10:54.299566568 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-11-12 03:00:52.072568103 +0000
+@@ -21,7 +21,7 @@
+ ##2026 Registration
+ [Team Registration - Closed Oct. 11](/bunnybots?classes=button,btn-block,disabled&target=_blank)
+ <br>
+-[Volunteer Registration - Closes Nov. 9](https://docs.google.com/forms/d/e/1FAIpQLSc9mQ0GFSbUhTMtBpsPRvvS9Qa4n27NeFBgUxbOhKa6B4DoEw/viewform?classes=button,btn-block&target=_blank)
++[Volunteer Registration - Closed Nov. 9](https://docs.google.com/forms/d/e/1FAIpQLSc9mQ0GFSbUhTMtBpsPRvvS9Qa4n27NeFBgUxbOhKa6B4DoEw/viewform?classes=button,btn-block,disabled&target=_blank)
+ 
+ 
+ ---
+diff -ru /srv/.activity-shadow/user/pages/09.announcements-data/announcements-data.md /srv/robot-grav-site/user/pages/09.announcements-data/announcements-data.md
+--- /srv/.activity-shadow/user/pages/09.announcements-data/announcements-data.md	2026-10-31 05:17:58.251535939 +0000
++++ /srv/robot-grav-site/user/pages/09.announcements-data/announcements-data.md	2026-11-11 06:30:14.674288355 +0000
+@@ -48,8 +48,8 @@
+         level: blue
+         pages: /
+         published: true
+-        title: 'Bunnybots is on December 12th, 2026!'
+-        message: 'Bunnybots is on December 12th, 2026!'
++        title: 'Bunnybots is on December 12, 2026!'
++        message: 'Bunnybots is on December 12, 2026!'
+         link: bunnybots
+         end_date: '2026-12-13 11:59'
+         start_date: '2026-10-23 12:00'
+```
+
+
 ### 2026-11-09
 
 ```diff
