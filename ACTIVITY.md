@@ -20,6 +20,26 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-11-18
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/02._bunnybots-intro/text.md /srv/robot-grav-site/user/pages/04.bunnybots/02._bunnybots-intro/text.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/02._bunnybots-intro/text.md	2026-09-07 16:30:43.286362679 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/02._bunnybots-intro/text.md	2026-11-17 20:40:13.800249726 +0000
+@@ -7,6 +7,6 @@
+ 
+ **Blair Bunnybots**, our annual off-season FRC-style event, is designed to welcome new members of teams into the _FIRST_ community and to help them develop their skills. The 3-month build season ends with a day of competition that allows new members to show off their work and have fun at an event just for them. The 2025-26 event — our seventh — drew 18 teams from across the Chesapeake region. 
+ 
+-With Blair Bunnybots, we aim to exemplify a culture of healthy competition, kindness, and cooperation. The event embodies the spirit of [Gracious Professionalism](https://ftc-docs.firstinspires.org/en/latest/gracious_professionalism/gp.html) while recognizing the value in teamwork and community. Perhaps most importantly, in demonstrating first-hand the excitement of competition robotics, Blair Bunnybots lights and fuels a lasting passion in participating youth so they keep coming back for more robotics and STEM learning.
++With Blair Bunnybots, we aim to exemplify a culture of healthy competition, kindness, and cooperation. The event embodies the spirit of [Gracious Professionalism](https://ftc-docs.firstinspires.org/en/latest/gracious_professionalism/gp.html) while recognizing the value in teamwork and community. Perhaps most importantly, in demonstrating first-hand the excitement of competition robotics, Blair Bunnybots lights and fuels a lasting passion in participating youth so they keep coming back for more robotics and STEM learning. For convenience, we've also linked the Bunnybots 2026 Field CAD [here](https://cad.onshape.com/documents/64e1f8ff99a95de30b13de3e/w/7a690c89b0554ebadbc22750/e/97f11d9359e5b923c6e6faf5?configuration=default&renderMode=0&uiState=6afcbb9e51bc5500a84df590).
+ 
+ See our 2025 Bunnybots page [here](/bunnybots/bunnybots-2025).
+\ No newline at end of file
+```
+
+
 ### 2026-11-16
 
 ```diff
