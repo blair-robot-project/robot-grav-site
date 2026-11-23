@@ -20,6 +20,29 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-11-23
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-11-22 00:40:47.506252833 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-11-23 03:03:37.279364609 +0000
+@@ -10,9 +10,9 @@
+ 
+ [plugin:youtube](https://youtu.be/tCpTTH4NrhY)
+ 
+-[2026 Game Manual v1.5](https://drive.google.com/file/d/11DDjsa4vKwdf1FXBgLvVVwAEip04y7V3/view?classes=nounderline,button,btn-block&target=_blank)
++[2026 Game Manual v1.6](https://drive.google.com/file/d/18vs25FAnQrmLdQZEu21GJo7hQNtLvrer/view?classes=nounderline,button,btn-block&target=_blank)
+ <br>
+-[2026 Team Update 05](https://drive.google.com/file/d/1NfKsqjZuREXQNA_bFQ950_JJdvB1-_IX/view?classes=nounderline,button,btn-block&target=_blank)
++[2026 Team Update 06](https://drive.google.com/file/d/1wVZ13opNwhvPpbEErcMymD2xEkXvDczO/view?classes=nounderline,button,btn-block&target=_blank)
+ <br>
+ [2026 Bunnybots Schedule](https://docs.google.com/document/d/1qHn4qSf-Ik0uNlEhJ2bSmxH2MPDTrJ7R2vjY6pwJIGk/edit?classes=nounderline,button,btn-block&target=_blank)
+ <br>
+```
+
+
 ### 2026-11-19
 
 ```diff
