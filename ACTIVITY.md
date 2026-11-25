@@ -20,6 +20,26 @@ Nights with no changes get no entry — this file only grows when something actu
 
 <!-- ACTIVITY-LOG:NEW-ENTRIES-BELOW -->
 
+### 2026-11-25
+
+```diff
+
+user/pages
+diff -ru /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md
+--- /srv/.activity-shadow/user/pages/04.bunnybots/04._register/icon-menu.md	2026-11-23 03:03:37.279364609 +0000
++++ /srv/robot-grav-site/user/pages/04.bunnybots/04._register/icon-menu.md	2026-11-24 13:15:17.920103582 +0000
+@@ -18,6 +18,8 @@
+ <br>
+ [Game Piece Order Form](https://forms.gle/4miZoLy79CAwimwt6?classes=nounderline,button,btn-block&target=_blank)
+ <br>
++[The Bunnybots Alliance (TBA)](https://blair-robot-449.shinyapps.io/the_bunnybots_alliance/?classes=nounderline,button,btn-block&target=_blank)
++<br>
+ 
+ ---
+ 
+```
+
+
 ### 2026-11-23
 
 ```diff
